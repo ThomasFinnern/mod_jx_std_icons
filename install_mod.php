@@ -1,9 +1,9 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_foos
- *
- * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @subpackage  mod_j4_std_icons
+ * 
+ * @copyright (c) 2005-2023 Thomas Finnern
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -16,7 +16,7 @@ use Joomla\CMS\Log\Log;
 /**
  * Script file of Foo module
  */
-class mod_fooInstallerScript
+class mod_j4_std_iconsInstallerScript
 {
 
 	/**
@@ -39,7 +39,7 @@ class mod_fooInstallerScript
 	 */
 	function install($parent)
 	{
-		echo Text::_('MOD_FOO_INSTALLERSCRIPT_INSTALL');
+		echo Text::_('MOD_J4_STD_ICONS_INSTALLERSCRIPT_INSTALL');
 
 		return true;
 	}
@@ -53,7 +53,7 @@ class mod_fooInstallerScript
 	 */
 	function uninstall($parent)
 	{
-		echo Text::_('MOD_FOO_INSTALLERSCRIPT_UNINSTALL');
+		echo Text::_('MOD_J4_STD_ICONS_INSTALLERSCRIPT_UNINSTALL');
 
 		return true;
 	}
@@ -67,7 +67,7 @@ class mod_fooInstallerScript
 	 */
 	function update($parent)
 	{
-		echo Text::_('MOD_FOO_INSTALLERSCRIPT_UPDATE');
+		echo Text::_('MOD_J4_STD_ICONS_INSTALLERSCRIPT_UPDATE');
 
 		return true;
 	}
@@ -96,7 +96,7 @@ class mod_fooInstallerScript
 			return false;
 		}
 
-		echo Text::_('MOD_FOO_INSTALLERSCRIPT_PREFLIGHT');
+		echo Text::_('MOD_J4_STD_ICONS_INSTALLERSCRIPT_PREFLIGHT');
 
 		return true;
 	}
@@ -111,7 +111,7 @@ class mod_fooInstallerScript
 	 */
 	function postflight($type, $parent)
 	{
-		echo Text::_('MOD_FOO_INSTALLERSCRIPT_POSTFLIGHT');
+		echo Text::_('MOD_J4_STD_ICONS_INSTALLERSCRIPT_POSTFLIGHT');
 
 		return true;
 	}

@@ -10,7 +10,7 @@
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Helper\ModuleHelper;
-use FooNamespace\Module\Foo\Site\Helper\FooHelper;
+use finnern\Module\mod_standard_icons\Site\Helper\mod_standard_iconsHelper;
 
 $test  = FooHelper::getText();
 

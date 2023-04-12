@@ -14,11 +14,12 @@
 	<description>MOD_J4_STD_ICONS_XML_DESCRIPTION</description>
 	<scriptfile>install_mod.php</scriptfile>
 	<namespace path="src">finnern\Module\mod_standard_icons</namespace>
+
 	<files>
-		<filename module="mod_j4_std_icons.xml">mod_j4_std_iconsphp</filename>
-		<folder>tmpl</folder>
-		<folder>src</folder>
+		<filename module="mod_j4_std_icons">mod_j4_std_icons.php</filename>
 		<folder>language</folder>
+		<folder>src</folder>
+		<folder>tmpl</folder>
 		<filename>mod_j4_std_icons.xml</filename>
 	</files>
 	<config>
