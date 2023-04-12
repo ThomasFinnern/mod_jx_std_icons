@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" 
+		   client="site" 
+		   method="upgrade"
+           version="4.0">
+	<name>MOD_J4_STD_ICONS</name>
+	<creationDate>12.04.2023</creationDate>
+	<author>Thomas Finnern</author>
+	<authorEmail>mod_j4_std_icons@tomfinnern.de</authorEmail>
+	<authorUrl>www.tomfinnern.de</authorUrl>
+	<copyright>Copyright (C) 2019 - 2019 Thomas Finnern All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>0.0.1</version>
+	<description>MOD_J4_STD_ICONS_XML_DESCRIPTION</description>
+	<scriptfile>install_mod.php</scriptfile>
+	<namespace path="src">finnern\Module\mod_standard_icons</namespace>
+	<files>
+		<filename module="mod_j4_std_icons.xml">mod_j4_std_iconsphp</filename>
+		<folder>tmpl</folder>
+		<folder>src</folder>
+		<folder>language</folder>
+		<filename>mod_j4_std_icons.xml</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="mod_j4_std_icons_params">
+				<field
+					name="domain"
+					type="url"
+					label="MOD_FOO_FIELD_URL_LABEL"
+					filter="url"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
+

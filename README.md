@@ -1,4 +1,4 @@
-# List J!4 cassiopeia / atumn standard icons (awesome v4)
+# List J!4 cassiopeia / atumn standard icons (awesome v5.15.4)
 
 This module enables to show the available icons in your own place for all developrs to have a fast search.
 
@@ -59,13 +59,13 @@ fa-regular-400.svg
 fa-solid-900.svg
 
 
-## fontawesome version info
+## Fontawesome version info
 
 The following file tells about the version (Actual on writing: Font Awesome Free 5.15.4) and license
 /media/vendor/fontawesome-free/css/fontawesome.css
 
 
-# pull request to include a icon view ínto joomla itself
+## Pull request to include a icon view into joomla itself
 
 This module derives also from following try to include a view of all available icons
 
