@@ -2,7 +2,7 @@
 
 This module enables to show the available icons in your own place for all developrs to have a fast search.
 
-This is view is intended to be read by extension developers in teh need of selecting an icon. so be free to use it as supporter of developers in your blog, hints or ...
+This is view is intended to be read by extension developers in the need of selecting an icon. so be free to use it as supporter of developers in your blog, hints or ...
 
 ## General info
 In general, the available icons can be viewed in

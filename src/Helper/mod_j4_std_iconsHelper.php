@@ -1,25 +1,25 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  mod_foo
+ * @subpackage  mod_j4_std_icons
  *
- * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2023 - 2023 thomas finnern
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace FooNamespace\Module\Foo\Site\Helper;
+namespace finnern\Module\mod_j4_std_icons\Site\Helper;
 
 \defined('_JEXEC') or die;
 
 /**
- * Helper for mod_foo
+ * Helper for mod_j4_std_icons
  *
  * @since  __BUMP_VERSION__
  */
-class FooHelper
+class mod_j4_std_iconsHelper
 {
 	/**
-	 * Retrieve foo test
+	 * Retrieve mod_j4_std_icons test
 	 *
 	 * @param   Registry        $params  The module parameters
 	 * @param   CMSApplication  $app     The application
@@ -28,6 +28,6 @@ class FooHelper
 	 */
 	public static function getText()
 	{
-		return 'FooHelpertest';
+		return 'mod_j4_std_iconsHelpertest';
 	}
 }

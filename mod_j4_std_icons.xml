@@ -13,7 +13,7 @@
 	<version>0.0.1</version>
 	<description>MOD_J4_STD_ICONS_XML_DESCRIPTION</description>
 	<scriptfile>install_mod.php</scriptfile>
-	<namespace path="src">finnern\Module\mod_standard_icons</namespace>
+	<namespace path="src">finnern\Module\mod_j4_std_icons</namespace>
 
 	<files>
 		<filename module="mod_j4_std_icons">mod_j4_std_icons.php</filename>
@@ -28,7 +28,7 @@
 				<field
 					name="domain"
 					type="url"
-					label="MOD_FOO_FIELD_URL_LABEL"
+					label="MOD_J4_STD_ICONS_FIELD_URL_LABEL"
 					filter="url"
 				/>
 			</fieldset>
