@@ -10,11 +10,11 @@
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Helper\ModuleHelper;
-use finnern\Module\mod_standard_icons\Site\Helper\mod_standard_iconsHelper;
+use finnern\Module\mod_j4_std_icons\Site\Helper\mod_standard_iconsHelper;
 
-$test  = FooHelper::getText();
+$test  = "mod_j4_std_icons"; // FooHelper::getText();
 
-$url = $params->get('domain');
+// $url = $params->get('domain');
 
-require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
+// require ModuleHelper::getLayoutPath('mod_foo', $params->get('layout', 'default'));
 
