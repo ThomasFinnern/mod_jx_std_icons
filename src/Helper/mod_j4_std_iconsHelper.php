@@ -138,7 +138,7 @@ class mod_j4_std_iconsHelper
 
                     $icon->name = $iconName;
                     $icon->iconId = $iconId;
-                    $icon->iconCharId = $iconCharVal;
+                    $icon->iconCharVal = $iconCharVal;
                     $icon->iconType = $iconType;
 
                     // ToDo: List may just array ?
@@ -176,22 +176,42 @@ class mod_j4_std_iconsHelper
 
         $iconsListByCharValue = [];
 
-        foreach ($icons as $icon) {
+        foreach ($icons as $iconSet) {
 
-            $iconCharVal = $icons->iconCharVal;
-
+            $iconCharVal = $iconSet[0]->iconCharVal;
+            $iconsListByCharValue[$iconCharVal] = $iconSet[0];
         }
 
-
-
-
+        ksort ($iconsListByCharValue);
 
 
         return $iconsListByCharValue;
     }
 
+    public static function getDefaultIcons(): array
+    {
+        $icons = [];
+        $files = [
+            //JPATH_ROOT. '/media/vendor/fontawesome-free/webfonts/fa-brands-400.svg',
+            JPATH_ROOT. '/media/vendor/fontawesome-free/webfonts/fa-regular-400.svg',
+            JPATH_ROOT. '/media/vendor/fontawesome-free/webfonts/fa-solid-900.svg'
+        ];
 
+        foreach ($files as $file)
+        {
+            $array = json_decode(json_encode(simplexml_load_file($file)),TRUE);
+            $glyphs = $array['defs']['font']['glyph'];
 
+            foreach($glyphs as $glyph)
+            {
+                $icons[] = $glyph['@attributes']['glyph-name'];
+            }
+        }
+
+        asort($icons);
+
+        return array_unique($icons);
+    }
 
 
 }
