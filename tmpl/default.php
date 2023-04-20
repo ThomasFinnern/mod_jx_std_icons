@@ -14,9 +14,21 @@ use Joomla\CMS\Language\Text;
 
 global $test, $icons, $defaultIcons;
 
+
+HTMLHelper::_('stylesheet', 'mod_j4_standard_icons/css/template.css', array('version' => 'auto', 'relative' => true));
+//$wa = $app->getDocument()->getWebAssetManager();
+//$wa->registerAndUseStyle('mod_j4_standard_icons', 'mod_j4_standard_icons/template.css');
+
+// $app->getDocument()->getWebAssetManager()
+	// ->useScript('core')
+	// ->useScript('keepalive')
+	// ->useScript('field.passwordview');
+
+// $wa->registerAndUseStyle('mod_languages', 'mod_languages/template.css');
+
 ?>
-		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'defaulticons', Text::_('COM_ADMIN_AVAILABLE_ICONS')); ?>
-		<?php // echo $this->loadTemplate('defaulticons'); ?>
+<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'defaulticons', Text::_('COM_ADMIN_AVAILABLE_ICONS')); ?>
+<?php // echo $this->loadTemplate('defaulticons'); ?>
 
 
 echo '[J!4 Standard Icons] ' . $test . '<br />'; // . $url;
