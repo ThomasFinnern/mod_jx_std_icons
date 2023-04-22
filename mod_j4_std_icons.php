@@ -12,12 +12,12 @@
 use Joomla\CMS\Helper\ModuleHelper;
 use finnern\Module\mod_j4_std_icons\Site\Helper\mod_j4_std_iconsHelper;
 
-global $test, $icons, $defaultIcons;
+global $version, $icons, $defaultIcons;
 
 $test  = " (created 2023.04.15)"; // mod_j4_std_iconsHelper::getText();
 // echo $test;
 
-$icons = mod_j4_std_iconsHelper::cssfile_extractIcons();
+[$icons, $version] = mod_j4_std_iconsHelper::cssfile_extractIcons();
 // $url = $params->get('domain');
 $iconsListByCharValue = mod_j4_std_iconsHelper::iconsListByCharValue($icons);
 

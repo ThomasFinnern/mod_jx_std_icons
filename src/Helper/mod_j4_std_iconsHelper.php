@@ -34,6 +34,7 @@ class mod_j4_std_iconsHelper
 	public static function cssfile_extractIcons () {
 		
 		$oIcons = [];
+        $version = '%unknown%';
 		
 		// ToDo: class iconXXX 
 		
@@ -51,7 +52,7 @@ class mod_j4_std_iconsHelper
             } else {
                 $lines = file($cssPathFileName);
 
-                $oIcons = self::lines_extractCssIcons ($lines);
+                [$oIcons, $version] = self::lines_extractCssIcons ($lines);
 
                 $isAssigned = true;
             }
@@ -65,12 +66,13 @@ class mod_j4_std_iconsHelper
             $app->enqueueMessage($OutTxt, 'error');
         }
 
-        return $oIcons;
+        return [$oIcons, $version];
 	}
 
     public static function lines_extractCssIcons ($lines = []) {
 
         $icons = [];
+        $version = '%unknown%';
 
         /**
          rules:
@@ -107,6 +109,22 @@ class mod_j4_std_iconsHelper
                 if ($line == '') {
                     continue;
                 }
+
+                //---  ------------------------------------------------
+
+                $versionLineId = "Font Awesome Free ";
+
+                // Font Awesome Free
+                $startIdx = strpos($fullLine, $versionLineId);
+                if ($startIdx != false) {
+
+                    $version = substr ($fullLine, $startIdx, strlen($versionLineId) + 7); // '5.15.4 '
+
+
+                }
+
+
+
 
                 //--- icon name and id ? ------------------------------------------------
 
@@ -163,7 +181,7 @@ class mod_j4_std_iconsHelper
             $app->enqueueMessage($OutTxt, 'error');
         }
 
-        return $icons;
+        return [$icons, $version];
     }
 
     // ToDo: list of sorted
