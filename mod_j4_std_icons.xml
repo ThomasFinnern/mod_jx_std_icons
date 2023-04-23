@@ -22,6 +22,12 @@
 		<folder>tmpl</folder>
 		<filename>mod_j4_std_icons.xml</filename>
 	</files>
+	
+	<!-- css, js, images files, .... -->
+	<media folder="media/mod_j4_std_icons" destination="mod_j4_std_icons">
+		<folder>css</folder>
+	</media>
+	
 	<config>
 		<fields name="params">
 			<fieldset name="mod_j4_std_icons_params">

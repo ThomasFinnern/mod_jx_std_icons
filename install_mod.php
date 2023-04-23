@@ -14,7 +14,7 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Log\Log;
 
 /**
- * Script file of Foo module
+ * Script file of mod_j4_std_icons module
  */
 class mod_j4_std_iconsInstallerScript
 {
