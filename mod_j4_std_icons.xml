@@ -4,19 +4,20 @@
 		   method="upgrade"
            version="4.0">
 	<name>MOD_J4_STD_ICONS</name>
-	<creationDate>12.04.2023</creationDate>
+	<creationDate>01.05.2023</creationDate>
 	<author>Thomas Finnern</author>
 	<authorEmail>mod_j4_std_icons@tomfinnern.de</authorEmail>
 	<authorUrl>www.tomfinnern.de</authorUrl>
-	<copyright>Copyright (C) 2019 - 2019 Thomas Finnern All rights reserved.</copyright>
+	<copyright>Copyright (C) 2023-2023Thomas Finnern All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>0.0.1</version>
+	<version>0.1.0</version>
 	<description>MOD_J4_STD_ICONS_XML_DESCRIPTION</description>
 	<scriptfile>install_mod.php</scriptfile>
 	<namespace path="src">finnern\Module\mod_j4_std_icons</namespace>
 
 	<files>
 		<filename module="mod_j4_std_icons">mod_j4_std_icons.php</filename>
+		<filename>LICENSE</filename>
 		<folder>language</folder>
 		<folder>src</folder>
 		<folder>tmpl</folder>
@@ -29,7 +30,7 @@
 	</media>
 	
 	<config>
-		<fields name="params">
+		<!-- fields name="params">
 			<fieldset name="mod_j4_std_icons_params">
 				<field
 					name="domain"
@@ -38,7 +39,7 @@
 					filter="url"
 				/>
 			</fieldset>
-		</fields>
+		</fields -->
 	</config>
 </extension>
 

@@ -3,7 +3,7 @@
  * @package     Joomla.site
  * @subpackage  mod_j4_std_icons
  *
- * @copyright   Copyright (C) 2023 - 2023 thomas finnern
+ * @copyright   Copyright (C) 2023-2023 thomas finnern
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -28,12 +28,16 @@ if (empty($icons)) {
 }
 
 $icomoons = [];
+$preparedAwesome = [];
 
 foreach ($icons as $iconName => $iconSet) {
 
 	if ($iconSet[0]->iconType == '.icon') {
 
 		$icomoons [] = $iconSet[0]->name;
+	} else {
+
+		$preparedAwesome [] = $iconSet[0]->name;
 	}
 }
 ?>
@@ -90,7 +94,8 @@ foreach ($icons as $iconName => $iconSet) {
 						<?php endforeach; ?>
 					</ul>
 				</nav>
-
+				<h5>Count: <span class="badge bg-secondary"><?php echo count ($icomoons); ?></span></h5>
+			</div>
 		</div>
 
 		<!-- font awesome ======================================================================== -->
@@ -128,13 +133,20 @@ foreach ($icons as $iconName => $iconSet) {
 										</div>
 									</div>
 									<div class="quickicon-name d-flex align-items-end">
-										<?php echo $item; ?>
+										<?php if ( in_array ($item, $preparedAwesome)): ?>
+											<?php echo $item; ?>
+										<?php else: ?>
+											<del>
+											<?php echo $item; ?>
+											</del>
+										<?php endif ?>
 									</div>
 								</a>
 							</li>
 						<?php endforeach; ?>
 					</ul>
 				</nav>
+				<h5>Count: <span class="badge bg-secondary"><?php echo count ($defaultIcons); ?></span></h5>
 			</div>
 		</div>
 

@@ -3,7 +3,7 @@
  * @package     Joomla.Administrator
  * @subpackage  mod_j4_std_icons
  *
- * @copyright   Copyright (C) 2005 - 2020 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2023-2023 Thomas Finnern
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -14,17 +14,17 @@ use finnern\Module\mod_j4_std_icons\Site\Helper\mod_j4_std_iconsHelper;
 
 global $version, $icons, $defaultIcons;
 
-$test  = " (created 2023.04.15)"; // mod_j4_std_iconsHelper::getText();
-// echo $test;
+$test  = " (created 2023.05.01)";
 
+// icomoon and awesome icons referenced in *.css file
 [$icons, $version] = mod_j4_std_iconsHelper::cssfile_extractIcons();
-// $url = $params->get('domain');
+
+// common char index of font awesome icons
 $iconsListByCharValue = mod_j4_std_iconsHelper::iconsListByCharValue($icons);
 
+// from *.svg file
 $defaultIcons= mod_j4_std_iconsHelper::getDefaultIcons();
 
-
-
+// display the module
 // require ModuleHelper::getLayoutPath('mod_j4_std_icons', $params->get('layout', 'default'));
 require ModuleHelper::getLayoutPath('mod_j4_std_icons');
-
