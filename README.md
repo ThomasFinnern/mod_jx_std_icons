@@ -21,11 +21,40 @@ Adressing the icons in our component has some pitfalls:
    ToolBarHelper::title('some title', 'cogs'); will use the icon 'cogs' and uses icon-cogs for the class to show the icon.
    Wanting to show an icon only available in awesome list and trying 'fas fa-camera-retro' as parameter will not help. In some cases 'none fas fa-camera-retro' will display the desired icon but. there may be sideeffects like empty space and wrong font afterwards
 
+## Generated views
+
+Any icon is displayed in a box with name below
+Each icon table has a short introduction how to use this type of icon
+1) Short introduction text about the technical side of joomla icons
+1) The first icon table shows the icon which can be adressed by 'icon-[Nmae]' (icomoon replacements)
+1) Second icon list shows the complete Font awesome icon list
+
+## Parameter
+
+Actual there are none
+
+## Corrections
+* If you have more facts or deviating opinien please write an issue here on github. I am happy to improve te code or this document
+* Any request for features will be considered favourably
+* Any hints how to get the boxes smaller is welcome
+* You may add code with pull requests
+
+## Pull request to include a icon view into joomla itself
+
+This module derived heavily from following try to include a view of all available icons
+into standard joomla CMS
+
+pe7er Peter Martin issued a pull request to add an overview of all available Font Awesome Icons to the System Information tab.
+
+https://github.com/joomla/joomla-cms/pull/37724/files
+
+His pull request was rejected for J!4 as he added the code as feature under the System information, whereas those Icons are template (atum and cassiopeia) and not system related.
+
 ## Technical structure
 
 To determine which icons are supported we may collect all ``` <glyph glyph-name ... ``` in svg files or list all css items with matching Names/IDs
 
-### files fontawesome.css
+### File fontawesome.css
 /media/vendor/fontawesome-free/css/fontawesome.css
 
 standard cassiopeia (site)
@@ -40,15 +69,14 @@ awesome definition
 }
 ```
 
-icomoon definition
+icomoon replacement definition
 ```css
 .icon-image:before {
   content: "\f03e";
 }
 ```
 
-
-### svg files in folder ../webfonts
+### Svg files in folder ../webfonts
 
 /media/vendor/fontawesome-free/webfonts
 
@@ -63,16 +91,3 @@ fa-solid-900.svg
 
 The following file tells about the version (Actual on writing: Font Awesome Free 5.15.4) and license
 /media/vendor/fontawesome-free/css/fontawesome.css
-
-
-## Pull request to include a icon view into joomla itself
-
-This module derived heavily from following try to include a view of all available icons
-into standard joomla CMS
-
-pe7er Peter Martin
-Pull Request to add an overview of all available Font Awesome Icons to the System Information tab.
-
-https://github.com/joomla/joomla-cms/pull/37724/files
-
-His pull request was rejected for J!4 as he added the code as feature under the System information, whereas those Icons are template (atum and cassiopeia) and not system related.
