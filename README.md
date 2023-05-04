@@ -67,9 +67,12 @@ The following file tells about the version (Actual on writing: Font Awesome Free
 
 ## Pull request to include a icon view into joomla itself
 
-This module derives also from following try to include a view of all available icons
+This module derived heavily from following try to include a view of all available icons
+into standard joomla CMS
 
 pe7er Peter Martin
 Pull Request to add an overview of all available Font Awesome Icons to the System Information tab.
 
 https://github.com/joomla/joomla-cms/pull/37724/files
+
+His pull request was rejected for J!4 as he added the code as feature under the System information, whereas those Icons are template (atum and cassiopeia) and not system related.
