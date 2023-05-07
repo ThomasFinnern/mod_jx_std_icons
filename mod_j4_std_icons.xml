@@ -95,6 +95,6 @@
 	<updateservers>
 		<server type="extension" name="J!4 Standard Icons Updates">https://raw.githubusercontent.com/ThomasFinnern/updateserver/main/mod_j4_standard_icons.xml</server>
 	</updateservers>
-	<changelogurl>https://raw.githubusercontent.com/ThomasFinnern/plg_remote_markdown/master/changelog.xml</changelogurl>
+	<changelogurl>https://raw.githubusercontent.com/ThomasFinnern/mod_j4_standard_icons/main/changelog.xml</changelogurl>
 </extension>
 

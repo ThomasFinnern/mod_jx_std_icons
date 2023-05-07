@@ -1,7 +1,9 @@
 <changelogs>
 	<changelog>
 		<element>mod_j4_standard_icons</element>
-		<type>component</type>
+		<type>module</type>
+		<folder></folder>
+		<client>site</client>
 		<version>0.1.0.0</version>
 		<date>2023-04-28</date>
 		<!--fix>
@@ -10,8 +12,24 @@
 		<change>
 			<item>Added updateserver</item>
 		</change>
-		<!--note>
-			<item></item>
-		</note-->
+		<note>
+			<item>Pre release version</item>
+		</note>
+		<note>
+			<item><![CDATA[
+				<a href="http://www.insidethemachine.de/index.php/j4-standard-icons">
+					Example web page
+				</a>
+			]]></item>
+		</note>
+		<addition>
+			<item><![CDATA[
+				(1)
+			]]></item>
+			<item><![CDATA[
+				(2)
+			]]></item>
+		</addition>
+
 	</changelog>
 </changelogs>
