@@ -1,0 +1,17 @@
+<changelogs>
+	<changelog>
+		<element>mod_j4_standard_icons</element>
+		<type>component</type>
+		<version>0.1.0.0</version>
+		<date>2023-04-28</date>
+		<!--fix>
+			<item></item>
+		</fix-->
+		<change>
+			<item>Added updateserver</item>
+		</change>
+		<!--note>
+			<item></item>
+		</note-->
+	</changelog>
+</changelogs>
