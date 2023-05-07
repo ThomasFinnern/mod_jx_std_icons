@@ -1,8 +1,8 @@
-# List J!4 cassiopeia / atumn standard icons (awesome v5.15.4)
+# List Joomla! **4** standard icons in templates cassiopeia / atumn  (awesome v5.15.4)
 
-This module enables to show the available icons in your own place for all developrs to have a fast search.
+This module enables to show the available icons with names in your own place for all developrs to have a fast search of icons.
 
-This is view is intended to be read by extension developers in the need of selecting an icon. so be free to use it as supporter of developers in your blog, hints or ...
+This is view is intended to be read by extension developers in the need of selecting an icon. So be free to use it as supporter of developers in your blog, hints or ...
 
 ## General info
 In general, the available icons can be viewed in
