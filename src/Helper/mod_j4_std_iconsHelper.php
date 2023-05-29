@@ -9,38 +9,77 @@
 
 namespace finnern\Module\mod_j4_std_icons\Site\Helper;
 
+use Joomla\CMS\Factory;
+
 \defined('_JEXEC') or die;
 
 /**
- * Helper for mod_j4_std_icons
+ * extract data from joomla! 4 files and keep data of
+ *    - icomoon icons
+ *    - font awesome icons
+ *    - by font index
  *
- * @since  __BUMP_VERSION__
+ * @since  version 0.1
  */
 class mod_j4_std_iconsHelper
 {
+	const CSS_PATH_FILE_NAME = JPATH_ROOT . '/media/templates/administrator/atum/css/vendor/fontawesome-free/fontawesome.css';
+
 	/**
-	 * Retrieve mod_j4_std_icons test
-	 *
-	 * @param   Registry        $params  The module parameters
-	 * @param   CMSApplication  $app     The application
-	 *
-	 * @return  array
+	 * @var 
 	 */
-	public static function getText()
-	{
-		return 'mod_j4_std_iconsHelpertest';
-	}
-	
-	public static function cssfile_extractIcons () {
+
+	// defined in J! css file
+	public $awesome_version =  '%unknown%';
+
+	// defined in J! css file
+    public $j3x_css_icons = [];
+    public $j4x_css_awesome_icons = [];
+
+    // defined in J! svg file
+    public $svg_icons = [];
+
+    //  font char values from J! css file
+    public $iconsListByCharValue = [];
+
+    /**
+     *
+     *
+     * @param   bool  $watermarked
+     *
+     * @since version 4.3
+     */
+    public function __construct(bool $isExtractSvg=true, bool $isExtractCss=true)
+    {
+        // immediately extract icons from *.svg file
+        if ($isExtractSvg) {
+
+            $this->svgfile_extractIcons();
+        }
+        
+        // immediately extract icons from *.css file
+        if ($isExtractCss) {
+
+            $this->svg_icons = $this->cssfile_extractIcons();
+        }
+        
+    }
+
+
+
+	public function cssfile_extractIcons ($cssPathFileName='') {
 		
-		$oIcons = [];
-        $version = '%unknown%';
-		
-		// ToDo: class iconXXX 
+		$j3x_form_icons = [];
+		$j4x_awesome_icons = [];
+        $awesome_version = '%unknown%';
 		
         try {
-            $cssPathFileName = JPATH_ROOT . '/media/templates/administrator/atum/css/vendor/fontawesome-free/fontawesome.css';
-            // $handle = fopen(cssPathFileName, "r");
+
+            if ($cssPathFileName=='') {
+                $cssPathFileName = self::CSS_PATH_FILE_NAME;
+            } else {
+                $this->cssPathFileName = $cssPathFileName;
+            }
 
             if (!is_file($cssPathFileName)) {
                 //--- path does not exist -------------------------------
@@ -52,7 +91,7 @@ class mod_j4_std_iconsHelper
             } else {
                 $lines = file($cssPathFileName);
 
-                [$oIcons, $version] = self::lines_extractCssIcons ($lines);
+                [$j3x_form_icons, $awesome_icons, $awesome_version] = self::lines_extractCssIcons ($lines);
 
                 $isAssigned = true;
             }
@@ -66,13 +105,19 @@ class mod_j4_std_iconsHelper
             $app->enqueueMessage($OutTxt, 'error');
         }
 
-        return [$oIcons, $version];
+        // Keep result in class
+		$this->j3x_css_icon_icons = $j3x_form_icons;
+		$this->j4x_css_awesome_icons = $awesome_icons;
+        $this->awesome_version = $awesome_version;
+
+        return [$j3x_form_icons, $j4x_awesome_icons, $awesome_version];
 	}
 
-    public static function lines_extractCssIcons ($lines = []) {
+    public function lines_extractCssIcons ($lines = []) {
 
-        $icons = [];
-        $version = '%unknown%';
+        $j3x_form_icons = [];
+		$awesome_icons = [];
+        $awesome_version = '%unknown%';
 
         /**
          rules:
@@ -110,7 +155,7 @@ class mod_j4_std_iconsHelper
                     continue;
                 }
 
-                //---  ------------------------------------------------
+                //--- Font Awesome version ------------------------------------------------
 
                 $versionLineId = "Font Awesome Free ";
 
@@ -118,27 +163,23 @@ class mod_j4_std_iconsHelper
                 $startIdx = strpos($fullLine, $versionLineId);
                 if ($startIdx != false) {
 
-                    $version = substr ($fullLine, $startIdx, strlen($versionLineId) + 7); // '5.15.4 '
-
+                    $awesome_version = substr ($fullLine, $startIdx, strlen($versionLineId) + 7); // '5.15.4 '
 
                 }
 
+                //--- start: icon name and id ? ------------------------------------------------
 
-
-
-                //--- icon name and id ? ------------------------------------------------
-
+                // .fa-arrow-right:before {
                 if (str_contains ($line, ':before')) {
 
-                    // .fa-arrow-right:before {
                     list ($iconId) = explode (':', $line);
 
-                    // .fa-arrow-right
+                    // .fa-arrow-right, .icon-images
                     list ($iconType, $iconName) = explode ('-', $iconId, 2);
 
                 }
 
-                //--- valid icon definition ? ------------------------------------------
+                //--- inside: valid icon definition ? ------------------------------------------
 
                 $isValid = false;
 
@@ -150,6 +191,7 @@ class mod_j4_std_iconsHelper
 
                 //--- create object --------------------------------------------------
 
+                // One time per icon
                 if ($isValid) {
 
                     $icon = new \stdClass();
@@ -159,18 +201,25 @@ class mod_j4_std_iconsHelper
                     $icon->iconCharVal = $iconCharVal;
                     $icon->iconType = $iconType;
 
-                    // ToDo: List may just array ?
-                    $icons [$iconName][] = $icon;
+                    //--- .icons / .fa lists ------------------
 
-                    if (str_contains ($iconName, 'images')) {
-
-                        $test = $iconName;
-
+                    if ($icon->iconType == '.icons') {
+                        $j3x_form_icons [$iconName] = $icon;
+                    } else {
+                        $j4x_awesome_icons [$iconName] = $icon;
                     }
+
+// debug
+//                     if (str_contains ($iconName, 'images')) {
+//
+//                         $test = $iconName;
+//
+//                     }
                 }
             }
 
-            ksort ($icons);
+            ksort ($j3x_form_icons);
+            ksort ($j4x_awesome_icons);
 
         } catch (\RuntimeException $e) {
             $OutTxt = '';
@@ -181,32 +230,34 @@ class mod_j4_std_iconsHelper
             $app->enqueueMessage($OutTxt, 'error');
         }
 
-        return [$icons, $version];
+        return [$j3x_form_icons, $j4x_awesome_icons, $awesome_version];
     }
 
-    // ToDo: list of sorted
-    // ToDo:
-    // ToDo:
-    // ToDo:
-    // ToDo:
 
-    public static function iconsListByCharValue ($icons) {
+    public function iconsListByCharValue ($j3x_css_icons, $j4x_css_awesome_icons) {
 
         $iconsListByCharValue = [];
 
-        foreach ($icons as $iconSet) {
+        foreach ($j3x_css_icons as $iconSet) {
 
             $iconCharVal = $iconSet[0]->iconCharVal;
-            $iconsListByCharValue[$iconCharVal] = $iconSet[0];
+            $iconsListByCharValue[$iconCharVal][] = $iconSet[0];
+        }
+
+        foreach ($j4x_css_awesome_icons as $iconSet) {
+
+            $iconCharVal = $iconSet[0]->iconCharVal;
+            $iconsListByCharValue[$iconCharVal][] = $iconSet[0];
         }
 
         ksort ($iconsListByCharValue);
 
+        $this->iconsListByCharValue = $iconsListByCharValue;
 
         return $iconsListByCharValue;
     }
 
-    public static function getDefaultIcons(): array
+    public static function svgfile_extractIcons(): array
     {
         $icons = [];
         $files = [

@@ -9,6 +9,8 @@
 
 namespace finnern\Module\mod_j4_std_icons\Site\Helper;
 
+use Joomla\CMS\Factory;
+
 \defined('_JEXEC') or die;
 
 /**
@@ -21,7 +23,7 @@ namespace finnern\Module\mod_j4_std_icons\Site\Helper;
  */
 class mod_j4_std_iconsHelper
 {
-    public const $cssPathFileName  = JPATH_ROOT . '/media/templates/administrator/atum/css/vendor/fontawesome-free/fontawesome.css';
+	const CSS_PATH_FILE_NAME = JPATH_ROOT . '/media/templates/administrator/atum/css/vendor/fontawesome-free/fontawesome.css';
 
 	/**
 	 * @var 
@@ -34,11 +36,11 @@ class mod_j4_std_iconsHelper
     public $j3x_css_icons = [];
     public $j4x_css_awesome_icons = [];
 
-    // defined in J1 svg file
-    public $svg_awesome_icons = [];
+    // defined in J! svg file
+    public $svg_icons = [];
 
     //  font char values from J! css file
-    public $icon_by_int = [];
+    public $iconsListByCharValue = [];
 
     /**
      *
@@ -50,15 +52,15 @@ class mod_j4_std_iconsHelper
     public function __construct(bool $isExtractSvg=true, bool $isExtractCss=true)
     {
         // immediately extract icons from *.svg file
-        if ($isExtractSvg)) {
+        if ($isExtractSvg) {
 
             $this->svgfile_extractIcons();
         }
         
         // immediately extract icons from *.css file
-        if ($isExtractCss)) {
+        if ($isExtractCss) {
 
-            $this->cssfile_extractIcons();
+            $this->svg_icons = $this->cssfile_extractIcons();
         }
         
     }
@@ -72,8 +74,9 @@ class mod_j4_std_iconsHelper
         $awesome_version = '%unknown%';
 
         try {
+
             if ($cssPathFileName=='') {
-                $cssPathFileName = $this->cssPathFileName;
+                $cssPathFileName = self::CSS_PATH_FILE_NAME;
             } else {
                 $this->cssPathFileName = $cssPathFileName;
             }
@@ -101,10 +104,6 @@ class mod_j4_std_iconsHelper
             $app = Factory::getApplication();
             $app->enqueueMessage($OutTxt, 'error');
         }
-
-yyy        // sort
-
-
 
         // Keep result in class
 		$this->j3x_css_icon_icons = $j3x_form_icons;
@@ -190,10 +189,10 @@ yyy        // sort
                     $isValid = true;
                 }
 
+                    //--- create object --------------------------------------------------
+
                 // One time per icon
                 if ($isValid) {
-
-                    //--- create object --------------------------------------------------
 
                     $icon = new \stdClass();
 
@@ -219,7 +218,8 @@ yyy        // sort
                 }
             }
 
-            ksort ($icons);
+            ksort ($j3x_form_icons);
+            ksort ($j4x_awesome_icons);
 
         } catch (\RuntimeException $e) {
             $OutTxt = '';
@@ -233,30 +233,26 @@ yyy        // sort
         return [$j3x_form_icons, $j4x_awesome_icons, $awesome_version];
     }
 
-    // ToDo: list of sorted
-    // ToDo:
-    // ToDo:
-    // ToDo:
-    // ToDo:
 
     public function iconsListByCharValue ($j3x_css_icons, $j4x_css_awesome_icons) {
 
         $iconsListByCharValue = [];
 
-        foreach ($icons as $iconSet) {
+        foreach ($j3x_css_icons as $iconSet) {
 
             $iconCharVal = $iconSet[0]->iconCharVal;
-            $iconsListByCharValue[$iconCharVal] = $iconSet[0];
+            $iconsListByCharValue[$iconCharVal][] = $iconSet[0];
         }
 
-        foreach ($icons as $iconSet) {
+        foreach ($j4x_css_awesome_icons as $iconSet) {
 
             $iconCharVal = $iconSet[0]->iconCharVal;
-            $iconsListByCharValue[$iconCharVal] = $iconSet[0];
+            $iconsListByCharValue[$iconCharVal][] = $iconSet[0];
         }
 
         ksort ($iconsListByCharValue);
 
+        $this->iconsListByCharValue = $iconsListByCharValue;
 
         return $iconsListByCharValue;
     }

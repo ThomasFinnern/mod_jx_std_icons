@@ -12,7 +12,7 @@ use Joomla\CMS\Language\Text;
 
 \defined('_JEXEC') or die;
 
-global $version, $icons, $defaultIcons;
+global $awesome_version, $j3x_css_icons, $j4x_css_awesome_icons, $svg_icons, $iconsListByCharValue;
 
 // load css
 $wa = $app->getDocument()->getWebAssetManager();
@@ -56,7 +56,7 @@ foreach ($icons as $iconName => $iconSet) {
 			<?php if($isDisplayTablesHeader): ?>
 				<h2 class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_AVAILABLE_ICONS'); ?></h2>
 				<div class="mb-3">
-					<h6 class="card-subtitle mb-2 text-muted"><?php echo $version; ?></h6>
+					<h6 class="card-subtitle mb-2 text-muted"><?php echo $awesome_version; ?></h6>
 				</div>
 
 				<?php if($isDisplayTechDetail): ?>
@@ -155,7 +155,7 @@ foreach ($icons as $iconName => $iconSet) {
 									</a>
 								</li>
 
-								<?php foreach ($defaultIcons as $item): ?>
+								<?php foreach ($svg_icons as $item): ?>
 									<li class="quickicon quickicon-single">
 										<a href="#">
 											<div class="quickicon-info">
@@ -178,7 +178,7 @@ foreach ($icons as $iconName => $iconSet) {
 								<?php endforeach; ?>
 							</ul>
 						</nav>
-						<h5>Count: <span class="badge bg-secondary"><?php echo count ($defaultIcons); ?></span></h5>
+						<h5>Count: <span class="badge bg-secondary"><?php echo count ($svg_icons); ?></span></h5>
 					</div>
 				</div>
 			<?php endif; ?>
