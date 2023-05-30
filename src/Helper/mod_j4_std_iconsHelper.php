@@ -23,10 +23,16 @@ use Joomla\CMS\Factory;
  */
 class mod_j4_std_iconsHelper
 {
+    //--- path to files ------------------------------------------------------------------
+
 	const CSS_PATH_FILE_NAME = JPATH_ROOT . '/media/templates/administrator/atum/css/vendor/fontawesome-free/fontawesome.css';
 
+	const SVG_PATH_FILE_NAME_BRANDS = JPATH_ROOT. '/media/vendor/fontawesome-free/webfonts/fa-brands-400.svg';
+	const SVG_PATH_FILE_NAME_REGULAR = JPATH_ROOT. '/media/vendor/fontawesome-free/webfonts/fa-regular-400.svg';
+	const SVG_PATH_FILE_NAME_SOLID = JPATH_ROOT. '/media/vendor/fontawesome-free/webfonts/fa-solid-900.svg';
+
 	/**
-	 * @var 
+	 * @var
 	 */
 
 	// defined in J! css file
@@ -51,16 +57,16 @@ class mod_j4_std_iconsHelper
      */
     public function __construct(bool $isExtractSvg=true, bool $isExtractCss=true)
     {
-        // immediately extract icons from *.svg file
+        // extract icons from *.svg file
         if ($isExtractSvg) {
 
             $this->svgfile_extractIcons();
         }
         
-        // immediately extract icons from *.css file
+        // extract version, icons from *.css file
         if ($isExtractCss) {
 
-            $this->svg_icons = $this->cssfile_extractIcons();
+            $this->cssfile_extractIcons();
         }
         
     }
@@ -72,7 +78,7 @@ class mod_j4_std_iconsHelper
 		$j3x_form_icons = [];
 		$j4x_awesome_icons = [];
         $awesome_version = '%unknown%';
-		
+
         try {
 
             if ($cssPathFileName=='') {
@@ -95,7 +101,7 @@ class mod_j4_std_iconsHelper
 
                 $isAssigned = true;
             }
-        } catch (RuntimeException $e) {
+        } catch (\RuntimeException $e) {
             $OutTxt = '';
             $OutTxt .= 'Error executing extractIconsByCssFile: "' . '<br>';
             $OutTxt .= 'File: "' . $cssPathFileName . '"<br>';
@@ -234,6 +240,35 @@ class mod_j4_std_iconsHelper
     }
 
 
+
+    public function svgfile_extractIcons($files = []): array
+    {
+        $svg_icons = [];
+
+        if (empty ($files)) {
+            //$files = [SVG_PATH_FILE_NAME_BRANDS, SVG_PATH_FILE_NAME_REGULAR, SVG_PATH_FILE_NAME_SOLID];
+            $files = [self::SVG_PATH_FILE_NAME_REGULAR, self::SVG_PATH_FILE_NAME_SOLID];
+        }
+
+        foreach ($files as $file)
+        {
+            $array = json_decode(json_encode(simplexml_load_file($file)),TRUE);
+            $glyphs = $array['defs']['font']['glyph'];
+
+            foreach($glyphs as $glyph)
+            {
+                $svg_icons[] = $glyph['@attributes']['glyph-name'];
+            }
+        }
+
+        asort($svg_icons);
+
+        $this->svg_icons = array_unique($svg_icons);
+        return $this->svg_icons;
+    }
+
+
+    // ToDo: is it needed ?
     public function iconsListByCharValue ($j3x_css_icons, $j4x_css_awesome_icons) {
 
         $iconsListByCharValue = [];
@@ -255,31 +290,6 @@ class mod_j4_std_iconsHelper
         $this->iconsListByCharValue = $iconsListByCharValue;
 
         return $iconsListByCharValue;
-    }
-
-    public static function svgfile_extractIcons(): array
-    {
-        $icons = [];
-        $files = [
-            //JPATH_ROOT. '/media/vendor/fontawesome-free/webfonts/fa-brands-400.svg',
-            JPATH_ROOT. '/media/vendor/fontawesome-free/webfonts/fa-regular-400.svg',
-            JPATH_ROOT. '/media/vendor/fontawesome-free/webfonts/fa-solid-900.svg'
-        ];
-
-        foreach ($files as $file)
-        {
-            $array = json_decode(json_encode(simplexml_load_file($file)),TRUE);
-            $glyphs = $array['defs']['font']['glyph'];
-
-            foreach($glyphs as $glyph)
-            {
-                $icons[] = $glyph['@attributes']['glyph-name'];
-            }
-        }
-
-        asort($icons);
-
-        return array_unique($icons);
     }
 
 

@@ -7,12 +7,12 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-use Joomla\CMS\HTML\HTMLHelper;
+//use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 
 \defined('_JEXEC') or die;
 
-global $awesome_version, $j3x_css_icons, $j4x_css_awesome_icons, $svg_icons, $iconsListByCharValue;
+global $awesome_version, $j3x_css_icons, $j4x_css_awesome_icons, $svg_icons; //, $iconsListByCharValue
 
 // load css
 $wa = $app->getDocument()->getWebAssetManager();
@@ -25,22 +25,7 @@ $isDisplayIconTable_Awesome = $params->get('isDisplayIconTable_Awesome');
 
 $font_size = $params->get('font_size');
 
-$icomoons = [];
-$preparedAwesome = [];
-
-foreach ($icons as $iconName => $iconSet) {
-
-	if ($iconSet[0]->iconType == '.icon') {
-
-		$icomoons [] = $iconSet[0]->name;
-	} else {
-
-		$preparedAwesome [] = $iconSet[0]->name;
-	}
-}
 ?>
-
-
 <div class="card" >
 	<div class="card-body">
 		<?php if (empty($icons)): ?>
@@ -68,6 +53,7 @@ foreach ($icons as $iconName => $iconSet) {
 			<?php endif; ?>
 
 			<!-- icomoon replacements ======================================================================== -->
+
 			<?php if($isDisplayIconTable_Icon): ?>
 				<div class="card mb-3 ">
 					<div class="card-header">
@@ -100,7 +86,7 @@ foreach ($icons as $iconName => $iconSet) {
 									</a>
 								</li>
 
-								<?php foreach ($icomoons as $item): ?>
+								<?php foreach ($j3x_css_icons as $item): ?>
 									<li class="quickicon quickicon-single">
 										<a href="#">
 											<div class="quickicon-info">
@@ -117,7 +103,7 @@ foreach ($icons as $iconName => $iconSet) {
 								<?php endforeach; ?>
 							</ul>
 						</nav>
-						<h5>Count: <span class="badge bg-secondary"><?php echo count ($icomoons); ?></span></h5>
+						<h5>Count: <span class="badge bg-secondary"><?php echo count ($j3x_css_icons); ?></span></h5>
 					</div>
 				</div>
 			<?php endif; ?>
@@ -165,7 +151,7 @@ foreach ($icons as $iconName => $iconSet) {
 												</div>
 											</div>
 											<div class="quickicon-name d-flex align-items-end">
-												<?php if ( in_array ($item, $preparedAwesome)): ?>
+												<?php if ( in_array ($item, $j4x_css_awesome_icons)): ?>
 													<?php echo $item; ?>
 												<?php else: ?>
 													<del>
