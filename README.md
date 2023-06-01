@@ -1,6 +1,6 @@
 # List Joomla! **4** standard icons in templates cassiopeia / atumn  (awesome v5.15.4)
 
-This module enables to show the available icons with names in your own place for all developrs to have a fast search of icons.
+This module enables to show the available Joomla!4 icons with names in your own site so other developers may find and search these icons.
 
 This is view is intended to be read by extension developers in the need of selecting an icon. So be free to use it as supporter of developers in your blog, hints or ...
 
@@ -13,7 +13,7 @@ Now this list is not styled very nice.
 
 Adressing the icons in our component has some pitfalls:
 
-1) Joomla 4 has additional icons useful in the following style  ``` i class="fa fa-adjust"></i> ```
+1) Joomla 4 has additional icons useful in the following style  ``` <i class="fa fa-adjust"></i> ```
 1) Joomla kept for compatibility the J3x style ```<span class="icon-image"> </span>```
 
 * The J3x ico moon icons are not delivered with the installation. Instead the use of for example 'icon-image' is transfered to a matching awesome icon (character)

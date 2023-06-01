@@ -14,10 +14,13 @@ use Joomla\CMS\Factory;
 \defined('_JEXEC') or die;
 
 /**
- * extract data from joomla! 4 files and keep data of
- *    - icomoon icons
- *    - font awesome icons
- *    - by font index
+ * Collect lists of available Joomla!4 icons (standard template)
+ *
+ * - List of awesome icons retrieved from *.svg file(s)
+ * - List of supported icons (previous icomonn) for internal style and
+          html <span class="icon-image"> </span> from *.css file
+ * - List of awesome icons which may be addressed like
+          html <i class="fa fa-adjust"></i> from *.css file
  *
  * @since  version 0.1
  */

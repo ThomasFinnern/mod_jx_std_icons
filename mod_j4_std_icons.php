@@ -7,6 +7,23 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
+/**
+ * This module enables to show the available Joomla!4 icons with names in a
+ * own site so other developers may find and search these icons.
+ * It collects and display lists of available Joomla!4 icons (standard template)
+ *
+ * One collection regards icons found in the used *.svg files.
+ * Other collections are retrieved from *.css file as the supported list is
+ * smaller then the given *.svg icons.
+ * - List of supported icons (previous icomonn) for internal style and
+          html <span class="icon-image"> </span>
+ * - List of awesome icons which may be addressed like
+          html <i class="fa fa-adjust"></i>
+ *
+ *
+ * @since  version 0.1
+ */
+
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Helper\ModuleHelper;
