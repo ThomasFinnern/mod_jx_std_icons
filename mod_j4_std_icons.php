@@ -12,14 +12,13 @@
  * own site so other developers may find and search these icons.
  * It collects and display lists of available Joomla!4 icons (standard template)
  *
- * One collection regards icons found in the used *.svg files.
+ * One collection contains icon names found in the used *.svg files.
  * Other collections are retrieved from *.css file as the supported list is
  * smaller then the given *.svg icons.
  * - List of supported icons (previous icomonn) for internal style and
           html <span class="icon-image"> </span>
- * - List of awesome icons which may be addressed like
+ * - List of supported fonmt awesome icons which may be addressed like
           html <i class="fa fa-adjust"></i>
- *
  *
  * @since  version 0.1
  */
@@ -31,17 +30,18 @@ use finnern\Module\mod_j4_std_icons\Site\Helper\mod_j4_std_iconsHelper;
 
 global $awesome_version, $j3x_css_icons, $j4x_css_awesome_icons, $svg_icons; //, $iconsListByCharValue
 
-$test  = " (created 2023.05.01)";
-
-// bool $isExtractSvg=true, bool $isExtractCss=true
+// auto load icons data from files
 $j4_std_icons = new mod_j4_std_iconsHelper();
 
-//// icomoon and awesome icons referenced in *.css file
-//[$j3x_form_icons, $j4x_awesome_icons, $awesome_version] =
-//        $mod_j4_std_icons->cssfile_extractIcons();
-$j3x_css_icons         = $j4_std_icons->j3x_css_icons;
-$j4x_css_awesome_icons = $j4_std_icons->j4x_css_awesome_icons;
+
+// available icons in *.svg
 $svg_icons             = $j4_std_icons->svg_icons;
+
+// internal icons
+$j3x_css_icons         = $j4_std_icons->j3x_css_icons;
+// supported font awesome icons
+$j4x_css_awesome_icons = $j4_std_icons->j4x_css_awesome_icons;
+
 $awesome_version       = $j4_std_icons->awesome_version;
 
 // ToDo: is it needed ?
