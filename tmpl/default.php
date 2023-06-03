@@ -67,7 +67,7 @@ $font_size = $params->get('font_size');
 
 						<?php if($isDisplayTechDetail): ?>
 							<div class="mb-3">
-								<h6 class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_ICOMOON_ICONS_DESC'); ?></h6>
+								<div class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_ICOMOON_ICONS_DESC'); ?></div>
 							</div>
 						<?php endif; ?>
 
@@ -122,7 +122,7 @@ $font_size = $params->get('font_size');
 
 						<?php if($isDisplayTechDetail): ?>
 							<div class="mb-3">
-								<h6 class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_AWESOME_ICONS_DESC'); ?></h6>
+								<div class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_AWESOME_ICONS_DESC'); ?></div>
 							</div>
 						<?php endif; ?>
 
@@ -152,7 +152,7 @@ $font_size = $params->get('font_size');
 											</div>
 											<div class="quickicon-name d-flex align-items-end">
 												<?php if ( in_array ($item, $j4x_css_awesome_icons)): ?>
-													<?php echo $item; ?>
+													<strong><?php echo $item; ?></strong>
 												<?php else: ?>
 													<del>
 													<?php echo $item; ?>
