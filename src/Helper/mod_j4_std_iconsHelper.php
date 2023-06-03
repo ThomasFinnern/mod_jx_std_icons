@@ -90,7 +90,7 @@ class mod_j4_std_iconsHelper
      */
     public function cssfile_extractIcons ($cssPathFileName='') {
 
-        $j3x_form_icons = [];
+        $j3x_css_form_icons = [];
         $j4x_awesome_icons = [];
         $awesome_version = '%unknown%';
 
@@ -116,7 +116,7 @@ class mod_j4_std_iconsHelper
                 $lines = file($cssPathFileName);
 
                 // do extract
-                [$j3x_form_icons, $awesome_icons, $awesome_version] = self::lines_extractCssIcons ($lines);
+                [$j3x_css_form_icons, $awesome_icons, $awesome_version] = self::lines_extractCssIcons ($lines);
 
                 $isAssigned = true;
             }
@@ -131,11 +131,11 @@ class mod_j4_std_iconsHelper
         }
 
         // Keep result in class
-        $this->j3x_css_icon_icons    = $j3x_form_icons;
+        $this->j3x_css_form_icons    = $j3x_css_form_icons;
         $this->j4x_css_awesome_icons = $awesome_icons;
         $this->awesome_version       = $awesome_version;
 
-        return [$j3x_form_icons, $j4x_awesome_icons, $awesome_version];
+        return [$j3x_css_form_icons, $j4x_awesome_icons, $awesome_version];
     }
 
     /**
@@ -148,7 +148,7 @@ class mod_j4_std_iconsHelper
      */
     public function lines_extractCssIcons ($lines = []) {
 
-        $j3x_form_icons = [];
+        $j3x_css_form_icons = [];
         $awesome_icons = [];
         $awesome_version = '%unknown%';
 
@@ -232,8 +232,8 @@ class mod_j4_std_iconsHelper
 
                     //--- .icons / .fa lists ------------------
 
-                    if ($icon->iconType == '.icons') {
-                        $j3x_form_icons [$iconName] = $icon;
+                    if ($icon->iconType == '.icon') {
+                        $j3x_css_form_icons [$iconName] = $icon;
                     } else {
                         $j4x_awesome_icons [$iconName] = $icon;
                     }
@@ -242,7 +242,7 @@ class mod_j4_std_iconsHelper
             }
 
             // sort
-            ksort ($j3x_form_icons);
+            ksort ($j3x_css_form_icons);
             ksort ($j4x_awesome_icons);
 
         } catch (\RuntimeException $e) {
@@ -254,7 +254,7 @@ class mod_j4_std_iconsHelper
             $app->enqueueMessage($OutTxt, 'error');
         }
 
-        return [$j3x_form_icons, $j4x_awesome_icons, $awesome_version];
+        return [$j3x_css_form_icons, $j4x_awesome_icons, $awesome_version];
     }
 
     /**
@@ -315,24 +315,33 @@ class mod_j4_std_iconsHelper
 
         $iconsListByCharValue = [];
 
-        foreach ($j3x_css_icons as $iconSet) {
+        try {
+//            foreach ($j3x_css_icons as $iconSet) {
+//
+//                $iconCharVal = $iconSet->iconCharVal;
+//                $iconsListByCharValue[$iconCharVal][] = $iconSet;
+//            }
+//
+//            foreach ($j4x_css_awesome_icons as $iconSet) {
+//
+//                $iconCharVal = $iconSet->iconCharVal;
+//                $iconsListByCharValue[$iconCharVal][] = $iconSet;
+//            }
+//
+//            ksort ($iconsListByCharValue);
 
-            $iconCharVal = $iconSet[0]->iconCharVal;
-            $iconsListByCharValue[$iconCharVal][] = $iconSet[0];
+        } catch (\RuntimeException $e) {
+            $OutTxt = '';
+            $OutTxt .= 'Error executing iconsListByCharValue: "' . '<br>';
+            $OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
+
+            $app = Factory::getApplication();
+            $app->enqueueMessage($OutTxt, 'error');
         }
-
-        foreach ($j4x_css_awesome_icons as $iconSet) {
-
-            $iconCharVal = $iconSet[0]->iconCharVal;
-            $iconsListByCharValue[$iconCharVal][] = $iconSet[0];
-        }
-
-        ksort ($iconsListByCharValue);
 
         $this->iconsListByCharValue = $iconsListByCharValue;
 
         return $iconsListByCharValue;
     }
-
 
 }

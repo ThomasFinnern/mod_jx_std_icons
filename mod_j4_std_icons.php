@@ -28,7 +28,7 @@
 use Joomla\CMS\Helper\ModuleHelper;
 use finnern\Module\mod_j4_std_icons\Site\Helper\mod_j4_std_iconsHelper;
 
-global $awesome_version, $j3x_css_icons, $j4x_css_awesome_icons, $svg_icons; //, $iconsListByCharValue
+global $awesome_version, $j3x_css_form_icons, $j4x_css_awesome_icons, $svg_icons; //, $iconsListByCharValue
 
 // auto load icons data from files
 $j4_std_icons = new mod_j4_std_iconsHelper();
@@ -38,7 +38,7 @@ $j4_std_icons = new mod_j4_std_iconsHelper();
 $svg_icons             = $j4_std_icons->svg_icons;
 
 // internal icons
-$j3x_css_icons         = $j4_std_icons->j3x_css_icons;
+$j3x_css_form_icons         = $j4_std_icons->j3x_css_form_icons;
 // supported font awesome icons
 $j4x_css_awesome_icons = $j4_std_icons->j4x_css_awesome_icons;
 
@@ -46,7 +46,7 @@ $awesome_version       = $j4_std_icons->awesome_version;
 
 // ToDo: is it needed ?
 // common char index of font awesome icons
-$iconsListByCharValue = $j4_std_icons->iconsListByCharValue($j3x_css_icons, $j4x_css_awesome_icons);
+$iconsListByCharValue = $j4_std_icons->iconsListByCharValue($j3x_css_form_icons, $j4x_css_awesome_icons);
 
 // display the module
 // ToDo: check require ModuleHelper::getLayoutPath('mod_j4_std_icons', $params->get('layout', 'default'));

@@ -12,7 +12,7 @@ use Joomla\CMS\Language\Text;
 
 \defined('_JEXEC') or die;
 
-global $awesome_version, $j3x_css_icons, $j4x_css_awesome_icons, $svg_icons; //, $iconsListByCharValue
+global $awesome_version, $j3x_css_form_icons, $j4x_css_awesome_icons, $svg_icons; //, $iconsListByCharValue
 
 // load css
 $wa = $app->getDocument()->getWebAssetManager();
@@ -28,7 +28,7 @@ $font_size = $params->get('font_size');
 ?>
 <div class="card" >
 	<div class="card-body">
-		<?php if (empty($icons)): ?>
+		<?php if (empty($j3x_css_form_icons) && empty($j4x_css_awesome_icons)): ?>
 			<h3 class="card-title">
 				<?php echo Text::_('MOD_J4_STD_ICONS_NO_ICONS'); ?>
 			</h3>
@@ -86,24 +86,24 @@ $font_size = $params->get('font_size');
 									</a>
 								</li>
 
-								<?php foreach ($j3x_css_icons as $item): ?>
+								<?php foreach ($j3x_css_form_icons as $item): ?>
 									<li class="quickicon quickicon-single">
 										<a href="#">
 											<div class="quickicon-info">
 												<div class="quickicon-icon">
-													<i style="font-size: <?php echo $font_size; ?>px;" class="icon-<?php echo $item; ?>"></i>
+													<i style="font-size: <?php echo $font_size; ?>px;" class="icon-<?php echo $item->name; ?>"></i>
 
 												</div>
 											</div>
 											<div class="quickicon-name d-flex align-items-end">
-												<?php echo $item; ?>
+												<?php echo $item->name; ?>
 											</div>
 										</a>
 									</li>
 								<?php endforeach; ?>
 							</ul>
 						</nav>
-						<h5>Count: <span class="badge bg-secondary"><?php echo count ($j3x_css_icons); ?></span></h5>
+						<h5>Count: <span class="badge bg-secondary"><?php echo count ($j3x_css_form_icons); ?></span></h5>
 					</div>
 				</div>
 			<?php endif; ?>
