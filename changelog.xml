@@ -25,4 +25,17 @@
 			<item>Pre release version</item>
 		</note>
 	</changelog>
+	<changelog>
+		<element>mod_j4_standard_icons</element>
+		<type>module</type>
+		<client>site</client>
+		<version>0.3.0</version>
+		<date>2023-06-03</date>
+		<change>
+			<item>Redesign of extraction class</item>
+		</change>
+		<note>
+			<item>Release version</item>
+		</note>
+	</changelog>
 </changelogs>

@@ -93,7 +93,8 @@
 	</config>
 	
 	<updateservers>
-		<server type="extension" name="J!4 Standard Icons Updates">https://raw.githubusercontent.com/ThomasFinnern/updateserver/main/mod_j4_std_icons_updates.xml</server>
+    <!-- Note: No spaces or linebreaks allowed between the server tags --> 
+	<server type="extension" name="J!4 Standard Icons Updates">https://raw.githubusercontent.com/ThomasFinnern/updateserver/main/mod_j4_std_icons_updates.xml</server>
 	</updateservers>
 	<changelogurl>https://raw.githubusercontent.com/ThomasFinnern/mod_j4_standard_icons/main/changelog.xml</changelogurl>
 </extension>
