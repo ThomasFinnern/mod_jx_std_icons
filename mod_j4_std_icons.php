@@ -38,11 +38,15 @@ $j4_std_icons = new mod_j4_std_iconsHelper();
 $svg_icons             = $j4_std_icons->svg_icons;
 
 // internal icons
-$j3x_css_form_icons         = $j4_std_icons->j3x_css_form_icons;
+$j3x_css_form_icons    = $j4_std_icons->j3x_css_form_icons;
 // supported font awesome icons
 $j4x_css_awesome_icons = $j4_std_icons->j4x_css_awesome_icons;
 
 $awesome_version       = $j4_std_icons->awesome_version;
+
+// brands
+$j4_std_icons->svgfile_brands_extractIcons();
+$svg_brand_icons       = $j4_std_icons->svg_brand_icons;
 
 // ToDo: is it needed ?
 // common char index of font awesome icons

@@ -21,7 +21,7 @@ use Joomla\CMS\Factory;
  *      html <span class="icon-image"> </span> from *.css file
  * - List of awesome icons which may be addressed like
         html <i class="fa fa-adjust"></i> from *.css file
- * font awsome and internal icons may be referred to the same
+ * font awesome and internal icons may be referred to the same
  *      font awesome icon but different names may be used
  *
  * @since  version 0.1
@@ -44,6 +44,9 @@ class mod_j4_std_iconsHelper
 
     // available icons in J! svg file
     public $svg_icons = [];
+
+    // available brand icons in J! svg file
+    public $svg_brand_icons = [];
 
     // defined in J! css file
     public $awesome_version =  '%unknown%';
@@ -303,10 +306,51 @@ class mod_j4_std_iconsHelper
         return $this->svg_icons;
     }
 
+    /**
+     * collect names of all font awesome icons in file
+     *
+     * @since version 0.1
+     */
+    public function svgfile_brands_extractIcons($file = ''): array
+    {
+        $svg_brand_icons = [];
+
+        try {
+            // external ?
+            if (empty ($file)) {
+                $file = self::SVG_PATH_FILE_NAME_BRANDS;
+            }
+
+            $array = json_decode(json_encode(simplexml_load_file($file)),TRUE);
+            $glyphs = $array['defs']['font']['glyph'];
+
+            foreach($glyphs as $glyph)
+            {
+                $svg_brand_icons[] = $glyph['@attributes']['glyph-name'];
+            }
+
+            // sort
+            asort($svg_brand_icons);
+
+            // No doubles
+            $this->svg_brand_icons = array_unique($svg_brand_icons);
+
+        } catch (\RuntimeException $e) {
+            $OutTxt = '';
+            $OutTxt .= 'Error executing linesEextractCssIcons: "' . '<br>';
+            $OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
+
+            $app = Factory::getApplication();
+            $app->enqueueMessage($OutTxt, 'error');
+        }
+
+        return $this->svg_brand_icons;
+    }
+
 
     /**
      * create list bases on common char value
-     * font awsome and internal icons may refer to same svg icon but from different n ames
+     * font awesome and internal icons may refer to same svg icon but from different n ames
      *
      * @since version 0.1
      */
