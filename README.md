@@ -11,22 +11,22 @@ https://docs.joomla.org/J4.x:Joomla_Standard_Font_Awesome_Fonts
 Now this list is not styled very nice.
 (This may be here too but change in the future hopefully)
 
-Adressing the icons in our component has some pitfalls:
+Addressing the icons in our component has some pitfalls:
 
 1) Joomla 4 has additional icons useful in the following style  ``` <i class="fa fa-adjust"></i> ```
 1) Joomla kept for compatibility the J3x style ```<span class="icon-image"> </span>```
 
 * The J3x ico moon icons are not delivered with the installation. Instead the use of for example 'icon-image' is transfered to a matching awesome icon (character)
-* Using icons in stadard joomla functions like
+* Using icons in standard joomla functions like
    ToolBarHelper::title('some title', 'cogs'); will use the icon 'cogs' and uses icon-cogs for the class to show the icon.
-   Wanting to show an icon only available in awesome list and trying 'fas fa-camera-retro' as parameter will not help. In some cases 'none fas fa-camera-retro' will display the desired icon but. there may be sideeffects like empty space and wrong font afterwards
+   Wanting to show an icon only available in awesome list and trying 'fas fa-camera-retro' as parameter will not help. In some cases 'none fas fa-camera-retro' will display the desired icon but. there may be side effects like empty space and wrong font afterwards.
 
 ## Generated views
 
 Any icon is displayed in a box with name below
 Each icon table has a short introduction how to use this type of icon
 1) Short introduction text about the technical side of joomla icons
-1) The first icon table shows the icon which can be adressed by 'icon-[Nmae]' (icomoon replacements)
+1) The first icon table shows the icon which can be addressed by 'icon-[Name]' (icomoon replacements)
 1) Second icon list shows the complete Font awesome icon list
 
 ## Parameter
@@ -34,8 +34,8 @@ Each icon table has a short introduction how to use this type of icon
 Actual there are none
 
 ## Corrections
-* If you have more facts or deviating opinien please write an issue here on github. I am happy to improve te code or this document
-* Any request for features will be considered favourably
+* If you have more facts or deviating opinions please write an issue here on github. I am happy to improve te code or this document
+* Any request for features will be considered favorably
 * Any hints how to get the boxes smaller is welcome
 * You may add code with pull requests
 
