@@ -26,7 +26,7 @@
 	</files>
 	
 	<!-- css, js, images files, .... -->
-	<media folder="media/mod_j4_std_icons" destination="mod_j4_std_icons">
+	<media folder="media/modules/mod_j4_std_icons" destination="mod_j4_std_icons">
 		<folder>css</folder>
 	</media>
 	
