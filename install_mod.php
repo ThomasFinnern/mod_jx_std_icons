@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     Joomla.Site
+ * @package     Joomla.Administrator
  * @subpackage  mod_j4_std_icons
  * 
  * @copyright (c) 2005-2023 Thomas Finnern

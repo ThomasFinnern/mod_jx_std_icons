@@ -17,11 +17,11 @@ use Joomla\CMS\Factory;
  * Collect lists of available Joomla!4 icons (standard template)
  *
  * - List of awesome icons retrieved from *.svg file(s)
- * - List of supported icons (previous icomonn) for internal style and
+ * - List of supported icons (previous icomoon) for internal style and
  *      html <span class="icon-image"> </span> from *.css file
  * - List of awesome icons which may be addressed like
         html <i class="fa fa-adjust"></i> from *.css file
- * font awesome and internal icons may be referred to the same
+ * font awsome and internal icons may be referred to the same
  *      font awesome icon but different names may be used
  *
  * @since  version 0.1
@@ -30,34 +30,31 @@ class mod_j4_std_iconsHelper
 {
     //--- path to files ------------------------------------------------------------------
 
-    // Css file
-    const CSS_PATH_FILE_NAME = JPATH_ROOT . '/media/templates/administrator/atum/css/vendor/fontawesome-free/fontawesome.css';
+    // Css file icomoon replacements
+	// ToDo: ==> template atum
+    const CSS_ICOMOON_PATH_FILE_NAME = JPATH_ROOT . '/media/templates/administrator/atum/css/vendor/fontawesome-free/fontawesome.css';
+	
+	// Css file joomla fontawesome
+	// ToDo: ==> system
+	const CSS_JOOMLA_AWESOME_PATH_FILE_NAME = JPATH_ROOT . '/media/system/css/joomla-fontawesome.css';
 
-    // Svg files
-    const SVG_PATH_FILE_NAME_BRANDS = JPATH_ROOT. '/media/vendor/fontawesome-free/webfonts/fa-brands-400.svg';
-    const SVG_PATH_FILE_NAME_REGULAR = JPATH_ROOT. '/media/vendor/fontawesome-free/webfonts/fa-regular-400.svg';
-    const SVG_PATH_FILE_NAME_SOLID = JPATH_ROOT. '/media/vendor/fontawesome-free/webfonts/fa-solid-900.svg';
+	// Css file vendor fontawesome
+	const CSS_AWESOME_PATH_FILE_NAME = JPATH_ROOT . '/media/vendor/fontawesome-free/css/fontawesome.css';
 
-    /**
-     * @var
-     */
-
-    // available icons in J! svg file
-    public $svg_icons = [];
-
-    // available brand icons in J! svg file
-    public $svg_brand_icons = [];
 
     // defined in J! css file
     public $awesome_version =  '%unknown%';
 
-    // internal icons defined in J! css file
-    public $j3x_css_icons = []; // rename -> form icons ?
+	// Css file icomoon replacements
+    public $css_icomoon_icons = [];
 
-    // supported awesome icons defined in J! css file
-    public $j4x_css_awesome_icons = [];
+	// Css file joomla fontawesome
+    public $css_joomla_awesome_icons = [];
 
-    //  font char values from J! css file
+	// Css file vendor all fontawesome
+    public $css_all_awesome_icons = [];
+
+    // font char values array from J! css file
     public $iconsListByCharValue = [];
 
     /**
@@ -69,40 +66,74 @@ class mod_j4_std_iconsHelper
      */
     public function __construct(bool $isExtractSvg=true, bool $isExtractCss=true)
     {
-        // extract icons from *.svg file
-        if ($isExtractSvg) {
-
-            $this->svgfile_extractIcons();
-        }
 
         // extract version, icons from *.css file
         if ($isExtractCss) {
 
-            $this->cssfile_extractIcons();
+            $this->extractCss_AllIcons();
         }
 
     }
 
-    /**
+	/**
+	 *
+	 *
+	 * @throws \Exception
+	 * @since version
+	 */
+	public function extractCss_AllIcons () {
+
+		$awesome_version2 = "";
+		$awesome_version3 = "";
+
+		try
+		{
+			[$this->css_icomoon_icons, $this->awesome_version]   = self::cssfile_extractIcons(self::CSS_ICOMOON_PATH_FILE_NAME);
+			[$this->css_joomla_awesome_icons, $awesome_version2] = self::cssfile_extractIcons(self::CSS_JOOMLA_AWESOME_PATH_FILE_NAME);
+			[$this->css_all_awesome_icons, $awesome_version3]    = self::cssfile_extractIcons(self::CSS_AWESOME_PATH_FILE_NAME);
+
+
+
+			if (   ($this->awesome_version != $awesome_version2)
+				|| ($this->awesome_version != $awesome_version3)) {
+
+				// ToDo:
+				// enqueue message different  versions
+				// ....
+				// 			$app = Factory::getApplication();
+				//			$app->enqueueMessage($OutTxt, 'error');
+
+			}
+
+        } catch (\RuntimeException $e) {
+			$OutTxt = '';
+			$OutTxt .= 'Error executing extractCss_AllIcons: "' . '<br>';
+			$OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
+
+			$app = Factory::getApplication();
+			$app->enqueueMessage($OutTxt, 'error');
+		}
+
+		return;
+	}
+
+	/**
      * The CSS file contains
      *  - version of used font awesome
-     *  - css definition for internal used icons (previous icomonn names)
+     *  - css definition for internal used icons (previous icomoon names)
      *  - css definition for font awesome
      *  -
      * @since version 0.1
      */
     public function cssfile_extractIcons ($cssPathFileName='') {
 
-        $j3x_css_form_icons = [];
-        $j4x_awesome_icons = [];
+        $css_form_icons = [];
         $awesome_version = '%unknown%';
 
         try {
             // Local definition
             if ($cssPathFileName=='') {
-                $cssPathFileName = self::CSS_PATH_FILE_NAME;
-            } else {
-                $this->cssPathFileName = $cssPathFileName;
+                $cssPathFileName = self::CSS_ICOMOON_PATH_FILE_NAME;
             }
 
             // Is not a file
@@ -113,13 +144,14 @@ class mod_j4_std_iconsHelper
 
                 $app = Factory::getApplication();
                 $app->enqueueMessage($OutTxt, 'warning');
+
             } else {
 
                 // all lines
                 $lines = file($cssPathFileName);
 
                 // do extract
-                [$j3x_css_form_icons, $awesome_icons, $awesome_version] = self::lines_extractCssIcons ($lines);
+                [$css_form_icons, $awesome_version] = self::lines_extractCssIcons ($lines);
 
                 $isAssigned = true;
             }
@@ -133,25 +165,20 @@ class mod_j4_std_iconsHelper
             $app->enqueueMessage($OutTxt, 'error');
         }
 
-        // Keep result in class
-        $this->j3x_css_form_icons    = $j3x_css_form_icons;
-        $this->j4x_css_awesome_icons = $awesome_icons;
-        $this->awesome_version       = $awesome_version;
-
-        return [$j3x_css_form_icons, $j4x_awesome_icons, $awesome_version];
+        return [$css_form_icons, $awesome_version];
     }
 
     /**
      * The lines (CSS file) contains
      *  - version of used font awesome
-     *  - css definition for internal used icons (previous icomonn names)
+     *  - css definition for internal used icons (previous icomoon names)
      *  - css definition for font awesome
      *
      * @since version 0.1
      */
     public function lines_extractCssIcons ($lines = []) {
 
-        $j3x_css_form_icons = [];
+        $css_form_icons = [];
         $awesome_icons = [];
         $awesome_version = '%unknown%';
 
@@ -235,18 +262,15 @@ class mod_j4_std_iconsHelper
 
                     //--- .icons / .fa lists ------------------
 
-                    if ($icon->iconType == '.icon') {
-                        $j3x_css_form_icons [$iconName] = $icon;
-                    } else {
-                        $j4x_awesome_icons [$iconName] = $icon;
-                    }
+                    // if ($icon->iconType == '.icon') {
+                    $css_form_icons [$iconName] = $icon;
+	                //}
 
                 }
             }
 
             // sort
-            ksort ($j3x_css_form_icons);
-            ksort ($j4x_awesome_icons);
+            ksort ($css_form_icons);
 
         } catch (\RuntimeException $e) {
             $OutTxt = '';
@@ -257,104 +281,18 @@ class mod_j4_std_iconsHelper
             $app->enqueueMessage($OutTxt, 'error');
         }
 
-        return [$j3x_css_form_icons, $j4x_awesome_icons, $awesome_version];
-    }
-
-    /**
-     * collect names of all font awesome icons in file
-     *
-     * @since version 0.1
-     */
-    public function svgfile_extractIcons($files = []): array
-    {
-        $svg_icons = [];
-
-        try {
-            // external ?
-            if (empty ($files)) {
-                //$files = [SVG_PATH_FILE_NAME_BRANDS, SVG_PATH_FILE_NAME_REGULAR, SVG_PATH_FILE_NAME_SOLID];
-                $files = [self::SVG_PATH_FILE_NAME_REGULAR, self::SVG_PATH_FILE_NAME_SOLID];
-            }
-
-            // collect names from all files
-            foreach ($files as $file)
-            {
-                $array = json_decode(json_encode(simplexml_load_file($file)),TRUE);
-                $glyphs = $array['defs']['font']['glyph'];
-
-                foreach($glyphs as $glyph)
-                {
-                    $svg_icons[] = $glyph['@attributes']['glyph-name'];
-                }
-            }
-
-            // sort
-            asort($svg_icons);
-
-            // No doubles
-            $this->svg_icons = array_unique($svg_icons);
-        } catch (\RuntimeException $e) {
-            $OutTxt = '';
-            $OutTxt .= 'Error executing linesEextractCssIcons: "' . '<br>';
-            $OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
-
-            $app = Factory::getApplication();
-            $app->enqueueMessage($OutTxt, 'error');
-        }
-
-
-        return $this->svg_icons;
-    }
-
-    /**
-     * collect names of all font awesome icons in file
-     *
-     * @since version 0.1
-     */
-    public function svgfile_brands_extractIcons($file = ''): array
-    {
-        $svg_brand_icons = [];
-
-        try {
-            // external ?
-            if (empty ($file)) {
-                $file = self::SVG_PATH_FILE_NAME_BRANDS;
-            }
-
-            $array = json_decode(json_encode(simplexml_load_file($file)),TRUE);
-            $glyphs = $array['defs']['font']['glyph'];
-
-            foreach($glyphs as $glyph)
-            {
-                $svg_brand_icons[] = $glyph['@attributes']['glyph-name'];
-            }
-
-            // sort
-            asort($svg_brand_icons);
-
-            // No doubles
-            $this->svg_brand_icons = array_unique($svg_brand_icons);
-
-        } catch (\RuntimeException $e) {
-            $OutTxt = '';
-            $OutTxt .= 'Error executing linesEextractCssIcons: "' . '<br>';
-            $OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
-
-            $app = Factory::getApplication();
-            $app->enqueueMessage($OutTxt, 'error');
-        }
-
-        return $this->svg_brand_icons;
+        return [$css_form_icons, $awesome_version];
     }
 
 
     /**
+     * ToDo:
      * create list bases on common char value
-     * font awesome and internal icons may refer to same svg icon but from different n ames
+     * font awsome and internal icons may refer to same svg icon but from different n ames
      *
      * @since version 0.1
      */
-    public function iconsListByCharValue ($j3x_css_icons, $j4x_css_awesome_icons) {
+    public function iconsListByCharValue ($j3x_css_icons) {
         // ToDo: is it needed ?
 
         $iconsListByCharValue = [];
@@ -366,11 +304,6 @@ class mod_j4_std_iconsHelper
 //                $iconsListByCharValue[$iconCharVal][] = $iconSet;
 //            }
 //
-//            foreach ($j4x_css_awesome_icons as $iconSet) {
-//
-//                $iconCharVal = $iconSet->iconCharVal;
-//                $iconsListByCharValue[$iconCharVal][] = $iconSet;
-//            }
 //
 //            ksort ($iconsListByCharValue);
 

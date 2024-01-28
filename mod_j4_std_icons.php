@@ -8,6 +8,8 @@
  */
 
 /**
+ *  ToDo: update 
+ *
  * This module enables to show the available Joomla!4 icons with names in a
  * own site so other developers may find and search these icons.
  * It collects and display lists of available Joomla!4 icons (standard template)
@@ -28,29 +30,14 @@
 use Joomla\CMS\Helper\ModuleHelper;
 use finnern\Module\mod_j4_std_icons\Site\Helper\mod_j4_std_iconsHelper;
 
-global $awesome_version, $j3x_css_form_icons, $j4x_css_awesome_icons, $svg_icons; //, $iconsListByCharValue
+global $j_css_icons;
 
 // auto load icons data from files
-$j4_std_icons = new mod_j4_std_iconsHelper();
+$j_css_icons = new mod_j4_std_iconsHelper();
 
-
-// available icons in *.svg
-$svg_icons             = $j4_std_icons->svg_icons;
-
-// internal icons
-$j3x_css_form_icons    = $j4_std_icons->j3x_css_form_icons;
-// supported font awesome icons
-$j4x_css_awesome_icons = $j4_std_icons->j4x_css_awesome_icons;
-
-$awesome_version       = $j4_std_icons->awesome_version;
-
-// brands
-$j4_std_icons->svgfile_brands_extractIcons();
-$svg_brand_icons       = $j4_std_icons->svg_brand_icons;
-
-// ToDo: is it needed ?
-// common char index of font awesome icons
-$iconsListByCharValue = $j4_std_icons->iconsListByCharValue($j3x_css_form_icons, $j4x_css_awesome_icons);
+//// ToDo: is it needed ?
+//// common char index of font awesome icons
+//$iconsListByCharValue = $j_css_icons->iconsListByCharValue( use internal data );
 
 // display the module
 // ToDo: check require ModuleHelper::getLayoutPath('mod_j4_std_icons', $params->get('layout', 'default'));
