@@ -17,9 +17,9 @@ global $j_css_icons;
 // extracted version
 $awesome_version = $j_css_icons->awesome_version;
 
-$css_icomoon_icons = $j_css_icons->css_icomoon_icons;
-$css_joomla_awesome_icons = $j_css_icons->css_joomla_awesome_icons;
-$css_all_awesome_icons = $j_css_icons->css_all_awesome_icons;
+$css_icomoon_icons = $j_css_icons->css_atum_template_icons;
+$css_joomla_awesome_icons = $j_css_icons->css_joomla_system_icons;
+$css_all_awesome_icons = $j_css_icons->css_vendor_awesome_icons;
 
 
 // load css
@@ -38,6 +38,7 @@ $isDisplayByCharTable = $params->get('isDisplayByCharTable');
 //>>>----------------------------------------------------
 $isDisplayTablesHeader = true;
 $isDisplayTechDetail = true;
+
 $isDisplayIcomoonTable = true;
 $isDisplayJoomlaAwesomeTable = true;
 $isDisplayAllAwesomeTable = true;

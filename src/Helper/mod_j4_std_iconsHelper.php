@@ -30,29 +30,27 @@ class mod_j4_std_iconsHelper
 {
     //--- path to files ------------------------------------------------------------------
 
-    // Css file icomoon replacements
-	// ToDo: ==> template atum
-    const CSS_ICOMOON_PATH_FILE_NAME = JPATH_ROOT . '/media/templates/administrator/atum/css/vendor/fontawesome-free/fontawesome.css';
-	
-	// Css file joomla fontawesome
-	// ToDo: ==> system
-	const CSS_JOOMLA_AWESOME_PATH_FILE_NAME = JPATH_ROOT . '/media/system/css/joomla-fontawesome.css';
+    // Icons fontawesome in joomla Atum template
+    const CSS_TEMPLATE_ATUM_PATH_FILE_NAME = JPATH_ROOT . '/media/templates/administrator/atum/css/vendor/fontawesome-free/fontawesome.css';
 
-	// Css file vendor fontawesome
-	const CSS_AWESOME_PATH_FILE_NAME = JPATH_ROOT . '/media/vendor/fontawesome-free/css/fontawesome.css';
+    // Icons fontawesome in joomla system path (backend)
+	const CSS_JOOMLA_SYSTEM_PATH_FILE_NAME = JPATH_ROOT . '/media/system/css/joomla-fontawesome.css';
+
+	//  Icons fontawesome in joomla vendor fontawesome path
+	const CSS_VEDOR_AWESOME_PATH_FILE_NAME = JPATH_ROOT . '/media/vendor/fontawesome-free/css/fontawesome.css';
 
 
     // defined in J! css file
     public $awesome_version =  '%unknown%';
 
 	// Css file icomoon replacements
-    public $css_icomoon_icons = [];
+    public $css_atum_template_icons = [];
 
 	// Css file joomla fontawesome
-    public $css_joomla_awesome_icons = [];
+    public $css_joomla_system_icons = [];
 
 	// Css file vendor all fontawesome
-    public $css_all_awesome_icons = [];
+    public $css_vendor_awesome_icons = [];
 
     // font char values array from J! css file
     public $iconsListByCharValue = [];
@@ -88,10 +86,9 @@ class mod_j4_std_iconsHelper
 
 		try
 		{
-			[$this->css_icomoon_icons, $this->awesome_version]   = self::cssfile_extractIcons(self::CSS_ICOMOON_PATH_FILE_NAME);
-			[$this->css_joomla_awesome_icons, $awesome_version2] = self::cssfile_extractIcons(self::CSS_JOOMLA_AWESOME_PATH_FILE_NAME);
-			[$this->css_all_awesome_icons, $awesome_version3]    = self::cssfile_extractIcons(self::CSS_AWESOME_PATH_FILE_NAME);
-
+			[$this->css_joomla_system_icons, $this->awesome_version] = self::cssfile_extractIcons(self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME);
+            [$this->css_atum_template_icons, $awesome_version2]   = self::cssfile_extractIcons(self::CSS_TEMPLATE_ATUM_PATH_FILE_NAME);
+			[$this->css_vendor_awesome_icons, $awesome_version3]    = self::cssfile_extractIcons(self::CSS_VEDOR_AWESOME_PATH_FILE_NAME);
 
 
 			if (   ($this->awesome_version != $awesome_version2)
@@ -133,7 +130,7 @@ class mod_j4_std_iconsHelper
         try {
             // Local definition
             if ($cssPathFileName=='') {
-                $cssPathFileName = self::CSS_ICOMOON_PATH_FILE_NAME;
+                $cssPathFileName = self::CSS_TEMPLATE_ATUM_PATH_FILE_NAME;
             }
 
             // Is not a file
