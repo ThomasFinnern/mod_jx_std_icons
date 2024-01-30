@@ -53,7 +53,7 @@ class mod_j4_std_iconsHelper
     public $css_vendor_awesome_icons = [];
 
     // font char values array from J! css file
-    public $iconsListByCharValue = [];
+    public $iconListByCharValue = [];
 
     /**
      * Extract all public data from files on creation
@@ -289,33 +289,33 @@ class mod_j4_std_iconsHelper
      *
      * @since version 0.1
      */
-    public function iconsListByCharValue ($j3x_css_icons) {
+    public function iconListByCharValue ($j3x_css_icons) {
         // ToDo: is it needed ?
 
-        $iconsListByCharValue = [];
+        $iconListByCharValue = [];
 
         try {
 //            foreach ($j3x_css_icons as $iconSet) {
 //
 //                $iconCharVal = $iconSet->iconCharVal;
-//                $iconsListByCharValue[$iconCharVal][] = $iconSet;
+//                $iconListByCharValue[$iconCharVal][] = $iconSet;
 //            }
 //
 //
-//            ksort ($iconsListByCharValue);
+//            ksort ($iconListByCharValue);
 
         } catch (\RuntimeException $e) {
             $OutTxt = '';
-            $OutTxt .= 'Error executing iconsListByCharValue: "' . '<br>';
+            $OutTxt .= 'Error executing iconListByCharValue: "' . '<br>';
             $OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
 
             $app = Factory::getApplication();
             $app->enqueueMessage($OutTxt, 'error');
         }
 
-        $this->iconsListByCharValue = $iconsListByCharValue;
+        $this->iconListByCharValue = $iconListByCharValue;
 
-        return $iconsListByCharValue;
+        return $iconListByCharValue;
     }
 
 }

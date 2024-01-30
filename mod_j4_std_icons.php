@@ -25,6 +25,11 @@
  * @since  version 0.1
  */
 
+// https://vi-solutions.de/de/tips-vom-joomla-spezialist/372-joomla-icomoon-zeichensatz-tabelle
+// https://mooretechsolutions.com/cool-joomla-icomoon-fonts/
+// 
+
+
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Helper\ModuleHelper;
@@ -37,7 +42,7 @@ $j_css_icons = new mod_j4_std_iconsHelper();
 
 //// ToDo: is it needed ?
 //// common char index of font awesome icons
-//$iconsListByCharValue = $j_css_icons->iconsListByCharValue( use internal data );
+//$iconListByCharValue = $j_css_icons->iconListByCharValue( use internal data );
 
 // display the module
 // ToDo: check require ModuleHelper::getLayoutPath('mod_j4_std_icons', $params->get('layout', 'default'));

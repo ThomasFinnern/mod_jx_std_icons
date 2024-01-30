@@ -56,23 +56,45 @@
 					<option value="1">JYES</option>
 				</field>
 				<field
-					name="isDisplayIconTable_Icon" 
+					name="isDisplayAtumIconTable"
 					type="radio" 
 					class="btn-group btn-group-yesno"
 					default="1" 
-					label="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_ICON_TABLE_ICON" 
-					description="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_ICON_TABLE_ICON_DESC"
+					label="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_ATUM_ICON_TABLE"
+					description="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_ATUM_ICON_TABLE_DESC"
 				>
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 				</field>
 				<field 
-					name="isDisplayIconTable_Awesome"
+					name="isDisplayJoomlaSysIconTable"
 					type="radio" 
 					class="btn-group btn-group-yesno"
 					default="1" 
-					label="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_ICON_TABLE_AWESOME" 
-					description="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_ICON_TABLE_AWESOME_DESC"
+					label="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_JOOMLA_SYSTEM_ICON_TABLE"
+					description="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_JOOMLA_SYSTEM_ICON_TABLE_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="isDisplayVendorAwesomeIconTable"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="1"
+					label="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_VENDOR_AWESOME_ICON_TABLE"
+					description="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_VENDOR_AWESOME_ICON_TABLE_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="isDisplayIconListByCharValue"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="1"
+					label="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_ICON_LIST_BY_CHAR_VALUE_TABLE"
+					description="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_ICON_LIST_BY_CHAR_VALUE_TABLE_DESC"
 				>
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>

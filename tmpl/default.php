@@ -17,10 +17,12 @@ global $j_css_icons;
 // extracted version
 $awesome_version = $j_css_icons->awesome_version;
 
-$css_icomoon_icons = $j_css_icons->css_atum_template_icons;
-$css_joomla_awesome_icons = $j_css_icons->css_joomla_system_icons;
-$css_all_awesome_icons = $j_css_icons->css_vendor_awesome_icons;
+$css_atum_template_icons = $j_css_icons->css_atum_template_icons;
+$css_joomla_system_icons = $j_css_icons->css_joomla_system_icons;
+$css_vendor_awesome_icons = $j_css_icons->css_vendor_awesome_icons;
+$iconListByCharValue = $j_css_icons->iconListByCharValue;
 
+// PUA Schriftzeichen
 
 // load css
 $wa = $app->getDocument()->getWebAssetManager();
@@ -29,21 +31,23 @@ $wa->registerAndUseStyle('mod_j4_std_icons', 'mod_j4_std_icons/template.css');
 $isDisplayTablesHeader = $params->get('isDisplayTablesHeader');
 $isDisplayTechDetail = $params->get('isDisplayTechDetail');
 
-$isDisplayIcomoonTable = $params->get('isDisplayIcomoonTable');
-$isDisplayJoomlaAwesomeTable = $params->get('isDisplayJoomlaAwesomeTable');
-$isDisplayAllAwesomeTable = $params->get('isDisplayAllAwesomeTable');
+$isDisplayAtumIconTable      = $params->get('isDisplayAtumIconTable');
+$isDisplayJoomlaSysIconTable = $params->get('isDisplayJoomlaSysIconTable');
+$isDisplayVendorAwesomeIconTable = $params->get('isDisplayVendorAwesomeIconTable');
 
-$isDisplayByCharTable = $params->get('isDisplayByCharTable');
+$isDisplayIconListByCharValue = $params->get('isDisplayIconListByCharValue');
 
+/**
 //>>>----------------------------------------------------
 $isDisplayTablesHeader = true;
 $isDisplayTechDetail = true;
 
-$isDisplayIcomoonTable = true;
-$isDisplayJoomlaAwesomeTable = true;
-$isDisplayAllAwesomeTable = true;
+$isDisplayAtumIconTable      = true;
+$isDisplayJoomlaSysIconTable = true;
+$isDisplayVendorAwesomeIconTable = true;
 $isDisplayByCharTable = true;
 //<<<----------------------------------------------------
+/**/
 
 $font_size = $params->get('font_size');
 
@@ -59,7 +63,7 @@ $font_size = $params->get('font_size');
 
 <div class="card" >
 	<div class="card-body">
-		<?php if (empty($css_icomoon_icons) && empty($css_joomla_awesome_icons) && empty($css_all_awesome_icons)): ?>
+		<?php if (empty($css_atum_template_icons) && empty($css_joomla_system_icons) && empty($css_vendor_awesome_icons)): ?>
 			<h3 class="card-title">
 				<?php echo Text::_('MOD_J4_STD_ICONS_NO_ICONS'); ?>
 			</h3>
@@ -85,12 +89,12 @@ $font_size = $params->get('font_size');
 
 			<!-- icomoon replacements ======================================================================== -->
 
-			<?php if($isDisplayIcomoonTable): ?>
+			<?php if($isDisplayAtumIconTable): ?>
 				<div class="card mb-3 ">
 					<div class="card-header">
 						<h2>
 							<span class="icon-joomla" aria-hidden="true"></span>
-							<?php echo Text::_('MOD_J4_STD_ICONS_ICOMOON_ICONS'); ?>
+							<?php echo Text::_('MOD_J4_STD_ICONS_ATUM_ICON_TABLE'); ?>
 						</h2>
 					</div>
 
@@ -98,7 +102,7 @@ $font_size = $params->get('font_size');
 
 						<?php if($isDisplayTechDetail): ?>
 							<div class="mb-3">
-								<div class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_ICOMOON_ICONS_DESC'); ?></div>
+								<div class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_ATUM_ICON_TABLE_DESC'); ?></div>
 							</div>
 						<?php endif; ?>
 
@@ -117,7 +121,7 @@ $font_size = $params->get('font_size');
 									</a>
 								</li>
 
-								<?php foreach ($css_icomoon_icons as $item): ?>
+								<?php foreach ($css_atum_template_icons as $item): ?>
 									<li class="quickicon quickicon-single">
 										<a href="#">
 											<div class="quickicon-info">
@@ -135,26 +139,26 @@ $font_size = $params->get('font_size');
 								<?php endforeach; ?>
 							</ul>
 						</nav>
-						<h5>Count: <span class="badge bg-secondary"><?php echo count ($css_icomoon_icons); ?></span></h5>
+						<h5>Count: <span class="badge bg-secondary"><?php echo count ($css_atum_template_icons); ?></span></h5>
 					</div>
 				</div>
 			<?php endif; ?>
 
 			<!-- joomla font awesome ======================================================================== -->
 
-			<?php if($isDisplayJoomlaAwesomeTable): ?>
+			<?php if($isDisplayJoomlaSysIconTable): ?>
 				<div class="card mb-3 ">
 					<div class="card-header">
 						<h2>
 							<span class="icon-joomla" aria-hidden="true"></span>
-							<?php echo Text::_('MOD_J4_STD_ICONS_AWESOME_ICONS'); ?>
+							<?php echo Text::_('MOD_J4_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE'); ?>
 						</h2>
 					</div>
 					<div class="card-body">
 
 						<?php if($isDisplayTechDetail): ?>
 							<div class="mb-3">
-								<div class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_AWESOME_ICONS_DESC'); ?></div>
+								<div class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'); ?></div>
 							</div>
 						<?php endif; ?>
 
@@ -173,7 +177,7 @@ $font_size = $params->get('font_size');
 									</a>
 								</li>
 
-								<?php foreach ($css_joomla_awesome_icons as $item): ?>
+								<?php foreach ($css_joomla_system_icons as $item): ?>
 									<li class="quickicon quickicon-single">
 										<a href="#">
 											<div class="quickicon-info">
@@ -191,14 +195,14 @@ $font_size = $params->get('font_size');
 								<?php endforeach; ?>
 							</ul>
 						</nav>
-						<h5>Count: <span class="badge bg-secondary"><?php echo count ($css_joomla_awesome_icons); ?></span></h5>
+						<h5>Count: <span class="badge bg-secondary"><?php echo count ($css_joomla_system_icons); ?></span></h5>
 					</div>
 				</div>
 			<?php endif; ?>
 
             <!-- vendor all fontawesome ======================================================================== -->
 
-			<?php if($isDisplayAllAwesomeTable): ?>
+			<?php if($isDisplayVendorAwesomeIconTable): ?>
                 <div class="card mb-3 ">
                     <div class="card-header">
                         <h2>
@@ -229,7 +233,7 @@ $font_size = $params->get('font_size');
                                     </a>
                                 </li>
 
-								<?php foreach ($css_all_awesome_icons as $item): ?>
+								<?php foreach ($css_vendor_awesome_icons as $item): ?>
                                     <li class="quickicon quickicon-single">
                                         <a href="#">
                                             <div class="quickicon-info">
@@ -249,7 +253,7 @@ $font_size = $params->get('font_size');
 								<?php endforeach; ?>
                             </ul>
                         </nav>
-                        <h5>Count: <span class="badge bg-secondary"><?php echo count ($css_all_awesome_icons); ?></span></h5>
+                        <h5>Count: <span class="badge bg-secondary"><?php echo count ($css_vendor_awesome_icons); ?></span></h5>
                     </div>
                 </div>
 			<?php endif; ?>
