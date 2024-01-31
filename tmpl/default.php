@@ -17,10 +17,11 @@ global $j_css_icons;
 // extracted version
 $awesome_version = $j_css_icons->awesome_version;
 
-$css_atum_template_icons = $j_css_icons->css_atum_template_icons;
-$css_joomla_system_icons = $j_css_icons->css_joomla_system_icons;
+//$css_atum_template_icons = $j_css_icons->css_atum_template_icons;
+css_icomoon_icons        = $j_css_icons->css_icomoon_icons;
+$css_joomla_system_icons  = $j_css_icons->css_joomla_system_icons;
 $css_vendor_awesome_icons = $j_css_icons->css_vendor_awesome_icons;
-$iconListByCharValue = $j_css_icons->iconListByCharValue;
+$iconListByCharValue      = $j_css_icons->iconListByCharValue;
 
 // PUA Schriftzeichen
 
@@ -30,8 +31,9 @@ $wa->registerAndUseStyle('mod_j4_std_icons', 'mod_j4_std_icons/template.css');
 
 $isDisplayTablesHeader = $params->get('isDisplayTablesHeader');
 $isDisplayTechDetail = $params->get('isDisplayTechDetail');
+$isDisplayIconTable_Icon = $params->get('isDisplayIconTable_Icon');
 
-$isDisplayAtumIconTable      = $params->get('isDisplayAtumIconTable');
+// $isDisplayAtumIconTable      = $params->get('isDisplayAtumIconTable');
 $isDisplayJoomlaSysIconTable = $params->get('isDisplayJoomlaSysIconTable');
 $isDisplayVendorAwesomeIconTable = $params->get('isDisplayVendorAwesomeIconTable');
 
@@ -63,7 +65,7 @@ $font_size = $params->get('font_size');
 
 <div class="card" >
 	<div class="card-body">
-		<?php if (empty($css_atum_template_icons) && empty($css_joomla_system_icons) && empty($css_vendor_awesome_icons)): ?>
+		<?php if (empty($css_icomoon_icons) && empty($css_joomla_system_icons) && empty($css_vendor_awesome_icons)): ?>
 			<h3 class="card-title">
 				<?php echo Text::_('MOD_J4_STD_ICONS_NO_ICONS'); ?>
 			</h3>
@@ -89,12 +91,12 @@ $font_size = $params->get('font_size');
 
 			<!-- icomoon replacements ======================================================================== -->
 
-			<?php if($isDisplayAtumIconTable): ?>
+			<?php if($isDisplayIconTable_Icon): ?>
 				<div class="card mb-3 ">
 					<div class="card-header">
 						<h2>
 							<span class="icon-joomla" aria-hidden="true"></span>
-							<?php echo Text::_('MOD_J4_STD_ICONS_ATUM_ICON_TABLE'); ?>
+							<?php echo Text::_('MOD_J4_STD_ICONS_ICOMOON_ICONS'); ?>
 						</h2>
 					</div>
 
@@ -102,7 +104,7 @@ $font_size = $params->get('font_size');
 
 						<?php if($isDisplayTechDetail): ?>
 							<div class="mb-3">
-								<div class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_ATUM_ICON_TABLE_DESC'); ?></div>
+								<div class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_ICOMOON_ICONS_DESC'); ?></div>
 							</div>
 						<?php endif; ?>
 
@@ -121,7 +123,7 @@ $font_size = $params->get('font_size');
 									</a>
 								</li>
 
-								<?php foreach ($css_atum_template_icons as $item): ?>
+								<?php foreach ($css_icomoon_icons as $item): ?>
 									<li class="quickicon quickicon-single">
 										<a href="#">
 											<div class="quickicon-info">
@@ -139,7 +141,7 @@ $font_size = $params->get('font_size');
 								<?php endforeach; ?>
 							</ul>
 						</nav>
-						<h5>Count: <span class="badge bg-secondary"><?php echo count ($css_atum_template_icons); ?></span></h5>
+						<h5>Count: <span class="badge bg-secondary"><?php echo count ($css_icomoon_icons); ?></span></h5>
 					</div>
 				</div>
 			<?php endif; ?>
@@ -261,6 +263,8 @@ $font_size = $params->get('font_size');
 
 
             <!-- collected characters ======================================================================== -->
+
+            <!-- svg_brand_icons ======================================================================== -->
 
 
 

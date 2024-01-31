@@ -21,7 +21,7 @@ use Joomla\CMS\Factory;
  *      html <span class="icon-image"> </span> from *.css file
  * - List of awesome icons which may be addressed like
         html <i class="fa fa-adjust"></i> from *.css file
- * font awsome and internal icons may be referred to the same
+ * font awesome and internal icons may be referred to the same
  *      font awesome icon but different names may be used
  *
  * @since  version 0.1
@@ -44,7 +44,11 @@ class mod_j4_std_iconsHelper
     public $awesome_version =  '%unknown%';
 
 	// Css file icomoon replacements
+    public $css_icomoon_icons = [];
+
+	// ???? 
     public $css_atum_template_icons = [];
+
 
 	// Css file joomla fontawesome
     public $css_joomla_system_icons = [];
@@ -68,27 +72,33 @@ class mod_j4_std_iconsHelper
         // extract version, icons from *.css file
         if ($isExtractCss) {
 
-            $this->extractCss_AllIcons();
+            $this->extractAllIcons();
         }
 
     }
 
 	/**
-	 *
+	 * Extract all Icons by joomla CSS files found
 	 *
 	 * @throws \Exception
 	 * @since version
 	 */
-	public function extractCss_AllIcons () {
+	public function extractAllIcons () {
 
 		$awesome_version2 = "";
 		$awesome_version3 = "";
 
 		try
 		{
-			[$this->css_joomla_system_icons, $this->awesome_version] = self::cssfile_extractIcons(self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME);
-            [$this->css_atum_template_icons, $awesome_version2]   = self::cssfile_extractIcons(self::CSS_TEMPLATE_ATUM_PATH_FILE_NAME);
-			[$this->css_vendor_awesome_icons, $awesome_version3]    = self::cssfile_extractIcons(self::CSS_VEDOR_AWESOME_PATH_FILE_NAME);
+			$isFindIcomoon = true;
+			[$this->css_joomla_system_icons, $this->awesome_version] = 
+				self::cssfile_extractIcons(self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME, $isFindIcomoon);
+
+			$isFindIcomoon = false;
+            [$this->css_icomoon_icons, $awesome_version2] = 
+				self::cssfile_extractIcons(self::CSS_TEMPLATE_ATUM_PATH_FILE_NAME, $isFindIcomoon);
+			[$this->css_vendor_awesome_icons, $awesome_version3] = 
+				self::cssfile_extractIcons(self::CSS_VEDOR_AWESOME_PATH_FILE_NAME, $isFindIcomoon);
 
 
 			if (   ($this->awesome_version != $awesome_version2)
@@ -104,7 +114,7 @@ class mod_j4_std_iconsHelper
 
         } catch (\RuntimeException $e) {
 			$OutTxt = '';
-			$OutTxt .= 'Error executing extractCss_AllIcons: "' . '<br>';
+			$OutTxt .= 'Error executing extractAllIcons: "' . '<br>';
 			$OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
 
 			$app = Factory::getApplication();
@@ -122,7 +132,7 @@ class mod_j4_std_iconsHelper
      *  -
      * @since version 0.1
      */
-    public function cssfile_extractIcons ($cssPathFileName='') {
+    public function cssfile_extractIcons ($cssPathFileName='', $isFindIcomoon=false) {
 
         $css_form_icons = [];
         $awesome_version = '%unknown%';
@@ -131,6 +141,7 @@ class mod_j4_std_iconsHelper
             // Local definition
             if ($cssPathFileName=='') {
                 $cssPathFileName = self::CSS_TEMPLATE_ATUM_PATH_FILE_NAME;
+				$isFindIcomoon = true;
             }
 
             // Is not a file
@@ -173,7 +184,7 @@ class mod_j4_std_iconsHelper
      *
      * @since version 0.1
      */
-    public function lines_extractCssIcons ($lines = []) {
+    public function lines_extractCssIcons ($lines = [], $isFindIcomoon=false) {
 
         $css_form_icons = [];
         $awesome_icons = [];
@@ -259,10 +270,15 @@ class mod_j4_std_iconsHelper
 
                     //--- .icons / .fa lists ------------------
 
-                    // if ($icon->iconType == '.icon') {
-                    $css_form_icons [$iconName] = $icon;
-	                //}
-
+					if ($isFindIcomoon) {
+                    	if ($icon->iconType == '.icon') {
+		                    $css_form_icons [$iconName] = $icon;
+						}
+	                } else {
+                    	if ($icon->iconType != '.icon') {
+		                    $css_form_icons [$iconName] = $icon;
+						}
+	                } 
                 }
             }
 
@@ -285,7 +301,7 @@ class mod_j4_std_iconsHelper
     /**
      * ToDo:
      * create list bases on common char value
-     * font awsome and internal icons may refer to same svg icon but from different n ames
+     * font awesome and internal icons may refer to same svg icon but from different n ames
      *
      * @since version 0.1
      */

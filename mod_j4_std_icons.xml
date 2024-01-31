@@ -56,16 +56,13 @@
 					<option value="1">JYES</option>
 				</field>
 				<field
-					name="isDisplayAtumIconTable"
+					name="isDisplayIconTable_Icon" 
 					type="radio" 
 					class="btn-group btn-group-yesno"
 					default="1" 
-					label="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_ATUM_ICON_TABLE"
-					description="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_ATUM_ICON_TABLE_DESC"
+					label="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_ICON_TABLE_ICON" 
+					description="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_ICON_TABLE_ICON_DESC"
 				>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
 				<field 
 					name="isDisplayJoomlaSysIconTable"
 					type="radio" 
@@ -84,6 +81,17 @@
 					default="1"
 					label="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_VENDOR_AWESOME_ICON_TABLE"
 					description="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_VENDOR_AWESOME_ICON_TABLE_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
+					name="isDisplayBrandIconsTable_Awesome"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="1"
+					label="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_BRAND_ICON_TABLE_AWESOME"
+					description="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_BRAND_ICON_TABLE_AWESOME_DESC"
 				>
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
