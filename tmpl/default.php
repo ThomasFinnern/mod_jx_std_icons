@@ -18,7 +18,7 @@ global $j_css_icons;
 $awesome_version = $j_css_icons->awesome_version;
 
 //$css_atum_template_icons = $j_css_icons->css_atum_template_icons;
-css_icomoon_icons        = $j_css_icons->css_icomoon_icons;
+$css_icomoon_icons        = $j_css_icons->css_icomoon_icons;
 $css_joomla_system_icons  = $j_css_icons->css_joomla_system_icons;
 $css_vendor_awesome_icons = $j_css_icons->css_vendor_awesome_icons;
 $iconListByCharValue      = $j_css_icons->iconListByCharValue;
@@ -31,7 +31,8 @@ $wa->registerAndUseStyle('mod_j4_std_icons', 'mod_j4_std_icons/template.css');
 
 $isDisplayTablesHeader = $params->get('isDisplayTablesHeader');
 $isDisplayTechDetail = $params->get('isDisplayTechDetail');
-$isDisplayIconTable_Icon = $params->get('isDisplayIconTable_Icon');
+
+$isDisplayIcomoonTable = $params->get('isDisplayIcomoonTable');
 
 // $isDisplayAtumIconTable      = $params->get('isDisplayAtumIconTable');
 $isDisplayJoomlaSysIconTable = $params->get('isDisplayJoomlaSysIconTable');
@@ -91,7 +92,7 @@ $font_size = $params->get('font_size');
 
 			<!-- icomoon replacements ======================================================================== -->
 
-			<?php if($isDisplayIconTable_Icon): ?>
+			<?php if($isDisplayIcomoonTable): ?>
 				<div class="card mb-3 ">
 					<div class="card-header">
 						<h2>
@@ -146,7 +147,7 @@ $font_size = $params->get('font_size');
 				</div>
 			<?php endif; ?>
 
-			<!-- joomla font awesome ======================================================================== -->
+			<!-- system joomla font awesome ======================================================================== -->
 
 			<?php if($isDisplayJoomlaSysIconTable): ?>
 				<div class="card mb-3 ">
@@ -185,7 +186,7 @@ $font_size = $params->get('font_size');
 											<div class="quickicon-info">
 
 												<div class="quickicon-icon">
-                                                    <i style="font-size: <?php echo $font_size; ?>px;" class="icon-<?php echo $item->name; ?>"></i>
+                                                    <i style="font-size: <?php echo $font_size; ?>px;" class="fa-solid fa-<?php echo $item->name; ?>"></i>
 												</div>
 
                                             </div>

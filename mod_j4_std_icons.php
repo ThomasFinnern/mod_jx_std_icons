@@ -27,7 +27,7 @@
 
 // https://vi-solutions.de/de/tips-vom-joomla-spezialist/372-joomla-icomoon-zeichensatz-tabelle
 // https://mooretechsolutions.com/cool-joomla-icomoon-fonts/
-// 
+//
 
 
 \defined('_JEXEC') or die;

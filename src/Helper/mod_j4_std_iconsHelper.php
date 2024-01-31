@@ -47,7 +47,7 @@ class mod_j4_std_iconsHelper
     public $css_icomoon_icons = [];
 
 	// ???? 
-    public $css_atum_template_icons = [];
+    // public $css_atum_template_icons = [];
 
 
 	// Css file joomla fontawesome
@@ -91,13 +91,15 @@ class mod_j4_std_iconsHelper
 		try
 		{
 			$isFindIcomoon = true;
-			[$this->css_joomla_system_icons, $this->awesome_version] = 
+			[$this->css_icomoon_icons, $this->awesome_version] =
 				self::cssfile_extractIcons(self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME, $isFindIcomoon);
 
 			$isFindIcomoon = false;
-            [$this->css_icomoon_icons, $awesome_version2] = 
-				self::cssfile_extractIcons(self::CSS_TEMPLATE_ATUM_PATH_FILE_NAME, $isFindIcomoon);
-			[$this->css_vendor_awesome_icons, $awesome_version3] = 
+//            [$this->css_joomla_system_icons, $awesome_version2] =
+//				self::cssfile_extractIcons(self::CSS_TEMPLATE_ATUM_PATH_FILE_NAME, $isFindIcomoon);
+			[$this->css_joomla_system_icons, $awesome_version2] =
+				self::cssfile_extractIcons(self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME, $isFindIcomoon);
+			[$this->css_vendor_awesome_icons, $awesome_version3] =
 				self::cssfile_extractIcons(self::CSS_VEDOR_AWESOME_PATH_FILE_NAME, $isFindIcomoon);
 
 
@@ -159,7 +161,7 @@ class mod_j4_std_iconsHelper
                 $lines = file($cssPathFileName);
 
                 // do extract
-                [$css_form_icons, $awesome_version] = self::lines_extractCssIcons ($lines);
+                [$css_form_icons, $awesome_version] = self::lines_extractCssIcons ($lines, $isFindIcomoon);
 
                 $isAssigned = true;
             }
