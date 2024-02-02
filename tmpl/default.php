@@ -19,8 +19,14 @@ $awesome_version = $j_css_icons->awesome_version;
 
 //$css_atum_template_icons = $j_css_icons->css_atum_template_icons;
 $css_icomoon_icons        = $j_css_icons->css_icomoon_icons;
+
 $css_joomla_system_icons  = $j_css_icons->css_joomla_system_icons;
+$css_joomla_system_brand_names  = $j_css_icons->css_joomla_system_brand_names;
+$css_joomla_system_brand_icons = $j_css_icons->css_joomla_system_brand_icons;
+
 $css_vendor_awesome_icons = $j_css_icons->css_vendor_awesome_icons;
+//$css_vendor_awesome_brand_names = $j_css_icons->css_vendor_awesome_brand_names;
+
 $iconListByCharValue      = $j_css_icons->iconListByCharValue;
 
 // PUA Schriftzeichen
@@ -36,6 +42,8 @@ $isDisplayIcomoonTable = $params->get('isDisplayIcomoonTable');
 
 // $isDisplayAtumIconTable      = $params->get('isDisplayAtumIconTable');
 $isDisplayJoomlaSysIconTable = $params->get('isDisplayJoomlaSysIconTable');
+$isDisplayBrandIconsTable_Awesome = $params->get('isDisplayBrandIconsTable_Awesome');
+
 $isDisplayVendorAwesomeIconTable = $params->get('isDisplayVendorAwesomeIconTable');
 
 $isDisplayIconListByCharValue = $params->get('isDisplayIconListByCharValue');
@@ -147,7 +155,7 @@ $font_size = $params->get('font_size');
 				</div>
 			<?php endif; ?>
 
-			<!-- system joomla font awesome ======================================================================== -->
+			<!-- system joomla icons font awesome ======================================================================== -->
 
 			<?php if($isDisplayJoomlaSysIconTable): ?>
 				<div class="card mb-3 ">
@@ -201,6 +209,62 @@ $font_size = $params->get('font_size');
 						<h5>Count: <span class="badge bg-secondary"><?php echo count ($css_joomla_system_icons); ?></span></h5>
 					</div>
 				</div>
+			<?php endif; ?>
+
+            <!-- system joomla brand icons ======================================================================== -->
+
+			<?php if($isDisplayBrandIconsTable_Awesome): ?>
+                <div class="card mb-3 ">
+                    <div class="card-header">
+                        <h2>
+                            <span class="icon-joomla" aria-hidden="true"></span>
+							<?php echo Text::_('MOD_J4_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE'); ?>
+                        </h2>
+                    </div>
+                    <div class="card-body">
+
+						<?php if($isDisplayTechDetail): ?>
+                            <div class="mb-3">
+                                <div class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'); ?></div>
+                            </div>
+						<?php endif; ?>
+
+                        <nav class="quick-icons px-3 pb-3">
+                            <ul class="nav flex-wrap">
+                                <li class="quickicon quickicon-single">
+                                    <a href="#">
+                                        <div class="quickicon-info">
+                                            <div class="quickicon-icon">
+                                                <span class="icon-joomla" style="font-size: <?php echo $font_size; ?>px;" aria-hidden="true"></span>
+                                            </div>
+                                        </div>
+                                        <div class="quickicon-name d-flex align-items-end">
+                                            Joomla
+                                        </div>
+                                    </a>
+                                </li>
+
+								<?php foreach ($css_joomla_system_brand_icons as $item): ?>
+                                    <li class="quickicon quickicon-single">
+                                        <a href="#">
+                                            <div class="quickicon-info">
+
+                                                <div class="quickicon-icon">
+                                                    <i style="font-size: <?php echo $font_size; ?>px;" class="fa-solid fa-<?php echo $item->name; ?>"></i>
+                                                </div>
+
+                                            </div>
+                                            <div class="quickicon-name d-flex align-items-end">
+												<?php echo $item->name; ?>
+                                            </div>
+                                        </a>
+                                    </li>
+								<?php endforeach; ?>
+                            </ul>
+                        </nav>
+                        <h5>Count: <span class="badge bg-secondary"><?php echo count ($css_joomla_system_brand_icons); ?></span></h5>
+                    </div>
+                </div>
 			<?php endif; ?>
 
             <!-- vendor all fontawesome ======================================================================== -->
@@ -265,7 +329,7 @@ $font_size = $params->get('font_size');
 
             <!-- collected characters ======================================================================== -->
 
-            <!-- svg_brand_icons ======================================================================== -->
+            <!-- svg_brand_names ======================================================================== -->
 
 
 
