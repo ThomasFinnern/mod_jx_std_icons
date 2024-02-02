@@ -182,15 +182,15 @@ class mod_j4_std_iconsHelper
 
             } else {
 
-                //--- read all lines ---------------------------------------------
+                //--- read all lines ----------------------------------------------------
 
                 $lines = file($cssPathFileName);
 
-	            //--- determine awesome version --------------------------------------------
+	            //--- determine awesome version ------------------------------------------
 
 	            $awesome_version = self::lines_collectAwesomeVersion($lines);
 
-	            //--- collect brand names ---------------------------------------------
+	            //--- collect brand names ------------------------------------------------
 
 	            if ( $isCollectBrands )
 				{
@@ -328,21 +328,25 @@ class mod_j4_std_iconsHelper
                 //--- start: icon name and id ? ------------------------------------------------
 
                 // find "".fa-arrow-right:before {""
-                if (str_contains ($line, ':before')) {
+                if (str_contains ($line, ':before'))
+                {
+					// -o ? no icon visible
+	                //if ( ! str_contains($line, '-o:before'))
+	                //{
 
-                    list ($iconId) = explode (':', $line);
+		                list ($iconId) = explode(':', $line);
 
-                    // .fa-arrow-right, .icon-images
-                    list ($iconType, $iconName) = explode ('-', $iconId, 2);
+		                // .fa-arrow-right, .icon-images
+		                list ($iconType, $iconName) = explode('-', $iconId, 2);
 
+//					// test debug
+//	                if ($iconName == 'joomla') {
+//
+//		                $iconName = $iconName;
+//
+//	                }
 
-					// test debug
-	                if ($iconName == 'joomla') {
-
-		                $iconName = $iconName;
-
-	                }
-
+	                //}
                 }
 
                 //--- inside: valid icon definition ? ------------------------------------------
@@ -465,10 +469,10 @@ class mod_j4_std_iconsHelper
 	            // icon char value
 	            if (str_contains($line, $brandsId))
 	            {
-		            if (str_contains($namesLine, 'joomla'))
-		            {
-			            $line = $line;
-		            }
+//		            if (str_contains($namesLine, 'joomla'))
+//		            {
+//			            $line = $line;
+//		            }
 
 		            //--- split -----------------------------------------------
 

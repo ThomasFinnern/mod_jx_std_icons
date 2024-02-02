@@ -78,23 +78,23 @@
 					<option value="1">JYES</option>
 				</field>
 				<field
+						name="isDisplayBrandIconsTable_Awesome"
+						type="radio"
+						class="btn-group btn-group-yesno"
+						default="1"
+						label="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_BRAND_ICON_TABLE_AWESOME"
+						description="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_BRAND_ICON_TABLE_AWESOME_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+				<field
 					name="isDisplayVendorAwesomeIconTable"
 					type="radio"
 					class="btn-group btn-group-yesno"
 					default="1"
 					label="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_VENDOR_AWESOME_ICON_TABLE"
 					description="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_VENDOR_AWESOME_ICON_TABLE_DESC"
-				>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field
-					name="isDisplayBrandIconsTable_Awesome"
-					type="radio"
-					class="btn-group btn-group-yesno"
-					default="1"
-					label="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_BRAND_ICON_TABLE_AWESOME"
-					description="MOD_J4_STD_ICONS_FIELD_IS_DISPLAY_BRAND_ICON_TABLE_AWESOME_DESC"
 				>
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
