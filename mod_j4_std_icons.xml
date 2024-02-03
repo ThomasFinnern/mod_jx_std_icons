@@ -10,7 +10,7 @@
 	<authorUrl>www.tomfinnern.de</authorUrl>
 	<copyright>Copyright (C) 2023-2024 Thomas Finnern All rights reserved.</copyright>
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>0.5.0</version>
+	<version>0.5.0.0</version>
 	<description>MOD_J4_STD_ICONS_XML_DESCRIPTION</description>
 	<scriptfile>install_mod.php</scriptfile>
 	<namespace path="src">finnern\Module\mod_j4_std_icons</namespace>
@@ -19,10 +19,10 @@
 		<filename module="mod_j4_std_icons">mod_j4_std_icons.php</filename>
 		<filename>LICENSE</filename>
 		<filename>changelog.xml</filename>
+		<filename>mod_j4_std_icons.xml</filename>
 		<folder>language</folder>
 		<folder>src</folder>
 		<folder>tmpl</folder>
-		<filename>mod_j4_std_icons.xml</filename>
 	</files>
 	
 	<!-- css, js, images files, .... -->
