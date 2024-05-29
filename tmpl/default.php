@@ -225,7 +225,14 @@ $font_size = $params->get('font_size');
 
 						<?php if($isDisplayTechDetail): ?>
                             <div class="mb-3">
-                                <div class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'); ?></div>
+                                <div class="card-title">
+                                    <div>
+                                        <?php echo Text::_('MOD_J4_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'); ?>
+                                    </div>
+                                    <div>
+                                        <a href="<?php echo Text::_('MOD_J4_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'); ?>"><?php echo Text::_('MOD_J4_STD_ICONS_AWESOME_ICONS_LINK'); ?></a>
+                                    </div>
+                                </div>
                             </div>
 						<?php endif; ?>
 
@@ -250,7 +257,7 @@ $font_size = $params->get('font_size');
                                             <div class="quickicon-info">
 
                                                 <div class="quickicon-icon">
-                                                    <i style="font-size: <?php echo $font_size; ?>px;" class="fa-solid fa-<?php echo $item->name; ?>"></i>
+                                                    <i style="font-size: <?php echo $font_size; ?>px;" class="fab fa-<?php echo $item->name; ?>"></i>
                                                 </div>
 
                                             </div>
@@ -281,7 +288,14 @@ $font_size = $params->get('font_size');
 
 						<?php if($isDisplayTechDetail): ?>
                             <div class="mb-3">
-                                <div class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_AWESOME_ICONS_DESC'); ?></div>
+                                <div class="card-title">
+                                    <div>
+                                        <?php echo Text::_('MOD_J4_STD_ICONS_AWESOME_ICONS_DESC'); ?>
+                                    </div>
+                                    <div>
+                                        <a href="<?php echo Text::_('MOD_J4_STD_ICONS_AWESOME_ICONS_LINK'); ?>"><?php echo Text::_('MOD_J4_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'); ?></a>
+                                    </div>
+                                </div>
                             </div>
 						<?php endif; ?>
 

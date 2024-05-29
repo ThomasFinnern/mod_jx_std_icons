@@ -37,7 +37,7 @@ class mod_j4_std_iconsHelper
 	const CSS_JOOMLA_SYSTEM_PATH_FILE_NAME = JPATH_ROOT . '/media/system/css/joomla-fontawesome.css';
 
 	//  Icons fontawesome in joomla vendor fontawesome path
-	const CSS_VEDOR_AWESOME_PATH_FILE_NAME = JPATH_ROOT . '/media/vendor/fontawesome-free/css/fontawesome.css';
+	const CSS_VENDOR_AWESOME_PATH_FILE_NAME = JPATH_ROOT . '/media/vendor/fontawesome-free/css/fontawesome.css';
 
 
     // defined in J! css file
@@ -122,18 +122,33 @@ class mod_j4_std_iconsHelper
 
 			$isCollectBrands = false;
 			[$this->css_vendor_awesome_icons, $dummyBrands, $awesome_version3] =
-				self::cssfile_extractIcons(self::CSS_VEDOR_AWESOME_PATH_FILE_NAME,
+				self::cssfile_extractIcons(self::CSS_VENDOR_AWESOME_PATH_FILE_NAME,
 					$isFindIcomoon, $isCollectBrands);
 
 
 			if (   ($this->awesome_version != $awesome_version2)
 				|| ($this->awesome_version != $awesome_version3)) {
 
+//				echo "<br>awesome_version(1): '" . $this->awesome_version . "'<br>";
+//				echo "<br>awesome_version(2): '" . $awesome_version2 . "'<br>";
+//				echo "<br>awesome_version(3): '" . $awesome_version3 . "'<br><br>";
+
+				if ($awesome_version2 != "%unknown%") {
+					$this->awesome_version != $awesome_version2;
+				} else {
+					if ($awesome_version3 != "%unknown%") {
+						$this->awesome_version != $awesome_version3;
+					}
+				}
+
 				// ToDo:
 				// enqueue message different  versions
 				// ....
 				// 			$app = Factory::getApplication();
 				//			$app->enqueueMessage($OutTxt, 'error');
+
+				$this->awesome_version = $awesome_version3;
+
 
 			}
 
@@ -259,7 +274,11 @@ class mod_j4_std_iconsHelper
 	            $startIdx = strpos($fullLine, $versionLineId);
 	            if ($startIdx != false)
 	            {
-		            $awesome_version = substr($fullLine, $startIdx, strlen($versionLineId) + 7); // '5.15.4 '
+					// example ' * Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com
+		            $endIdx = strpos($fullLine, ' ', $startIdx + strlen($versionLineId));
+
+		            $awesome_version = substr($fullLine, $startIdx, $endIdx - $startIdx); // '5.15.4 '
+
 					break;
 	            }
             }
