@@ -51,4 +51,18 @@
 			<item></item>
 		</note>
 	</changelog>
+	<changelog>
+		<element>mod_j4_standard_icons</element>
+		<type>module</type>
+		<client>site</client>
+		<version>0.5.1</version>
+		<date>2025-05-28</date>
+        <fix>
+            <item>Display font icons for brands</item>
+            <item>Display Font Awesome version</item>
+        </fix>
+		<note>
+			<item></item>
+		</note>
+	</changelog>
 </changelogs>
