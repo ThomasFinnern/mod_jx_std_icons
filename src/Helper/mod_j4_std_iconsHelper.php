@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace finnern\Module\mod_j4_std_icons\Site\Helper;
+namespace Finnern\Module\mod_j4_std_icons\Site\Helper;
 
 use Joomla\CMS\Factory;
 

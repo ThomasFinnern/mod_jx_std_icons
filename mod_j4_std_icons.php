@@ -33,7 +33,7 @@
 \defined('_JEXEC') or die;
 
 use Joomla\CMS\Helper\ModuleHelper;
-use finnern\Module\mod_j4_std_icons\Site\Helper\mod_j4_std_iconsHelper;
+use Finnern\Module\mod_j4_std_icons\Site\Helper\mod_j4_std_iconsHelper;
 
 global $j_css_icons;
 
