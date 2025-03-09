@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.site
- * @subpackage  mod_j4_std_icons
+ * @subpackage  mod_jx_std_icons
  *
  * @copyright   Copyright (C) 2023-2023 thomas finnern
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -33,7 +33,7 @@ $iconListByCharValue      = $j_css_icons->iconListByCharValue;
 
 // load css
 $wa = $app->getDocument()->getWebAssetManager();
-$wa->registerAndUseStyle('mod_j4_std_icons', 'mod_j4_std_icons/template.css');
+$wa->registerAndUseStyle('mod_jx_std_icons', 'mod_jx_std_icons/template.css');
 
 $isDisplayTablesHeader = $params->get('isDisplayTablesHeader');
 $isDisplayTechDetail = $params->get('isDisplayTechDetail');
@@ -76,23 +76,23 @@ $font_size = $params->get('font_size');
 	<div class="card-body">
 		<?php if (empty($css_icomoon_icons) && empty($css_joomla_system_icons) && empty($css_vendor_awesome_icons)): ?>
 			<h3 class="card-title">
-				<?php echo Text::_('MOD_J4_STD_ICONS_NO_ICONS'); ?>
+				<?php echo Text::_('MOD_JX_STD_ICONS_NO_ICONS'); ?>
 			</h3>
 			<h6 class="card-subtitle mb-2 text-muted">
-				<?php echo Text::_('MOD_J4_STD_ICONS_NO_ICONS_DESC'); ?>
+				<?php echo Text::_('MOD_JX_STD_ICONS_NO_ICONS_DESC'); ?>
 			</h6>
 
 		<?php else: ?>
 
 			<?php if($isDisplayTablesHeader): ?>
-				<h2 class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_AVAILABLE_ICONS'); ?></h2>
+				<h2 class="card-title"><?php echo Text::_('MOD_JX_STD_ICONS_AVAILABLE_ICONS'); ?></h2>
 				<div class="mb-3">
 					<h6 class="card-subtitle mb-2 text-muted"><?php echo $awesome_version; ?></h6>
 				</div>
 
 				<?php if($isDisplayTechDetail): ?>
 					<div class="mb-3">
-						<h6 class="card-subtitle mb-2 text-muted"><?php echo Text::_('MOD_J4_STD_ICONS_AVAILABLE_ICONS_DESC'); ?></h6>
+						<h6 class="card-subtitle mb-2 text-muted"><?php echo Text::_('MOD_JX_STD_ICONS_AVAILABLE_ICONS_DESC'); ?></h6>
 					</div>
 
 				<?php endif; ?>
@@ -105,7 +105,7 @@ $font_size = $params->get('font_size');
 					<div class="card-header">
 						<h2>
 							<span class="icon-joomla" aria-hidden="true"></span>
-							<?php echo Text::_('MOD_J4_STD_ICONS_ICOMOON_ICONS'); ?>
+							<?php echo Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS'); ?>
 						</h2>
 					</div>
 
@@ -113,7 +113,7 @@ $font_size = $params->get('font_size');
 
 						<?php if($isDisplayTechDetail): ?>
 							<div class="mb-3">
-								<div class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_ICOMOON_ICONS_DESC'); ?></div>
+								<div class="card-title"><?php echo Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS_DESC'); ?></div>
 							</div>
 						<?php endif; ?>
 
@@ -162,14 +162,14 @@ $font_size = $params->get('font_size');
 					<div class="card-header">
 						<h2>
 							<span class="icon-joomla" aria-hidden="true"></span>
-							<?php echo Text::_('MOD_J4_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE'); ?>
+							<?php echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE'); ?>
 						</h2>
 					</div>
 					<div class="card-body">
 
 						<?php if($isDisplayTechDetail): ?>
 							<div class="mb-3">
-								<div class="card-title"><?php echo Text::_('MOD_J4_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'); ?></div>
+								<div class="card-title"><?php echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'); ?></div>
 							</div>
 						<?php endif; ?>
 
@@ -218,7 +218,7 @@ $font_size = $params->get('font_size');
                     <div class="card-header">
                         <h2>
                             <span class="icon-joomla" aria-hidden="true"></span>
-							<?php echo Text::_('MOD_J4_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE'); ?>
+							<?php echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE'); ?>
                         </h2>
                     </div>
                     <div class="card-body">
@@ -227,10 +227,10 @@ $font_size = $params->get('font_size');
                             <div class="mb-3">
                                 <div class="card-title">
                                     <div>
-                                        <?php echo Text::_('MOD_J4_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'); ?>
+                                        <?php echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'); ?>
                                     </div>
                                     <div>
-                                        <a href="<?php echo Text::_('MOD_J4_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'); ?>"><?php echo Text::_('MOD_J4_STD_ICONS_AWESOME_ICONS_LINK'); ?></a>
+                                        <a href="<?php echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'); ?>"><?php echo Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'); ?></a>
                                     </div>
                                 </div>
                             </div>
@@ -281,7 +281,7 @@ $font_size = $params->get('font_size');
                     <div class="card-header">
                         <h2>
                             <span class="icon-joomla" aria-hidden="true"></span>
-							<?php echo Text::_('MOD_J4_STD_ICONS_AWESOME_ICONS'); ?>
+							<?php echo Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS'); ?>
                         </h2>
                     </div>
                     <div class="card-body">
@@ -290,10 +290,10 @@ $font_size = $params->get('font_size');
                             <div class="mb-3">
                                 <div class="card-title">
                                     <div>
-                                        <?php echo Text::_('MOD_J4_STD_ICONS_AWESOME_ICONS_DESC'); ?>
+                                        <?php echo Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_DESC'); ?>
                                     </div>
                                     <div>
-                                        <a href="<?php echo Text::_('MOD_J4_STD_ICONS_AWESOME_ICONS_LINK'); ?>"><?php echo Text::_('MOD_J4_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'); ?></a>
+                                        <a href="<?php echo Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'); ?>"><?php echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'); ?></a>
                                     </div>
                                 </div>
                             </div>

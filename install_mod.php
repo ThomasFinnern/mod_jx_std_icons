@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  mod_j4_std_icons
+ * @subpackage  mod_jx_std_icons
  * 
  * @copyright (c) 2005-2023 Thomas Finnern
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -14,9 +14,9 @@ use Joomla\CMS\Language\Text;
 use Joomla\CMS\Log\Log;
 
 /**
- * Script file of mod_j4_std_icons module
+ * Script file of mod_jx_std_icons module
  */
-class mod_j4_std_iconsInstallerScript
+class mod_jx_std_iconsInstallerScript
 {
 
 	/**
@@ -39,7 +39,7 @@ class mod_j4_std_iconsInstallerScript
 	 */
 	function install($parent)
 	{
-		echo Text::_('MOD_J4_STD_ICONS_INSTALLERSCRIPT_INSTALL');
+		echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_INSTALL');
 
 		return true;
 	}
@@ -53,7 +53,7 @@ class mod_j4_std_iconsInstallerScript
 	 */
 	function uninstall($parent)
 	{
-		echo Text::_('MOD_J4_STD_ICONS_INSTALLERSCRIPT_UNINSTALL');
+		echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_UNINSTALL');
 
 		return true;
 	}
@@ -67,7 +67,7 @@ class mod_j4_std_iconsInstallerScript
 	 */
 	function update($parent)
 	{
-		echo Text::_('MOD_J4_STD_ICONS_INSTALLERSCRIPT_UPDATE');
+		echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_UPDATE');
 
 		return true;
 	}
@@ -96,7 +96,7 @@ class mod_j4_std_iconsInstallerScript
 			return false;
 		}
 
-		echo Text::_('MOD_J4_STD_ICONS_INSTALLERSCRIPT_PREFLIGHT');
+		echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_PREFLIGHT');
 
 		return true;
 	}
@@ -111,7 +111,7 @@ class mod_j4_std_iconsInstallerScript
 	 */
 	function postflight($type, $parent)
 	{
-		echo Text::_('MOD_J4_STD_ICONS_INSTALLERSCRIPT_POSTFLIGHT');
+		echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_POSTFLIGHT');
 
 		return true;
 	}
