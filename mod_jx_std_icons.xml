@@ -1,24 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<extension type="???" method="???">
-    <name></name>
-    <creationDate>2025.03.09</creationDate>
-    <author></author>
-    <authorEmail></authorEmail>
-    <authorUrl></authorUrl>
-    <copyright>(c) 2019-2025 RSGallery2 Team</copyright>
-    <license></license>
-    <version>0.0.1.0</version>
-    <description></description>
-    <element>mod_jx_std_icons</element>
-    
-    
-    
-    
+<extension type="module" 
 		   client="site" 
 		   method="upgrade"
 		   version="4.0">
 	<name>J! standard icons  display</name>
-	<creationDate>28.05.2024</creationDate>
+	<creationDate>2025.03.09</creationDate>
 	<author>Thomas Finnern</author>
 	<authorEmail>mod_jx_std_icons@tomfinnern.de</authorEmail>
 	<authorUrl>www.tomfinnern.de</authorUrl>
