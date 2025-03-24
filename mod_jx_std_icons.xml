@@ -1,133 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<extension type="module" 
-		   client="site" 
-		   method="upgrade"
-		   version="4.0">
-	<name>J! standard icons  display</name>
-	<creationDate>2025.03.09</creationDate>
-	<author>Thomas Finnern</author>
-	<authorEmail>mod_jx_std_icons@tomfinnern.de</authorEmail>
-	<authorUrl>www.tomfinnern.de</authorUrl>
-	<copyright>Copyright (C) 2023-2024 Thomas Finnern All rights reserved.</copyright>
-	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<version>0.5.1.0</version>
-	<description>MOD_JX_STD_ICONS_XML_DESCRIPTION</description>
-	<scriptfile>install_mod.php</scriptfile>
-	<namespace path="src">Finnern\Module\mod_jx_std_icons</namespace>
-
-	<files>
-		<filename module="mod_jx_std_icons">mod_jx_std_icons.php</filename>
-		<filename>LICENSE</filename>
-		<filename>changelog.xml</filename>
-		<filename>mod_jx_std_icons.xml</filename>
-		<folder>language</folder>
-		<folder>src</folder>
-		<folder>tmpl</folder>
-	</files>
-	
-	<!-- css, js, images files, .... -->
-	<media folder="media/mod_jx_std_icons" destination="mod_jx_std_icons">
-		<folder>css</folder>
-	</media>
-	
-	<config>
-		<fields name="params">
-			<fieldset name="basic">
-				<field 
-					name="isDisplayTablesHeader"
-					type="radio" 
-					class="btn-group btn-group-yesno"
-					default="1" 
-					label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_TABLES_HEADER"
-					description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_TABLES_HEADER_DESC"
-				>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
+<extension type="module" client="site" method="upgrade" version="5.0">
+  <name>J! standard icons  display</name>
+  <creationDate>2025.03.24</creationDate>
+  <author>Thomas Finnern</author>
+  <authorEmail>mod_jx_std_icons@tomfinnern.de</authorEmail>
+  <authorUrl>www.tomfinnern.de</authorUrl>
+  <copyright>Copyright (C) 2023-2024 Thomas Finnern All rights reserved.</copyright>
+  <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+  <version>0.5.1.0</version>
+  <description>MOD_JX_STD_ICONS_XML_DESCRIPTION</description>
+  <scriptfile>install_mod.php</scriptfile>
+  <namespace path="src">Finnern\Module\mod_jx_std_icons</namespace>
+  <files>
+    <filename module="mod_jx_std_icons">mod_jx_std_icons.php</filename>
+    <filename>LICENSE</filename>
+    <filename>changelog.xml</filename>
+    <filename>mod_jx_std_icons.xml</filename>
+    <folder>language</folder>
+    <folder>src</folder>
+    <folder>tmpl</folder>
+  </files>
+  <!-- css, js, images files, .... -->
+  <media folder="media/mod_jx_std_icons" destination="mod_jx_std_icons">
+    <folder>css</folder>
+  </media>
+  <config>
+    <fields name="params">
+      <fieldset name="basic">
+        <field name="isDisplayTablesHeader" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_TABLES_HEADER" description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_TABLES_HEADER_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="isDisplayTechDetail" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_TECH_DETAILS" description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_TECH_DETAILS_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="isDisplayIcomoonTable" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_ICONMOON_TABLE" description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_ICONMOON_TABLE_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="isDisplayJoomlaSysIconTable" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_JOOMLA_SYSTEM_ICON_TABLE" description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_JOOMLA_SYSTEM_ICON_TABLE_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="isDisplayBrandIconsTable_Awesome" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_BRAND_ICON_TABLE_AWESOME" description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_BRAND_ICON_TABLE_AWESOME_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="isDisplayVendorAwesomeIconTable" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_VENDOR_AWESOME_ICON_TABLE" description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_VENDOR_AWESOME_ICON_TABLE_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="isDisplayIconListByCharValue" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_ICON_LIST_BY_CHAR_VALUE_TABLE" description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_ICON_LIST_BY_CHAR_VALUE_TABLE_DESC">
+          <option value="0">JNO</option>
+          <option value="1">JYES</option>
+        </field>
+        <field name="font_size" type="number" label="MOD_JX_STD_ICONS_FIELD_FONT_SIZE" description="MOD_JX_STD_ICONS_FIELD_FONT_SIZE_DESC" default="48" filter="integer" min="1" validate="number">
 				</field>
-				<field
-					name="isDisplayTechDetail"
-					type="radio"
-					class="btn-group btn-group-yesno"
-					default="1"
-					label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_TECH_DETAILS"
-					description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_TECH_DETAILS_DESC"
-				>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field
-					name="isDisplayIcomoonTable"
-					type="radio" 
-					class="btn-group btn-group-yesno"
-					default="1" 
-					label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_ICONMOON_TABLE"
-					description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_ICONMOON_TABLE_DESC"
-				>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field 
-					name="isDisplayJoomlaSysIconTable"
-					type="radio" 
-					class="btn-group btn-group-yesno"
-					default="1" 
-					label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_JOOMLA_SYSTEM_ICON_TABLE"
-					description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_JOOMLA_SYSTEM_ICON_TABLE_DESC"
-				>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field
-						name="isDisplayBrandIconsTable_Awesome"
-						type="radio"
-						class="btn-group btn-group-yesno"
-						default="1"
-						label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_BRAND_ICON_TABLE_AWESOME"
-						description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_BRAND_ICON_TABLE_AWESOME_DESC"
-				>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field
-					name="isDisplayVendorAwesomeIconTable"
-					type="radio"
-					class="btn-group btn-group-yesno"
-					default="1"
-					label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_VENDOR_AWESOME_ICON_TABLE"
-					description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_VENDOR_AWESOME_ICON_TABLE_DESC"
-				>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field
-					name="isDisplayIconListByCharValue"
-					type="radio"
-					class="btn-group btn-group-yesno"
-					default="1"
-					label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_ICON_LIST_BY_CHAR_VALUE_TABLE"
-					description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_ICON_LIST_BY_CHAR_VALUE_TABLE_DESC"
-				>
-					<option value="0">JNO</option>
-					<option value="1">JYES</option>
-				</field>
-				<field
-					name="font_size"
-					type="number"
-					label="MOD_JX_STD_ICONS_FIELD_FONT_SIZE"
-					description="MOD_JX_STD_ICONS_FIELD_FONT_SIZE_DESC"
-					default="48"
-					filter="integer"
-					min="1"
-					validate="number"
-				>
-				</field>
-			</fieldset>
-		</fields>
-	</config>
-	
-	<updateservers>
-		<server type="extension" name="J!4 Standard Icons Updates">https://raw.githubusercontent.com/ThomasFinnern/updateserver/main/mod_jx_std_icons_updates.xml</server>
-	</updateservers>
-	<changelogurl>https://raw.githubusercontent.com/ThomasFinnern/mod_j4_standard_icons/main/changelog.xml</changelogurl>
+      </fieldset>
+    </fields>
+  </config>
+  <updateservers>
+    <server type="extension" name="J!4 Standard Icons Updates">https://raw.githubusercontent.com/ThomasFinnern/updateserver/main/mod_jx_std_icons_updates.xml</server>
+  </updateservers>
+  <changelogurl>https://raw.githubusercontent.com/ThomasFinnern/mod_j4_standard_icons/main/changelog.xml</changelogurl>
 </extension>
-
