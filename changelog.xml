@@ -1,5 +1,16 @@
 <changelogs>
 	<changelog>
+		<element>mod_jx_std_icons</element>
+		<type>module</type>
+		<client>site</client>
+		<version>0.6.0</version>
+		<date>2025-03-26</date>
+		<note>
+			<item>Renamed to mod_jx_std_icons to match different Versions of J!x. Old name was mod_j4_std_icons regarding J4x version</item>
+			<item>Changed updateserver location to ... mod_jx_std_icons_update.xml</item>
+		</note>
+	</changelog>
+	<changelog>
 		<element>mod_j4_standard_icons</element>
 		<type>module</type>
 		<client>site</client>

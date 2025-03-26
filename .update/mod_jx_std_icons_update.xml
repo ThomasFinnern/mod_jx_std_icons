@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updates>
+	<update>
+		<name>J!5 standard icons display</name>
+		<description>Joomla site module. Display J!5 standard icons as icon list</description>
+		<element>mod_j4_std_icons</element>
+		<type>module</type>
+		<version>0.6.0</version>
+		<client>site</client>
+		<changelogurl>https://raw.githubusercontent.com/ThomasFinnern/mod_jx_std_icons/refs/heads/main/changelog.xml</changelogurl>
+		<downloads>
+			<downloadurl type="full" format="zip">yyy https://github.com/ThomasFinnern/mod_jx_std_icons/releases/download/v0.2.0/mod_jx_std_icons.v0.6.0.zip</downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer>Thomas Finnern</maintainer>
+		<maintainerurl>www.tomfinnern.de</maintainerurl>
+		<targetplatform name="joomla" version="5.*"/>
+		<infourl>https://github.com/ThomasFinnern/mod_jx_std_icons/releases</infourl>
+	</update>
+	<update>
+		<name>J!4 standard icons display</name>
+		<description>Joomla site module. Display J!4 standard icons as icon list</description>
+		<element>mod_j4_std_icons</element>
+		<type>module</type>
+		<version>0.2.1</version>
+		<client>site</client>
+		<changelogurl>https://raw.githubusercontent.com/ThomasFinnern/mod_jx_std_icons/refs/heads/main/changelog.xml</changelogurl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/ThomasFinnern/mod_jx_std_icons/releases/download/v0.2.0/mod_jx_std_icons.v0.2.0.zip</downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer>Thomas Finnern</maintainer>
+		<maintainerurl>www.tomfinnern.de</maintainerurl>
+		<targetplatform name="joomla" version="4.*"/>
+		<infourl>https://github.com/ThomasFinnern/mod_j4_standard_icons/releases</infourl>
+	</update>
+	<update>
+		<name>J!4 standard icons display</name>
+		<description>Joomla site module. Display J!4 standard icons as icon list</description>
+		<element>mod_j4_std_icons</element>
+		<type>module</type>
+		<version>0.3.0</version>
+		<client>site</client>
+		<changelogurl>https://raw.githubusercontent.com/ThomasFinnern/mod_j4_standard_icons/main/changelog.xml</changelogurl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/ThomasFinnern/mod_j4_standard_icons/releases/download/v0.3.0/mod_j4_standard_icons.v0.3.0.zip</downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer>Thomas Finnern</maintainer>
+		<maintainerurl>www.tomfinnern.de</maintainerurl>
+		<targetplatform name="joomla" version="4.*"/>
+		<infourl>https://github.com/ThomasFinnern/mod_j4_standard_icons/releases</infourl>
+	</update>
+	<update>
+		<name>J!4 standard icons display</name>
+		<description>Joomla site module. Display J!5 standard icons as icon list</description>
+		<element>mod_j4_std_icons</element>
+		<type>module</type>
+		<version>0.5.0</version>
+		<client>site</client>
+		<changelogurl>https://raw.githubusercontent.com/ThomasFinnern/mod_j4_standard_icons/main/changelog.xml</changelogurl>
+		<downloads>
+			<downloadurl type="full" format="zip">https://github.com/ThomasFinnern/mod_j4_standard_icons/releases/download/v0.5.0/mod_j4_standard_icons.v0.5.0.zip</downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<maintainer>Thomas Finnern</maintainer>
+		<maintainerurl>www.tomfinnern.de</maintainerurl>
+		<targetplatform name="joomla" version="5.*"/>
+		<infourl>https://github.com/ThomasFinnern/mod_j4_standard_icons/releases</infourl>
+	</update>
+</updates>

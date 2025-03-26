@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="module" client="site" method="upgrade" version="5.0">
-  <name>J! standard icons  display</name>
-  <creationDate>2025.03.24</creationDate>
+  <name>mod_jx_std_icons</name>
+  <creationDate>2025.03.26</creationDate>
   <author>Thomas Finnern</author>
   <authorEmail>mod_jx_std_icons@tomfinnern.de</authorEmail>
   <authorUrl>www.tomfinnern.de</authorUrl>
   <copyright>Copyright (C) 2023-2024 Thomas Finnern All rights reserved.</copyright>
   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-  <version>0.5.1.0</version>
+  <version>0.5.1.2</version>
   <description>MOD_JX_STD_ICONS_XML_DESCRIPTION</description>
   <scriptfile>install_mod.php</scriptfile>
   <namespace path="src">Finnern\Module\mod_jx_std_icons</namespace>
@@ -15,7 +15,6 @@
     <filename module="mod_jx_std_icons">mod_jx_std_icons.php</filename>
     <filename>LICENSE</filename>
     <filename>changelog.xml</filename>
-    <filename>mod_jx_std_icons.xml</filename>
     <folder>language</folder>
     <folder>src</folder>
     <folder>tmpl</folder>
@@ -61,7 +60,7 @@
     </fields>
   </config>
   <updateservers>
-    <server type="extension" name="J!4 Standard Icons Updates">https://raw.githubusercontent.com/ThomasFinnern/updateserver/main/mod_jx_std_icons_updates.xml</server>
+    <server type="extension" name="J!4 Standard Icons Updates">https://raw.githubusercontent.com/ThomasFinnern/mod_jx_std_icons/refs/heads/main/.update/remoteMarkdown_update.xml</server>
   </updateservers>
-  <changelogurl>https://raw.githubusercontent.com/ThomasFinnern/mod_j4_standard_icons/main/changelog.xml</changelogurl>
+  <changelogurl>https://raw.githubusercontent.com/ThomasFinnern/mod_jx_std_icons/refs/heads/main/changelog.xml</changelogurl>
 </extension>
