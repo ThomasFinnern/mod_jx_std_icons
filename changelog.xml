@@ -4,7 +4,7 @@
 		<type>module</type>
 		<client>site</client>
 		<version>0.6.0</version>
-		<date>2025-03-26</date>
+		<date>2025-04-02</date>
 		<note>
 			<item>Renamed to mod_jx_std_icons to match different Versions of J!x. Old name was mod_j4_std_icons regarding J4x version</item>
 			<item>Changed updateserver location to ... mod_jx_std_icons_update.xml</item>
@@ -14,39 +14,14 @@
 		<element>mod_j4_standard_icons</element>
 		<type>module</type>
 		<client>site</client>
-		<version>0.1.0</version>
-		<date>2023-04-28</date>
-		<change>
-			<item>Added updateserver</item>
-		</change>
+		<version>0.5.1</version>
+		<date>2025-05-28</date>
+        <fix>
+            <item>Display font icons for brands</item>
+            <item>Display Font Awesome version</item>
+        </fix>
 		<note>
-			<item>Pre release version</item>
-		</note>
-	</changelog>
-	<changelog>
-		<element>mod_j4_standard_icons</element>
-		<type>module</type>
-		<client>site</client>
-		<version>0.2.0</version>
-		<date>2023-05-09</date>
-		<change>
-			<item>Selection of display parts as parameter</item>
-		</change>
-		<note>
-			<item>Pre release version</item>
-		</note>
-	</changelog>
-	<changelog>
-		<element>mod_j4_standard_icons</element>
-		<type>module</type>
-		<client>site</client>
-		<version>0.3.0</version>
-		<date>2023-06-03</date>
-		<change>
-			<item>Redesign of extraction class</item>
-		</change>
-		<note>
-			<item>Release version for J!4x</item>
+			<item>Last version with name 'mod_j4_std_icons'. Attention on '4'->'x' </item>
 		</note>
 	</changelog>
 	<changelog>
@@ -66,14 +41,39 @@
 		<element>mod_j4_standard_icons</element>
 		<type>module</type>
 		<client>site</client>
-		<version>0.5.1</version>
-		<date>2025-05-28</date>
-        <fix>
-            <item>Display font icons for brands</item>
-            <item>Display Font Awesome version</item>
-        </fix>
+		<version>0.3.0</version>
+		<date>2023-06-03</date>
+		<change>
+			<item>Redesign of extraction class</item>
+		</change>
 		<note>
-			<item></item>
+			<item>Release version for J!4x</item>
+		</note>
+	</changelog>
+	<changelog>
+		<element>mod_j4_standard_icons</element>
+		<type>module</type>
+		<client>site</client>
+		<version>0.2.0</version>
+		<date>2023-05-09</date>
+		<change>
+			<item>Selection of display parts as parameter</item>
+		</change>
+		<note>
+			<item>Pre release version</item>
+		</note>
+	</changelog>
+	<changelog>
+		<element>mod_j4_standard_icons</element>
+		<type>module</type>
+		<client>site</client>
+		<version>0.1.0</version>
+		<date>2023-04-28</date>
+		<change>
+			<item>Added updateserver</item>
+		</change>
+		<note>
+			<item>Pre release version</item>
 		</note>
 	</changelog>
 </changelogs>
