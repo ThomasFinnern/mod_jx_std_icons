@@ -16,10 +16,10 @@
  *
  * One collection contains icon names found in the used *.svg files.
  * Other collections are retrieved from *.css file as the supported list is
- * smaller then the given *.svg icons.
+ * smaller than the given *.svg icons.
  * - List of supported icons (previous icomonn) for internal style and
           html <span class="icon-image"> </span>
- * - List of supported fonmt awesome icons which may be addressed like
+ * - List of supported font awesome icons which may be addressed like
           html <i class="fa fa-adjust"></i>
  *
  * @since  version 0.1

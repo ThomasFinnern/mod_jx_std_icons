@@ -41,10 +41,10 @@ class mod_jx_std_iconsHelper
 
 
     // defined in J! css file
-    public $awesome_version =  '%unknown%';
+    public string $awesome_version =  '%unknown%';
 
 	// Css file icomoon replacements
-    public $css_icomoon_icons = [];
+    public array $css_icomoon_icons = [];
 
 	// ???? 
     // public $css_atum_template_icons = [];
@@ -134,10 +134,10 @@ class mod_jx_std_iconsHelper
 //				echo "<br>awesome_version(3): '" . $awesome_version3 . "'<br><br>";
 
 				if ($awesome_version2 != "%unknown%") {
-					$this->awesome_version != $awesome_version2;
+					$this->awesome_version = $awesome_version2;
 				} else {
-					if ($awesome_version3 != "%unknown%") {
-						$this->awesome_version != $awesome_version3;
+					if ($awesome_version3 = "%unknown%") {
+						$this->awesome_version = $awesome_version3;
 					}
 				}
 
