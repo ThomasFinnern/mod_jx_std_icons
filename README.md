@@ -6,7 +6,7 @@ This view is intended to be read by extension developers in the need of selectin
 
 ## General info
 In general, the available icons can be viewed in
-https://docs.joomla.org/J4.x:Joomla_Standard_Font_Awesome_Fonts
+[Joomla_Standard_Font_Awesome_Fonts](https://docs.joomla.org/J4.x:Joomla_Standard_Font_Awesome_Fonts)
 Now this list is not styled very nice.
 
 Addressing the icons in our component has some pitfalls:
@@ -44,7 +44,7 @@ into standard joomla CMS
 
 pe7er Peter Martin issued a pull request to add an overview of all available Font Awesome Icons to the System Information tab.
 
-https://github.com/joomla/joomla-cms/pull/37724/files
+[Peters pull request](https://github.com/joomla/joomla-cms/pull/37724/files)
 
 His pull request was rejected for J!4 as he added the code as feature under the System information, whereas those Icons are template (atum and cassiopeia) and not system related.
 
