@@ -98,8 +98,9 @@ $font_size = $params->get('font_size');
 				<?php endif; ?>
 			<?php endif; ?>
 
-			<!-- icomoon replacements ======================================================================== -->
-
+            <?php
+            //=== icomoon replacements ========================================================================
+            ?>
 			<?php if($isDisplayIcomoonTable): ?>
 				<div class="card mb-3 ">
 					<div class="card-header">
@@ -138,7 +139,7 @@ $font_size = $params->get('font_size');
 											<div class="quickicon-info">
 
 												<div class="quickicon-icon">
-													<i style="font-size: <?php echo $font_size; ?>px;" class="icon-<?php echo $item->name; ?>"></i>
+													<i style="font-size: <?php echo $font_size; ?>px;" class="icon-<?php echo $item->iconId; ?>"></i>
 												</div>
 
 											</div>
@@ -155,7 +156,9 @@ $font_size = $params->get('font_size');
 				</div>
 			<?php endif; ?>
 
-			<!-- system joomla icons font awesome ======================================================================== -->
+            <?php
+			//=== system joomla icons font awesome ========================================================================
+            ?>
 
 			<?php if($isDisplayJoomlaSysIconTable): ?>
 				<div class="card mb-3 ">
@@ -194,7 +197,8 @@ $font_size = $params->get('font_size');
 											<div class="quickicon-info">
 
 												<div class="quickicon-icon">
-                                                    <i style="font-size: <?php echo $font_size; ?>px;" class="fa-solid fa-<?php echo $item->name; ?>"></i>
+                                                    <!--i style="font-size: <?php echo $font_size; ?>px;" class="fa-solid fa-<?php echo $item->iconId; ?>"></i-->
+                                                    <i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $item->iconId; ?>"></i>
 												</div>
 
                                             </div>
@@ -211,7 +215,9 @@ $font_size = $params->get('font_size');
 				</div>
 			<?php endif; ?>
 
-            <!-- system joomla brand icons ======================================================================== -->
+            <?php
+            //=== system joomla brand icons ========================================================================
+            ?>
 
 			<?php if($isDisplayBrandIconsTable_Awesome): ?>
                 <div class="card mb-3 ">
@@ -257,7 +263,7 @@ $font_size = $params->get('font_size');
                                             <div class="quickicon-info">
 
                                                 <div class="quickicon-icon">
-                                                    <i style="font-size: <?php echo $font_size; ?>px;" class="fab fa-<?php echo $item->name; ?>"></i>
+                                                    <i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $item->iconId; ?>"></i>
                                                 </div>
 
                                             </div>
@@ -274,7 +280,9 @@ $font_size = $params->get('font_size');
                 </div>
 			<?php endif; ?>
 
-            <!-- vendor all fontawesome ======================================================================== -->
+            <?php
+            //=== vendor all fontawesome ========================================================================
+            ?>
 
 			<?php if($isDisplayVendorAwesomeIconTable): ?>
                 <div class="card mb-3 ">
@@ -320,7 +328,7 @@ $font_size = $params->get('font_size');
                                             <div class="quickicon-info">
 
                                                 <div class="quickicon-icon">
-                                                    <i style="font-size: <?php echo $font_size; ?>px;" class="fa-solid fa-<?php echo $item->name; ?>"></i>
+                                                    <i style="font-size: <?php echo $font_size; ?>px;" class="fa-solid fa-<?php echo $item->iconId; ?>"></i>
                                                     <!--i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $item->name; ?>"></i-->
                                                     <!--i style="font-size: <?php echo $font_size; ?>px;" class="fas fa-<?php echo $item->name; ?>"></i-->
                                                 </div>
@@ -341,9 +349,14 @@ $font_size = $params->get('font_size');
 
 
 
-            <!-- collected characters ======================================================================== -->
+            <?php
+            //=== collected characters ========================================================================
+            ?>
 
-            <!-- svg_brand_names ======================================================================== -->
+
+            <?php
+			//=== svg_brand_names ========================================================================
+            ?>
 
 
 
