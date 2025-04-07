@@ -136,7 +136,7 @@ class mod_jx_std_iconsHelper
 				if ($awesome_version2 != "%unknown%") {
 					$this->awesome_version = $awesome_version2;
 				} else {
-					if ($awesome_version3 = "%unknown%") {
+					if ($awesome_version3 != "%unknown%") {
 						$this->awesome_version = $awesome_version3;
 					}
 				}
@@ -147,7 +147,7 @@ class mod_jx_std_iconsHelper
 				// 			$app = Factory::getApplication();
 				//			$app->enqueueMessage($OutTxt, 'error');
 
-				$this->awesome_version = $awesome_version3;
+				// $this->awesome_version = $awesome_version3;
 
 
 			}
@@ -215,7 +215,12 @@ class mod_jx_std_iconsHelper
 	            //--- extract icon names ---------------------------------------------
 
 	            // do extract
-                $css_form_icons = self::lines_extractCssIcons ($lines, $isFindIcomoon);
+	            if ($isFindIcomoon)
+	            {
+		            $css_form_icons = self::lines_extractCssIconmoon($lines);
+	            } else {
+		            $css_form_icons = self::lines_extractCssFontAwesome($lines);
+	            }
 
                 $isAssigned = true;
             }
@@ -254,7 +259,7 @@ class mod_jx_std_iconsHelper
             $iconCharVal ='';
             $iconType = '';
 
-	        $versionLineId = "Font Awesome Free ";
+	        $versionLineId = "Font Awesome Free";
 
 	        // all lines
             foreach ($lines as $fullLine)
@@ -275,7 +280,7 @@ class mod_jx_std_iconsHelper
 	            if ($startIdx != false)
 	            {
 					// example ' * Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com
-		            $endIdx = strpos($fullLine, ' ', $startIdx + strlen($versionLineId));
+		            $endIdx = strpos($fullLine, ' ', $startIdx + strlen($versionLineId) + 1);
 
 		            $awesome_version = substr($fullLine, $startIdx, $endIdx - $startIdx); // '5.15.4 '
 
@@ -303,7 +308,7 @@ class mod_jx_std_iconsHelper
      *
      * @since version 0.1
      */
-    public function lines_extractCssIcons ($lines = [], $isFindIcomoon=false) {
+    public function lines_extractCssIconmoon ($lines = []) {
 
         $css_form_icons = [];
 
@@ -317,12 +322,8 @@ class mod_jx_std_iconsHelper
                 to enable separate lists
             Or complete name with subName will be kept ...
 
-         example ccs file parts
-            .fa-arrow-right:before {
-                content: "\f061";
-            }
-
-            .icon-images:before {
+         example css file parts
+            .icon-images {
             content: "\f03e";
             }
         /**/
@@ -334,6 +335,9 @@ class mod_jx_std_iconsHelper
             $iconCharVal ='';
             $iconType = '';
 
+			$firstLine = '';
+	        $isSecondLine = false;
+
             // all lines
             foreach ($lines as $fullLine) {
 
@@ -344,36 +348,151 @@ class mod_jx_std_iconsHelper
                     continue;
                 }
 
-                //--- start: icon name and id ? ------------------------------------------------
+				$validLine = false;
+				if (str_starts_with($line, '.icon')) {
+					$firstLine = $line;
+					$isSecondLine = true;
 
-                // find "".fa-arrow-right:before {""
-                if (str_contains ($line, ':before'))
-                {
-					// -o ? no icon visible
-	                //if ( ! str_contains($line, '-o:before'))
-	                //{
+				} else {
 
-		                list ($iconId) = explode(':', $line);
+					if (str_starts_with($line, 'content:') && $isSecondLine)
+					{
+						$validLine    = true;
+						$isSecondLine = false;
+					}
+					else
+					{
+						$isSecondLine = false;
+					}
+				}
+				
+	            if ( ! $validLine) {
+					continue;
+//		            $test = 'test01';
+	            }
 
-		                // .fa-arrow-right, .icon-images
-		                list ($iconType, $iconName) = explode('-', $iconId, 2);
+	            //--- extract icon icomoon definition ------------------------------------------
+	            list($iconClass, $iconId, $iconType, $iconName) = $this->extractIconIcomoonProperties($firstLine);
 
-//					// test debug
-//	                if ($iconName == 'joomla') {
-//
-//		                $iconName = $iconName;
-//
-//	                }
-
-	                //}
-                }
-
-                //--- inside: valid icon definition ? ------------------------------------------
-
-                $isValid = false;
+	            //--- inside: valid icon definition ? ------------------------------------------
 
                 // icon char value
                 if (str_contains ($line, 'content:') ) {
+                    list ($dummy1, $iconCharVal, $dummy2) = explode ('"', $line);
+
+                    //--- create object --------------------------------------------------
+
+                    $icon = new \stdClass();
+
+                    $icon->name = $iconName;        // Display (maybe two names)
+                    $icon->iconId = $iconId;        // is used in view .icon + iconId
+                    $icon->iconClass = $iconClass;  // what is extracted
+                    $icon->iconCharVal = $iconCharVal; // character
+                    $icon->iconType = $iconType;       // '.icon' or '.fa'
+
+                    //--- .icons / .fa lists ------------------
+
+                    if ($icon->iconType == '.icon') {
+	                    $css_form_icons [$iconName] = $icon;
+					}
+                }
+            }
+
+            // sort
+            ksort ($css_form_icons);
+
+        } catch (\RuntimeException $e) {
+            $OutTxt = '';
+            $OutTxt .= 'Error executing linesEextractCssIcons: "' . '<br>';
+            $OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
+
+            $app = Factory::getApplication();
+            $app->enqueueMessage($OutTxt, 'error');
+        }
+
+        return $css_form_icons;
+    }
+
+    /**
+     * The lines (CSS file) contains
+     *  - css definition for internal used icons (previous icomoon names)
+     *  - css definition for font awesome
+     *
+     * @since version 0.1
+     */
+    public function lines_extractCssFontAwesome ($lines = []) {
+
+        $css_form_icons = [];
+
+        /**
+         rules:
+            1) lines with :before tell start of possible icon
+                Mane begins behind .fa- or .icon-
+            2) Content tells that it is an icon and about its value
+                The value is the ID as one may have different names
+            3) Names will be kept with second ID icon/fa appended
+                to enable separate lists
+            Or complete name with subName will be kept ...
+
+         example css file parts
+		    .fa-football, .fa-football-ball {
+			    --fa: "";
+			}
+        /**/
+
+        try {
+
+            $iconId ='';
+            $iconName = '';
+            $iconCharVal ='';
+            $iconType = '';
+
+	        $firstLine = '';
+			$isSecondLine = false;
+
+            // all lines
+            foreach ($lines as $fullLine) {
+
+                $line = trim($fullLine);
+
+                // empty line
+                if ($line == '') {
+                    continue;
+                }
+
+				$validLine = false;
+				if (str_starts_with($line, '.fa')) {
+					$firstLine = $line;
+					$isSecondLine = true;
+				} else {
+
+					if (str_starts_with($line, '--fa:') && $isSecondLine)
+					{
+						$validLine    = true;
+						$isSecondLine = false;
+					}
+					else
+					{
+						$isSecondLine = false;
+					}
+				}
+
+	            if ( ! $validLine) {
+					continue;
+//		            $test = 'test01';
+	            }
+
+	            //--- extract icon font awesome definition ------------------------------------------
+
+	            list($iconClass, $iconId, $iconType, $iconName) = $this->extractFawIconProperties($firstLine);
+
+
+	            //--- inside: valid icon definition ? ------------------------------------------
+
+	            // if (str_starts_with($line, '--fa:') && $isSecondLine)
+
+                // icon char value
+                if (str_contains ($line, '--fa:') ) {
                     list ($dummy1, $iconCharVal, $dummy2) = explode ('"', $line);
 
                     //--- create object --------------------------------------------------
@@ -387,15 +506,14 @@ class mod_jx_std_iconsHelper
 
                     //--- .icons / .fa lists ------------------
 
-					if ($isFindIcomoon) {
-                    	if ($icon->iconType == '.icon') {
-		                    $css_form_icons [$iconName] = $icon;
-						}
-	                } else {
-                    	if ($icon->iconType != '.icon') {
-		                    $css_form_icons [$iconName] = $icon;
-						}
-	                }
+		            if ($icon->iconType != '.icon') {
+	                    $css_form_icons [$iconName] = $icon;
+					}
+
+                } else {
+
+					$dummy1 = trim($line);
+
                 }
             }
 
@@ -437,7 +555,7 @@ class mod_jx_std_iconsHelper
             * 3)
 
 
-		example ccs file parts
+		example css file parts
 	        .fab, .icon-joomla, .fa-brands {
 	            font-family: "Font Awesome 6 Brands";
 	        }
@@ -651,5 +769,80 @@ class mod_jx_std_iconsHelper
 
         return $iconListByCharValue;
     }
+
+	/**
+	 * @param   string  $firstLine
+	 *
+	 * @return array
+	 *
+	 * @since version
+	 */
+	public function extractFawIconProperties(string $firstLine): array
+	{
+		// debug address-book
+		if (str_contains($firstLine, 'address-book'))
+		{
+			$test = 'address-book';
+		}
+		// debug address-book-o
+		if (str_contains($firstLine, 'address-book-o'))
+		{
+			$test = 'address-book-o';
+		}
+
+		//--- start: icon name and id ? ------------------------------------------------
+
+		// .fa-football, .fa-football-ball {
+
+		$lineTrimmed = trim(substr($firstLine, 0, -1));
+		// $lineTrimmed = trim($firstLine[0,-1]);
+
+		$items = explode(',', $lineTrimmed);
+
+		$iconNames = '';
+		foreach ($items as $item) {
+
+			// .fa-arrow-right, .icon-images
+			list ($iconType, $iconName) = explode('-', $item, 2);
+
+			if ($iconNames == '') {
+				$iconId = $iconName;
+				$iconClass = $item;
+				$iconNames .= $iconName;
+			} else {
+				$iconNames .= ', ' . $iconName;
+			}
+		}
+
+		return array($iconClass, $iconId, $iconType, $iconNames);
+	}
+
+	/**
+	 * @param   string  $firstLine
+	 * @param   string  $iconName
+	 *
+	 * @return array
+	 *
+	 * @since version
+	 */
+	public function extractIconIcomoonProperties(string $firstLine): array
+	{
+		// debug address-book
+		if (str_contains($firstLine, 'address-book'))
+		{
+			$test = 'address-book';
+		}
+
+		//--- start: icon name and id ? ------------------------------------------------
+
+		// extract icon name
+		list ($iconClass) = explode(':', $firstLine);
+
+		// .icon-images
+		list ($iconType, $iconName) = explode('-', $iconClass, 2);
+		$iconId = $iconName;
+
+		return array($iconClass, $iconId, $iconType, $iconName);
+	}
 
 }
