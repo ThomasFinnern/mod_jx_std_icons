@@ -3,8 +3,11 @@
         <element>mod_jx_std_icons</element>
         <type>module</type>
         <client>site</client>
-        <version>0.6.1</version>
-        <date>2025-04-07</date>
+        <version>0.6.5</version>
+        <date>2025-04-08</date>
+        <change>
+            <item>Adapted for J5x and J6x</item>
+        </change>
         <fix>
             <item>Css icons detection for J6.x needed a different search algorithm</item>
         </fix>
