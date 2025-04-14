@@ -19,16 +19,38 @@ use Joomla\CMS\Log\Log;
 class mod_jx_std_iconsInstallerScript
 {
 
+    private string $minimumJoomla = '4.4.0';
+    private string $minimumPhp    = '7.4.0';
+
 	/**
-	 * Extension script constructor.
+	 * Function called before extension installation/update/removal procedure commences
 	 *
-	 * @return  void
+	 * @param   string            $type    The type of change (install, update or discover_install, not uninstall)
+	 * @param   InstallerAdapter  $parent  The class calling this method
+	 *
+	 * @return  boolean  True on success
 	 */
-	public function __construct()
+	function preflight($type, $parent)
 	{
-		$this->minimumJoomla = '4.0';
-		$this->minimumPhp = JOOMLA_MINIMUM_PHP;
+		// // Check for the minimum PHP version before continuing
+		// if (!empty($this->minimumPhp) && version_compare(PHP_VERSION, $this->minimumPhp, '<')) {
+			// Log::add(Text::sprintf('JLIB_INSTALLER_MINIMUM_PHP', $this->minimumPhp), Log::WARNING, 'jerror');
+
+			// return false;
+		// }
+
+		// // Check for the minimum Joomla version before continuing
+		// if (!empty($this->minimumJoomla) && version_compare(JVERSION, $this->minimumJoomla, '<')) {
+			// Log::add(Text::sprintf('JLIB_INSTALLER_MINIMUM_JOOMLA', $this->minimumJoomla), Log::WARNING, 'jerror');
+
+			// return false;
+		// }
+
+		echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_PREFLIGHT');
+
+		return true;
 	}
+
 
 	/**
 	 * Method to install the extension
@@ -39,7 +61,7 @@ class mod_jx_std_iconsInstallerScript
 	 */
 	function install($parent)
 	{
-		echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_INSTALL');
+		// echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_INSTALL');
 
 		return true;
 	}
@@ -53,7 +75,7 @@ class mod_jx_std_iconsInstallerScript
 	 */
 	function uninstall($parent)
 	{
-		echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_UNINSTALL');
+		// echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_UNINSTALL');
 
 		return true;
 	}
@@ -67,36 +89,7 @@ class mod_jx_std_iconsInstallerScript
 	 */
 	function update($parent)
 	{
-		echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_UPDATE');
-
-		return true;
-	}
-
-	/**
-	 * Function called before extension installation/update/removal procedure commences
-	 *
-	 * @param   string            $type    The type of change (install, update or discover_install, not uninstall)
-	 * @param   InstallerAdapter  $parent  The class calling this method
-	 *
-	 * @return  boolean  True on success
-	 */
-	function preflight($type, $parent)
-	{
-		// Check for the minimum PHP version before continuing
-		if (!empty($this->minimumPhp) && version_compare(PHP_VERSION, $this->minimumPhp, '<')) {
-			Log::add(Text::sprintf('JLIB_INSTALLER_MINIMUM_PHP', $this->minimumPhp), Log::WARNING, 'jerror');
-
-			return false;
-		}
-
-		// Check for the minimum Joomla version before continuing
-		if (!empty($this->minimumJoomla) && version_compare(JVERSION, $this->minimumJoomla, '<')) {
-			Log::add(Text::sprintf('JLIB_INSTALLER_MINIMUM_JOOMLA', $this->minimumJoomla), Log::WARNING, 'jerror');
-
-			return false;
-		}
-
-		echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_PREFLIGHT');
+		// echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_UPDATE');
 
 		return true;
 	}
@@ -111,7 +104,7 @@ class mod_jx_std_iconsInstallerScript
 	 */
 	function postflight($type, $parent)
 	{
-		echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_POSTFLIGHT');
+		// echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_POSTFLIGHT');
 
 		return true;
 	}

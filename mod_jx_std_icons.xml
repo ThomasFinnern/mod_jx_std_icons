@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="module" client="site" method="upgrade" version="5.0">
   <name>mod_jx_std_icons</name>
-  <creationDate>2025.04.08</creationDate>
+  <creationDate>2025.04.05</creationDate>
   <author>Thomas Finnern</author>
   <authorEmail>mod_jx_std_icons@tomfinnern.de</authorEmail>
   <authorUrl>www.tomfinnern.de</authorUrl>
@@ -13,8 +13,9 @@
   <namespace path="src">Finnern\Module\mod_jx_std_icons</namespace>
   <files>
     <filename module="mod_jx_std_icons">mod_jx_std_icons.php</filename>
-    <filename>LICENSE</filename>
+    <filename>mod_jx_std_icons.xml</filename>
     <filename>changelog.xml</filename>
+    <filename>LICENSE</filename>
     <folder>language</folder>
     <folder>src</folder>
     <folder>tmpl</folder>
