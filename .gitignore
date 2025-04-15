@@ -11,3 +11,6 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# org and temp files
+**/*.org.*
+**/*.tmp
