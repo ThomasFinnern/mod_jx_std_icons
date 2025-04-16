@@ -264,7 +264,7 @@ abstract class extractFontAwesomeBase
 		/**
 		 * rules:
 		 * 1) lines with :before tell start of possible icon
-		 * Mane begins behind .fa- or .icon-
+		 * Name begins behind .fa- or .icon-
 		 * 2) Content tells that it is an icon and about its value
 		 * The value is the ID as one may have different names
 		 * 3) Names will be kept with second ID icon/fa appended
@@ -474,7 +474,7 @@ abstract class extractFontAwesomeBase
 		/**
 		 * rules:
 		 * 1) lines with :before tell start of possible icon
-		 * Mane begins behind .fa- or .icon-
+		 * Name begins behind .fa- or .icon-
 		 * 2) Content tells that it is an icon and about its value
 		 * The value is the ID as one may have different names
 		 * 3) Names will be kept with second ID icon/fa appended
@@ -702,7 +702,7 @@ abstract class extractFontAwesomeBase
 //		/**
 //		 * rules:
 //		 * 1) lines with :before tell start of possible icon
-//		 * Mane begins behind .fa- or .icon-
+//		 * Name begins behind .fa- or .icon-
 //		 * 2) Content tells that it is an icon and about its value
 //		 * The value is the ID as one may have different names
 //		 * 3) Names will be kept with second ID icon/fa appended
@@ -819,65 +819,6 @@ abstract class extractFontAwesomeBase
 //		return $css_form_icons;
 	}
 
-//	// ToDo: There is .fa.fa-long-arrow-up and .fa-arrow-up-long, .fa-long-arrow-up
-//	/**
-//	 * @param   string  $firstLine
-//	 *
-//	 * @return array
-//	 *
-//	 * @since version
-//	 */
-//	public
-//	function extractSystemIconProperties(string $firstLine): array
-//	{
-//		// debug address-book
-//		if (str_contains($firstLine, 'address-book'))
-//		{
-//			$test = 'address-book';
-//		}
-//		// debug address-book-o
-//		if (str_contains($firstLine, 'address-book-o'))
-//		{
-//			$test = 'address-book-o';
-//		}
-//		// debug football
-//		if (str_contains($firstLine, 'football'))
-//		{
-//			$test = 'football';
-//		}
-//
-//		//--- start: icon name and id ? ------------------------------------------------
-//
-//		// .fa-football, .fa-football-ball {
-//
-//		$lineTrimmed = trim(substr($firstLine, 0, -1));
-//		// $lineTrimmed = trim($firstLine[0,-1]);
-//
-//		$items = explode(',', $lineTrimmed);
-//
-//		$iconNames = '';
-//		foreach ($items as $item)
-//		{
-//
-//			// .fa-arrow-right, .icon-images
-//			list ($iconType, $iconName) = explode('-', $item, 2);
-//
-//			if ($iconNames == '')
-//			{
-//				$iconId    = $iconName;
-//				$iconClass = $item;
-//				$iconNames .= $iconName;
-//			}
-//			else
-//			{
-//				$iconNames .= ', ' . $iconName;
-//			}
-//		}
-//
-//		return array($iconClass, $iconId, $iconType, $iconNames);
-//	}
-//
-//
 //	/**
 //	 *
 //	 * @return mixed

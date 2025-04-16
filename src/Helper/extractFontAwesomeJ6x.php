@@ -191,7 +191,7 @@ class extractFontAwesomeJ6x extends extractFontAwesomeBase
 		/**
 		 * rules:
 		 * 1) lines with :before tell start of possible icon
-		 * Mane begins behind .fa- or .icon-
+		 * Name begins behind .fa- or .icon-
 		 * 2) Content tells that it is an icon and about its value
 		 * The value is the ID as one may have different names
 		 * 3) Names will be kept with second ID icon/fa appended

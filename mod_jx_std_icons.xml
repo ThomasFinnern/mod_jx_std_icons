@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="module" client="site" method="upgrade" version="5.0">
   <name>mod_jx_std_icons</name>
-  <creationDate>2025.04.05</creationDate>
+  <creationDate>2025.04.16</creationDate>
   <author>Thomas Finnern</author>
   <authorEmail>mod_jx_std_icons@tomfinnern.de</authorEmail>
   <authorUrl>www.tomfinnern.de</authorUrl>
@@ -59,7 +59,7 @@
           <option value="0">JNO</option>
           <option value="1">JYES</option>
         </field>
-        <field name="font_size" type="number" label="MOD_JX_STD_ICONS_FIELD_FONT_SIZE" description="MOD_JX_STD_ICONS_FIELD_FONT_SIZE_DESC" default="48" filter="integer" min="1" validate="number"></field>
+        <field name="font_size" type="number" label="MOD_JX_STD_ICONS_FIELD_FONT_SIZE" description="MOD_JX_STD_ICONS_FIELD_FONT_SIZE_DESC" default="48" filter="integer" min="1" validate="number"/>
       </fieldset>
     </fields>
   </config>

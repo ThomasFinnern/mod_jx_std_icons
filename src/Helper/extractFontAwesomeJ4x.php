@@ -22,7 +22,7 @@ class extractFontAwesomeJ4x extends extractFontAwesomeBase
 	// const CSS_VENDOR_AWESOME_PATH_FILE_NAME = JPATH_ROOT . '/media/vendor/fontawesome-free/css/fontawesome.css';
 
 	// Brand names in J!4 (font-family: "Font Awesome 5 Brands";)
-	const J4X_BRAND_NAMES_PATH_FILE_NAME = JPATH_ROOT . '/media/vendor/fontawesome-free/scss/v4shims.css';
+	const J4X_BRAND_NAMES_PATH_FILE_NAME = JPATH_ROOT . '/media/vendor/fontawesome-free/scss/v4-shims.css';
 
 	public function __construct() {
 		parent::__construct();
@@ -53,9 +53,9 @@ class extractFontAwesomeJ4x extends extractFontAwesomeBase
 	{
 		$brandNames =  parent::extractBrandIconNames($brandsPathFileName);
 		sort($brandNames);
-		
+
 		// needed to distinct between font awesome system and brand icons in extractSystemAndBrandIcons / lines
-		$this->css_joomla_system_brand_names = $brandNames; 
+		$this->css_joomla_system_brand_names = $brandNames;
 
 		return $brandNames;
 	}
@@ -74,117 +74,84 @@ class extractFontAwesomeJ4x extends extractFontAwesomeBase
 		$css_brand_names = [];
 
 		/**
-		 *
-		 * rules:
-		 * 1)
-		 * 2)
-		 * 3)
-		 *
 		 * //--- FontAwesome 5: ---------------------------------
 		 *
-		 * example css file parts
-		 * .fab, .icon-joomla, .fa-brands {
-		 * font-family: "Font Awesome 5 Brands";
-		 * }
-		 *
-		 * .fa.fa-twitter {
+         * .fa.fa-meetup {
+         * font-family: "Font Awesome 5 Brands";
+         * font-weight: 400;
+         * }
+         *
+         * .fa.fa-twitter {
 		 * font-family: "Font Awesome 5 Brands";
 		 * font-weight: 400;
 		 * }
-		 *
-		 * /**/
+         *
+         * rules:
+         *   1) keep first line if '.fa.fa' found
+         *   2) on 'font-family: "Font Awesome 5 Brands"' as second line extract name(s) from first line
+         */
 
 		try
 		{
+            $firstLine    = '';
+            $isSecondLine = false;
 
-			// $iconId ='';
-			$iconNames = [];
-			// $iconCharVal ='';
-			// $iconType = '';
+            // all lines
+            foreach ($lines as $fullLine)
+            {
 
-			$brandsId = "Brands\";";
+                $line = trim($fullLine);
 
-			// all lines
-			foreach ($lines as $fullLine)
-			{
+                // empty line
+                if ($line == '')
+                {
+                    continue;
+                }
 
-				$line = trim($fullLine);
+                $validLine = false;
+                if (str_starts_with($line, '.fa.fa'))
+                {
+                    $firstLine    = $line;
+                    $isSecondLine = true;
+                }
+                else
+                {
+                    if ($isSecondLine)
+                    {
+                        // debug first appearance
+                        // .fa.fa-meetup,
+                        if (str_contains($firstLine, 'fa-meetup'))
+                        {
+                            $test = 'meetup';
+                        }
 
-				// empty line
-				if ($line == '')
-				{
-					continue;
-				}
+                        if (str_contains($line, 'font-family: "Font Awesome 5 Brands"') )
+                        {
+                            $validLine    = true;
+                            $isSecondLine = false;
+                        }
+                        else
+                        {
+                            $isSecondLine = false;
+                        }
+                    }
+                }
 
-				//--- start: names list line ? ------------------------------------------------
+                if (!$validLine)
+                {
+                    continue;
+//		            $test = 'test01';
+                }
 
-				// find similar ".fab, .icon-joomla, .fa-brands {""
-				if (str_starts_with($line, '.') && str_ends_with($line, '{'))
-				{
+                $lineBrands = $this->line_collectBrandIconNames($firstLine);
 
-					$namesLine = substr($line, 0, -1);
+                //--- add names to list -----------------------------------------------
 
-				}
-
-				//--- inside: valid brands definition ? ------------------------------------------
-
-				// icon char value
-				if (str_contains($line, $brandsId))
-				{
-//		            if (str_contains($namesLine, 'joomla'))
-//		            {
-//			            $line = $line;
-//		            }
-
-					//--- split -----------------------------------------------
-
-					// .fa-arrow-right, .icon-images
-					$nextNames = explode(',', $namesLine);
-
-					foreach ($nextNames as $nextName)
-					{
-
-						$nextName = trim($nextName);
-
-						//--- remove -fa-fa.... -----------------------------------------------
-
-						if (str_starts_with($nextName, '.fa.fa'))
-						{
-
-							$nextName = substr($nextName, 3);
-						}
-
-						//--- remove .fa -----------------------------------------------
-
-						if (str_starts_with($nextName, '.fa-'))
-						{
-
-							$nextName = substr($nextName, 4);
-						}
-
-						//--- remove -fa-fa.... -----------------------------------------------
-
-						if (str_starts_with($nextName, '.icon-'))
-						{
-
-							$nextName = substr($nextName, 6);
-						}
-
-//			            //--- remove '.'' -----------------------------------------------
-//
-//			            if (str_starts_with($nextName, '.'))
-//			            {
-//
-//				            $nextName = substr($nextName, 1);
-//			            }
-
-						//--- add names to list -----------------------------------------------
-
-						$css_brand_names[] = $nextName;
-
-					}
-				}
-			}
+                foreach ($lineBrands as $brandName)
+                {
+                    $css_brand_names[] = $brandName;
+                }
+            }
 		}
 		catch (\RuntimeException $e)
 		{
@@ -199,8 +166,64 @@ class extractFontAwesomeJ4x extends extractFontAwesomeBase
 		return $css_brand_names;
 	}
 
+    /**
+     *
+     * line like: '.fa.fa-twitter, .fa.fa-facebook'
+     *
+     * @param   string  $firstLine
+     *
+     * @return array
+     *
+     * @since version
+     */
+    private static function line_collectBrandIconNames(string $firstLine)
+    {
+        $brandNames = [];
 
-	//--- .fa lists ------------------
+        try
+        {
+
+            // debug address-book
+            // .fa.fa-twitter, .fa.fa-facebook
+            if (str_contains($firstLine, 'fa-twitter'))
+            {
+                $test = 'twitter';
+            }
+
+            // remove ' {' at end of line
+            $itemLine = trim(substr($firstLine, 0, -2));
+
+            $lineItems = explode(', ', $itemLine);
+
+            foreach ($lineItems as $Item)
+            {
+                if (str_starts_with($firstLine, '.fa.fa-'))
+                {
+
+                    $brandName    = trim(substr($Item, 7));
+                    $brandNames[] = $brandName;
+                }
+                else
+                {
+                    $test = 'why?';
+                }
+            }
+        }
+        catch (\RuntimeException $e)
+        {
+            $OutTxt = '';
+            $OutTxt .= 'Error executing lines_collectBrandIconNames56: "' . '<br>';
+            $OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
+
+            $app = Factory::getApplication();
+            $app->enqueueMessage($OutTxt, 'error');
+        }
+
+        return $brandNames;
+    }
+
+
+    //--- .fa lists ------------------
 	public function lines_collectSystemAndBrandIcons(array $lines)
 	{
 		$css_system_icons = [];
@@ -212,7 +235,7 @@ class extractFontAwesomeJ4x extends extractFontAwesomeBase
 		/**
 		 * rules:
 		 * 1) lines with :before tell start of possible icon
-		 * Mane begins behind .fa- or .icon-
+		 * Name begins behind .fa- or .icon-
 		 * 2) Content tells that it is an icon and about its value
 		 * The value is the ID as one may have different names
 		 * 3) Names will be kept with second ID icon/fa appended
@@ -237,84 +260,61 @@ class extractFontAwesomeJ4x extends extractFontAwesomeBase
 
 
 			// all lines
-			foreach ($lines as $fullLine)
-			{
+			foreach ($lines as $fullLine) {
+                $line = trim($fullLine);
 
-				$line = trim($fullLine);
+                // empty line
+                if ($line == '') {
+                    continue;
+                }
 
-				// empty line
-				if ($line == '')
-				{
-					continue;
-				}
+                $validLine = false;
+                if (str_starts_with($line, '.fa')) {
+                    $firstLine    = $line;
+                    $isSecondLine = true;
+                } else {
+                    if ($isSecondLine) {
+                        if (str_starts_with($line, 'content:')) {
+                            $validLine    = true;
+                            $isSecondLine = false;
+                        } else {
+                            $isSecondLine = false;
+                        }
+                    }
+                }
 
-				$validLine = false;
-				if (str_starts_with($line, '.fa'))
-				{
-					$firstLine    = $line;
-					$isSecondLine = true;
-				}
-				else
-				{
-
-					if (str_starts_with($line, 'content:') && $isSecondLine)
-					{
-						$validLine    = true;
-						$isSecondLine = false;
-					}
-					else
-					{
-						$isSecondLine = false;
-					}
-				}
-
-				if (!$validLine)
-				{
-					continue;
+                if (!$validLine) {
+                    continue;
 //		            $test = 'test01';
-				}
+                }
 
-				//--- extract icon font awesome definition ------------------------------------------
+                //--- extract icon font awesome definition ------------------------------------------
 
-				list($iconClass, $iconId, $iconType, $iconName) = $this->extractSystemIconProperties($firstLine);
+                // list($iconClass, $iconId, $iconType, $iconName) = $this->extractSystemIconProperties($firstLine);
+                list($iconClass, $iconId, $iconType, $iconName) = $this->extractIconIcomoonProperties($firstLine);
 
-				//--- inside: valid icon definition ? ------------------------------------------
+                //--- inside: valid icon definition ? ------------------------------------------
 
-				// if (str_starts_with($line, '--fa:') && $isSecondLine)
+                list ($dummy1, $iconCharVal, $dummy2) = explode('"', $line);
 
-				// icon char value
-				if (str_contains($line, 'content:'))
-				{
-					list ($dummy1, $iconCharVal, $dummy2) = explode('"', $line);
+                //--- create object --------------------------------------------------
 
-					//--- create object --------------------------------------------------
+                $icon = new \stdClass();
 
-					$icon = new \stdClass();
+                $icon->name        = $iconName;
+                $icon->iconId      = $iconId;
+                $icon->iconCharVal = $iconCharVal;
+                $icon->iconType    = $iconType;
 
-					$icon->name        = $iconName;
-					$icon->iconId      = $iconId;
-					$icon->iconCharVal = $iconCharVal;
-					$icon->iconType    = $iconType;
+                //--- .fa lists ------------------
 
-					//--- .fa lists ------------------
-
-					// system if name not found in brands
-					if ( ! in_array($iconName, $brandNames))
-					{
-						$css_system_icons [$iconName] = $icon;
-					}
-					else
-					{
-						$css_brand_icons [$iconName] = $icon;
-					}
-				}
-				else
-				{
-
-					$dummy1 = trim($line);
-
-				}
-			}
+                // system if name not found in brands
+                if (!in_array($iconName, $brandNames)) {
+                    $css_system_icons [$iconName] = $icon;
+                } else {
+                    $css_brand_icons [$iconName] = $icon;
+                }
+            }
 
 			// sort
 			ksort($css_system_icons);
@@ -333,7 +333,67 @@ class extractFontAwesomeJ4x extends extractFontAwesomeBase
 
 		return [$css_system_icons, $css_brand_icons];
 	}
-	
+
+//	// ToDo: There is .fa.fa-long-arrow-up and .fa-arrow-up-long, .fa-long-arrow-up
+//	/**
+//	 * @param   string  $firstLine
+//	 *
+//	 * @return array
+//	 *
+//	 * @since version
+//	 */
+//	public
+//	function extractSystemIconProperties(string $firstLine): array
+//	{
+//		// debug address-book
+//		if (str_contains($firstLine, 'address-book'))
+//		{
+//			$test = 'address-book';
+//		}
+//		// debug address-book-o
+//		if (str_contains($firstLine, 'address-book-o'))
+//		{
+//			$test = 'address-book-o';
+//		}
+//		// debug football
+//		if (str_contains($firstLine, 'football'))
+//		{
+//			$test = 'football';
+//		}
+//
+//		//--- start: icon name and id ? ------------------------------------------------
+//
+//		// .fa-arrow-right:before {
+//
+//		$lineTrimmed = trim(substr($firstLine, 0, -1));
+//		// $lineTrimmed = trim($firstLine[0,-1]);
+//
+//        // extract icon name
+//        list ($iconClass) = explode(':', $firstLine);
+//
+//		$iconName = '';
+//		foreach ($items as $item)
+//		{
+//
+//			// .fa-arrow-right, .icon-images
+//			list ($iconType, $iconName) = explode('-', $item, 2);
+//
+//			if ($iconNames == '')
+//			{
+//				$iconId    = $iconName;
+//				$iconClass = $item;
+//				$iconNames .= $iconName;
+//			}
+//			else
+//			{
+//				$iconNames .= ', ' . $iconName;
+//			}
+//		}
+//
+//		return array($iconClass, $iconId, $iconType, $iconNames);
+//	}
+
+
 
 //	/**
 //	 *

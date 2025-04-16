@@ -109,7 +109,7 @@ class extractFontAwesomeJ5x extends extractFontAwesomeBase
 					if ($isSecondLine)
 					{
 //					    if (str_contains($line, 'font-family: "Font Awesome 6 Brands"') && $isSecondLine)
-						if (str_contains($line, 'font-family: "Font Awesome') )
+						if (str_contains($line, 'font-family: "Font Awesome 6 Brands"') )
 						{
 							$validLine    = true;
 							$isSecondLine = false;
@@ -120,6 +120,7 @@ class extractFontAwesomeJ5x extends extractFontAwesomeBase
 						}
 					}
 				}
+
 				if (!$validLine)
 				{
 					continue;
