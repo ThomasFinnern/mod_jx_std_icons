@@ -18,16 +18,18 @@ global $j_css_icons;
 $awesome_version = $j_css_icons->awesome_version;
 
 //$css_atum_template_icons = $j_css_icons->css_atum_template_icons;
-$css_icomoon_icons        = $j_css_icons->css_icomoon_icons;
+$css_icomoon_icons              = $j_css_icons->css_icomoon_icons;
 
-$css_joomla_system_icons  = $j_css_icons->css_joomla_system_icons;
+$css_joomla_system_icons        = $j_css_icons->css_joomla_system_icons;
 $css_joomla_system_brand_names  = $j_css_icons->css_joomla_system_brand_names;
-$css_joomla_system_brand_icons = $j_css_icons->css_joomla_system_brand_icons;
+$css_joomla_system_brand_icons  = $j_css_icons->css_joomla_system_brand_icons;
 
-$css_vendor_awesome_icons = $j_css_icons->css_vendor_awesome_icons;
+$css_vendor_awesome_icons       = $j_css_icons->css_vendor_awesome_icons;
 //$css_vendor_awesome_brand_names = $j_css_icons->css_vendor_awesome_brand_names;
 
-$iconListByCharValue      = $j_css_icons->iconListByCharValue;
+$iconListByCharValue            = $j_css_icons->iconListByCharValue;
+
+$jx_version                     = $j_css_icons->jx_version;
 
 // PUA Schriftzeichen
 
@@ -199,8 +201,7 @@ $font_size = $params->get('font_size');
 
 												<div class="quickicon-icon">
                                                     <i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $systemName->iconId; ?>"></i>
-                                                    <!-- 4x brands highlighted <i style="font-size: <?php echo $font_size; ?>px;" class="fab fa-<?php echo $systemName->iconId; ?>"></i>
-                                                    <!--5x <i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $systemName->iconId; ?>"></i>-->
+                                                    <!-- 4x brands highlighted <i style="font-size: <?php echo $font_size; ?>px;" class="fab fa-<?php echo $systemName->iconId; ?>"></i>-->
 												</div>
 
                                             </div>
@@ -331,12 +332,18 @@ $font_size = $params->get('font_size');
                                             <div class="quickicon-info">
 
                                                 <div class="quickicon-icon">
-                                                    <?php if(!in_array($awesomeName->name, $css_joomla_system_brand_names) ): ?>
-	                                                    <!-- not helping in 4x <i style="font-size: <?php echo $font_size; ?>px;" class="fa-solid fa-<?php echo $awesomeName->iconId; ?>"></i>-->
-		                                                <i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $awesomeName->name; ?>"></i>
-		                                                <!-- <i style="font-size: <?php echo $font_size; ?>px;" class="fas fa-<?php echo $awesomeName->name; ?>"></i>-->
+                                                    <?php if (version_compare($jx_version, '5', '<')): ?>
+	                                                    <?php // J4x ?>
+	                                                    <?php if(!in_array($awesomeName->iconId, $css_joomla_system_brand_names) ): ?>
+                                                            <!-- not helping in 4x <i style="font-size: <?php echo $font_size; ?>px;" class="fa-solid fa-<?php echo $awesomeName->iconId; ?>"></i>-->
+                                                            <i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $awesomeName->iconId; ?>"></i>
+                                                            <!-- <i style="font-size: <?php echo $font_size; ?>px;" class="fas fa-<?php echo $awesomeName->iconId; ?>"></i>-->
+                                                        <?php else: ?>
+                                                            <i style="font-size: <?php echo $font_size; ?>px;" class="fab fa-<?php echo $awesomeName->iconId; ?>"></i>
+                                                        <?php endif; ?>
                                                     <?php else: ?>
-		                                                <i style="font-size: <?php echo $font_size; ?>px;" class="fab fa-<?php echo $awesomeName->iconId; ?>"></i>
+	                                                    <?php // J5x ?>
+                                                        <i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $awesomeName->iconId; ?>"></i>
                                                     <?php endif; ?>
                                                 </div>
 

@@ -55,6 +55,9 @@ class extractFontAwesomeJ5x extends extractFontAwesomeBase
 		$brandNames =  parent::extractBrandIconNames($brandsPathFileName);
 		sort($brandNames);
 
+		// needed to distinct between font awesome system and brand icons in extractSystemAndBrandIcons / lines
+		$this->css_joomla_system_brand_names = $brandNames;
+
 		return $brandNames;
 	}
 
@@ -250,6 +253,246 @@ class extractFontAwesomeJ5x extends extractFontAwesomeBase
 //	}
 
 
+
+//	public function lines_collectSystemAndBrandIcons(array $lines)
+//	{
+//		$css_system_icons = [];
+//		$css_brand_icons = [];
+//
+//		// needed to distinct between font awesome system and brand icons in extractSystemAndBrandIcons / lines
+//		$brandNames = $this->css_joomla_system_brand_names;
+//
+//		/**
+//		 * rules:
+//		 * 1) lines with :before tell start of possible icon
+//		 * Name begins behind .fa- or .icon-
+//		 * 2) Content tells that it is an icon and about its value
+//		 * The value is the ID as one may have different names
+//		 * 3) Names will be kept with second ID icon/fa appended
+//		 * to enable separate lists
+//		 * Or complete name with subName will be kept ...
+//		 *
+//		 * example css file parts
+//		 * .fa-arrow-right:before {
+//		 * content: "\f061";
+//		 * }
+//		 */
+//
+//		try
+//		{
+//			$iconId      = '';
+//			$iconName    = '';
+//			$iconCharVal = '';
+//			$iconType    = '';
+//
+//			$firstLine    = '';
+//			$isSecondLine = false;
+//			$secondLine = '';
+//
+//
+//			// all lines
+//			foreach ($lines as $fullLine)
+//			{
+//				$line = trim($fullLine);
+//
+//				// empty line
+//				if ($line == '') {
+//					continue;
+//				}
+//
+//				$validLine = false;
+//				if (str_starts_with($line, '.fa'))
+//				{
+//					$firstLine    = $line;
+//					$isSecondLine = true;
+//				}
+//				else
+//				{
+//					if ($isSecondLine)
+//					{
+//						// debug first appearance
+//						// .fa.fa-meetup,
+//						if (str_contains($firstLine, 'fa-meetup'))
+//						{
+//							$test = 'meetup';
+//						}
+//
+//						// font-family: "Font Awesome 6 Free";, font-family: "Font Awesome 6 Brands";
+//						if (str_contains($line, 'font-family: "Font Awesome 6') )
+//						{
+//							$validLine    = true;
+//							$isSecondLine = false;
+//							$secondLine = $line;
+//						}
+//						else
+//						{
+//							$isSecondLine = false;
+//						}
+//					}
+//				}
+//
+//				if (!$validLine)
+//				{
+//					continue;
+////		            $test = 'test01';
+//				}
+//
+//				//--- extract icon font awesome definition ------------------------------------------
+//
+//				// list($iconClass, $iconId, $iconType, $iconName) = $this->extractSystemIconProperties($firstLine);
+//				list($iconClass, $iconId, $iconType, $iconName) = $this->extractIconIcomoonProperties($firstLine);
+//
+//				//--- inside: valid icon definition ? ------------------------------------------
+//
+//				list ($dummy1, $iconCharVal, $dummy2) = explode('"', $line);
+//
+//				//--- create object --------------------------------------------------
+//
+//				$icon = new \stdClass();
+//
+//				$icon->name        = $iconName;
+//				$icon->iconId      = $iconId;
+//				$icon->iconCharVal = $iconCharVal;
+//				$icon->iconType    = $iconType;
+//
+//				//--- .fa lists ------------------
+//
+//				// system if name not found in brands
+//				if (!str_contains($secondLine, 'Free')) {
+//					$css_system_icons [$iconName] = $icon;
+//				} else {
+//					$css_brand_icons [$iconName] = $icon;
+//				}
+//			}
+//
+//			// sort
+//			ksort($css_system_icons);
+//			ksort($css_brand_icons);
+//
+//		}
+//		catch (\RuntimeException $e)
+//		{
+//			$OutTxt = '';
+//			$OutTxt .= 'Error executing linesEextractCssIcons: "' . '<br>';
+//			$OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
+//
+//			$app = Factory::getApplication();
+//			$app->enqueueMessage($OutTxt, 'error');
+//		}
+//
+//		return [$css_system_icons, $css_brand_icons];
+//	}
+
+	//--- .fa lists ------------------
+	public function lines_collectSystemAndBrandIcons(array $lines)
+	{
+		$css_system_icons = [];
+		$css_brand_icons = [];
+
+		// needed to distinct between font awesome system and brand icons in extractSystemAndBrandIcons / lines
+		$brandNames = $this->css_joomla_system_brand_names;
+
+		/**
+		 * rules:
+		 * 1) lines with :before tell start of possible icon
+		 * Name begins behind .fa- or .icon-
+		 * 2) Content tells that it is an icon and about its value
+		 * The value is the ID as one may have different names
+		 * 3) Names will be kept with second ID icon/fa appended
+		 * to enable separate lists
+		 * Or complete name with subName will be kept ...
+		 *
+		 * example css file parts
+		 * .fa-arrow-right:before {
+		 * content: "\f061";
+		 * }
+		 */
+
+		try
+		{
+			$iconId      = '';
+			$iconName    = '';
+			$iconCharVal = '';
+			$iconType    = '';
+
+			$firstLine    = '';
+			$isSecondLine = false;
+
+
+			// all lines
+			foreach ($lines as $fullLine) {
+				$line = trim($fullLine);
+
+				// empty line
+				if ($line == '') {
+					continue;
+				}
+
+				$validLine = false;
+				if (str_starts_with($line, '.fa')) {
+					$firstLine    = $line;
+					$isSecondLine = true;
+				} else {
+					if ($isSecondLine) {
+						if (str_starts_with($line, 'content:')) {
+							$validLine    = true;
+							$isSecondLine = false;
+						} else {
+							$isSecondLine = false;
+						}
+					}
+				}
+
+				if (!$validLine) {
+					continue;
+//		            $test = 'test01';
+				}
+
+				//--- extract icon font awesome definition ------------------------------------------
+
+				// list($iconClass, $iconId, $iconType, $iconName) = $this->extractSystemIconProperties($firstLine);
+				list($iconClass, $iconId, $iconType, $iconName) = $this->extractIconIcomoonProperties($firstLine);
+
+				//--- inside: valid icon definition ? ------------------------------------------
+
+				list ($dummy1, $iconCharVal, $dummy2) = explode('"', $line);
+
+				//--- create object --------------------------------------------------
+
+				$icon = new \stdClass();
+
+				$icon->name        = $iconName;
+				$icon->iconId      = $iconId;
+				$icon->iconCharVal = $iconCharVal;
+				$icon->iconType    = $iconType;
+
+				//--- .fa lists ------------------
+
+				// system if name not found in brands
+				if (!in_array($iconName, $brandNames)) {
+					$css_system_icons [$iconName] = $icon;
+				} else {
+					$css_brand_icons [$iconName] = $icon;
+				}
+			}
+
+			// sort
+			ksort($css_system_icons);
+			ksort($css_brand_icons);
+
+		}
+		catch (\RuntimeException $e)
+		{
+			$OutTxt = '';
+			$OutTxt .= 'Error executing linesEextractCssIcons: "' . '<br>';
+			$OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
+
+			$app = Factory::getApplication();
+			$app->enqueueMessage($OutTxt, 'error');
+		}
+
+		return [$css_system_icons, $css_brand_icons];
+	}
 
 
 

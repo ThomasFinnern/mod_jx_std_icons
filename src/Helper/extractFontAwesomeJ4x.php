@@ -99,7 +99,6 @@ class extractFontAwesomeJ4x extends extractFontAwesomeBase
             // all lines
             foreach ($lines as $fullLine)
             {
-
                 $line = trim($fullLine);
 
                 // empty line
