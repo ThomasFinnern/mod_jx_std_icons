@@ -19,7 +19,7 @@ use Finnern\Module\mod_jx_std_icons\Site\Helper\extractFontAwesomeBase;
 class extractFontAwesomeJ5x extends extractFontAwesomeBase
 {
 	// Icons fontawesome in joomla vendor path
-	const CSS_VENDOR_AWESOME_PATH_FILE_NAME = JPATH_ROOT . '/media/vendor/fontawesome-free/css/fontawesome.css';
+	// const CSS_VENDOR_AWESOME_PATH_FILE_NAME = JPATH_ROOT . '/media/vendor/fontawesome-free/css/fontawesome.css';
 
 	// Brand names in J!5 (font-family: "Font Awesome 6 Brands";)
 	const J5X_BRAND_NAMES_PATH_FILE_NAME = JPATH_ROOT . '/media/system/css/joomla-fontawesome.css';
@@ -28,19 +28,34 @@ class extractFontAwesomeJ5x extends extractFontAwesomeBase
 		parent::__construct();
 	}
 
+//	/**
+//	 *
+//	 * @return mixed
+//	 *
+//	 * @since version
+//	 */
+//	public function extractAwesomeVersion($vendorPathFileName = self::CSS_VENDOR_AWESOME_PATH_FILE_NAME)
+//	{
+//		// $awesome_version = '%unknown%';
+//
+//		$awesome_version = parent::extractAwesomeVersion($vendorPathFileName);
+//
+//		return $awesome_version;
+//	}
+
+
 	/**
 	 *
 	 * @return mixed
 	 *
 	 * @since version
 	 */
-	public function extractAwesomeVersion($vendorPathFileName = self::CSS_VENDOR_AWESOME_PATH_FILE_NAME)
+	public function extractBrandIconNames($brandsPathFileName = self::J5X_BRAND_NAMES_PATH_FILE_NAME)
 	{
-		// $awesome_version = '%unknown%';
+		$brandNames =  parent::extractBrandIconNames($brandsPathFileName);
+		sort($brandNames);
 
-		$awesome_version = parent::extractAwesomeVersion($vendorPathFileName);
-
-		return $awesome_version;
+		return $brandNames;
 	}
 
 	public function lines_collectBrandIconNames(array $lines)
@@ -48,25 +63,7 @@ class extractFontAwesomeJ5x extends extractFontAwesomeBase
 		$css_brand_names = [];
 
 		/**
-		 *
-		 * rules:
-		 * 1)
-		 * 2)
-		 * 3)
-		 *
-		 * //--- FontAwesome 6: ---------------------------------
-		 *
-		 * example css file parts
-		 * .fab, .icon-joomla, .fa-brands {
-		 * font-family: "Font Awesome 5 Brands";
-		 * }
-		 *
-		 * .fa.fa-twitter {
-		 * font-family: "Font Awesome 5 Brands";
-		 * font-weight: 400;
-		 * }
-		 *
-		 *
+
 		 * //--- FontAwesome 6: ---------------------------------
 		 *
 		 * example css file parts
@@ -86,14 +83,6 @@ class extractFontAwesomeJ5x extends extractFontAwesomeBase
 
 		try
 		{
-
-			// $iconId ='';
-			$iconNames = [];
-			// $iconCharVal ='';
-			// $iconType = '';
-
-			$brandsId = "Brands\";";
-
 			$firstLine    = '';
 			$isSecondLine = false;
 
@@ -137,18 +126,70 @@ class extractFontAwesomeJ5x extends extractFontAwesomeBase
 //		            $test = 'test01';
 				}
 
-				$lineBrands = $this->line_collectBrandIconNames56($firstLine);
-
-//=====================================================================================================================
-//=====================================================================================================================
-//=====================================================================================================================
-//=====================================================================================================================
+				$lineBrands = $this->line_collectBrandIconNames($firstLine);
 
 				//--- add names to list -----------------------------------------------
 
 				foreach ($lineBrands as $brandName)
 				{
 					$css_brand_names[] = $brandName;
+				}
+			}
+		}
+		catch (\RuntimeException $e)
+		{
+			$OutTxt = '';
+			$OutTxt .= 'Error executing lines_collectBrandIconNames: "' . '<br>';
+			$OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
+
+			$app = Factory::getApplication();
+			$app->enqueueMessage($OutTxt, 'error');
+		}
+
+		return $css_brand_names;
+	}
+
+
+	/**
+	 *
+	 * line like: '.fa.fa-twitter, .fa.fa-facebook'
+	 *
+	 * @param   string  $firstLine
+	 *
+	 * @return array
+	 *
+	 * @since version
+	 */
+	private static function line_collectBrandIconNames(string $firstLine)
+	{
+		$brandNames = [];
+
+		try
+		{
+
+			// debug address-book
+			// .fa.fa-twitter, .fa.fa-facebook
+			if (str_contains($firstLine, 'fa-twitter'))
+			{
+				$test = 'twitter';
+			}
+
+			// remove ' {' at end of line
+			$itemLine = trim(substr($firstLine, 0, -2));
+
+			$lineItems = explode(', ', $itemLine);
+
+			foreach ($lineItems as $Item)
+			{
+				if (str_starts_with($firstLine, '.fa.fa-'))
+				{
+
+					$brandName    = trim(substr($Item, 7));
+					$brandNames[] = $brandName;
+				}
+				else
+				{
+					$test = 'why?';
 				}
 			}
 		}
@@ -162,8 +203,9 @@ class extractFontAwesomeJ5x extends extractFontAwesomeBase
 			$app->enqueueMessage($OutTxt, 'error');
 		}
 
-		return $css_brand_names;
+		return $brandNames;
 	}
+
 
 
 //	/**
@@ -172,172 +214,45 @@ class extractFontAwesomeJ5x extends extractFontAwesomeBase
 //	 *
 //	 * @since version
 //	 */
-//	public function extractBrandIconNames($brandsPathFileName = '')
+//	public function extractIcomoonIcons($cssPathFileName = self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME)
 //	{
-//		$brandNames =  = parent::extractBrandIconNames($brandsPathFileName);
+//		$css_form_icons =  = parent::extractIcomoonIcons($cssPathFileName);
+//      sort($css_form_icons);
 //
-//		return $brandNames;
+//		return $css_form_icons;
 //	}
 
-	/**
-	 * The lines (CSS file) contains
-	 *  - font-family: "Font Awesome 5 Brands";
-	 *  -
-	 *  -
-	 *
-	 * @since version 0.1
-	 */
-	public function lines_collectBrandIconNames56($lines = [])
-	{
-		$css_brand_names = [];
 
-		/**
-		 *
-		 * rules:
-		 * 1)
-		 * 2)
-		 * 3)
-		 *
-		 * //--- FontAwesome 6: ---------------------------------
-		 *
-		 * example css file parts
-		 * .fab, .icon-joomla, .fa-brands {
-		 * font-family: "Font Awesome 5 Brands";
-		 * }
-		 *
-		 * .fa.fa-twitter {
-		 * font-family: "Font Awesome 5 Brands";
-		 * font-weight: 400;
-		 * }
-		 *
-		 *
-		 * //--- FontAwesome 6: ---------------------------------
-		 *
-		 * example css file parts
-		 * .fab, .icon-joomla, .fa-brands {
-		 * font-family: "Font Awesome 6 Brands";
-		 * }
-		 *
-		 * .fa.fa-twitter-square {
-		 * font-family: "Font Awesome 6 Brands";
-		 * font-weight: 400;
-		 * }
-		 *
-		 * .fa.fa-pinterest, .fa.fa-pinterest-square {
-		 * ... }
-		 *
-		 * /**/
+//	/**
+//	 *
+//	 * @return mixed
+//	 *
+//	 * @since version
+//	 */
+//	public function extractFontAwesomeIcons($vendorPathFileName = self::CSS_VENDOR_AWESOME_PATH_FILE_NAME)
+//	{
+//		// $awesome_version = '%unknown%';
+//
+//		$awesome_version = parent::extractFontAwesomeIcons($vendorPathFileName);
+//
+//		return $awesome_version;
+//	}
 
-		try
-		{
 
-			// $iconId ='';
-			$iconNames = [];
-			// $iconCharVal ='';
-			// $iconType = '';
-
-			// $brandsId = "Brands\";";
-
-			$firstLine    = '';
-			$isSecondLine = false;
-
-			// all lines
-			foreach ($lines as $fullLine)
-			{
-
-				$line = trim($fullLine);
-
-				// empty line
-				if ($line == '')
-				{
-					continue;
-				}
-
-				$validLine = false;
-				if (str_starts_with($line, '.fa.fa'))
-				{
-					$firstLine    = $line;
-					$isSecondLine = true;
-				}
-				else
-				{
-					if ($isSecondLine)
-					{
-//					    if (str_contains($line, 'font-family: "Font Awesome 6 Brands"') && $isSecondLine)
-						if (str_contains($line, 'font-family: "Font Awesome') )
-						{
-							$validLine    = true;
-							$isSecondLine = false;
-						}
-						else
-						{
-							$isSecondLine = false;
-						}
-					}
-				}
-				if (!$validLine)
-				{
-					continue;
-//		            $test = 'test01';
-				}
-
-				$lineBrands = $this->line_collectBrandIconNames56($firstLine);
-
-//=====================================================================================================================
-//=====================================================================================================================
-//=====================================================================================================================
-//=====================================================================================================================
-
-				//--- add names to list -----------------------------------------------
-
-				foreach ($lineBrands as $brandName)
-				{
-					$css_brand_names[] = $brandName;
-				}
-			}
-		}
-		catch (\RuntimeException $e)
-		{
-			$OutTxt = '';
-			$OutTxt .= 'Error executing lines_collectBrandIconNames56: "' . '<br>';
-			$OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
-
-			$app = Factory::getApplication();
-			$app->enqueueMessage($OutTxt, 'error');
-		}
-
-		return $css_brand_names;
-	}
+//	public function lines_extractCssFontAwesome ($lines = [])
+//	{
+//		// $css_awesome_icons = '%unknown%';
+//
+//		$css_awesome_icons = parent::lines_extractCssFontAwesome($lines);
+//
+//		return $css_awesome_icons;
+//	}
 
 
 
 
 
-	/**
-	 *
-	 * @return mixed
-	 *
-	 * @since version
-	 */
-	public function extractIcomoonIcons($brandsPathFileName = '')
-	{
-		$brandNames = [];
 
-		return $brandNames;
-	}
-
-	/**
-	 *
-	 * @return mixed
-	 *
-	 * @since version
-	 */
-	public function extractFontAweIcons($brandsPathFileName = '')
-	{
-		$brandNames = [];
-
-		return $brandNames;
-	}
 
 	/**
 	 *

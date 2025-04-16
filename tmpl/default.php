@@ -355,17 +355,32 @@ $font_size = $params->get('font_size');
 
 
             <?php
-			//=== _brand_names ========================================================================
+			//=== isDisplayBrandNamesList ========================================================================
             ?>
 
-            </ul>
-    			<?php foreach ($css_joomla_system_brand_names as $brandName): ?>
-                <li><?php echo $brandName; ?></li>
-	    		<?php endforeach; ?>
-            </ul>
+	    	<?php //if($isDisplayVendorAwesomeIconTable): ?>
+	    	<?php if(true): ?>
+            <div class="card mb-3 ">
+                <div class="card-header">
+                    <h2>
+                        <span class="icon-joomla" aria-hidden="true"></span>
+                        <?php echo Text::_('MOD_JX_STD_ICONS_BRAND_NAMES_LIST'); ?>
+                    </h2>
+                </div>
+                <div class="card-body">
 
+                    <nav class="quick-icons px-3 pb-3">
+                        <ol class="list-group .list-group-horizontal-sm">
+                            <?php foreach ($css_joomla_system_brand_names as $brandName): ?>
+                                <li class="list-group-item"><?php echo $brandName; ?></li>
+                            <?php endforeach; ?>
+                        </ol>
+                    </nav>
+                    <h5>Count: <span class="badge bg-secondary"><?php echo count ($css_joomla_system_brand_names); ?></span></h5>
 
-
+                </div>
+            </div>
+    		<?php endif; ?>
 		<?php endif; ?>
 	</div>
 </div>

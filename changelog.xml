@@ -11,6 +11,9 @@
         <fix>
             <item>Css icons detection for J6.x needed a different search algorithm</item>
         </fix>
+        <note>
+            <item>Supports separate classes for each Joomla! Version (4/5/6)</item>
+        </note>
     </changelog>
     <changelog>
         <element>mod_jx_std_icons</element>
