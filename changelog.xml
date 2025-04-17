@@ -9,6 +9,7 @@
             <item>Adapted for J5x and J6x</item>
         </change>
         <fix>
+            <item>Fixed for J5.3 update. It changed the *.css file and alinged it to J!6 alpha1 version</item>
             <item>Css icons detection for J6.x needed a different search algorithm</item>
         </fix>
         <note>
