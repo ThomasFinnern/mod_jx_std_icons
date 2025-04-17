@@ -309,9 +309,9 @@ class extractFontAwesomeJ4x extends extractFontAwesomeBase
 
                 // system if name not found in brands
                 if (!in_array($iconName, $brandNames)) {
-                    $css_system_icons [$iconName] = $icon;
+                    $css_system_icons [$iconId] = $icon;
                 } else {
-                    $css_brand_icons [$iconName] = $icon;
+                    $css_brand_icons [$iconId] = $icon;
                 }
             }
 

@@ -142,47 +142,6 @@ class mod_jx_std_iconsHelper
 
 			$this->css_vendor_awesome_icons = $oExtract->extractFontAwesomeIcons();
 
-//=====================================================================================================================
-//=====================================================================================================================
-//=====================================================================================================================
-//=====================================================================================================================
-
-
-
-//			//--- icomoon replacements ----------------------------------------------
-//
-//			$isFindIcomoon   = true;
-//			$isCollectBrands = false;
-//			$this->css_icomoon_icons =
-//				self::cssfile_extractIcons(self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME,
-//					$isFindIcomoon, $isCollectBrands);
-//
-//			//--- system icons ----------------------------------------------
-//
-//			$isFindIcomoon   = false;
-//			$isCollectBrands = false;
-//			$this->css_joomla_system_icons =
-//				self::cssfile_extractIcons(self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME,
-//					$isFindIcomoon, $isCollectBrands);
-//
-//			// collect brand icons
-//			$this->css_joomla_system_brand_icons =
-//				self::collectBrandIcons($this->css_joomla_system_icons, $this->css_joomla_system_brand_names);
-//
-//			// remove brand icons
-//			$this->css_joomla_system_icons =
-//				self::removeBrandIcons($this->css_joomla_system_icons, $this->css_joomla_system_brand_names);
-//
-//			//--- vendor font awesome icons (all) ----------------------------------------------
-//
-//          extractFontAwesomeIcons
-//
-//			$isCollectBrands = false;
-//			[$this->css_vendor_awesome_icons, $dummyBrands, $awesome_version3] =
-//				self::cssfile_extractIcons(self::CSS_VENDOR_AWESOME_PATH_FILE_NAME,
-//					$isFindIcomoon, $isCollectBrands);
-//
-
 		}
 		catch (\RuntimeException $e)
 		{
@@ -395,7 +354,7 @@ class mod_jx_std_iconsHelper
 
 					if ($icon->iconType == '.icon')
 					{
-						$css_form_icons [$iconName] = $icon;
+						$css_form_icons [$iconId] = $icon;
 					}
 				}
 			}
@@ -520,7 +479,7 @@ class mod_jx_std_iconsHelper
 
 					if ($icon->iconType != '.icon')
 					{
-						$css_form_icons [$iconName] = $icon;
+						$css_form_icons [$iconId] = $icon;
 					}
 
 				}
@@ -646,7 +605,7 @@ class mod_jx_std_iconsHelper
 //					//--- split -----------------------------------------------
 //
 //					// .fa-arrow-right, .icon-images
-//					$nextNames = explode(',', $namesLine);
+//					$nextNames = explode(', ', $namesLine);
 //
 //					foreach ($nextNames as $nextName)
 //					{
@@ -901,7 +860,7 @@ class mod_jx_std_iconsHelper
 		$lineTrimmed = trim(substr($firstLine, 0, -1));
 		// $lineTrimmed = trim($firstLine[0,-1]);
 
-		$items = explode(',', $lineTrimmed);
+		$items = explode(', ', $lineTrimmed);
 
 		$iconNames = '';
 		foreach ($items as $item)
@@ -958,14 +917,14 @@ class mod_jx_std_iconsHelper
 		$lineTrimmed = trim(substr($firstLine, 0, -1));
 		// $lineTrimmed = trim($firstLine[0,-1]);
 
-		$items = explode(',', $lineTrimmed);
+		$items = explode(', ', $lineTrimmed);
 
 		$iconNames = '';
 		foreach ($items as $item)
 		{
 
 			// remove ':before'
-			$cleanedItem = substr($item, 0, -7);
+			$cleanedItem = trim(substr($item, 0, -7));
 
 			// .fa-arrow-right, .icon-images
 			list ($iconType, $iconName) = explode('-', $cleanedItem, 2);
@@ -984,35 +943,6 @@ class mod_jx_std_iconsHelper
 		}
 
 		return array($iconClass, $iconId, $iconType, $iconNames);
-	}
-
-	/**
-	 * @param   string  $firstLine
-	 * @param   string  $iconName
-	 *
-	 * @return array
-	 *
-	 * @since version
-	 */
-	public
-	function extractIconIcomoonProperties(string $firstLine): array
-	{
-		// debug address-book
-		if (str_contains($firstLine, 'address-book'))
-		{
-			$test = 'address-book';
-		}
-
-		//--- start: icon name and id ? ------------------------------------------------
-
-		// extract icon name
-		list ($iconClass) = explode(':', $firstLine);
-
-		// .icon-images
-		list ($iconType, $iconName) = explode('-', $iconClass, 2);
-		$iconId = $iconName;
-
-		return array($iconClass, $iconId, $iconType, $iconName);
 	}
 
 	/**

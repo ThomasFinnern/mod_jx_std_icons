@@ -46,7 +46,7 @@ abstract class extractFontAwesomeBase
 	 */
 	public function extractAwesomeVersion($vendorPathFileName = self::CSS_VENDOR_AWESOME_PATH_FILE_NAME)
 	{
-		$awesome_version = '%unknown%';
+
 
 		$awesome_version = '%unknown%';
 
@@ -236,7 +236,7 @@ abstract class extractFontAwesomeBase
 
 			$lines = file($cssPathFileName);
 
-			//--- collect iomoon icons ------------------------------------------
+			//--- collect icomoon icons ------------------------------------------
 
 			$css_form_icons = $this->lines_collectIcomoonIcons($lines);
 
@@ -351,7 +351,7 @@ abstract class extractFontAwesomeBase
 
 					if ($icon->iconType == '.icon')
 					{
-						$css_form_icons [$iconName] = $icon;
+						$css_form_icons [$iconId] = $icon;
 					}
 				}
 			}
@@ -384,22 +384,68 @@ abstract class extractFontAwesomeBase
 	public
 	function extractIconIcomoonProperties(string $firstLine): array
 	{
+		$iconClass = '';
+		$iconId = '';
+		$iconType = '';
+		$iconNames = '';
+
 		// debug address-book
 		if (str_contains($firstLine, 'address-book'))
 		{
 			$test = 'address-book';
 		}
 
+		// debug address-book
+		if (str_contains($firstLine, 'football-ball'))
+		{
+			$test = 'football-ball';
+		}
+
+//		// debug address-book
+//		if (! str_contains($firstLine, '-'))
+//		{
+//			$test = 'no minus';
+//		}
+
 		//--- start: icon name and id ? ------------------------------------------------
 
-		// extract icon name
-		list ($iconClass) = explode(':', $firstLine);
+		// .icon-joomla:before {
 
-		// .icon-images
-		list ($iconType, $iconName) = explode('-', $iconClass, 2);
-		$iconId = $iconName;
+		// .fa-football, .fa-football-ball {
 
-		return array($iconClass, $iconId, $iconType, $iconName);
+		$lineTrimmed = trim(substr($firstLine, 0, -1));
+		// $lineTrimmed = trim($firstLine[0,-1]);
+
+		$items = explode(', ', $lineTrimmed);
+
+		foreach ($items as $item)
+		{
+			// remove ':before'
+			$cleanedItem = trim(substr($item, 0, -7));
+
+			// .fa-arrow-right, .icon-images
+			list ($iconType, $iconName) = explode('-', $cleanedItem, 2);
+
+			// debug missing icon name
+			if ($iconName == '')
+			{
+				$test = 'no split / explode';
+			}
+
+			// First name
+			if ($iconNames == '')
+			{
+				$iconId    = $iconName;
+				$iconClass = $iconType; // ??? $cleanedItem / $iconType
+				$iconNames .= $iconName;
+			}
+			else
+			{
+				$iconNames .= ', ' . $iconName;
+			}
+		}
+
+		return array($iconClass, $iconId, $iconType, $iconNames);
 	}
 
 	/**
@@ -556,7 +602,7 @@ abstract class extractFontAwesomeBase
 
 					if ($icon->iconType != '.icon')
 					{
-						$css_form_icons [$iconName] = $icon;
+						$css_form_icons [$iconId] = $icon;
 					}
 
 				}
@@ -623,13 +669,12 @@ abstract class extractFontAwesomeBase
 		$lineTrimmed = trim(substr($firstLine, 0, -1));
 		// $lineTrimmed = trim($firstLine[0,-1]);
 
-		$items = explode(',', $lineTrimmed);
+		$items = explode(', ', $lineTrimmed);
 
 		foreach ($items as $item)
 		{
-
 			// remove ':before'
-			$cleanedItem = substr($item, 0, -7);
+			$cleanedItem = trim(substr($item, 0, -7));
 
 			// .fa-arrow-right, .icon-images
 			list ($iconType, $iconName) = explode('-', $cleanedItem, 2);

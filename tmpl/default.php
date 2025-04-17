@@ -136,18 +136,18 @@ $font_size = $params->get('font_size');
 									</a>
 								</li>
 
-								<?php foreach ($css_icomoon_icons as $brandName): ?>
+								<?php foreach ($css_icomoon_icons as $icomoonIcon): ?>
 									<li class="quickicon quickicon-single">
 										<a href="#">
 											<div class="quickicon-info">
 
 												<div class="quickicon-icon">
-													<i style="font-size: <?php echo $font_size; ?>px;" class="icon-<?php echo $brandName->iconId; ?>"></i>
+													<i style="font-size: <?php echo $font_size; ?>px;" class="icon-<?php echo $icomoonIcon->iconId; ?>"></i>
 												</div>
 
 											</div>
 											<div class="quickicon-name d-flex align-items-end">
-												<?php echo $brandName->name; ?>
+												<?php echo $icomoonIcon->name; ?>
 											</div>
 										</a>
 									</li>
@@ -194,19 +194,19 @@ $font_size = $params->get('font_size');
 									</a>
 								</li>
 
-								<?php foreach ($css_joomla_system_icons as $systemName): ?>
+								<?php foreach ($css_joomla_system_icons as $systemIcon): ?>
 									<li class="quickicon quickicon-single">
 										<a href="#">
 											<div class="quickicon-info">
 
 												<div class="quickicon-icon">
-                                                    <i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $systemName->iconId; ?>"></i>
-                                                    <!-- 4x brands highlighted <i style="font-size: <?php echo $font_size; ?>px;" class="fab fa-<?php echo $systemName->iconId; ?>"></i>-->
+                                                    <i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $systemIcon->iconId; ?>"></i>
+                                                    <!-- 4x brands highlighted <i style="font-size: <?php echo $font_size; ?>px;" class="fab fa-<?php echo $systemIcon->iconId; ?>"></i>-->
 												</div>
 
                                             </div>
 											<div class="quickicon-name d-flex align-items-end">
-												<?php echo $systemName->name; ?>
+												<?php echo $systemIcon->name; ?>
 											</div>
 										</a>
 									</li>
@@ -260,19 +260,19 @@ $font_size = $params->get('font_size');
                                     </a>
                                 </li>
 
-								<?php foreach ($css_joomla_system_brand_icons as $brandName): ?>
+								<?php foreach ($css_joomla_system_brand_icons as $brandIcon): ?>
                                     <li class="quickicon quickicon-single">
                                         <a href="#">
                                             <div class="quickicon-info">
 
                                                 <div class="quickicon-icon">
-                                                    <i style="font-size: <?php echo $font_size; ?>px;" class="fab fa-<?php echo $brandName->iconId; ?>"></i>
-                                                    <!-- 5x <i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $brandName->iconId; ?>"></i>-->
+                                                    <i style="font-size: <?php echo $font_size; ?>px;" class="fab fa-<?php echo $brandIcon->iconId; ?>"></i>
+                                                    <!-- 5x <i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $brandIcon->iconId; ?>"></i>-->
                                                 </div>
 
                                             </div>
                                             <div class="quickicon-name d-flex align-items-end">
-												<?php echo $brandName->name; ?>
+												<?php echo $brandIcon->name; ?>
                                             </div>
                                         </a>
                                     </li>
@@ -326,7 +326,7 @@ $font_size = $params->get('font_size');
                                     </a>
                                 </li>
 
-								<?php foreach ($css_vendor_awesome_icons as $awesomeName): ?>
+								<?php foreach ($css_vendor_awesome_icons as $awesomeIcon): ?>
                                     <li class="quickicon quickicon-single">
                                         <a href="#">
                                             <div class="quickicon-info">
@@ -334,22 +334,22 @@ $font_size = $params->get('font_size');
                                                 <div class="quickicon-icon">
                                                     <?php if (version_compare($jx_version, '5', '<')): ?>
 	                                                    <?php // J4x ?>
-	                                                    <?php if(!in_array($awesomeName->iconId, $css_joomla_system_brand_names) ): ?>
-                                                            <!-- not helping in 4x <i style="font-size: <?php echo $font_size; ?>px;" class="fa-solid fa-<?php echo $awesomeName->iconId; ?>"></i>-->
-                                                            <i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $awesomeName->iconId; ?>"></i>
-                                                            <!-- <i style="font-size: <?php echo $font_size; ?>px;" class="fas fa-<?php echo $awesomeName->iconId; ?>"></i>-->
+	                                                    <?php if(!in_array($awesomeIcon->iconId, $css_joomla_system_brand_names) ): ?>
+                                                            <!-- not helping in 4x <i style="font-size: <?php echo $font_size; ?>px;" class="fa-solid fa-<?php echo $awesomeIcon->iconId; ?>"></i>-->
+                                                            <i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $awesomeIcon->iconId; ?>"></i>
+                                                            <!-- <i style="font-size: <?php echo $font_size; ?>px;" class="fas fa-<?php echo $awesomeIcon->iconId; ?>"></i>-->
                                                         <?php else: ?>
-                                                            <i style="font-size: <?php echo $font_size; ?>px;" class="fab fa-<?php echo $awesomeName->iconId; ?>"></i>
+                                                            <i style="font-size: <?php echo $font_size; ?>px;" class="fab fa-<?php echo $awesomeIcon->iconId; ?>"></i>
                                                         <?php endif; ?>
                                                     <?php else: ?>
 	                                                    <?php // J5x ?>
-                                                        <i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $awesomeName->iconId; ?>"></i>
+                                                        <i style="font-size: <?php echo $font_size; ?>px;" class="fa fa-<?php echo $awesomeIcon->iconId; ?>"></i>
                                                     <?php endif; ?>
                                                 </div>
 
                                             </div>
                                             <div class="quickicon-name d-flex align-items-end">
-												<?php echo $awesomeName->name; ?>
+												<?php echo $awesomeIcon->name; ?>
                                             </div>
                                         </a>
                                     </li>
