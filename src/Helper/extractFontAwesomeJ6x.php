@@ -53,6 +53,9 @@ class extractFontAwesomeJ6x extends extractFontAwesomeBase
 		$brandNames =  parent::extractBrandIconNames($brandsPathFileName);
 		sort($brandNames);
 
+		// needed to distinct between font awesome system and brand icons in extractSystemAndBrandIcons / lines
+		$this->css_joomla_system_brand_names = $brandNames;
+
 		return $brandNames;
 	}
 

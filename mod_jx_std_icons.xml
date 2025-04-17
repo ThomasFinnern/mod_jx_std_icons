@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="module" client="site" method="upgrade" version="6.0">
   <name>mod_jx_std_icons</name>
-  <creationDate>2025.04.16</creationDate>
+  <creationDate>2025.04.17</creationDate>
   <author>Thomas Finnern</author>
   <authorEmail>mod_jx_std_icons@tomfinnern.de</authorEmail>
   <authorUrl>www.tomfinnern.de</authorUrl>
@@ -51,10 +51,10 @@
           <option value="0">JNO</option>
           <option value="1">JYES</option>
         </field>
-        <field name="isDisplayIconListByCharValue" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_ICON_LIST_BY_CHAR_VALUE_TABLE" description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_ICON_LIST_BY_CHAR_VALUE_TABLE_DESC">
+        <!--field name="isDisplayIconListByCharValue" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_ICON_LIST_BY_CHAR_VALUE_TABLE" description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_ICON_LIST_BY_CHAR_VALUE_TABLE_DESC">
           <option value="0">JNO</option>
           <option value="1">JYES</option>
-        </field>
+        </field-->
         <field name="isDisplayBrandNamesList" type="radio" class="btn-group btn-group-yesno" default="1" label="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_BRAND_NAMES_LIST" description="MOD_JX_STD_ICONS_FIELD_IS_DISPLAY_BRAND_NAMES_LIST_DESC">
           <option value="0">JNO</option>
           <option value="1">JYES</option>
