@@ -368,6 +368,7 @@ class extractFontAwesomeJ6x extends extractFontAwesomeBase
 		return $css_form_icons;
 	}
 
+
 	//--- .fa lists ------------------
 	public function lines_collectSystemAndBrandIcons(array $lines)
 	{
