@@ -9,8 +9,8 @@
             <item>Adapted for J5x and J6x</item>
         </change>
         <fix>
-            <item>Fixed for J5.3 update. It changed the *.css file and alinged it to J!6 alpha1 version</item>
-            <item>Css icons detection for J6.x needed a different search algorithm</item>
+            <item>Fixed for J5.3 update. The update changed the *.css file and aligned it to J!6 alpha1 version</item>
+            <item>Css icon detection for J5.3 / J6.x alpha1 needed a different search algorithm</item>
         </fix>
         <note>
             <item>Supports separate classes for each Joomla! Version (4/5/6)</item>
