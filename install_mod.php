@@ -2,7 +2,7 @@
 /**
  * @package     Joomla.Administrator
  * @subpackage  mod_jx_std_icons
- * 
+ *
  * @copyright (c) 2005-2023 Thomas Finnern
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
@@ -19,8 +19,8 @@ use Joomla\CMS\Log\Log;
 class mod_jx_std_iconsInstallerScript
 {
 
-    private string $minimumJoomla = '4.4.0';
-    private string $minimumPhp    = '7.4.0';
+    private string $minimumJoomla = '5.0.0';
+    private string $minimumPhp    = '8.1.0';
 
 	/**
 	 * Function called before extension installation/update/removal procedure commences
@@ -46,7 +46,7 @@ class mod_jx_std_iconsInstallerScript
 			// return false;
 		// }
 
-		echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_PREFLIGHT');
+//		echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_PREFLIGHT');
 
 		return true;
 	}
