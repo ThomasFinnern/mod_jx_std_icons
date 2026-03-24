@@ -221,7 +221,7 @@ class extractFontAwesomeJ5x extends extractFontAwesomeBase
         catch (\RuntimeException $e)
         {
             $OutTxt = '';
-            $OutTxt .= 'Error executing lines_collectScssIconNames56: "' . '<br>';
+            $OutTxt .= 'Error executing line_determineIconName: "' . '<br>';
             $OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
 
             $app = Factory::getApplication();
@@ -284,7 +284,7 @@ class extractFontAwesomeJ5x extends extractFontAwesomeBase
                 }
                 else
                 {
-                    //--- icons values ------------------------------
+                    //--- icon values ------------------------------
 
                     [$name, $value] = $this->iconNameValueFromLine($line);
                     $scssIconValues [$name] = $value;
@@ -315,6 +315,15 @@ class extractFontAwesomeJ5x extends extractFontAwesomeBase
     {
         $name  = '';
         $value = '';
+
+        // $fa-var-0: \30;
+
+        $parts = explode(':', $line);
+        if (count($parts) == 2)
+        {
+            $name = substr(trim($parts[0]),1);
+            $value = substr(trim($parts[1]), 0, -1);
+        }
 
         return [$name, $value];
     }
