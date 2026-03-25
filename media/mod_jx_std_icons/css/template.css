@@ -15,7 +15,9 @@ borrowed css unscrupulous from atum template-rtl.css
 }
 .quick-icons .nav {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); /**/
+  /* grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /**/
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /**/
   grid-gap: 1rem;
 }
 .quick-icons a {
@@ -28,13 +30,18 @@ borrowed css unscrupulous from atum template-rtl.css
   --text-color: hsl(var(--hue), 30%, 40%);
   --bg-color: hsl(var(--hue), 60%, 97%);
   --icon-color: hsl(var(--hue), 30%, 40%);
-  --bg-color-hvr: var(--template-bg-dark);
+  /* --bg-color-hvr: var(--template-bg-dark); /**/
+  --bg-color-hvr: var(--template-bg-dark-60); /**/
+  --bg-color-hvr: var(--template-bg-dark-90); /**/
+  /* --bg-color-hvr: var(--template-bg-light); /**/
+  /* --bg-color-hvr: Ivory; /**/
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
+  background-color: var(--bg-color); /**/
 }
 .quick-icons .quickicon a {
   display: -webkit-box;
@@ -52,7 +59,7 @@ borrowed css unscrupulous from atum template-rtl.css
   justify-content: flex-end;
   padding: 0 1rem;
   color: var(--text-color);
-  background-color: var(--bg-color);
+  /* background-color: var(--bg-color); /**/
   -webkit-transition: all 0.25s ease;
   -o-transition: all 0.25s ease;
   transition: all 0.25s ease;
@@ -70,6 +77,9 @@ borrowed css unscrupulous from atum template-rtl.css
   padding: 0.125rem 0 0.6rem;
   font-size: 0.875rem;
   font-weight: bold;
+
+  display: flex;
+  align-items: flex-end; /**/
 }
 .quick-icons .quickicon a .quickicon-amount {
   padding: 0.25rem 0.5rem;
@@ -88,14 +98,32 @@ borrowed css unscrupulous from atum template-rtl.css
   padding: 0 0.2rem;
   line-height: 1.1;
 }
+/**
 .quick-icons .quickicon a:hover, .quick-icons .quickicon a:focus, .quick-icons .quickicon a:active {
   color: #fff;
   text-decoration: none;
   background: var(--bg-color-hvr);
 }
+/**/
+
+.quick-icons .quickicon:hover, .quick-icons .quickicon a:focus, .quick-icons .quickicon a:active {
+
+  transform: scale(2.15);
+
+
+  background: var(--card-bg);
+  border-color: darkgrey;
+  padding: 1px;
+
+  z-index: 20;
+}
+
+/*
 .quick-icons .quickicon a:hover .quickicon-amount, .quick-icons .quickicon a:focus .quickicon-amount, .quick-icons .quickicon a:active .quickicon-amount {
   background: var(--icon-color);
 }
+/**/
+
 .quick-icons .quickicon a.warning, .quick-icons .quickicon a.danger {
   --text-color: var(--danger);
   --bg-color: #f4f0f0;
@@ -114,8 +142,10 @@ borrowed css unscrupulous from atum template-rtl.css
   display: flex;
   -webkit-box-align: end;
   -ms-flex-align: end;
-  align-items: flex-end;
+  /* align-items: flex-end; /**/
+  /* align-items: flex-start; /**/
 }
+/**
 .quick-icons .quickicon-linkadd {
   width: 2.5rem;
   font-size: 1.2rem;
@@ -127,7 +157,8 @@ borrowed css unscrupulous from atum template-rtl.css
 .quick-icons .quickicon-linkadd a {
   -webkit-box-align: end;
   -ms-flex-align: end;
-  align-items: flex-end;
+  align-items: flex-end; /** /
+  /* align-items: flex-start; /** /
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -137,20 +168,58 @@ borrowed css unscrupulous from atum template-rtl.css
   margin-bottom: 10px;
   color: hsl(var(--hue), 30%, 40%);
 }
+/**/
+
+/**
 .quick-icons .quickicon-linkadd a:hover, .quick-icons .quickicon-linkadd a:focus, .quick-icons .quickicon-linkadd a:active {
   background: var(--template-bg-dark);
 }
 .quick-icons .quickicon-linkadd a:hover *, .quick-icons .quickicon-linkadd a:focus *, .quick-icons .quickicon-linkadd a:active * {
   color: #fff;
 }
+/**/
+
 .quick-icons .quickicon-single,
 .quick-icons .quickicon-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-height: 6rem;
+/*  min-height: 6rem; /**/
   overflow: hidden;
   border: 1px solid hsl(var(--hue), 50%, 93%);
   border-radius: 4px;
+
+  /* align-items: flex-end; /**/
+  align-items: flex-start; /**/
+  /* align-items: stretch; /**/
+
+  /* background-color: var(--bg-color) /**/
+  padding: 1px;
+
+}
+
+.quick-icons .quickicon-single a {
+  /* align-items: flex-end; /**/
+  /* align-items: flex-start; /**/
+  align-items: stretch; /**/
+
+}
+
+/**
+.quick-icons .quickicon-single a {
+  display: flex;
+
+  align-items: stretch; /** /
+}
+/**/
+
+.hidden_name {
+//  visibility: hidden; /**/
+  display: none;
+}
+
+.quick-icons .quickicon:hover .hidden_name {
+//  visibility: visible; /**/
+  display: flex;
 }
 
