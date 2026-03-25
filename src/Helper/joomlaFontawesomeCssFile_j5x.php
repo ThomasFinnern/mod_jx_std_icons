@@ -43,10 +43,10 @@ class joomlaFontawesomeCssFile_j5x extends iconList
     public string $awesome_version = '';
 
     // only in joomla...*.css file
-    /** list [value] = [name1, name2, ..] */
+    /** list [name] = [value] */
     public array $icomoonNames2Values = [];
 
-    /* list [name] = class id */
+    /* list [name1, name2, ...] = class id */
     public array $icomoonIconNames = [];
 
 
@@ -208,6 +208,15 @@ class joomlaFontawesomeCssFile_j5x extends iconList
 
         }
 
+        //--- sort alphabetically -------------------------------
+
+        $this->sortLists();
+
+        // local variables
+        //        ksort($this->iconValues2Names);
+        ksort($this->icomoonIconNames);
+
+
         return $this;
     }
 
@@ -218,10 +227,11 @@ class joomlaFontawesomeCssFile_j5x extends iconList
 
         foreach ($names as $name)
         {
-            $this->iconNames2Values [$name]  = $value;
-            $this->standardIconNames [$name] = $iconClass;
+            $this->iconNames2Values [$name] = $value;
         }
 
+        $concatenatedNames = implode(', ', $names);
+        $this->standardIconNames [$concatenatedNames] = $iconClass;
     }
 
     private function assignBrandIcon(string $previousLine, mixed $line)
@@ -232,9 +242,10 @@ class joomlaFontawesomeCssFile_j5x extends iconList
         foreach ($names as $name)
         {
             $this->iconNames2Values [$name] = $value;
-            $this->brandIconNames [$name] = $iconClass;
         }
 
+        $concatenatedNames = implode(', ', $names);
+        $this->brandIconNames [$concatenatedNames] = $iconClass;
     }
 
     private function extractIconNames(string $namesLine): array
@@ -246,15 +257,13 @@ class joomlaFontawesomeCssFile_j5x extends iconList
 
         foreach ($ids as $id)
         {
-            $name     = substr($id, 6);
+            $name     = substr($id, 4);
             $names [] = $name;
 
             $iconClass = substr($id, 1);
         }
 
         return [$names, $iconClass];
-
-        return $names;
     }
 
     private function extractIconValue(string $line)
@@ -275,8 +284,10 @@ class joomlaFontawesomeCssFile_j5x extends iconList
         foreach ($names as $name)
         {
             $this->icomoonNames2Values [$name] = $value;
-            $this->icomoonIconNames [$name] = $iconClass;
         }
+
+        $concatenatedNames                           = implode(', ', $names);
+        $this->icomoonIconNames [$concatenatedNames] = $iconClass;
 
     }
 

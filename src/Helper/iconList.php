@@ -21,9 +21,9 @@ abstract class iconList
     /** list [value] = [name1, name2, ..] */
     public array $iconValues2Names = [];
 
-    /* list [name] = class id */
+    /* list [name1, name2, ...] = class id */
     public array $standardIconNames = [];
-    /* list [name] = class id */
+    /* list [name1, name2, ...] = class id */
     public array $brandIconNames = [];
 
 
@@ -101,8 +101,22 @@ abstract class iconList
         return $this;
     }
 
+    /**
+     *
+     * Actually sort of kwy value lists are ignored
+     *
+     * @return void
+     */
+    public function sortLists () {
+
+//        ksort($this->iconNames2Values);
+//        ksort($this->iconValues2Names);
+
+        ksort($this->standardIconNames);
+        ksort($this->brandIconNames);
+
+    }
 
     abstract public function scanLines(array $lines = []);
-
 
 }
