@@ -231,7 +231,7 @@ class joomlaFontawesomeCssFile_j5x extends iconList
         }
 
         $concatenatedNames = implode(', ', $names);
-        $this->standardIconNames [$concatenatedNames] = $iconClass;
+        $this->standardIconNames [$concatenatedNames] = 'fa ' . $iconClass;
     }
 
     private function assignBrandIcon(string $previousLine, mixed $line)
@@ -245,7 +245,7 @@ class joomlaFontawesomeCssFile_j5x extends iconList
         }
 
         $concatenatedNames = implode(', ', $names);
-        $this->brandIconNames [$concatenatedNames] = $iconClass;
+        $this->brandIconNames [$concatenatedNames] = 'fab ' . $iconClass;
     }
 
     private function extractIconNames(string $namesLine): array

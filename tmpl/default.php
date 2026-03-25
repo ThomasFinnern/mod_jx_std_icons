@@ -50,6 +50,7 @@ $isDisplayBrandIconsTable_Awesome = $params->get('isDisplayBrandIconsTable_Aweso
 
 
 $font_size = $params->get('font_size');
+// $font_size = '';
 
 // <!--style>
 //    .icon {
@@ -100,48 +101,22 @@ $font_size = $params->get('font_size');
                     </div>
 
                     <div class="card-body">
+                        <?php
+                        if ($isDisplayTechDetail) {
 
-                        <?php if ($isDisplayTechDetail): ?>
-                            <div class="mb-3">
-                                <div
-                                    class="card-title"><?php echo Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS_DESC'); ?></div>
-                            </div>
-                        <?php endif; ?>
+                            displayTechDetail (Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS_DESC'),
+                                "");
+                        }
+                        ?>
 
                         <nav class="quick-icons px-3 pb-3">
                             <ul class="nav flex-wrap">
-                                <li class="quickicon quickicon-single">
-                                    <a href="#">
-                                        <div class="quickicon-info">
-                                            <div class="quickicon-icon">
-                                                <span class="icon-joomla"
-                                                      style="font-size: <?php echo $font_size; ?>px;"
-                                                      aria-hidden="true"></span>
-                                            </div>
-                                        </div>
-                                        <div class="quickicon-name d-flex align-items-end">
-                                            Joomla
-                                        </div>
-                                    </a>
-                                </li>
 
-                                <?php foreach ($css_icomoonIconNames as $iconName => $iconClass): ?>
-                                    <li class="quickicon quickicon-single">
-                                        <a href="#">
-                                            <div class="quickicon-info">
-
-                                                <div class="quickicon-icon">
-                                                    <i style="font-size: <?php echo $font_size; ?>px;"
-                                                       class="<?php echo $iconClass; ?>"></i>
-                                                </div>
-
-                                            </div>
-                                            <div class="quickicon-name d-flex align-items-end">
-                                                <?php echo $iconName; ?>
-                                            </div>
-                                        </a>
-                                    </li>
-                                <?php endforeach; ?>
+                                <?php
+                                foreach ($css_icomoonIconNames as $iconName => $iconClass) {
+                                    displayIcon ($iconName, $iconClass, $font_size);
+                                }
+                                ?>
                             </ul>
                         </nav>
                         <h5>Count icomoon icons: <span class="badge bg-secondary"><?php echo count($css_icomoonIconNames); ?></span></h5>
@@ -162,19 +137,13 @@ $font_size = $params->get('font_size');
                         </h2>
                     </div>
                     <div class="card-body">
+                        <?php
+                        if ($isDisplayTechDetail) {
 
-                        <?php if ($isDisplayTechDetail): ?>
-                            <div class="mb-3">
-                                <div class="card-title">
-                                <div
-                                    class="card-title"><?php echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'); ?></div>
-                                </div>
-                                <div>
-                                    <a href="<?php echo Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'); ?>">
-                                        <?php echo Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'); ?></a>
-                                </div>
-                            </div>
-                        <?php endif; ?>
+                            displayTechDetail (Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'),
+                                Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'));
+                        }
+                        ?>
 
                         <nav class="quick-icons px-3 pb-3">
                             <ul class="nav flex-wrap">
@@ -193,19 +162,11 @@ $font_size = $params->get('font_size');
                                     </a>
                                 </li>
 
-                                <?php foreach ($css_standardIconNames as $iconName => $iconClass): ?>
-                                    <li class="quickicon quickicon-single">
-                                        <a href="#">
-                                            <div class="quickicon-icon">
-                                                <i style="font-size: <?php echo $font_size; ?>px;"
-                                                   class="fa <?php echo $iconClass; ?>"></i>
-                                            </div>
-                                            <div class="quickicon-name d-flex align-items-end">
-                                                <?php echo $iconName; ?>
-                                            </div>
-                                        </a>
-                                    </li>
-                                <?php endforeach; ?>
+                                <?php
+                                foreach ($css_standardIconNames as $iconName => $iconClass) {
+                                    displayIcon ($iconName, $iconClass, $font_size);
+                                }
+                                ?>
                             </ul>
                         </nav>
                         <h5>Count J! CSS standard font awesonme icons: <span
@@ -227,51 +188,21 @@ $font_size = $params->get('font_size');
                         </h2>
                     </div>
                     <div class="card-body">
+                        <?php
+                        if ($isDisplayTechDetail) {
 
-                        <?php if ($isDisplayTechDetail): ?>
-                            <div class="mb-3">
-                                <div class="card-title">
-                                    <div>
-                                        <?php echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'); ?>
-                                    </div>
-                                    <div>
-                                        <a href="<?php echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'); ?>">
-                                            <?php echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'); ?></a>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php endif; ?>
+                            displayTechDetail (Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'),
+                                Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'));
+                        }
+                        ?>
 
                         <nav class="quick-icons px-3 pb-3">
                             <ul class="nav flex-wrap">
-                                <li class="quickicon quickicon-single">
-                                    <a href="#">
-                                        <div class="quickicon-info">
-                                            <div class="quickicon-icon">
-                                                <span class="icon-joomla"
-                                                      style="font-size: <?php echo $font_size; ?>/*px;"
-                                                      aria-hidden="true"></span>
-                                            </div>
-                                        </div>
-                                        <div class="quickicon-name d-flex align-items-end">
-                                            Joomla
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <?php foreach ($css_brandIconNames as $iconName => $iconClass): ?>
-                                    <li class="quickicon quickicon-single">
-                                        <a href="#">
-                                            <div class="quickicon-icon">
-                                                <i style="font-size: <?php echo $font_size; ?>px;"
-                                                    class="fab <?php echo $iconClass; ?>"></i>
-                                            </div>
-                                            <div class="quickicon-name d-flex align-items-end">
-                                                <?php echo $iconName; ?>
-                                            </div>
-                                        </a>
-                                    </li>
-                                <?php endforeach; ?>
+                                <?php
+                                foreach ($css_brandIconNames as $iconName => $iconClass) {
+                                    displayIcon ($iconName, $iconClass, $font_size);
+                                }
+                                ?>
                             </ul>
                         </nav>
                         <h5>Count J! CSS brand font awesonme icons: <span
@@ -284,3 +215,50 @@ $font_size = $params->get('font_size');
         <?php endif; ?>
     </div>
 </div>
+
+<?php
+
+// selector for display test
+function displayIcon ($iconName, $iconClass, $font_size) {
+
+    displayIcon_asQuickicon ($iconName, $iconClass, $font_size);
+
+}
+
+function displayIcon_asQuickicon ($iconName, $iconClass, $font_size) {
+    ?>
+    <li class="quickicon quickicon-single">
+        <a href="#">
+            <div class="quickicon-info">
+
+                <div class="quickicon-icon">
+                    <i style="font-size: <?php echo $font_size; ?>px;" class="<?php echo $iconClass; ?>"></i>
+                </div>
+
+            </div>
+            <div class="quickicon-name d-flex align-items-end">
+                <?php echo $iconName; ?>
+            </div>
+        </a>
+    </li>
+<?php
+}
+
+function displayTechDetail ($description, $link) {
+?>
+    <div class="mb-3">
+        <div class="card-title">
+            <div>
+                <?php echo $description ?>
+            </div>
+            <?php if (! empty ($link)): ?>
+                <div>
+                    <a href="<?php echo $link ?>"><?php echo $link ?></a>
+                </div>
+            <?php endif; ?>
+        </div>
+
+    </div>
+<?php
+}
+
