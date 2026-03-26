@@ -5,7 +5,7 @@
  * @copyright   Copyright (C) 2023 - 2023 thomas finnern
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
 
-borrowed css unscrupulous from atum template-rtl.css
+css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 */
 
 @charset "UTF-8";
@@ -13,6 +13,7 @@ borrowed css unscrupulous from atum template-rtl.css
 .quick-icons {
   background-color: #fff;
 }
+
 .quick-icons .nav {
   display: grid;
   /* grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); /**/
@@ -20,12 +21,15 @@ borrowed css unscrupulous from atum template-rtl.css
   grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /**/
   grid-gap: 1rem;
 }
+
 .quick-icons a {
   text-decoration: none;
 }
+
 .quick-icons ul {
   padding: 0;
 }
+
 .quick-icons .quickicon {
   --text-color: hsl(var(--hue), 30%, 40%);
   --bg-color: hsl(var(--hue), 60%, 97%);
@@ -43,6 +47,7 @@ borrowed css unscrupulous from atum template-rtl.css
   flex-grow: 1;
   background-color: var(--bg-color); /**/
 }
+
 .quick-icons .quickicon a {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -64,127 +69,71 @@ borrowed css unscrupulous from atum template-rtl.css
   -o-transition: all 0.25s ease;
   transition: all 0.25s ease;
 }
+
 .quick-icons .quickicon a .quickicon-icon {
   margin-top: 0.5rem;
   -webkit-margin-start: 0.2rem;
   margin-inline-start: 0.2rem;
 }
+
 .quick-icons .quickicon a .quickicon-icon > * {
   font-size: 2rem;
   color: var(--icon-color);
 }
+
 .quick-icons .quickicon a .quickicon-name {
   padding: 0.125rem 0 0.6rem;
+
   font-size: 0.875rem;
-  font-weight: bold;
+  font-size: 0.7rem;
+  font-weight: bold; /**/
+  /*  font-weight: normal; /**/
+
+  color: black;
 
   display: flex;
   align-items: flex-end; /**/
 }
-.quick-icons .quickicon a .quickicon-amount {
-  padding: 0.25rem 0.5rem;
-  font-weight: 700;
-  line-height: 1rem;
-  background: hsl(var(--hue), 50%, 93%);
-  border-radius: 0.25rem;
-  -webkit-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-  -webkit-margin-start: 0.5rem;
-  margin-inline-start: 0.5rem;
-}
+
 .quick-icons .quickicon a .j-links-link {
   display: block;
   padding: 0 0.2rem;
   line-height: 1.1;
 }
-/**
-.quick-icons .quickicon a:hover, .quick-icons .quickicon a:focus, .quick-icons .quickicon a:active {
-  color: #fff;
-  text-decoration: none;
-  background: var(--bg-color-hvr);
-}
-/**/
 
 .quick-icons .quickicon:hover, .quick-icons .quickicon a:focus, .quick-icons .quickicon a:active {
 
-  transform: scale(2.15);
+  transform: scale(2.15) translatex(-1.5rem) translateY(1.84rem); /**/
+  transform: scale(2.15) translatex(-1.45rem) translateY(1.74rem); /**/
+  /*  transform: scale(2.15) translateY(3.84rem); /**/
 
+  background-color: var(--card-bg); /**/
+  /*  background-color: lightBlue; /**/
+  /*  background-color: #EBF6F9; /**/
+  /*  background-color: white; /**/
 
-  background: var(--card-bg);
   border-color: darkgrey;
   padding: 1px;
+
+  /*  opacity: 1; /**/
+  /*   color: black; /**/
 
   z-index: 20;
 }
 
-/*
-.quick-icons .quickicon a:hover .quickicon-amount, .quick-icons .quickicon a:focus .quickicon-amount, .quick-icons .quickicon a:active .quickicon-amount {
-  background: var(--icon-color);
-}
-/**/
-
-.quick-icons .quickicon a.warning, .quick-icons .quickicon a.danger {
-  --text-color: var(--danger);
-  --bg-color: #f4f0f0;
-  --icon-color: #ce8484;
-  --bg-color-hvr: var(--danger);
-}
-.quick-icons .quickicon a.success {
-  --text-color: var(--success);
-  --bg-color: #f3f9f3;
-  --icon-color: #55a258;
-  --bg-color-hvr: var(--success);
-}
 .quick-icons .quickicon-info {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  /* align-items: flex-end; /**/
-  /* align-items: flex-start; /**/
-}
-/**
-.quick-icons .quickicon-linkadd {
-  width: 2.5rem;
-  font-size: 1.2rem;
-  background: hsl(var(--hue), 50%, 93%);
-  -webkit-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-.quick-icons .quickicon-linkadd a {
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end; /** /
-  /* align-items: flex-start; /** /
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 100%;
-}
-.quick-icons .quickicon-linkadd a > * {
-  margin-bottom: 10px;
-  color: hsl(var(--hue), 30%, 40%);
-}
-/**/
 
-/**
-.quick-icons .quickicon-linkadd a:hover, .quick-icons .quickicon-linkadd a:focus, .quick-icons .quickicon-linkadd a:active {
-  background: var(--template-bg-dark);
 }
-.quick-icons .quickicon-linkadd a:hover *, .quick-icons .quickicon-linkadd a:focus *, .quick-icons .quickicon-linkadd a:active * {
-  color: #fff;
-}
-/**/
 
 .quick-icons .quickicon-single,
 .quick-icons .quickicon-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-/*  min-height: 6rem; /**/
+  /*  min-height: 6rem; /**/
   overflow: hidden;
   border: 1px solid hsl(var(--hue), 50%, 93%);
   border-radius: 4px;
@@ -205,21 +154,14 @@ borrowed css unscrupulous from atum template-rtl.css
 
 }
 
-/**
-.quick-icons .quickicon-single a {
-  display: flex;
-
-  align-items: stretch; /** /
-}
-/**/
-
+/*--- test hidden text until hover */
 .hidden_name {
-//  visibility: hidden; /**/
+/* visibility: hidden; /**/
   display: none;
 }
 
 .quick-icons .quickicon:hover .hidden_name {
-//  visibility: visible; /**/
+/* visibility: visible; /**/
   display: flex;
 }
 
