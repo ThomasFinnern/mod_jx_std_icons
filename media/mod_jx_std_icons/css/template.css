@@ -77,19 +77,26 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 }
 
 .quick-icons .quickicon a .quickicon-icon > * {
+  /* Icon size fallback */
   font-size: 2rem;
-  color: var(--icon-color);
+
+  /* color: var(--icon-color); */
+  /* color:darkblue; /**/
+  /* color:darkgrey; /**/
+  color:#0047AB; /**/
 }
 
 .quick-icons .quickicon a .quickicon-name {
   padding: 0.125rem 0 0.6rem;
 
-  font-size: 0.875rem;
+  /* Icon name size fallback */
+  /* font-size: 0.875rem; /**/
   font-size: 0.7rem;
   font-weight: bold; /**/
   /*  font-weight: normal; /**/
 
-  color: black;
+  /* color: var(--text-color); /**/
+  /* color: var(--body-bg); /**/
 
   display: flex;
   align-items: flex-end; /**/
@@ -125,13 +132,11 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-
 }
 
 .quick-icons .quickicon-single,
 .quick-icons .quickicon-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
+
   display: flex;
   /*  min-height: 6rem; /**/
   overflow: hidden;
