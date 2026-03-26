@@ -10,33 +10,22 @@
 namespace Finnern\Module\mod_jx_std_icons\Site\Helper;
 
 use Joomla\CMS\Factory;
-use Joomla\CMS\Version;
 
 \defined('_JEXEC') or die;
 
 /**
- * Collect lists of available Joomla!4 icons (standard template)
- *
- * - List of awesome icons retrieved from *.svg file(s)
- * - List of supported icons (previous icomoon) for internal style and
- *      html <span class="icon-image"> </span> from *.css file
- * - List of awesome icons which may be addressed like
- * html <i class="fa fa-adjust"></i> from *.css file
- * font awesome and internal icons may be referred to the same
- *      font awesome icon but different names may be used
+ * Collect lists of available Joomla!5/6 icons
+ * from *.css and *.scss files
  *
  * @since  version 0.1
  */
 class mod_jx_std_iconsHelper
 {
-    /** in J!5 and J!6 iterate through lines for icons */
+    /** *.scss file: iterate through lines and extract icons and brand icons */
     private const string CSS_VENDOR_AWESOME_SCSS_PATH_FILE_NAME = JPATH_ROOT . '/media/vendor/fontawesome-free/scss/_variables.scss';
 
-    /** Joomla used fontawesome icons with icomoon definitions (copy of fontawesome original icons + additions) */
+    /** *.css file: iterate through lines and extract icomoon icons, icons and brand icons */
     private const string CSS_JOOMLA_SYSTEM_PATH_FILE_NAME = JPATH_ROOT . '/media/system/css/joomla-fontawesome.css';
-
-    /** fontawesome original icons  */
-    private const string CSS_VENDOR_AWESOME_PATH_FILE_NAME = JPATH_ROOT . '/media/vendor/fontawesome-free/css/fontawesome.css';
 
     //--- joomla css css file ------------------------------------------
 
@@ -103,8 +92,6 @@ class mod_jx_std_iconsHelper
         {
             //--- Extract from Scss file ----------------------------------------------
 
-//            [$this->scssIconValues, $this->scss_awesome_std_names, $this->scss_awesome_brand_names]
-//                = $oExtract->extractScssIconFileData();
             //--- system icons / brand icons ----------------------------------------------
 
             // file: _variables.scss
@@ -116,14 +103,7 @@ class mod_jx_std_iconsHelper
             $this->scss_standardIconNames = $oScssFile->standardIconNames;
             $this->scss_brandIconNames = $oScssFile->brandIconNames;
 
-
-            //--- Extract from Scss file ----------------------------------------------
-
-            ////--- Extract Font awesome version ----------------------------------------------
-            //$this->awesome_version = $oExtract->extractAwesomeVersion();
-            ////--- icomoon replacements ----------------------------------------------
-            //$this->css_icomoon_icons = $oExtract->extractIcomoonIcons();
-            //[$this->css_joomla_system_icons, $this->css_joomla_system_brand_icons] = $oExtract->extractSystemAndBrandIcons();
+            //--- Extract from css file ----------------------------------------------
 
             $oCssFile = new joomlaFontawesomeCssFile_j5x (self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME);
 

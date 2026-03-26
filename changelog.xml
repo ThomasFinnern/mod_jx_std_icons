@@ -3,6 +3,26 @@
         <element>mod_jx_std_icons</element>
         <type>module</type>
         <client>site</client>
+        <version>0.7.1</version>
+        <date>2026-03-26</date>
+        <note>
+            <item>complete redesign of extracting *.css and *.scss files for Joomla! Versions (5/6)</item>
+            <item>For Joomla! Versions (5/6), removed parts for J!4x</item>
+        </note>
+        <change>
+            <item>Removed display of brand names section and table of all font awesome icons</item>
+			<item>Reduced size of icons: Use can select own size for icon and icon name font</item>
+			<item>On icon hover the icon is displayed bigger and moved to left. This helps to see the icon better</item>
+			<item>The color of icon and icon name changes for higher contrast</item>
+        </change>
+        <fix>
+            <item>Last version had wrong brand icons in standard list. These were displayed with 'unkonwn' icon instead of expected icon</item>
+        </fix>
+    </changelog>
+    <changelog>
+        <element>mod_jx_std_icons</element>
+        <type>module</type>
+        <client>site</client>
         <version>0.6.5</version>
         <date>2025-04-08</date>
         <change>
