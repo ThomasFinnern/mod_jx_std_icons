@@ -48,17 +48,11 @@ $isDisplayIcomoonTable            = $params->get('isDisplayIcomoonTable');
 $isDisplayJoomlaSysIconTable      = $params->get('isDisplayJoomlaSysIconTable');
 $isDisplayBrandIconsTable_Awesome = $params->get('isDisplayBrandIconsTable_Awesome');
 
+//--- Icon font size, text  ----------------------------------------------
 
-$font_size = $params->get('font_size');
-// $font_size = '';
+$icon_font_size = $params->get('icon_font_size');
+$name_font_size = $params->get('name_font_size');
 
-// <!--style>
-//    .icon {
-//        width: 1em;
-//        height: 1em;
-//        vertical-align: -.125em;
-//    }
-//</style-->
 
 ?>
 
@@ -82,7 +76,8 @@ $font_size = $params->get('font_size');
 
                     <?php if ($isDisplayTechDetail): ?>
                         <div class="mb-3">
-                            <div class="card-subtitle mb-2 text-muted"><?php echo Text::_('MOD_JX_STD_ICONS_AVAILABLE_ICONS_DESC'); ?></div>
+                            <div
+                                class="card-subtitle mb-2 text-muted"><?php echo Text::_('MOD_JX_STD_ICONS_AVAILABLE_ICONS_DESC'); ?></div>
                         </div>
 
                     <?php endif; ?>
@@ -114,13 +109,14 @@ $font_size = $params->get('font_size');
                                     <?php
                                     foreach ($css_icomoonIconNames as $iconName => $iconClass)
                                     {
-                                        displayIcon ($iconName, $iconClass, $font_size);
-                                        // displayIcon_asCard($iconName, $iconClass, $font_size);
+                                        displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
+                                        // displayIcon_asCard($iconName, $iconClass, $icon_font_size, $name_font_size);
                                     }
                                     ?>
                                 </ul>
                             </nav>
-                            <h5>Count icomoon icons: <span class="badge bg-secondary"><?php echo count($css_icomoonIconNames); ?></span></h5>
+                            <h5>Count icomoon icons: <span
+                                    class="badge bg-secondary"><?php echo count($css_icomoonIconNames); ?></span></h5>
                         </div>
                     </div>
                 <?php endif; ?>
@@ -142,8 +138,7 @@ $font_size = $params->get('font_size');
                             if ($isDisplayTechDetail)
                             {
 
-                                displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'),
-									Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'));
+                                displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'));
                             }
                             ?>
 
@@ -154,7 +149,7 @@ $font_size = $params->get('font_size');
                                             <div class="quickicon-info">
                                                 <div class="quickicon-icon">
                                                 <span class="icon-joomla"
-                                                      style="font-size: <?php echo $font_size; ?>px;"
+                                                      style="font-size: <?php echo $icon_font_size; ?>px;"
                                                       aria-hidden="true"></span>
                                                 </div>
                                             </div>
@@ -167,7 +162,7 @@ $font_size = $params->get('font_size');
                                     <?php
                                     foreach ($css_standardIconNames as $iconName => $iconClass)
                                     {
-                                        displayIcon($iconName, $iconClass, $font_size);
+                                        displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                     }
                                     ?>
                                 </ul>
@@ -195,8 +190,7 @@ $font_size = $params->get('font_size');
                             if ($isDisplayTechDetail)
                             {
 
-                                displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'),
-									Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'));
+                                displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'));
                             }
                             ?>
 
@@ -205,7 +199,7 @@ $font_size = $params->get('font_size');
                                     <?php
                                     foreach ($css_brandIconNames as $iconName => $iconClass)
                                     {
-                                        displayIcon($iconName, $iconClass, $font_size);
+                                        displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                     }
                                     ?>
                                 </ul>
@@ -224,11 +218,11 @@ $font_size = $params->get('font_size');
 <?php
 
 // selector for display test
-function displayIcon($iconName, $iconClass, $font_size)
+function displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size)
 {
 
-    // displayIcon_asCard($iconName, $iconClass, $font_size);
-    displayIcon_asQuickicon ($iconName, $iconClass, $font_size);
+    // displayIcon_asCard($iconName, $iconClass, $icon_font_size, $name_font_size);
+    displayIcon_asQuickicon($iconName, $iconClass, $icon_font_size, $name_font_size);
 
 }
 
@@ -252,19 +246,28 @@ function displayTechDetail($description, $link)
 }
 
 
-function displayIcon_asQuickicon($iconName, $iconClass, $font_size)
+function displayIcon_asQuickicon($iconName, $iconClass, $icon_font_size, $name_font_size)
 {
+    $iconStyle = '';
+    if ($icon_font_size != '') {
+        $iconStyle = 'style="font-size: ' . $icon_font_size . ';" ';
+    }
+
+    $nameStyle = '';
+    if ($name_font_size != '') {
+        $nameStyle = 'style="font-size: ' . $name_font_size . ';" ';
+    }
     ?>
     <li class="quickicon quickicon-single">
         <a href="#">
             <div class="quickicon-info">
 
                 <div class="quickicon-icon">
-                    <i style="font-size: <?php echo $font_size; ?>px;" class="<?php echo $iconClass; ?>"></i>
+                    <i <?php echo $iconStyle; ?> class="<?php echo $iconClass; ?>"></i>
                 </div>
 
             </div>
-            <div class="quickicon-name hidden_name">
+            <div <?php echo $nameStyle; ?> class="quickicon-name hidden_name">
                 <?php echo $iconName; ?>
             </div>
         </a>
@@ -272,13 +275,13 @@ function displayIcon_asQuickicon($iconName, $iconClass, $font_size)
     <?php
 }
 
-function displayIcon_asCard($iconName, $iconClass, $font_size)
+function displayIcon_asCard($iconName, $iconClass, $icon_font_size, $name_font_size)
 {
     ?>
     <li class=" ">
         <div class="">
 
-            <i style="font-size: <?php echo $font_size; ?>px;" class="<?php echo $iconClass; ?>"></i>
+            <i style="font-size: <?php echo $icon_font_size; ?>px;" class="<?php echo $iconClass; ?>"></i>
 
             <div class="card-title d-flex align-items-end">
                 <?php echo $iconName; ?>
