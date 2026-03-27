@@ -9,7 +9,9 @@
 
 namespace Finnern\Module\mod_jx_std_icons\Site\Helper;
 
-\defined('_JEXEC') or die;
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') || die;
+// phpcs:enable PSR1.Files.SideEffects
 
 enum CssSection
 {

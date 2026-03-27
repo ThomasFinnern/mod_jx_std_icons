@@ -30,7 +30,9 @@
 
 
 
-\defined('_JEXEC') or die;
+// phpcs:disable PSR1.Files.SideEffects
+\defined('_JEXEC') || die;
+// phpcs:enable PSR1.Files.SideEffects
 
 use Joomla\CMS\Helper\ModuleHelper;
 use Finnern\Module\mod_jx_std_icons\Site\Helper\mod_jx_std_iconsHelper;
