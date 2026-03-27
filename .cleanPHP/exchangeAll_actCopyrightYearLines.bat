@@ -40,8 +40,8 @@ pushd  ..\..\buildExtension\src
 ECHO Path: %cd% 
 
 REM echo.
-echo --- "%ExePath%php.exe" doFileTasksCmd.php -f "../../RSGallery2_J4_Dev\.cleanPHP\exchangeAll_actCopyrightYearLines.tsk" %1
-"%ExePath%php.exe" doFileTasksCmd.php -f "../../RSGallery2_J4_Dev\.cleanPHP\exchangeAll_actCopyrightYearLines.tsk" %1
+echo --- "%ExePath%php.exe" doFileTasksCmd.php -f "../../mod_jx_std_icons\.cleanPHP\exchangeAll_actCopyrightYearLines.tsk" %1
+"%ExePath%php.exe" doFileTasksCmd.php -f "../../mod_jx_std_icons\.cleanPHP\exchangeAll_actCopyrightYearLines.tsk" %1
 popd
 
 goto :EOF
