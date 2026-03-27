@@ -55,10 +55,7 @@ Set CmdArgs=
 REM more options
 
 @REM  path or file
-set searchPath="d:\Entwickl\2025\_gitHub\RSGallery2_J4"
-REM set searchPath="d:\Entwickl\2025\_gitHub\RSGallery2_J4\administrator\components\com_rsgallery2\helpers"
-REM set searchPath="d:\Entwickl\2025\_gitHub\RSGallery2_J4\administrator\components\com_rsgallery2\helpers\CascadedParam.php"
-REM set searchPath="d:\Entwickl\2025\_gitHub\RSGallery2_J4\administrator\components\com_rsgallery2\helpers\rsgallery2.php"
+set searchPath="d:\Entwickl\2026\_gitHub\mod_jx_std_icons"
 if NOT %1A==A (
  	set searchPath=%1
 )
@@ -81,8 +78,8 @@ ECHO command
 REM ./libraries/vendor/bin/phpcs --extensions=php -p --standard=ruleset.xml
 REM d:\Entwickl\2025\_gitHub\joomla-cms\ruleset.xml 
 
-@REM ECHO "C:\Users\finnern\AppData\Roaming\Composer\vendor\bin\phpcs.bat" --extensions=php -p --standard=d:\Entwickl\2025\_gitHub\joomla-cms\ruleset.xml d:\Entwickl\2025\_gitHub\RSGallery2_J4
-@REM "C:\Users\finnern\AppData\Roaming\Composer\vendor\bin\phpcs.bat" --extensions=php -p --standard=d:\Entwickl\2025\_gitHub\joomla-cms\ruleset.xml d:\Entwickl\2025\_gitHub\RSGallery2_J4
+@REM ECHO "C:\Users\finnern\AppData\Roaming\Composer\vendor\bin\phpcs.bat" --extensions=php -p --standard=d:\Entwickl\2025\_gitHub\joomla-cms\ruleset.xml d:\Entwickl\2026\_gitHub\mod_jx_std_icons
+@REM "C:\Users\finnern\AppData\Roaming\Composer\vendor\bin\phpcs.bat" --extensions=php -p --standard=d:\Entwickl\2025\_gitHub\joomla-cms\ruleset.xml d:\Entwickl\2026\_gitHub\mod_jx_std_icons
 @REM "C:\Users\finnern\AppData\Roaming\Composer\vendor\bin\phpcs.bat" --help
 
 ECHO "C:\Users\finnern\AppData\Roaming\Composer\vendor\bin\phpcbf.bat" %CmdArgs% %searchPath%
