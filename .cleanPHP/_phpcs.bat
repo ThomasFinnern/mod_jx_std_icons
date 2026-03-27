@@ -56,6 +56,9 @@ REM more options
 
 @REM  path or file
 set searchPath="d:\Entwickl\2026\_gitHub\mod_jx_std_icons"
+REM set searchPath="d:\Entwickl\2026\_gitHub\mod_jx_std_icons\install_mod.php"
+REM set searchPath="D:\Entwickl\2026\_gitHub\mod_jx_std_icons\mod_jx_std_icons.php"
+REM set searchPath="D:\Entwickl\2026\_gitHub\mod_jx_std_icons\mod_jx_std_icons.php"
 if NOT %1A==A (
  	set searchPath=%1
 )

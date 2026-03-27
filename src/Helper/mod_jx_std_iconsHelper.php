@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Joomla.Site
  * @subpackage  mod_jx_std_icons
@@ -9,11 +10,11 @@
 
 namespace Finnern\Module\mod_jx_std_icons\Site\Helper;
 
-use Joomla\CMS\Factory;
-
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') || die;
 // phpcs:enable PSR1.Files.SideEffects
+
+use Joomla\CMS\Factory;
 
 /**
  * Collect lists of available Joomla!5/6 icons
@@ -75,7 +76,6 @@ class mod_jx_std_iconsHelper
         // extract version, icons from *.css file
         if ($isExtractCss)
         {
-
             $this->extractAllIcons();
         }
 
@@ -97,7 +97,7 @@ class mod_jx_std_iconsHelper
             //--- system icons / brand icons ----------------------------------------------
 
             // file: _variables.scss
-            $oScssFile = new fontawesomeScssFile_v6 (self::CSS_VENDOR_AWESOME_SCSS_PATH_FILE_NAME);
+            $oScssFile = new fontawesomeScssFile_v6(self::CSS_VENDOR_AWESOME_SCSS_PATH_FILE_NAME);
 
             $oScssFile->readLines()->scanLines();
 
@@ -107,7 +107,7 @@ class mod_jx_std_iconsHelper
 
             //--- Extract from css file ----------------------------------------------
 
-            $oCssFile = new joomlaFontawesomeCssFile_j5x (self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME);
+            $oCssFile = new joomlaFontawesomeCssFile_j5x(self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME);
 
             $oCssFile->readLines()->scanLines();
 

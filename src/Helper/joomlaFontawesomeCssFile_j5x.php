@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Joomla.Site
  * @subpackage  mod_jx_std_icons
@@ -39,7 +40,7 @@ enum IconTypeCss
  */
 class joomlaFontawesomeCssFile_j5x extends iconList
 {
-    const VERSION_LINE_ID = "Font Awesome Free";
+    protected const VERSION_LINE_ID = "Font Awesome Free";
 
     // only in joomla...*.css file
     public string $awesome_version = '';

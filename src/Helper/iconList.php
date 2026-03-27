@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Joomla.Site
  * @subpackage  mod_jx_std_icons
@@ -9,11 +10,11 @@
 
 namespace Finnern\Module\mod_jx_std_icons\Site\Helper;
 
-use Joomla\CMS\Factory;
-
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') || die;
 // phpcs:enable PSR1.Files.SideEffects
+
+use Joomla\CMS\Factory;
 
 abstract class iconList
 {
@@ -109,7 +110,8 @@ abstract class iconList
      *
      * @return void
      */
-    public function sortLists () {
+    public function sortLists()
+    {
 
 //        ksort($this->iconNames2Values);
 //        ksort($this->iconValues2Names);

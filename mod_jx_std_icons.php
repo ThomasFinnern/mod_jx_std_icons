@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Joomla.site
  * @subpackage  mod_jx_std_icons
@@ -28,7 +29,7 @@
  * @since  version 0.1
  */
 
-
+namespace Finnern\Module\mod_jx_std_icons;
 
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') || die;
