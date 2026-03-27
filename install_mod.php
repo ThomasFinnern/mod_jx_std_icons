@@ -3,7 +3,7 @@
  * @package     Joomla.Administrator
  * @subpackage  mod_jx_std_icons
  *
- * @copyright (c) 2005-2023 Thomas Finnern
+ * @copyright  (c) 2005-2026 Thomas Finnern
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 

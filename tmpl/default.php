@@ -3,7 +3,7 @@
  * @package     Joomla.site
  * @subpackage  mod_jx_std_icons
  *
- * @copyright   Copyright (C) 2023-2023 thomas finnern
+ * @copyright  (c) 2023-2026 Thomas Finnern
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
