@@ -3,8 +3,8 @@
         <element>mod_jx_std_icons</element>
         <type>module</type>
         <client>site</client>
-        <version>0.7.1</version>
-        <date>2026-03-26</date>
+        <version>0.7.2</version>
+        <date>2026-03-28</date>
         <note>
             <item>complete redesign of extracting *.css and *.scss files for Joomla! Versions (5/6)</item>
             <item>For Joomla! Versions (5/6), removed parts for J!4x</item>
