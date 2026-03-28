@@ -3,9 +3,6 @@
 .buildPHP/*.*.log
 .buildPHP/Translations/.idea/
 
-.packages/
-.packages_zip/
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -16,3 +13,14 @@ __pycache__/
 **/*.tmp
 
 .idea
+
+.buildPHP/*.log
+.buildPHP/*.*.log
+
+.cleanPHP/*.log
+.cleanPHP/*.*.log
+
+.packages/
+.packages_zip/
+
+
