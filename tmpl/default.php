@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Joomla.site
  * @subpackage  mod_jx_std_icons
@@ -7,12 +8,12 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-//use Joomla\CMS\HTML\HTMLHelper;
-use Joomla\CMS\Language\Text;
-
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') || die;
 // phpcs:enable PSR1.Files.SideEffects
+
+//use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\Language\Text;
 
 global $j_css_icons;
 
