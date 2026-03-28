@@ -74,11 +74,9 @@ class mod_jx_std_iconsHelper
     {
 
         // extract version, icons from *.css file
-        if ($isExtractCss)
-        {
+        if ($isExtractCss) {
             $this->extractAllIcons();
         }
-
     }
 
     /**
@@ -90,8 +88,7 @@ class mod_jx_std_iconsHelper
     public function extractAllIcons(): void
     {
 
-        try
-        {
+        try {
             //--- Extract from Scss file ----------------------------------------------
 
             //--- system icons / brand icons ----------------------------------------------
@@ -119,10 +116,7 @@ class mod_jx_std_iconsHelper
 
             $this->css_icomoonNames2Values = $oCssFile->icomoonNames2Values;
             $this->css_icomoonIconNames = $oCssFile->icomoonIconNames;
-
-        }
-        catch (\RuntimeException $e)
-        {
+        } catch (\RuntimeException $e) {
             $OutTxt = '';
             $OutTxt .= 'Error executing extractAllIcons: "' . '<br>';
             $OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
@@ -133,5 +127,4 @@ class mod_jx_std_iconsHelper
 
         return;
     }
-
 } // class

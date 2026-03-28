@@ -40,8 +40,7 @@ abstract class iconList
 
     public function __construct(string $iconFile = '')
     {
-        if ($iconFile != '')
-        {
+        if ($iconFile != '') {
             $this->iconFile = $iconFile;
 //            $this->readLines($iconFile);
         }
@@ -64,33 +63,26 @@ abstract class iconList
         // reset icons, file name
         $this->init();
 
-        if ($iconFile != '')
-        {
+        if ($iconFile != '') {
             $this->iconFile = $iconFile;
         }
         $iconFile = $this->iconFile;
 
-        try
-        {
+        try {
             // Is not a file
-            if (!is_file($iconFile))
-            {
+            if (!is_file($iconFile)) {
                 //--- path does not exist -------------------------------
 
                 $OutTxt = 'Warning: iconList: File does not exist "' . $iconFile . '"<br>';
 
                 $app = Factory::getApplication();
                 $app->enqueueMessage($OutTxt, 'warning');
-            }
-            else
-            {
+            } else {
                 //--- read all lines ----------------------------------------------------
 
                 $this->lines = file($this->iconFile);
             }
-        }
-        catch (\RuntimeException $e)
-        {
+        } catch (\RuntimeException $e) {
             $OutTxt = '';
             $OutTxt .= 'Error executing iconList.readLines: "' . '<br>';
             $OutTxt .= 'File: "' . $iconFile . '"<br>';
@@ -118,9 +110,7 @@ abstract class iconList
 
         ksort($this->standardIconNames);
         ksort($this->brandIconNames);
-
     }
 
     abstract public function scanLines(array $lines = []);
-
 }

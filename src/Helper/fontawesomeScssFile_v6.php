@@ -61,32 +61,25 @@ class fontawesomeScssFile_v6 extends iconList
         }
 
         // all lines
-        foreach ($lines as $line)
-        {
+        foreach ($lines as $line) {
             // empty line
-            if ($line == '')
-            {
+            if ($line == '') {
                 continue;
             }
 
-            switch ($sectionState)
-            {
+            switch ($sectionState) {
                 case ScssSection::preValues:
-
-                    if (str_starts_with($line, '$fa-var-0:'))
-                    {
+                    if (str_starts_with($line, '$fa-var-0:')) {
                         $sectionState = ScssSection::iconStdValues;
                         $this->extractIconValue(IconTypeScss::standard, $line);
                     }
                     break;
 
                 case ScssSection::iconStdValues:
-
                     $this->extractIconValue(IconTypeScss::standard, $line);
 
                     // last standard item
-                    if (str_starts_with($line, '$fa-var-level-up-alt:'))
-                    {
+                    if (str_starts_with($line, '$fa-var-level-up-alt:')) {
                         $sectionState = ScssSection::iconBrandValues;
                     }
                     break;
@@ -95,8 +88,7 @@ class fontawesomeScssFile_v6 extends iconList
                     $this->extractIconValue(IconTypeScss::branch, $line);
 
                     // last brand item
-                    if (str_starts_with($line, '$fa-var-steam-symbol'))
-                    {
+                    if (str_starts_with($line, '$fa-var-steam-symbol')) {
                         $sectionState = ScssSection::iconBrandValues;
                     }
                     break;
@@ -104,42 +96,32 @@ class fontawesomeScssFile_v6 extends iconList
 
                 case ScssSection::preStandardIconNames:
                     // standard indicator
-                    if (str_starts_with($line, '$fa-icons: ('))
-                    {
+                    if (str_starts_with($line, '$fa-icons: (')) {
                         $sectionState = ScssSection::iconStdNames;
                     }
                     break;
 
                 case ScssSection::iconStdNames:
-
                     // end of standard icons ?
-                    if (str_starts_with($line, ');'))
-                    {
+                    if (str_starts_with($line, ');')) {
                         $sectionState = ScssSection::iconStdNames;
-                    }
-                    else
-                    {
+                    } else {
                         $this->standardIconNames[] = $this->line_determineIconName(trim($line));
                     }
                     break;
 
                 case ScssSection::preBrandIconNames:
                     // standard indicator
-                    if (str_starts_with($line, '$fa-icons: ('))
-                    {
+                    if (str_starts_with($line, '$fa-icons: (')) {
                         $sectionState = ScssSection::iconStdNames;
-                    }
-                    else
-                    {
+                    } else {
                         $this->brandIconNames[] = $this->line_determineIconName(trim($line));
                     }
                     break;
 
                 case ScssSection::iconBrandNames:
-
                     // end of brand icons ?
-                    if (str_starts_with($line, ');'))
-                    {
+                    if (str_starts_with($line, ');')) {
                         $sectionState = ScssSection::endOfFile;
                     }
 
@@ -148,9 +130,7 @@ class fontawesomeScssFile_v6 extends iconList
                 case ScssSection::endOfFile:
                     // do nothing  ToDo: Use end flag
                     break;
-
             }
-
         }
 
         return $this;
@@ -192,19 +172,15 @@ class fontawesomeScssFile_v6 extends iconList
         $name  = '';
         $value = '';
 
-        try
-        {
+        try {
             // $fa-var-0: \30;
 
             $parts = explode(':', $line);
-            if (count($parts) == 2)
-            {
+            if (count($parts) == 2) {
                 $name  = 'fa-' . substr(trim($parts[0]), 8);
                 $value = substr(trim($parts[1]), 0, -1);
             }
-        }
-        catch (\RuntimeException $e)
-        {
+        } catch (\RuntimeException $e) {
             $OutTxt = '';
             $OutTxt .= 'Error executing iconList.iconNameValueFromLine: "' . '<br>';
             $OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
@@ -231,21 +207,17 @@ class fontawesomeScssFile_v6 extends iconList
     {
         $iconName = '';
 
-        try
-        {
+        try {
             $trimmed = trim($line);
 
             $idx = strpos($trimmed, ":");
 
-            if (!empty($idx))
-            {
+            if (!empty($idx)) {
                 // "monero": $fa-var-monero,
                 // $iconName = 'fa-' . substr($line, 1, $idx - 2);
                 $iconName = substr($line, 1, $idx - 2);
             }
-        }
-        catch (\RuntimeException $e)
-        {
+        } catch (\RuntimeException $e) {
             $OutTxt = '';
             $OutTxt .= 'Error executing iconList.line_determineIconName: "' . '<br>';
             $OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
@@ -256,5 +228,4 @@ class fontawesomeScssFile_v6 extends iconList
 
         return $iconName;
     }
-
 }

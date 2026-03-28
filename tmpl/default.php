@@ -61,7 +61,7 @@ $name_font_size = $params->get('name_font_size');
 
     <div class="card">
         <div class="card-body">
-            <?php if (empty($css_icomoonIconNames) && empty($css_standardIconNames) && empty($css_vendor_awesome_icons)): ?>
+            <?php if (empty($css_icomoonIconNames) && empty($css_standardIconNames) && empty($css_vendor_awesome_icons)) : ?>
                 <h3 class="card-title">
                     <?php echo Text::_('MOD_JX_STD_ICONS_NO_ICONS'); ?>
                 </h3>
@@ -69,15 +69,14 @@ $name_font_size = $params->get('name_font_size');
                     <?php echo Text::_('MOD_JX_STD_ICONS_NO_ICONS_DESC'); ?>
                 </h6>
 
-            <?php else: ?>
-
-                <?php if ($isDisplayTablesHeader): ?>
+            <?php else : ?>
+                <?php if ($isDisplayTablesHeader) : ?>
                     <h2 class="card-title"><?php echo Text::_('MOD_JX_STD_ICONS_AVAILABLE_ICONS'); ?></h2>
                     <div class="mb-3">
                         <h6 class="card-subtitle mb-2 text-muted"><?php echo $awesome_version; ?></h6>
                     </div>
 
-                    <?php if ($isDisplayTechDetail): ?>
+                    <?php if ($isDisplayTechDetail) : ?>
                         <div class="mb-3">
                             <div
                                 class="card-subtitle mb-2 text-muted"><?php echo Text::_('MOD_JX_STD_ICONS_AVAILABLE_ICONS_DESC'); ?></div>
@@ -89,7 +88,7 @@ $name_font_size = $params->get('name_font_size');
                 <?php
                 //=== icomoon replacements ========================================================================
                 ?>
-                <?php if ($isDisplayIcomoonTable): ?>
+                <?php if ($isDisplayIcomoonTable) : ?>
                     <div class="card mb-3 ">
                         <div class="card-header">
                             <h2>
@@ -100,8 +99,7 @@ $name_font_size = $params->get('name_font_size');
 
                         <div class="card-body">
                             <?php
-                            if ($isDisplayTechDetail)
-                            {
+                            if ($isDisplayTechDetail) {
                                 displayTechDetail(Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS_DESC'), "");
                             }
                             ?>
@@ -110,8 +108,7 @@ $name_font_size = $params->get('name_font_size');
                                 <ul class="nav flex-wrap">
 
                                     <?php
-                                    foreach ($css_icomoonIconNames as $iconName => $iconClass)
-                                    {
+                                    foreach ($css_icomoonIconNames as $iconName => $iconClass) {
                                         displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                         // displayIcon_asCard($iconName, $iconClass, $icon_font_size, $name_font_size);
                                     }
@@ -128,7 +125,7 @@ $name_font_size = $params->get('name_font_size');
                 //=== system joomla icons font awesome ========================================================================
                 ?>
 
-                <?php if ($isDisplayJoomlaSysIconTable): ?>
+                <?php if ($isDisplayJoomlaSysIconTable) : ?>
                     <div class="card mb-3 ">
                         <div class="card-header">
                             <h2>
@@ -138,9 +135,7 @@ $name_font_size = $params->get('name_font_size');
                         </div>
                         <div class="card-body">
                             <?php
-                            if ($isDisplayTechDetail)
-                            {
-
+                            if ($isDisplayTechDetail) {
                                 displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'));
                             }
                             ?>
@@ -163,8 +158,7 @@ $name_font_size = $params->get('name_font_size');
                                     </li>
 
                                     <?php
-                                    foreach ($css_standardIconNames as $iconName => $iconClass)
-                                    {
+                                    foreach ($css_standardIconNames as $iconName => $iconClass) {
                                         displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                     }
                                     ?>
@@ -180,7 +174,7 @@ $name_font_size = $params->get('name_font_size');
                 //=== system joomla brand icons ========================================================================
                 ?>
 
-                <?php if ($isDisplayBrandIconsTable_Awesome): ?>
+                <?php if ($isDisplayBrandIconsTable_Awesome) : ?>
                     <div class="card mb-3 ">
                         <div class="card-header">
                             <h2>
@@ -190,9 +184,7 @@ $name_font_size = $params->get('name_font_size');
                         </div>
                         <div class="card-body">
                             <?php
-                            if ($isDisplayTechDetail)
-                            {
-
+                            if ($isDisplayTechDetail) {
                                 displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'));
                             }
                             ?>
@@ -200,8 +192,7 @@ $name_font_size = $params->get('name_font_size');
                             <nav class="quick-icons px-3 pb-3">
                                 <ul class="nav flex-wrap">
                                     <?php
-                                    foreach ($css_brandIconNames as $iconName => $iconClass)
-                                    {
+                                    foreach ($css_brandIconNames as $iconName => $iconClass) {
                                         displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                     }
                                     ?>
@@ -226,7 +217,6 @@ function displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size)
 
     // displayIcon_asCard($iconName, $iconClass, $icon_font_size, $name_font_size);
     displayIcon_asQuickicon($iconName, $iconClass, $icon_font_size, $name_font_size);
-
 }
 
 function displayTechDetail($description, $link)
@@ -237,7 +227,7 @@ function displayTechDetail($description, $link)
             <div>
                 <?php echo $description ?>
             </div>
-            <?php if (!empty ($link)): ?>
+            <?php if (!empty($link)) : ?>
                 <div>
                     <a href="<?php echo $link ?>"><?php echo $link ?></a>
                 </div>

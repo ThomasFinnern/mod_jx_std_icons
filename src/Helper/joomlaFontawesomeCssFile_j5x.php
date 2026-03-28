@@ -78,33 +78,27 @@ class joomlaFontawesomeCssFile_j5x extends iconList
         //  content: "";
         //}
 
-        if (empty($lines))
-        {
+        if (empty($lines)) {
             $lines = $this->lines;
         }
 
         // all lines
-        foreach ($lines as $line)
-        {
+        foreach ($lines as $line) {
             // empty line
-            if ($line == '')
-            {
+            if ($line == '') {
                 continue;
             }
 
             // no white spaces needed
             $line = trim($line);
 
-            switch ($sectionState)
-            {
+            switch ($sectionState) {
                 case CssSection::findVersion:
-
                     //--- Font Awesome version ------------------------------------------------
 
                     // Font Awesome Free
                     $startIdx = strpos($line, self::VERSION_LINE_ID);
-                    if ($startIdx)
-                    {
+                    if ($startIdx) {
                         // example ' * Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com
                         $endIdx                = strpos($line, ' ', $startIdx + strlen(self::VERSION_LINE_ID) + 1);
                         $this->awesome_version = substr($line, $startIdx, $endIdx - $startIdx); // '5.15.4 '
@@ -115,9 +109,7 @@ class joomlaFontawesomeCssFile_j5x extends iconList
 
 
                 case CssSection::preStandardIconValues:
-
-                    if (str_starts_with($line, '.fa-0 {'))
-                    {
+                    if (str_starts_with($line, '.fa-0 {')) {
                         // first line of definition
                         $this->previousLine = $line;
 
@@ -126,23 +118,16 @@ class joomlaFontawesomeCssFile_j5x extends iconList
                     break;
 
                 case CssSection::iconValues:
-
-                    if (str_starts_with($line, '.fa-'))
-                    {
+                    if (str_starts_with($line, '.fa-')) {
                         $this->previousLine = $line;
-                    }
-                    else
-                    {
-                        if (str_starts_with($line, '--fa:'))
-                        {
+                    } else {
+                        if (str_starts_with($line, '--fa:')) {
                             $this->assignStandardIcon($this->previousLine, $line);
                         }
                     }
 
                     // end of standard icon values
-                    if (str_starts_with($line, '.fa.fa'))
-                    {
-
+                    if (str_starts_with($line, '.fa.fa')) {
                         $sectionState = CssSection::preBrandIconValues;
                     }
                     break;
@@ -150,8 +135,7 @@ class joomlaFontawesomeCssFile_j5x extends iconList
 
                 case CssSection::preBrandIconValues:
                     // standard indicator
-                    if (str_starts_with($line, '.fa-monero {'))
-                    {
+                    if (str_starts_with($line, '.fa-monero {')) {
                         // first line of definition
                         $this->previousLine = $line;
 
@@ -161,22 +145,17 @@ class joomlaFontawesomeCssFile_j5x extends iconList
 
 
                 case CssSection::iconBrandValues:
-                    if (str_starts_with($line, '.fa-'))
-                    {
+                    if (str_starts_with($line, '.fa-')) {
                         $this->previousLine = $line;
-                    }
-                    else
-                    {
-                        if (str_starts_with($line, '--fa:'))
-                        {
+                    } else {
+                        if (str_starts_with($line, '--fa:')) {
                             $this->assignBrandIcon($this->previousLine, $line);
                         }
                     }
 
 
                     // last brand item
-                    if (str_starts_with($line, '[class^="icon-"]'))
-                    {
+                    if (str_starts_with($line, '[class^="icon-"]')) {
                         $sectionState = CssSection::preIcomoonValues;
                     }
                     break;
@@ -184,8 +163,7 @@ class joomlaFontawesomeCssFile_j5x extends iconList
 
                 case CssSection::preIcomoonValues:
                     // standard indicator
-                    if (str_starts_with($line, '.icon-joomla'))
-                    {
+                    if (str_starts_with($line, '.icon-joomla')) {
                         // first line of definition
                         $this->previousLine = $line;
 
@@ -194,21 +172,15 @@ class joomlaFontawesomeCssFile_j5x extends iconList
                     break;
 
                 case CssSection::icomoonValues:
-
-                    if (str_starts_with($line, '.icon-'))
-                    {
+                    if (str_starts_with($line, '.icon-')) {
                         $this->previousLine = $line;
-                    }
-                    else
-                    {
-                        if (str_starts_with($line, 'content:'))
-                        {
+                    } else {
+                        if (str_starts_with($line, 'content:')) {
                             $this->assignIcomoonIcon($this->previousLine, $line);
                         }
                     }
                     break;
             }
-
         }
 
         //--- sort alphabetically -------------------------------
@@ -228,8 +200,7 @@ class joomlaFontawesomeCssFile_j5x extends iconList
         [$names, $iconClass] = $this->extractIconNames($previousLine);
         $value = $this->extractIconValue($line);
 
-        foreach ($names as $name)
-        {
+        foreach ($names as $name) {
             $this->iconNames2Values [$name] = $value;
         }
 
@@ -242,8 +213,7 @@ class joomlaFontawesomeCssFile_j5x extends iconList
         [$names, $iconClass] = $this->extractIconNames($previousLine);
         $value = $this->extractIconValue($line);
 
-        foreach ($names as $name)
-        {
+        foreach ($names as $name) {
             $this->iconNames2Values [$name] = $value;
         }
 
@@ -258,8 +228,7 @@ class joomlaFontawesomeCssFile_j5x extends iconList
         $lineTrimmed = trim(substr($namesLine, 0, -1));
         $ids         = explode(', ', $lineTrimmed);
 
-        foreach ($ids as $id)
-        {
+        foreach ($ids as $id) {
             $name     = substr($id, 4);
             $names [] = $name;
 
@@ -284,14 +253,12 @@ class joomlaFontawesomeCssFile_j5x extends iconList
         [$names, $iconClass] = $this->extractIcomoonNames($previousLine);
         $value = $this->extractIcomoonValue($line);
 
-        foreach ($names as $name)
-        {
+        foreach ($names as $name) {
             $this->icomoonNames2Values [$name] = $value;
         }
 
         $concatenatedNames                           = implode(', ', $names);
         $this->icomoonIconNames [$concatenatedNames] = $iconClass;
-
     }
 
     private function extractIcomoonNames(string $namessLine): array
@@ -302,8 +269,7 @@ class joomlaFontawesomeCssFile_j5x extends iconList
         $lineTrimmed = trim(substr($namessLine, 0, -1));
         $ids         = explode(', ', $lineTrimmed);
 
-        foreach ($ids as $id)
-        {
+        foreach ($ids as $id) {
             $name     = substr($id, 6);
             $names [] = $name;
 
@@ -315,7 +281,8 @@ class joomlaFontawesomeCssFile_j5x extends iconList
 
     private function extractIcomoonValue(string $line)
     {
-        $value = substr($line, 5);;
+        $value = substr($line, 5);
+        ;
 
         return $value;
     }
