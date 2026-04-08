@@ -4,6 +4,8 @@ This module enables to display the available Joomla! icons with names in your ow
 
 This view is intended to be read by extension developers in the need of selecting an icon. So be free to use it as supporter of developers in your blog, hints or ...
 
+![preview](https://github.com/ThomasFinnern/mod_jx_std_icons/blob/e11754864e951f83f4c0d3b34219fbad40b63f60/.doc/jed/00.preview.02.png?raw=true)
+
 ## General info
 In general, the available icons can be viewed in
 [Joomla_Standard_Font_Awesome_Fonts](https://docs.joomla.org/J4.x:Joomla_Standard_Font_Awesome_Fonts).
