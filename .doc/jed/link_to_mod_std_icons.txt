@@ -1,0 +1,2 @@
+link to mod_std_icons
+https://extensions.joomla.org/extension/mod-jx-std-icons/

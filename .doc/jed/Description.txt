@@ -1,0 +1,4 @@
+This module displays the available Joomla! icons with names used inside joomla! 5x/6x.
+The intention is to be able to search through all symbols in order to find a suitable one.
+
+If the module is published, it could also help others.
