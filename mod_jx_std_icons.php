@@ -48,5 +48,4 @@ $j_css_icons = new mod_jx_std_iconsHelper();
 //$iconListByCharValue = $j_css_icons->iconListByCharValue( use internal data );
 
 // display the module
-// ToDo: check require ModuleHelper::getLayoutPath('mod_jx_std_icons', $params->get('layout', 'default'));
-require ModuleHelper::getLayoutPath('mod_jx_std_icons');
+require ModuleHelper::getLayoutPath('mod_jx_std_icons', $params->get('layout', 'default'));
