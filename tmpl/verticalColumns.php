@@ -1,11 +1,11 @@
 <?php
 
 /**
- * @package        Joomla.site
- * @subpackage     mod_jx_std_icons
+ * @package     Joomla.site
+ * @subpackage  mod_jx_std_icons
  *
  * @copyright  (c) 2023-2026 Thomas Finnern
- * @license        GNU General Public License version 2 or later; see LICENSE.txt
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 // phpcs:disable PSR1.Files.SideEffects
@@ -58,33 +58,40 @@ $name_font_size = $params->get('name_font_size');
 $icon_color     = $params->get('icon_color');
 $name_color     = $params->get('name_color');
 
+$ulListStyle = 'style="list-style-type: none;" ';
+
+
 ?>
+
     <style>
         .icon_li {
-            /*display: flex;*/
-            /*flex-direction: row;*/
-            /*align-items: center;*/
-            /*padding: 2px;*/
-
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 2px;
         }
 
         .icon_style {
             font-size: <?php echo $icon_font_size; ?>;
 
-            // color: hsl(214, 30 %, 40 %);
-            // color: #0047AB;
-            // color: darkgrey;
+            /*color: hsl(214, 30 %, 40 %);*/
+            /*color: #0047AB;*/
+            /*color: darkgrey;*/
             color: <?php echo $icon_color; ?>;
 
-            // width: 50 px;
-            // text-align: center;
-
+            width: 50px;
+            text-align: center;
         }
 
         .icon_name_style {
             font-size: <?php echo $name_font_size; ?>;
             color: <?php echo $name_color; ?>;
-            // padding: 5 px;
+            /*color: red;*/
+            padding: 5px;
+        }
+
+        ul {
+            columns: 250px;
         }
     </style>
 
@@ -134,14 +141,13 @@ $name_color     = $params->get('name_color');
                             }
                             ?>
 
-                            <nav class="quick-icons px-3 pb-3">
-                                <ul class="nav flex-wrap">
+                            <nav class=""> <!-- <nav class="quick-icons px-3 pb-3">-->
+                                <ul <?php echo $ulListStyle; ?> class="">
 
                                     <?php
                                     foreach ($css_icomoonIconNames as $iconName => $iconClass)
                                     {
                                         displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
-                                        // displayIcon_asCard($iconName, $iconClass, $icon_font_size, $name_font_size);
                                     }
                                     ?>
                                 </ul>
@@ -172,23 +178,8 @@ $name_color     = $params->get('name_color');
                             }
                             ?>
 
-                            <nav class="quick-icons px-3 pb-3">
-                                <ul class="nav flex-wrap">
-                                    <li class="quickicon quickicon-single">
-                                        <a href="#">
-                                            <div class="quickicon-info">
-                                                <div class="quickicon-icon">
-                                                <span class="icon-joomla"
-                                                      style="font-size: <?php echo $icon_font_size; ?>px;"
-                                                      aria-hidden="true"></span>
-                                                </div>
-                                            </div>
-                                            <div class="quickicon-name d-flex align-items-end">
-                                                Joomla
-                                            </div>
-                                        </a>
-                                    </li>
-
+                            <nav class=""> <!-- <nav class="quick-icons px-3 pb-3">-->
+                                <ul <?php echo $ulListStyle; ?> class="">
                                     <?php
                                     foreach ($css_standardIconNames as $iconName => $iconClass)
                                     {
@@ -223,8 +214,8 @@ $name_color     = $params->get('name_color');
                             }
                             ?>
 
-                            <nav class="quick-icons px-3 pb-3">
-                                <ul class="nav flex-wrap">
+                            <nav class=""> <!-- <nav class="quick-icons px-3 pb-3">-->
+                                <ul <?php echo $ulListStyle; ?> class="">
                                     <?php
                                     foreach ($css_brandIconNames as $iconName => $iconClass)
                                     {
@@ -239,19 +230,24 @@ $name_color     = $params->get('name_color');
                         </div>
                     </div>
                 <?php endif; ?>
-
             <?php endif; ?>
+
         </div>
     </div>
 
 <?php
 
-// selector for display test
+
 function displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size)
 {
-
-    // displayIcon_asCard($iconName, $iconClass, $icon_font_size, $name_font_size);
-    displayIcon_asQuickicon($iconName, $iconClass, $icon_font_size, $name_font_size);
+    ?>
+    <li class="icon_li">
+        <i class="<?php echo $iconClass; ?> icon_style"></i>
+        <span class="icon_name_style">
+            <?php echo $iconName; ?>
+        </span>
+    </li>
+    <?php
 }
 
 function displayTechDetail($description, $link)
@@ -272,38 +268,3 @@ function displayTechDetail($description, $link)
     </div>
     <?php
 }
-
-function displayIcon_asQuickicon($iconName, $iconClass, $icon_font_size, $name_font_size)
-{
-    ?>
-    <li class="icon_li quickicon quickicon-single">
-        <a href="#" class="quickicon-link">
-            <div class="quickicon-info">
-                <div class="quickicon-icon">
-                    <i class="<?php echo $iconClass; ?> icon_style"></i>
-                </div>
-            </div>
-            <div class="quickicon-name hidden_name icon_name_style">
-                <?php echo $iconName; ?>
-            </div>
-        </a>
-    </li>
-    <?php
-}
-
-function displayIcon_asCard($iconName, $iconClass, $icon_font_size, $name_font_size)
-{
-    ?>
-    <li class=" ">
-        <div class="">
-
-            <i style="font-size: <?php echo $icon_font_size; ?>px;" class="<?php echo $iconClass; ?>"></i>
-
-            <div class="card-title d-flex align-items-end">
-                <?php echo $iconName; ?>
-            </div>
-        </div>
-    </li>
-    <?php
-}
-
