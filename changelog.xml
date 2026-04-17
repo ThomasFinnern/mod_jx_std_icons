@@ -3,6 +3,20 @@
         <element>mod_jx_std_icons</element>
         <type>module</type>
         <client>site</client>
+        <version>0.8.0</version>
+        <date>2026-04-17</date>
+        <note>
+            <item>This version has been adapted for and is intended for guide.joomla.org.</item>
+        </note>
+        <change>
+            <item>Added two vertical list views for the icons. In the layouts options a single column view or a up to 4 columns view is additional selectable now.</item>
+            <item>The color and the size of icons can be changed in the options separately. Same for the name</item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_jx_std_icons</element>
+        <type>module</type>
+        <client>site</client>
         <version>0.7.2</version>
         <date>2026-03-28</date>
         <note>

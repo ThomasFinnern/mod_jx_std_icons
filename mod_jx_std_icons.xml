@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="module" client="site" method="upgrade" version="6.0">
   <name>mod_jx_std_icons</name>
-  <creationDate>2026.04.09</creationDate>
+  <creationDate>2026.04.17</creationDate>
   <author>Thomas Finnern</author>
   <authorEmail>mod_jx_std_icons@tomfinnern.de</authorEmail>
   <authorUrl>www.tomfinnern.de</authorUrl>
   <copyright>Copyright (C) 2023-2025 Thomas Finnern All rights reserved.</copyright>
   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-  <version>0.7.3</version>
+  <version>0.7.4</version>
   <description>MOD_JX_STD_ICONS_XML_DESCRIPTION</description>
   <scriptfile>install_mod.php</scriptfile>
   <namespace path="src">Finnern\Module\mod_jx_std_icons</namespace>
@@ -51,7 +51,7 @@
       <fieldset name="style" label="MOD_JX_STD_ICONS_FIELDSET_STYLE">
         <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" class="form-select" validate="moduleLayout"/>
         <field name="icon_font_size" type="text" label="MOD_JX_STD_ICONS_FIELD_ICON_FONT_SIZE" description="MOD_JX_STD_ICONS_FIELD_ICON_FONT_SIZE_DESC" default="2rem"/>
-        <field name="name_font_size" type="text" label="MOD_JX_STD_ICONS_FIELD_NAME_FONT_SIZE" description="MOD_JX_STD_ICONS_FIELD_NAME_FONT_SIZE_DESC" default="0.6667rem"/>
+        <field name="name_font_size" type="text" label="MOD_JX_STD_ICONS_FIELD_NAME_FONT_SIZE" description="MOD_JX_STD_ICONS_FIELD_NAME_FONT_SIZE_DESC" default="1em"/>
         <field name="icon_color" type="color" label="MOD_JX_STD_ICONS_FIELD_ICON_COLOR" description="MOD_JX_STD_ICONS_FIELD_ICON_COLORDESC" default="rgb(0, 71, 171)" format="rgb"/>
         <field name="name_color" type="color" label="MOD_JX_STD_ICONS_FIELD_NAME_FONT_COLOR" description="MOD_JX_STD_ICONS_FIELD_NAME_FONT_COLOR_DESC" default="rgb(71,98,133)" format="rgb"/>
       </fieldset>
