@@ -56,7 +56,8 @@ class Dispatcher implements DispatcherInterface
         $j_css_icons = new mod_jx_std_iconsHelper(false);
         $j_css_icons->extractAllIcons();
 
-        require ModuleHelper::getLayoutPath('mod_jx_std_icons'); // 'j_css_icons'
+        // display the module
+        require ModuleHelper::getLayoutPath('mod_jx_std_icons', $params->get('layout', 'default'));
     }
 
 //    /**
