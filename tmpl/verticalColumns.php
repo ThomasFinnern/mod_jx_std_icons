@@ -15,7 +15,7 @@
 //use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 
-global $j_css_icons;
+/** @var $j_css_icons mod_jx_std_iconsHelper; */
 
 //--- mod_jx_std_iconsHelper definitions to local definitions ----------------
 
@@ -39,7 +39,7 @@ $scss_brandIconNames    = $j_css_icons->scss_brandIconNames;
 
 //--- load css  ---------------------------------------------------------------
 
-$wa = $app->getDocument()->getWebAssetManager();
+$wa = $this->app->getDocument()->getWebAssetManager();
 $wa->registerAndUseStyle('mod_jx_std_icons', 'mod_jx_std_icons/template.css');
 
 //--- Flags for display yes/no ----------------------------------------------
