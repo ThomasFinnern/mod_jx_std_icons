@@ -13,9 +13,10 @@
 // phpcs:enable PSR1.Files.SideEffects
 
 //use Joomla\CMS\HTML\HTMLHelper;
+use Finnern\Module\mod_jx_std_icons\Site\Helper\mod_jx_std_iconsHelper;
 use Joomla\CMS\Language\Text;
 
-global $j_css_icons;
+/** @var $j_css_icons mod_jx_std_iconsHelper; */
 
 //--- mod_jx_std_iconsHelper definitions to local definitions ----------------
 
@@ -39,7 +40,7 @@ $scss_brandIconNames    = $j_css_icons->scss_brandIconNames;
 
 //--- load css  ---------------------------------------------------------------
 
-$wa = $app->getDocument()->getWebAssetManager();
+$wa = $this->app->getDocument()->getWebAssetManager();
 $wa->registerAndUseStyle('mod_jx_std_icons', 'mod_jx_std_icons/template.css');
 
 //--- Flags for display yes/no ----------------------------------------------
@@ -59,6 +60,7 @@ $icon_color     = $params->get('icon_color');
 $name_color     = $params->get('name_color');
 
 ?>
+<?php echo $greeting; ?>
     <style>
         .icon_li {
             /*display: flex;*/

@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="module" client="site" method="upgrade" version="6.0">
   <name>mod_jx_std_icons</name>
-  <creationDate>2026.04.17</creationDate>
+  <creationDate>2026.04.18</creationDate>
   <author>Thomas Finnern</author>
   <authorEmail>mod_jx_std_icons@tomfinnern.de</authorEmail>
   <authorUrl>www.tomfinnern.de</authorUrl>
   <copyright>Copyright (C) 2023-2025 Thomas Finnern All rights reserved.</copyright>
   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-  <version>0.7.4</version>
+  <version>0.7.5</version>
   <description>MOD_JX_STD_ICONS_XML_DESCRIPTION</description>
   <scriptfile>install_mod.php</scriptfile>
   <namespace path="src">Finnern\Module\mod_jx_std_icons</namespace>
   <files>
-    <filename module="mod_jx_std_icons">mod_jx_std_icons.php</filename>
+    <!--filename module="mod_jx_std_icons">mod_jx_std_icons.php</filename-->
     <filename>mod_jx_std_icons.xml</filename>
     <filename>changelog.xml</filename>
     <filename>LICENSE</filename>
+    <folder module="mod_jx_std_icons">services</folder>
     <folder>language</folder>
     <folder>src</folder>
     <folder>tmpl</folder>

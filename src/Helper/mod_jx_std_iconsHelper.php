@@ -70,7 +70,7 @@ class mod_jx_std_iconsHelper
      *
      * @since version 0.1
      */
-    public function __construct(bool $isExtractSvg = true, bool $isExtractCss = true)
+    public function __construct(bool $isExtractCss = true)
     {
 
         // extract version, icons from *.css file
