@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
  * @package     Joomla.site
  * @subpackage  mod_jx_std_icons
@@ -8,165 +9,159 @@
 css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 */
 
-@charset "UTF-8";
-
 .quick-icons {
-  background-color: #fff;
+    background-color: #fff;
 }
 
 .quick-icons .nav {
-  display: grid;
-  /* grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); /**/
-  /* grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /**/
-  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /**/
-  grid-gap: 1rem;
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /**/
+    grid-gap: 1rem;
 }
 
 .quick-icons a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .quick-icons ul {
-  padding: 0;
+    padding: 0;
 }
 
 .quick-icons .quickicon {
-  --text-color: hsl(var(--hue), 30%, 40%);
-  --bg-color: hsl(var(--hue), 60%, 97%);
-  --icon-color: hsl(var(--hue), 30%, 40%);
-  /* --bg-color-hvr: var(--template-bg-dark); /**/
-  --bg-color-hvr: var(--template-bg-dark-60); /**/
-  --bg-color-hvr: var(--template-bg-dark-90); /**/
-  /* --bg-color-hvr: var(--template-bg-light); /**/
-  /* --bg-color-hvr: Ivory; /**/
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  background-color: var(--bg-color); /**/
+    --text-color: hsl(var(--hue), 30%, 40%);
+    --bg-color: hsl(var(--hue), 60%, 97%);
+    --icon-color: hsl(var(--hue), 30%, 40%);
+    /* --bg-color-hvr: var(--template-bg-dark); /**/
+    --bg-color-hvr: var(--template-bg-dark-60); /**/
+    --bg-color-hvr: var(--template-bg-dark-90); /**/
+    /* --bg-color-hvr: var(--template-bg-light); /**/
+    /* --bg-color-hvr: Ivory; /**/
+    display: flex;
+    flex-grow: 1;
+    background-color: var(--bg-color); /**/
 }
 
 .quick-icons .quickicon a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-flex: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  padding: 0 1rem;
-  color: var(--text-color);
-  /* background-color: var(--bg-color); /**/
-  -webkit-transition: all 0.25s ease;
-  -o-transition: all 0.25s ease;
-  transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 0 1rem;
+    color: var(--text-color);
+    /* background-color: var(--bg-color); /**/
+    transition: all 0.25s ease;
 }
 
 .quick-icons .quickicon a .quickicon-icon {
-  margin-top: 0.5rem;
-  -webkit-margin-start: 0.2rem;
-  margin-inline-start: 0.2rem;
+    margin-top: 0.5rem;
+    margin-inline-start: 0.2rem;
 }
 
 .quick-icons .quickicon a .quickicon-icon > * {
-  /* Icon size fallback */
-  font-size: 2rem;
+    /* Icon size fallback */
+    font-size: 2rem;
 
-  /* color: var(--icon-color); */
-  /* color:darkblue; /**/
-  /* color:darkgrey; /**/
-  color:#0047AB; /**/
+    /* color:darkgrey; /**/
+    color: #0047AB; /**/
 }
 
 .quick-icons .quickicon a .quickicon-name {
-  padding: 0.125rem 0 0.6rem;
+    padding: 0.125rem 0 0.6rem;
 
-  /* Icon name size fallback */
-  /* font-size: 0.875rem; /**/
-  font-size: 0.7rem;
-  font-weight: bold; /**/
-  /*  font-weight: normal; /**/
+    font-size: 0.7rem;
+    font-weight: bold; /**/
 
-  /* color: var(--text-color); /**/
-  /* color: var(--body-bg); /**/
-
-  display: flex;
-  align-items: flex-end; /**/
+    display: flex;
+    align-items: flex-end; /**/
 }
 
 .quick-icons .quickicon a .j-links-link {
-  display: block;
-  padding: 0 0.2rem;
-  line-height: 1.1;
+    display: block;
+    padding: 0 0.2rem;
+    line-height: 1.1;
 }
 
-.quick-icons .quickicon:hover, .quick-icons .quickicon a:focus, .quick-icons .quickicon a:active {
+.icon_li_tmpl {
+    /*border-color: darkgrey;*/
+    /*border-color: darkblue;*/
+    /*border-radius: 4px;*/
+}
 
-  transform: scale(2.15) translatex(-1.5rem) translateY(1.84rem); /**/
-  transform: scale(2.15) translatex(-1.45rem) translateY(1.74rem); /**/
-  /*  transform: scale(2.15) translateY(3.84rem); /**/
+.icon_style_tmpl {
+    /*border: 3px solid darkgrey;*/
+    /*border-radius: 4px;*/
+}
 
-  background-color: var(--card-bg); /**/
-  /*  background-color: lightBlue; /**/
-  /*  background-color: #EBF6F9; /**/
-  /*  background-color: white; /**/
+.icon_li_tmpl .icon_style_tmpl:hover, .icon_li_tmpl .icon_style_tmpl:focus {
 
-  border-color: darkgrey;
-  padding: 1px;
+    /*transform: scale(2.15) translatex(-1.45rem) translateY(1.74rem); !**!*/
+    transform: scale(2.5) translatex(-1.00rem); /**/
 
-  /*  opacity: 1; /**/
-  /*   color: black; /**/
+    background-color: var(--card-bg); /**/
+    /*background-color: lightBlue; !**!*/
 
-  z-index: 20;
+    /*border-color: darkgrey;*/
+    /*border: 1px solid blue;*/
+    border: 2px solid darkgrey;
+    border-radius: 4px;
+
+    padding: 1px;
+
+    z-index: 20;
+}
+
+.quickicon-icon .icon_style_tmpl:hover {
+
+        transform: scale(2.5) translateY(0.45rem) translatex(0.2rem); /**/
+
+        /*background-color: lightBlue;*/
+        background-color: var(--card-bg); /**/
+
+        /*border: 2px solid darkgreen;*/
+        border: 1px solid darkgrey;
+        border-radius: 2px;
+        /*border-color: darkgrey;*/
+        padding: 1px;
+
+        z-index: 20;
 }
 
 .quick-icons .quickicon-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+    display: flex;
 }
 
 .quick-icons .quickicon-single,
 .quick-icons .quickicon-group {
 
-  display: flex;
-  /*  min-height: 6rem; /**/
-  overflow: hidden;
-  border: 1px solid hsl(var(--hue), 50%, 93%);
-  border-radius: 4px;
+    display: flex;
+    /*  min-height: 6rem; /**/
+    overflow: hidden;
+    border: 1px solid hsl(var(--hue), 50%, 93%);
+    border-radius: 4px;
 
-  /* align-items: flex-end; /**/
-  align-items: flex-start; /**/
-  /* align-items: stretch; /**/
+    /* align-items: flex-end; /**/
+    align-items: flex-start; /**/
+    /* align-items: stretch; /**/
 
-  /* background-color: var(--bg-color) /**/
-  padding: 1px;
-
+    /* background-color: var(--bg-color) /**/
+    padding: 1px;
 }
 
 .quick-icons .quickicon-single a {
-  /* align-items: flex-end; /**/
-  /* align-items: flex-start; /**/
-  align-items: stretch; /**/
-
+    /* align-items: flex-end; /**/
+    /* align-items: flex-start; /**/
+    align-items: stretch; /**/
 }
 
 /*--- test hidden text until hover */
 .hidden_name {
-/* visibility: hidden; /**/
-  display: none;
+    /* visibility: hidden; /**/
+    display: none;
 }
 
 .quick-icons .quickicon:hover .hidden_name {
-/* visibility: visible; /**/
-  display: flex;
+    /* visibility: visible; /**/
+    display: flex;
 }
-

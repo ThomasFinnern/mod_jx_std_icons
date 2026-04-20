@@ -1,0 +1,7 @@
+J! icons: Article containing icon module
+-----------------------------------------------
+<h2>J! icons: Article containing icon module</h2>
+<p>-------------------------------------------</p>
+<pre><code>{loadmoduleid 110}</code></pre>
+<p>-------------------------------------------</p>
+<p><a title="loadposition, loadmodule, loadmoduleid" href="https://guide.joomla.org/user-manual/modules/modules-how-do-you-put-a-module-inside-an-article-3f">Modules inside Articles</a></p>

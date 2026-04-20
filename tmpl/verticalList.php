@@ -12,16 +12,14 @@
 \defined('_JEXEC') || die;
 // phpcs:enable PSR1.Files.SideEffects
 
-//use Joomla\CMS\HTML\HTMLHelper;
+use Finnern\Module\mod_jx_std_icons\Site\Helper\mod_jx_std_iconsHelper;
 use Joomla\CMS\Language\Text;
+use Joomla\Registry\Registry;
 
 /** @var $j_css_icons mod_jx_std_iconsHelper; */
+/** @var $params registry; */
 
-//--- mod_jx_std_iconsHelper definitions to local definitions ----------------
-
-// font awesome are PUA UTF-8 characters
-
-//--- css file  ---------------------------------------------------------------
+//--- j! css file extracts ----------------------------------------------------
 
 // extracted version
 $awesome_version = $j_css_icons->awesome_version;
@@ -63,205 +61,172 @@ $ulListStyle = 'style="list-style-type: none;" ';
 
 ?>
 
-    <style>
-        .icon_li {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            padding: 2px;
-        }
+<style>
+    .icon_li {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 2px;
+    }
 
-        .icon_style {
-            font-size: <?php echo $icon_font_size; ?>;
+    .icon_style {
+        font-size: <?php echo $icon_font_size; ?>;
 
-            /*color: hsl(214, 30 %, 40 %);*/
-            /*color: #0047AB;*/
-            /*color: darkgrey;*/
-            color: <?php echo $icon_color; ?>;
+        /*color: hsl(214, 30 %, 40 %);*/
+        /*color: #0047AB;*/
+        /*color: darkgrey;*/
+        color: <?php echo $icon_color; ?>;
 
-            width: 50px;
-            text-align: center;
-        }
+        width: 50px;
+        text-align: center;
+    }
 
-        .icon_name_style {
-            font-size: <?php echo $name_font_size; ?>;
-            color: <?php echo $name_color; ?>;
-            /*color: red;*/
-            padding: 5px;
-        }
+    .icon_name_style {
+        font-size: <?php echo $name_font_size; ?>;
+        color: <?php echo $name_color; ?>;
+        /*color: red;*/
+        padding: 5px;
+    }
 
-    </style>
+</style>
 
-    <div class="card">
-        <div class="card-body">
-            <?php if (empty($css_icomoonIconNames) && empty($css_standardIconNames) && empty($css_vendor_awesome_icons)) : ?>
-                <h3 class="card-title">
-                    <?php echo Text::_('MOD_JX_STD_ICONS_NO_ICONS'); ?>
-                </h3>
-                <h6 class="card-subtitle mb-2 text-muted">
-                    <?php echo Text::_('MOD_JX_STD_ICONS_NO_ICONS_DESC'); ?>
-                </h6>
+<div class="card">
+    <div class="card-body">
+        <?php if (empty($css_icomoonIconNames) && empty($css_standardIconNames) && empty($css_vendor_awesome_icons)) : ?>
+            <h3 class="card-title">
+                <?php echo Text::_('MOD_JX_STD_ICONS_NO_ICONS'); ?>
+            </h3>
+            <h6 class="card-subtitle mb-2 text-muted">
+                <?php echo Text::_('MOD_JX_STD_ICONS_NO_ICONS_DESC'); ?>
+            </h6>
 
-            <?php else : ?>
-                <?php if ($isDisplayTablesHeader) : ?>
-                    <h2 class="card-title"><?php echo Text::_('MOD_JX_STD_ICONS_AVAILABLE_ICONS'); ?></h2>
+        <?php else : ?>
+            <?php if ($isDisplayTablesHeader) : ?>
+                <h2 class="card-title"><?php echo Text::_('MOD_JX_STD_ICONS_AVAILABLE_ICONS'); ?></h2>
+                <div class="mb-3">
+                    <h6 class="card-subtitle mb-2 text-muted"><?php echo $awesome_version; ?></h6>
+                </div>
+
+                <?php if ($isDisplayTechDetail) : ?>
                     <div class="mb-3">
-                        <h6 class="card-subtitle mb-2 text-muted"><?php echo $awesome_version; ?></h6>
-                    </div>
-
-                    <?php if ($isDisplayTechDetail) : ?>
-                        <div class="mb-3">
-                            <div
+                        <div
                                 class="card-subtitle mb-2 text-muted"><?php echo Text::_('MOD_JX_STD_ICONS_AVAILABLE_ICONS_DESC'); ?></div>
-                        </div>
-
-                    <?php endif; ?>
-                <?php endif; ?>
-
-                <?php
-                //=== icomoon replacements ========================================================================
-                ?>
-                <?php if ($isDisplayIcomoonTable) : ?>
-                    <div class="card mb-3 ">
-                        <div class="card-header">
-                            <h2>
-                                <span class="icon-joomla" aria-hidden="true"></span>
-                                <?php echo Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS'); ?>
-                            </h2>
-                        </div>
-
-                        <div class="card-body">
-                            <?php
-                            if ($isDisplayTechDetail)
-                            {
-                                displayTechDetail(Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS_DESC'), "");
-                            }
-                            ?>
-
-                            <nav class=""> <!-- <nav class="quick-icons px-3 pb-3">-->
-                                <ul <?php echo $ulListStyle; ?> class="">
-
-                                    <?php
-                                    foreach ($css_icomoonIconNames as $iconName => $iconClass)
-                                    {
-                                        displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
-                                    }
-                                    ?>
-                                </ul>
-                            </nav>
-                            <h5>Count icomoon icons: <span
-                                    class="badge bg-secondary"><?php echo count($css_icomoonIconNames); ?></span></h5>
-                        </div>
                     </div>
-                <?php endif; ?>
 
-                <?php
-                //=== system joomla icons font awesome ========================================================================
-                ?>
-
-                <?php if ($isDisplayJoomlaSysIconTable) : ?>
-                    <div class="card mb-3 ">
-                        <div class="card-header">
-                            <h2>
-                                <!--                            <span class="icon-joomla" aria-hidden="true"></span>-->
-                                <?php echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE'); ?>
-                            </h2>
-                        </div>
-                        <div class="card-body">
-                            <?php
-                            if ($isDisplayTechDetail)
-                            {
-                                displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'));
-                            }
-                            ?>
-
-                            <nav class=""> <!-- <nav class="quick-icons px-3 pb-3">-->
-                                <ul <?php echo $ulListStyle; ?> class="">
-                                    <?php
-                                    foreach ($css_standardIconNames as $iconName => $iconClass)
-                                    {
-                                        displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
-                                    }
-                                    ?>
-                                </ul>
-                            </nav>
-                            <h5>Count J! CSS standard font awesonme icons: <span
-                                    class="badge bg-secondary"><?php echo count($css_standardIconNames); ?></span></h5>
-                        </div>
-                    </div>
-                <?php endif; ?>
-
-                <?php
-                //=== system joomla brand icons ========================================================================
-                ?>
-
-                <?php if ($isDisplayBrandIconsTable_Awesome) : ?>
-                    <div class="card mb-3 ">
-                        <div class="card-header">
-                            <h2>
-                                <!--                            <span class="icon-joomla" aria-hidden="true"></span>-->
-                                <?php echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE'); ?>
-                            </h2>
-                        </div>
-                        <div class="card-body">
-                            <?php
-                            if ($isDisplayTechDetail)
-                            {
-                                displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'));
-                            }
-                            ?>
-
-                            <nav class=""> <!-- <nav class="quick-icons px-3 pb-3">-->
-                                <ul <?php echo $ulListStyle; ?> class="">
-                                    <?php
-                                    foreach ($css_brandIconNames as $iconName => $iconClass)
-                                    {
-                                        displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
-                                    }
-                                    ?>
-                                </ul>
-                            </nav>
-                            <h5>Count J! CSS brand font awesonme icons: <span
-                                    class="badge bg-secondary"><?php echo count($css_brandIconNames); ?></span>
-                            </h5>
-                        </div>
-                    </div>
                 <?php endif; ?>
             <?php endif; ?>
 
-        </div>
-    </div>
+            <?php
+            //=== icomoon replacements ========================================================================
+            ?>
+            <?php if ($isDisplayIcomoonTable) : ?>
+                <div class="card mb-3 ">
+                    <div class="card-header">
+                        <h2>
+                            <span class="icon-joomla" aria-hidden="true"></span>
+                            <?php echo Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS'); ?>
+                        </h2>
+                    </div>
 
-<?php
+                    <div class="card-body">
+                        <?php
+                        if ($isDisplayTechDetail)
+                        {
+                            $this->displayTechDetail(Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS_DESC'), "");
+                        }
+                        ?>
 
+                        <nav class=""> <!-- <nav class="quick-icons px-3 pb-3">-->
+                            <ul <?php echo $ulListStyle; ?> class="">
 
-function displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size)
-{
-    ?>
-    <li class="icon_li">
-        <i class="<?php echo $iconClass; ?> icon_style"></i>
-        <span class="icon_name_style">
-            <?php echo $iconName; ?>
-        </span>
-    </li>
-    <?php
-}
-
-function displayTechDetail($description, $link)
-{
-    ?>
-    <div class="mb-3">
-        <div class="card-title">
-            <div>
-                <?php echo $description ?>
-            </div>
-            <?php if (!empty($link)) : ?>
-                <div>
-                    <a href="<?php echo $link ?>"><?php echo $link ?></a>
+                                <?php
+                                foreach ($css_icomoonIconNames as $iconName => $iconClass)
+                                {
+                                    $this->displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
+                                }
+                                ?>
+                            </ul>
+                        </nav>
+                        <h5>Count icomoon icons: <span
+                                    class="badge bg-secondary"><?php echo count($css_icomoonIconNames); ?></span></h5>
+                    </div>
                 </div>
             <?php endif; ?>
-        </div>
+
+            <?php
+            //=== system joomla icons font awesome ========================================================================
+            ?>
+
+            <?php if ($isDisplayJoomlaSysIconTable) : ?>
+                <div class="card mb-3 ">
+                    <div class="card-header">
+                        <h2>
+                            <!--                            <span class="icon-joomla" aria-hidden="true"></span>-->
+                            <?php echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE'); ?>
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <?php
+                        if ($isDisplayTechDetail)
+                        {
+                            $this->displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'));
+                        }
+                        ?>
+
+                        <nav class=""> <!-- <nav class="quick-icons px-3 pb-3">-->
+                            <ul <?php echo $ulListStyle; ?> class="">
+                                <?php
+                                foreach ($css_standardIconNames as $iconName => $iconClass)
+                                {
+                                    $this->displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
+                                }
+                                ?>
+                            </ul>
+                        </nav>
+                        <h5>Count J! CSS standard font awesonme icons: <span
+                                    class="badge bg-secondary"><?php echo count($css_standardIconNames); ?></span></h5>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <?php
+            //=== system joomla brand icons ========================================================================
+            ?>
+
+            <?php if ($isDisplayBrandIconsTable_Awesome) : ?>
+                <div class="card mb-3 ">
+                    <div class="card-header">
+                        <h2>
+                            <!--                            <span class="icon-joomla" aria-hidden="true"></span>-->
+                            <?php echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE'); ?>
+                        </h2>
+                    </div>
+                    <div class="card-body">
+                        <?php
+                        if ($isDisplayTechDetail)
+                        {
+                            $this->displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'));
+                        }
+                        ?>
+
+                        <nav class=""> <!-- <nav class="quick-icons px-3 pb-3">-->
+                            <ul <?php echo $ulListStyle; ?> class="">
+                                <?php
+                                foreach ($css_brandIconNames as $iconName => $iconClass)
+                                {
+                                    $this->displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
+                                }
+                                ?>
+                            </ul>
+                        </nav>
+                        <h5>Count J! CSS brand font awesonme icons: <span
+                                    class="badge bg-secondary"><?php echo count($css_brandIconNames); ?></span>
+                        </h5>
+                    </div>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
 
     </div>
-    <?php
-}
+</div>
+

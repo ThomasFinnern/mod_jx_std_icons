@@ -60,7 +60,6 @@ $icon_color     = $params->get('icon_color');
 $name_color     = $params->get('name_color');
 
 ?>
-<?php echo $greeting; ?>
     <style>
         .icon_li {
             /*display: flex;*/
@@ -132,7 +131,7 @@ $name_color     = $params->get('name_color');
                             <?php
                             if ($isDisplayTechDetail)
                             {
-                                displayTechDetail(Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS_DESC'), "");
+                                $this->displayTechDetail(Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS_DESC'), "");
                             }
                             ?>
 
@@ -142,7 +141,7 @@ $name_color     = $params->get('name_color');
                                     <?php
                                     foreach ($css_icomoonIconNames as $iconName => $iconClass)
                                     {
-                                        displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
+                                        $this->displayIcon_asQuickicon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                         // displayIcon_asCard($iconName, $iconClass, $icon_font_size, $name_font_size);
                                     }
                                     ?>
@@ -170,7 +169,7 @@ $name_color     = $params->get('name_color');
                             <?php
                             if ($isDisplayTechDetail)
                             {
-                                displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'));
+                                $this->displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'));
                             }
                             ?>
 
@@ -194,7 +193,7 @@ $name_color     = $params->get('name_color');
                                     <?php
                                     foreach ($css_standardIconNames as $iconName => $iconClass)
                                     {
-                                        displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
+                                        $this->displayIcon_asQuickicon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                     }
                                     ?>
                                 </ul>
@@ -221,7 +220,7 @@ $name_color     = $params->get('name_color');
                             <?php
                             if ($isDisplayTechDetail)
                             {
-                                displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'));
+                                $this->displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'));
                             }
                             ?>
 
@@ -230,7 +229,7 @@ $name_color     = $params->get('name_color');
                                     <?php
                                     foreach ($css_brandIconNames as $iconName => $iconClass)
                                     {
-                                        displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
+                                        $this->displayIcon_asQuickicon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                     }
                                     ?>
                                 </ul>
@@ -247,65 +246,3 @@ $name_color     = $params->get('name_color');
     </div>
 
 <?php
-
-// selector for display test
-function displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size)
-{
-
-    // displayIcon_asCard($iconName, $iconClass, $icon_font_size, $name_font_size);
-    displayIcon_asQuickicon($iconName, $iconClass, $icon_font_size, $name_font_size);
-}
-
-function displayTechDetail($description, $link)
-{
-    ?>
-    <div class="mb-3">
-        <div class="card-title">
-            <div>
-                <?php echo $description ?>
-            </div>
-            <?php if (!empty($link)) : ?>
-                <div>
-                    <a href="<?php echo $link ?>"><?php echo $link ?></a>
-                </div>
-            <?php endif; ?>
-        </div>
-
-    </div>
-    <?php
-}
-
-function displayIcon_asQuickicon($iconName, $iconClass, $icon_font_size, $name_font_size)
-{
-    ?>
-    <li class="icon_li quickicon quickicon-single">
-        <a href="#" class="quickicon-link">
-            <div class="quickicon-info">
-                <div class="quickicon-icon">
-                    <i class="<?php echo $iconClass; ?> icon_style"></i>
-                </div>
-            </div>
-            <div class="quickicon-name hidden_name icon_name_style">
-                <?php echo $iconName; ?>
-            </div>
-        </a>
-    </li>
-    <?php
-}
-
-function displayIcon_asCard($iconName, $iconClass, $icon_font_size, $name_font_size)
-{
-    ?>
-    <li class=" ">
-        <div class="">
-
-            <i style="font-size: <?php echo $icon_font_size; ?>px;" class="<?php echo $iconClass; ?>"></i>
-
-            <div class="card-title d-flex align-items-end">
-                <?php echo $iconName; ?>
-            </div>
-        </div>
-    </li>
-    <?php
-}
-
