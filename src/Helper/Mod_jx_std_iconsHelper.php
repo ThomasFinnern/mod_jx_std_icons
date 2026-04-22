@@ -22,7 +22,7 @@ use Joomla\CMS\Factory;
  *
  * @since  version 0.1
  */
-class mod_jx_std_iconsHelper
+class Mod_jx_std_iconsHelper
 {
     /** *.scss file: iterate through lines and extract icons and brand icons */
     private const string CSS_VENDOR_AWESOME_SCSS_PATH_FILE_NAME = JPATH_ROOT . '/media/vendor/fontawesome-free/scss/_variables.scss';
@@ -94,7 +94,7 @@ class mod_jx_std_iconsHelper
             //--- system icons / brand icons ----------------------------------------------
 
             // file: _variables.scss
-            $oScssFile = new fontawesomeScssFile_v6(self::CSS_VENDOR_AWESOME_SCSS_PATH_FILE_NAME);
+            $oScssFile = new FontawesomeScssFile_v6(self::CSS_VENDOR_AWESOME_SCSS_PATH_FILE_NAME);
 
             $oScssFile->readLines()->scanLines();
 
@@ -104,7 +104,7 @@ class mod_jx_std_iconsHelper
 
             //--- Extract from css file ----------------------------------------------
 
-            $oCssFile = new joomlaFontawesomeCssFile_j5x(self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME);
+            $oCssFile = new JoomlaFontawesomeCssFile_j5x(self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME);
 
             $oCssFile->readLines()->scanLines();
 

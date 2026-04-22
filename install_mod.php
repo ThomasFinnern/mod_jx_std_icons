@@ -20,7 +20,7 @@ use Joomla\CMS\Log\Log;
 /**
  * Script file of mod_jx_std_icons module
  */
-class mod_jx_std_iconsInstallerScript
+class Mod_jx_std_iconsInstallerScript
 {
     private string $minimumJoomla = '5.0.0';
     private string $minimumPhp    = '8.1.0';

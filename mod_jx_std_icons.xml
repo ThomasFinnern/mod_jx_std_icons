@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="module" client="site" method="upgrade" version="6.0">
   <name>mod_jx_std_icons</name>
-  <creationDate>2026.04.20</creationDate>
+  <creationDate>2026.04.22</creationDate>
   <author>Thomas Finnern</author>
   <authorEmail>mod_jx_std_icons@tomfinnern.de</authorEmail>
   <authorUrl>www.tomfinnern.de</authorUrl>
   <copyright>Copyright (C) 2023-2025 Thomas Finnern All rights reserved.</copyright>
   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-  <version>0.7.5</version>
+  <version>0.7.6</version>
   <description>MOD_JX_STD_ICONS_XML_DESCRIPTION</description>
   <scriptfile>install_mod.php</scriptfile>
   <namespace path="src">Finnern\Module\mod_jx_std_icons</namespace>
@@ -49,7 +49,7 @@
           <option value="1">JYES</option>
         </field>
       </fieldset>
-      <fieldset name="style" label="MOD_JX_STD_ICONS_FIELDSET_STYLE">
+      <fieldset name="advanced" label="MOD_JX_STD_ICONS_FIELDSET_STYLE">
         <field name="layout" type="modulelayout" label="JFIELD_ALT_LAYOUT_LABEL" class="form-select" validate="moduleLayout"/>
         <field name="icon_font_size" type="text" label="MOD_JX_STD_ICONS_FIELD_ICON_FONT_SIZE" description="MOD_JX_STD_ICONS_FIELD_ICON_FONT_SIZE_DESC" default="2rem"/>
         <field name="name_font_size" type="text" label="MOD_JX_STD_ICONS_FIELD_NAME_FONT_SIZE" description="MOD_JX_STD_ICONS_FIELD_NAME_FONT_SIZE_DESC" default="1em"/>

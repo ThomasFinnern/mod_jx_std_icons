@@ -35,12 +35,12 @@ namespace Finnern\Module\mod_jx_std_icons;
 // phpcs:enable PSR1.Files.SideEffects
 
 use Joomla\CMS\Helper\ModuleHelper;
-use Finnern\Module\mod_jx_std_icons\Site\Helper\mod_jx_std_iconsHelper;
+use Finnern\Module\mod_jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
 
 global $j_css_icons;
 
 // auto load icons data from files
-$j_css_icons = new mod_jx_std_iconsHelper();
+$j_css_icons = new Mod_jx_std_iconsHelper();
 
 //// ToDo: is it needed ?
 //// common char index of font awesome icons

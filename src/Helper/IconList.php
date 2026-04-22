@@ -16,7 +16,7 @@ namespace Finnern\Module\mod_jx_std_icons\Site\Helper;
 
 use Joomla\CMS\Factory;
 
-abstract class iconList
+abstract class IconList
 {
     /** list [name] = value */
     public array $iconNames2Values = [];

@@ -14,7 +14,7 @@ namespace Finnern\Module\mod_jx_std_icons\Site\Dispatcher;
 
 // phpcs:enable PSR1.Files.SideEffects
 
-use Finnern\Module\mod_jx_std_icons\Site\Helper\mod_jx_std_iconsHelper;
+use Finnern\Module\mod_jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
 
 use Joomla\CMS\Application\CMSApplicationInterface;
 use Joomla\CMS\Dispatcher\DispatcherInterface;
@@ -52,8 +52,8 @@ class Dispatcher implements DispatcherInterface
 
         //--- extract all icons -----------------------------------------------
 
-        // $j_css_icons = new mod_jx_std_iconsHelper();
-        $j_css_icons = new mod_jx_std_iconsHelper(false);
+        // $j_css_icons = new Mod_jx_std_iconsHelper();
+        $j_css_icons = new Mod_jx_std_iconsHelper(false);
         $j_css_icons->extractAllIcons();
 
         // display the module

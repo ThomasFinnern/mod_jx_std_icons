@@ -38,7 +38,7 @@ enum IconTypeCss
  *
  * @since version
  */
-class joomlaFontawesomeCssFile_j5x extends iconList
+class JoomlaFontawesomeCssFile_j5x extends IconList
 {
     protected const VERSION_LINE_ID = "Font Awesome Free";
 

@@ -39,7 +39,7 @@ enum IconTypeScss
  *
  * @since version
  */
-class fontawesomeScssFile_v6 extends iconList
+class FontawesomeScssFile_v6 extends IconList
 {
     /**
      * Determines sections and calls matching extract on the lines
@@ -51,7 +51,7 @@ class fontawesomeScssFile_v6 extends iconList
      *
      * @since version
      */
-    public function scanLines(array $lines = []): fontAwesomeScssFile_v6
+    public function scanLines(array $lines = []): FontawesomeScssFile_v6
     {
         // iterate through line sections
         $sectionState = ScssSection::preValues;

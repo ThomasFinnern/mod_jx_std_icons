@@ -12,11 +12,11 @@
 \defined('_JEXEC') || die;
 // phpcs:enable PSR1.Files.SideEffects
 
-use Finnern\Module\mod_jx_std_icons\Site\Helper\mod_jx_std_iconsHelper;
+use Finnern\Module\mod_jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\Registry\Registry;
 
-/** @var $j_css_icons mod_jx_std_iconsHelper; */
+/** @var $j_css_icons Mod_jx_std_iconsHelper; */
 /** @var $params registry; */
 
 //--- j! css file extracts ----------------------------------------------------

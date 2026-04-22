@@ -13,12 +13,12 @@
 // phpcs:enable PSR1.Files.SideEffects
 
 //use Joomla\CMS\HTML\HTMLHelper;
-use Finnern\Module\mod_jx_std_icons\Site\Helper\mod_jx_std_iconsHelper;
+use Finnern\Module\mod_jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
 use Joomla\CMS\Language\Text;
 
-/** @var $j_css_icons mod_jx_std_iconsHelper; */
+/** @var $j_css_icons Mod_jx_std_iconsHelper; */
 
-//--- mod_jx_std_iconsHelper definitions to local definitions ----------------
+//--- Mod_jx_std_iconsHelper definitions to local definitions ----------------
 
 // font awesome are PUA UTF-8 characters
 
