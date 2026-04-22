@@ -7,14 +7,14 @@
  * @license        GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Finnern\Module\mod_jx_std_icons\Site\Dispatcher;
+namespace Finnern\Module\Mod_jx_std_iconsSite\Dispatcher;
 
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') || die;
 
 // phpcs:enable PSR1.Files.SideEffects
 
-use Finnern\Module\mod_jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
+use \Finnern\Module\Mod_jx_std_iconsSite\Helper\Mod_jx_std_iconsHelper;
 
 use Joomla\CMS\Application\CMSApplicationInterface;
 use Joomla\CMS\Dispatcher\DispatcherInterface;

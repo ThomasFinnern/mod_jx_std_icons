@@ -35,7 +35,7 @@ namespace Finnern\Module\mod_jx_std_icons;
 // phpcs:enable PSR1.Files.SideEffects
 
 use Joomla\CMS\Helper\ModuleHelper;
-use Finnern\Module\mod_jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
+use \Finnern\Module\Mod_jx_std_iconsSite\Helper\Mod_jx_std_iconsHelper;
 
 global $j_css_icons;
 

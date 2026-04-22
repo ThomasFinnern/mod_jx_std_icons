@@ -8,7 +8,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Finnern\Module\mod_jx_std_icons\Site\Helper;
+namespace Finnern\Module\Mod_jx_std_icons\Site\Helper;
 
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') || die;
@@ -38,9 +38,9 @@ enum IconTypeCss
  *
  * @since version
  */
-class JoomlaFontawesomeCssFile_j5x extends IconList
+class JoomlaFontawesomeCssFile_j5X extends IconList
 {
-    protected const VERSION_LINE_ID = "Font Awesome Free";
+    protected const string VERSION_LINE_ID = "Font Awesome Free";
 
     // only in joomla...*.css file
     public string $awesome_version = '';

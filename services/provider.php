@@ -34,8 +34,8 @@ return new class () implements ServiceProviderInterface {
      */
     public function register(Container $container)
     {
-        $container->registerServiceProvider(new ModuleDispatcherFactoryServiceProvider('\\Finnern\\Module\\mod_jx_std_icons'));
-        $container->registerServiceProvider(new HelperFactory('\\Finnern\\Module\\mod_jx_std_icons\\Site\\Helper'));
+        $container->registerServiceProvider(new ModuleDispatcherFactoryServiceProvider('\\Finnern\\Module\\Mod_jx_std_icons'));
+        $container->registerServiceProvider(new HelperFactory('\\Finnern\\Module\\Mod_jx_std_icons\\Site\\Helper'));
 
         $container->registerServiceProvider(new ModuleServiceProvider());
     }
