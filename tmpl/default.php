@@ -13,7 +13,7 @@
 // phpcs:enable PSR1.Files.SideEffects
 
 //use Joomla\CMS\HTML\HTMLHelper;
-use \Finnern\Module\Mod_jx_std_iconsSite\Helper\Mod_jx_std_iconsHelper;
+use \Finnern\Module\Mod_jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
 use Joomla\CMS\Language\Text;
 
 /** @var $j_css_icons Mod_jx_std_iconsHelper; */

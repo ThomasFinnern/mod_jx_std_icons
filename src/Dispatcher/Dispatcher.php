@@ -7,83 +7,102 @@
  * @license        GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Finnern\Module\Mod_jx_std_iconsSite\Dispatcher;
+namespace Finnern\Module\Mod_jx_std_icons\Site\Dispatcher;
 
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') || die;
-
 // phpcs:enable PSR1.Files.SideEffects
 
-use \Finnern\Module\Mod_jx_std_iconsSite\Helper\Mod_jx_std_iconsHelper;
+use Finnern\Module\Mod_jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
 
-use Joomla\CMS\Application\CMSApplicationInterface;
-use Joomla\CMS\Dispatcher\DispatcherInterface;
-use Joomla\CMS\Factory;
-use Joomla\CMS\Helper\ModuleHelper;
-use Joomla\CMS\Language\Text;
-use Joomla\Input\Input;
-use Joomla\Registry\Registry;
+use Joomla\CMS\Dispatcher\AbstractModuleDispatcher;
+use Joomla\CMS\Helper\HelperFactoryAwareInterface;
+use Joomla\CMS\Helper\HelperFactoryAwareTrait;
 
-class Dispatcher implements DispatcherInterface
+/**
+ * Dispatcher class for mod_jx_std_icons
+ *
+ * @since  4.4.0
+ */
+class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareInterface
 {
-    // ??? use HelperFactoryAwareTrait;
+    use HelperFactoryAwareTrait;
 
-    // public function __construct(\stdClass $module, CMSApplicationInterface $app, Input $input)
+//    // public function __construct(\stdClass $module, CMSApplicationInterface $app, Input $input)
+//
+//    protected $module;
+//
+//    protected $app;
+//
+//    public function __construct(\stdClass $module, CMSApplicationInterface $app, Input $input)
+//    {
+//        $this->module = $module;
+//        $this->app = $app;
+//    }
+//
+//    public function dispatch()
+//    {
+//        // Is it m´needed ?
+//        $language = $this->app->getLanguage();
+//        $language->load('mod_jx_std_icons', JPATH_BASE . '/modules/mod_jx_std_icons');
+//
+//        $hello = 'xxxx';
+//        $params = new Registry($this->module->params);
+//
+//
+//        //--- extract all icons -----------------------------------------------
+//
+//        // $j_css_icons = new Mod_jx_std_iconsHelper();
+//        $j_css_icons = new Mod_jx_std_iconsHelper(false);
+//        $j_css_icons->extractAllIcons();
+//
+//        // display the module
+//        require ModuleHelper::getLayoutPath('mod_jx_std_icons', $params->get('layout', 'default'));
+//    }
 
-    protected $module;
-
-    protected $app;
-
-    public function __construct(\stdClass $module, CMSApplicationInterface $app, Input $input)
-    {
-        $this->module = $module;
-        $this->app = $app;
-    }
-
+    /**
+     * Runs the dispatcher.
+     *
+     * @return  void
+     *
+     * @since   5.4.0
+     */
     public function dispatch()
     {
-        // Is it m´needed ?
-        $language = $this->app->getLanguage();
-        $language->load('mod_jx_std_icons', JPATH_BASE . '/modules/mod_jx_std_icons');
+        $displayData = $this->getLayoutData();
 
-        $hello = 'xxxx';
-        $params = new Registry($this->module->params);
+        if (!$displayData['j_css_icons']) {
+            return;
+        }
 
-
-        //--- extract all icons -----------------------------------------------
-
-        // $j_css_icons = new Mod_jx_std_iconsHelper();
-        $j_css_icons = new Mod_jx_std_iconsHelper(false);
-        $j_css_icons->extractAllIcons();
-
-        // display the module
-        require ModuleHelper::getLayoutPath('mod_jx_std_icons', $params->get('layout', 'default'));
+        parent::dispatch();
     }
 
-//    /**
-//     * Returns the layout data.
-//     *
-//     * @return  array
-//     *
-//     * @since   5.1.0
-//     */
-//    protected function getLayoutData(): array
-//    {
-//
-//        $data = parent::getLayoutData();
-//
-//        $params = $data['params'];
-//
-//        $helper = $this->getHelperFactory()->getHelper('ArticlesArchiveHelper');
-//
-//
+    /**
+     * Returns the layout data.
+     *
+     * @return  array
+     *
+     * @since   0.7.0
+     */
+    protected function getLayoutData(): array
+    {
+
+        $data = parent::getLayoutData();
+        // $params = $data['params'];
+
+        /** @var Mod_jx_std_iconsHelper $j_css_icons */
+        $j_css_icons = $this->getHelperFactory()->getHelper('Mod_jx_std_iconsHelper');
+        $j_css_icons->extractAllIcons();
+
+        $data['j_css_icons'] = $j_css_icons;
+
 //        $data['headerText'] = trim($data['params']->get('header_text', ''));
 //        $data['footerText'] = trim($data['params']->get('footer_text', ''));
 //        $data['list']       = $this->getHelperFactory()->getHelper('BannersHelper')->getBanners($data['params'], $this->getApplication());
-//
-//        return $data;
-//
-//    }
+
+        return $data;
+    }
 
 	function displayTechDetail($description, $link)
 	{
