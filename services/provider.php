@@ -9,7 +9,6 @@
 
 \defined('_JEXEC') or die;
 
-
 use Joomla\CMS\Extension\Service\Provider\HelperFactory;
 use Joomla\CMS\Extension\Service\Provider\Module as ModuleServiceProvider;
 use Joomla\CMS\Extension\Service\Provider\ModuleDispatcherFactory as ModuleDispatcherFactoryServiceProvider;
@@ -32,7 +31,7 @@ return new class () implements ServiceProviderInterface {
      *
      * @since   5.4.0
      */
-    public function register(Container $container)
+    public function register(Container $container):void
     {
         $container->registerServiceProvider(new ModuleDispatcherFactoryServiceProvider('\\Finnern\\Module\\Mod_jx_std_icons'));
         $container->registerServiceProvider(new HelperFactory('\\Finnern\\Module\\Mod_jx_std_icons\\Site\\Helper'));

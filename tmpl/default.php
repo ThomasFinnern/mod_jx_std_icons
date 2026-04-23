@@ -16,7 +16,14 @@
 use \Finnern\Module\Mod_jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
 use Joomla\CMS\Language\Text;
 
-/** @var $j_css_icons Mod_jx_std_iconsHelper; */
+/** 
+ * @var $j_css_icons Mod_jx_std_iconsHelper; 
+ * @var Registry $params
+ * @var stdClass $module
+ * @var CMSWebApplicationInterface $app
+ */
+
+
 
 //--- Mod_jx_std_iconsHelper definitions to local definitions ----------------
 

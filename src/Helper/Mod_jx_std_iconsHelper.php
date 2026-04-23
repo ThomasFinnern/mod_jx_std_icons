@@ -10,12 +10,13 @@
 
 namespace Finnern\Module\Mod_jx_std_icons\Site\Helper;
 
+use Joomla\CMS\Factory;
+use Joomla\CMS\Helper\ModuleHelper;
 
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') || die;
 // phpcs:enable PSR1.Files.SideEffects
 
-use Joomla\CMS\Factory;
 
 /**
  * Collect lists of available Joomla!5/6 icons
@@ -25,6 +26,9 @@ use Joomla\CMS\Factory;
  */
 class Mod_jx_std_iconsHelper
 {
+
+//	use ProviderManagerHelperTrait;
+
     /** *.scss file: iterate through lines and extract icons and brand icons */
     private const string CSS_VENDOR_AWESOME_SCSS_PATH_FILE_NAME = JPATH_ROOT . '/media/vendor/fontawesome-free/scss/_variables.scss';
 
@@ -128,4 +132,4 @@ class Mod_jx_std_iconsHelper
 
         return;
     }
-} // class
+}
