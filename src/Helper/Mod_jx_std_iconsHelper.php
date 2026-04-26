@@ -8,15 +8,15 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Finnern\Module\Mod_jx_std_icons\Site\Helper;
+namespace Finnern\Module\Jx_std_icons\Site\Helper;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\ModuleHelper;
+use Joomla\Registry\Registry;
 
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') || die;
 // phpcs:enable PSR1.Files.SideEffects
-
 
 /**
  * Collect lists of available Joomla!5/6 icons
@@ -26,7 +26,6 @@ use Joomla\CMS\Helper\ModuleHelper;
  */
 class Mod_jx_std_iconsHelper
 {
-
 //	use ProviderManagerHelperTrait;
 
     /** *.scss file: iterate through lines and extract icons and brand icons */
@@ -52,8 +51,6 @@ class Mod_jx_std_iconsHelper
     public array $css_icomoonNames2Values = [];
     public array $css_icomoonIconNames = [];
 
-
-
     // ???
     // Css file vendor all fontawesome   -> use $scssIconValues instead
     // public array $css_vendor_awesome_icons = [];
@@ -67,6 +64,8 @@ class Mod_jx_std_iconsHelper
     // font char values array from J! css file
     public array $scss_iconValues2Names = [];
 
+	//private Registry $moduleParams;
+
     /**
      * Extract all public data from files on creation
      * if not prevented
@@ -75,15 +74,12 @@ class Mod_jx_std_iconsHelper
      *
      * @since version 0.1
      */
-    public function __construct(bool $isExtractCss = true)
-    {
-
-        // extract version, icons from *.css file
-        if ($isExtractCss) {
-            $this->extractAllIcons();
-        }
-    }
-
+////    public function __construct(bool $isExtractCss = true)
+////    public function __construct(Registry $moduleParams)
+//    {
+////		$this->moduleParams = $moduleParams;
+//    }
+//
     /**
      * Extract all Icons by joomla CSS files
      *
@@ -121,6 +117,7 @@ class Mod_jx_std_iconsHelper
 
             $this->css_icomoonNames2Values = $oCssFile->icomoonNames2Values;
             $this->css_icomoonIconNames = $oCssFile->icomoonIconNames;
+
         } catch (\RuntimeException $e) {
             $OutTxt = '';
             $OutTxt .= 'Error executing extractAllIcons: "' . '<br>';

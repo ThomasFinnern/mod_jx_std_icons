@@ -8,7 +8,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace Finnern\Module\Mod_jx_std_icons\Site\Helper;
+namespace Finnern\Module\Jx_std_icons\Site\Helper;
 
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') || die;

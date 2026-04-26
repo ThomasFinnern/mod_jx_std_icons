@@ -8,13 +8,14 @@
  * @license        GNU General Public License version 2 or later; see LICENSE.txt
  */
 
+use \Finnern\Module\Jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
+use Finnern\Module\Jx_std_icons\Site\Helper\IconRenderHelper;
+use Joomla\CMS\Language\Text;
+use Joomla\Registry\Registry;
+
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') || die;
 // phpcs:enable PSR1.Files.SideEffects
-
-use \Finnern\Module\Mod_jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
-use Joomla\CMS\Language\Text;
-use Joomla\Registry\Registry;
 
 /** @var $j_css_icons Mod_jx_std_iconsHelper; */
 /** @var $params registry; */
@@ -37,7 +38,7 @@ $scss_brandIconNames    = $j_css_icons->scss_brandIconNames;
 
 //--- load css  ---------------------------------------------------------------
 
-$wa = $this->app->getDocument()->getWebAssetManager();
+$wa = $app->getDocument()->getWebAssetManager();
 $wa->registerAndUseStyle('mod_jx_std_icons', 'mod_jx_std_icons/template.css');
 
 //--- Flags for display yes/no ----------------------------------------------
@@ -132,7 +133,7 @@ $ulListStyle = 'style="list-style-type: none;" ';
                         <?php
                         if ($isDisplayTechDetail)
                         {
-                            $this->displayTechDetail(Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS_DESC'), "");
+                            IconRenderHelper::displayTechDetail(Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS_DESC'), "");
                         }
                         ?>
 
@@ -142,7 +143,7 @@ $ulListStyle = 'style="list-style-type: none;" ';
                                 <?php
                                 foreach ($css_icomoonIconNames as $iconName => $iconClass)
                                 {
-                                    $this->displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
+                                    IconRenderHelper::displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                 }
                                 ?>
                             </ul>
@@ -169,7 +170,7 @@ $ulListStyle = 'style="list-style-type: none;" ';
                         <?php
                         if ($isDisplayTechDetail)
                         {
-                            $this->displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'));
+                            IconRenderHelper::displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'));
                         }
                         ?>
 
@@ -178,7 +179,7 @@ $ulListStyle = 'style="list-style-type: none;" ';
                                 <?php
                                 foreach ($css_standardIconNames as $iconName => $iconClass)
                                 {
-                                    $this->displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
+                                    IconRenderHelper::displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                 }
                                 ?>
                             </ul>
@@ -205,7 +206,7 @@ $ulListStyle = 'style="list-style-type: none;" ';
                         <?php
                         if ($isDisplayTechDetail)
                         {
-                            $this->displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'));
+                            IconRenderHelper::displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'));
                         }
                         ?>
 
@@ -214,7 +215,7 @@ $ulListStyle = 'style="list-style-type: none;" ';
                                 <?php
                                 foreach ($css_brandIconNames as $iconName => $iconClass)
                                 {
-                                    $this->displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
+                                    IconRenderHelper::displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                 }
                                 ?>
                             </ul>

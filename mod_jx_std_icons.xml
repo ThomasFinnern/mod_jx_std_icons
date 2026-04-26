@@ -10,20 +10,19 @@
   <version>0.7.6</version>
   <description>MOD_JX_STD_ICONS_XML_DESCRIPTION</description>
   <scriptfile>install_mod.php</scriptfile>
-  <namespace path="src">Finnern\Module\mod_jx_std_icons</namespace>
+  <namespace path="src">Finnern\Module\Jx_std_icons</namespace>
   <files>
     <folder module="mod_jx_std_icons">services</folder>
     <folder>src</folder>
     <folder>tmpl</folder>
     <folder>language</folder>
-    <filename>mod_jx_std_icons.xml</filename>
     <filename>changelog.xml</filename>
     <filename>LICENSE</filename>
   </files>
-  <!-- css, js, images files, .... -->
   <media folder="media/mod_jx_std_icons" destination="mod_jx_std_icons">
     <folder>css</folder>
   </media>
+  <help key="MOD__HELP"/>
   <config>
     <fields name="params">
       <fieldset name="basic">
