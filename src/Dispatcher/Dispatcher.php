@@ -10,7 +10,6 @@
 namespace Finnern\Module\Jx_std_icons\Site\Dispatcher;
 
 use Finnern\Module\Jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
-
 use Joomla\CMS\Dispatcher\AbstractModuleDispatcher;
 use Joomla\CMS\Helper\HelperFactoryAwareInterface;
 use Joomla\CMS\Helper\HelperFactoryAwareTrait;
@@ -53,5 +52,4 @@ class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareI
 
         return $data;
     }
-
 }

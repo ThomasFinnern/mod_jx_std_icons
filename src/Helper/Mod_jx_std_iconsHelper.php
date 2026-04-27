@@ -26,7 +26,7 @@ use Joomla\Registry\Registry;
  */
 class Mod_jx_std_iconsHelper
 {
-//	use ProviderManagerHelperTrait;
+//  use ProviderManagerHelperTrait;
 
     /** *.scss file: iterate through lines and extract icons and brand icons */
     private const string CSS_VENDOR_AWESOME_SCSS_PATH_FILE_NAME = JPATH_ROOT . '/media/vendor/fontawesome-free/scss/_variables.scss';
@@ -64,7 +64,7 @@ class Mod_jx_std_iconsHelper
     // font char values array from J! css file
     public array $scss_iconValues2Names = [];
 
-	//private Registry $moduleParams;
+    //private Registry $moduleParams;
 
     /**
      * Extract all public data from files on creation
@@ -77,7 +77,7 @@ class Mod_jx_std_iconsHelper
 ////    public function __construct(bool $isExtractCss = true)
 ////    public function __construct(Registry $moduleParams)
 //    {
-////		$this->moduleParams = $moduleParams;
+////        $this->moduleParams = $moduleParams;
 //    }
 //
     /**
@@ -105,7 +105,7 @@ class Mod_jx_std_iconsHelper
 
             //--- Extract from css file ----------------------------------------------
 
-            $oCssFile = new JoomlaFontawesomeCssFile_j5X(self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME);
+            $oCssFile = new JoomlaFontawesomeCssFile_j5(self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME);
 
             $oCssFile->readLines()->scanLines();
 
@@ -117,7 +117,6 @@ class Mod_jx_std_iconsHelper
 
             $this->css_icomoonNames2Values = $oCssFile->icomoonNames2Values;
             $this->css_icomoonIconNames = $oCssFile->icomoonIconNames;
-
         } catch (\RuntimeException $e) {
             $OutTxt = '';
             $OutTxt .= 'Error executing extractAllIcons: "' . '<br>';

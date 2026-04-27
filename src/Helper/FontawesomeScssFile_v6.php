@@ -10,11 +10,11 @@
 
 namespace Finnern\Module\Jx_std_icons\Site\Helper;
 
+use Joomla\CMS\Factory;
+
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') || die;
 // phpcs:enable PSR1.Files.SideEffects
-
-use Joomla\CMS\Factory;
 
 enum ScssSection
 {
@@ -106,7 +106,7 @@ class FontawesomeScssFile_v6 extends IconList
                     if (str_starts_with($line, ');')) {
                         $sectionState = ScssSection::iconStdNames;
                     } else {
-                        $this->standardIconNames[] = $this->line_determineIconName(trim($line));
+                        $this->standardIconNames[] = $this->lineDetermineIconName(trim($line));
                     }
                     break;
 
@@ -115,7 +115,7 @@ class FontawesomeScssFile_v6 extends IconList
                     if (str_starts_with($line, '$fa-icons: (')) {
                         $sectionState = ScssSection::iconStdNames;
                     } else {
-                        $this->brandIconNames[] = $this->line_determineIconName(trim($line));
+                        $this->brandIconNames[] = $this->lineDetermineIconName(trim($line));
                     }
                     break;
 
@@ -203,7 +203,7 @@ class FontawesomeScssFile_v6 extends IconList
      *
      * @since version
      */
-    private function line_determineIconName(string $line)
+    private function lineDetermineIconName(string $line)
     {
         $iconName = '';
 
@@ -219,7 +219,7 @@ class FontawesomeScssFile_v6 extends IconList
             }
         } catch (\RuntimeException $e) {
             $OutTxt = '';
-            $OutTxt .= 'Error executing iconList.line_determineIconName: "' . '<br>';
+            $OutTxt .= 'Error executing iconList.lineDetermineIconName: "' . '<br>';
             $OutTxt .= 'Error: "' . $e->getMessage() . '"' . '<br>';
 
             $app = Factory::getApplication();

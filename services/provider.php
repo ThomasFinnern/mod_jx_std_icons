@@ -23,7 +23,6 @@ use Joomla\DI\ServiceProviderInterface;
  * @since  5.4.0
  */
 return new class () implements ServiceProviderInterface {
-
     /**
      * Registers the service provider with a DI container.
      *
@@ -33,7 +32,7 @@ return new class () implements ServiceProviderInterface {
      *
      * @since   5.4.0
      */
-    public function register(Container $container):void
+    public function register(Container $container): void
     {
         $container->registerServiceProvider(new ModuleDispatcherFactoryServiceProvider('\\Finnern\\Module\\Jx_std_icons'));
         $container->registerServiceProvider(new HelperFactory('\\Finnern\\Module\\Jx_std_icons\\Site\\Helper'));

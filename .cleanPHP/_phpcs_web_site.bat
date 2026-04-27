@@ -4,7 +4,7 @@ REM Actual ruleset is used from joomla-cms 6.1 dev (2025.10.30)
 
 CLS
 
-ECHO PHP _phpcs.bat
+ECHO _phpcs_web_site.bat
 ECHO.
 ECHO ----------------------------------------------
 ECHO php path
@@ -76,7 +76,7 @@ ECHO ----------------------------------------------
 ECHO command
 
 REM ./libraries/vendor/bin/phpcs --extensions=php -p --standard=ruleset.xml
-REM d:\Entwickl\2025\_gitHub\joomla-cms\ruleset.xml 
+REM d:\Entwickl\2025\_gitHub\joomla-cms\ruleset.xml
 
 @REM ECHO "C:\Users\finnern\AppData\Roaming\Composer\vendor\bin\phpcs.bat" --extensions=php -p --standard=d:\Entwickl\2025\_gitHub\joomla-cms\ruleset.xml d:\Entwickl\2026\_gitHub\mod_jx_std_icons
 @REM "C:\Users\finnern\AppData\Roaming\Composer\vendor\bin\phpcs.bat" --extensions=php -p --standard=d:\Entwickl\2025\_gitHub\joomla-cms\ruleset.xml d:\Entwickl\2026\_gitHub\mod_jx_std_icons

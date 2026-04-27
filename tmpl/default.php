@@ -16,8 +16,8 @@ use Joomla\CMS\Language\Text;
 \defined('_JEXEC') || die;
 // phpcs:enable PSR1.Files.SideEffects
 
-/** 
- * @var $j_css_icons Mod_jx_std_iconsHelper; 
+/**
+ * @var $j_css_icons Mod_jx_std_iconsHelper;
  * @var Registry $params
  * @var CMSWebApplicationInterface $app
  */
@@ -133,8 +133,7 @@ $name_color     = $params->get('name_color');
 
                         <div class="card-body">
                             <?php
-                            if ($isDisplayTechDetail)
-                            {
+                            if ($isDisplayTechDetail) {
 //                                $this->displayTechDetail(Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS_DESC'), "");
                                 IconRenderHelper::displayTechDetail(Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS_DESC'), "");
                             }
@@ -144,8 +143,7 @@ $name_color     = $params->get('name_color');
                                 <ul class="nav flex-wrap">
 
                                     <?php
-                                    foreach ($css_icomoonIconNames as $iconName => $iconClass)
-                                    {
+                                    foreach ($css_icomoonIconNames as $iconName => $iconClass) {
                                         IconRenderHelper::displayIcon_asQuickicon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                         // displayIcon_asCard($iconName, $iconClass, $icon_font_size, $name_font_size);
                                     }
@@ -172,8 +170,7 @@ $name_color     = $params->get('name_color');
                         </div>
                         <div class="card-body">
                             <?php
-                            if ($isDisplayTechDetail)
-                            {
+                            if ($isDisplayTechDetail) {
                                 IconRenderHelper::displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'));
                             }
                             ?>
@@ -196,8 +193,7 @@ $name_color     = $params->get('name_color');
                                     </li>
 
                                     <?php
-                                    foreach ($css_standardIconNames as $iconName => $iconClass)
-                                    {
+                                    foreach ($css_standardIconNames as $iconName => $iconClass) {
                                         IconRenderHelper::displayIcon_asQuickicon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                     }
                                     ?>
@@ -223,8 +219,7 @@ $name_color     = $params->get('name_color');
                         </div>
                         <div class="card-body">
                             <?php
-                            if ($isDisplayTechDetail)
-                            {
+                            if ($isDisplayTechDetail) {
                                 IconRenderHelper::displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'));
                             }
                             ?>
@@ -232,8 +227,7 @@ $name_color     = $params->get('name_color');
                             <nav class="quick-icons px-3 pb-3">
                                 <ul class="nav flex-wrap">
                                     <?php
-                                    foreach ($css_brandIconNames as $iconName => $iconClass)
-                                    {
+                                    foreach ($css_brandIconNames as $iconName => $iconClass) {
                                         IconRenderHelper::displayIcon_asQuickicon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                     }
                                     ?>

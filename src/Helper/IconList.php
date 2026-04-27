@@ -10,11 +10,11 @@
 
 namespace Finnern\Module\Jx_std_icons\Site\Helper;
 
+use Joomla\CMS\Factory;
+
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') || die;
 // phpcs:enable PSR1.Files.SideEffects
-
-use Joomla\CMS\Factory;
 
 abstract class IconList
 {

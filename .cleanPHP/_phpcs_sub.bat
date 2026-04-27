@@ -4,7 +4,7 @@ REM Actual ruleset is used from joomla-cms 6.1 dev (2025.10.30)
 
 CLS
 
-ECHO PHP indicateAll_MissingPreFuncCommentInFiles.tsk
+ECHO PHP _phpcs_sub.bat
 ECHO.
 ECHO ----------------------------------------------
 ECHO php path

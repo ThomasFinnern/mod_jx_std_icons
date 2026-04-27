@@ -8,7 +8,7 @@
  * @license        GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-use \Finnern\Module\Jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
+use Finnern\Module\Jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
 use Finnern\Module\Jx_std_icons\Site\Helper\IconRenderHelper;
 use Joomla\CMS\Language\Text;
 use Joomla\Registry\Registry;
@@ -131,8 +131,7 @@ $ulListStyle = 'style="list-style-type: none;" ';
 
                     <div class="card-body">
                         <?php
-                        if ($isDisplayTechDetail)
-                        {
+                        if ($isDisplayTechDetail) {
                             IconRenderHelper::displayTechDetail(Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS_DESC'), "");
                         }
                         ?>
@@ -141,8 +140,7 @@ $ulListStyle = 'style="list-style-type: none;" ';
                             <ul <?php echo $ulListStyle; ?> class="">
 
                                 <?php
-                                foreach ($css_icomoonIconNames as $iconName => $iconClass)
-                                {
+                                foreach ($css_icomoonIconNames as $iconName => $iconClass) {
                                     IconRenderHelper::displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                 }
                                 ?>
@@ -168,8 +166,7 @@ $ulListStyle = 'style="list-style-type: none;" ';
                     </div>
                     <div class="card-body">
                         <?php
-                        if ($isDisplayTechDetail)
-                        {
+                        if ($isDisplayTechDetail) {
                             IconRenderHelper::displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_AWESOME_ICONS_LINK'));
                         }
                         ?>
@@ -177,8 +174,7 @@ $ulListStyle = 'style="list-style-type: none;" ';
                         <nav class=""> <!-- <nav class="quick-icons px-3 pb-3">-->
                             <ul <?php echo $ulListStyle; ?> class="">
                                 <?php
-                                foreach ($css_standardIconNames as $iconName => $iconClass)
-                                {
+                                foreach ($css_standardIconNames as $iconName => $iconClass) {
                                     IconRenderHelper::displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                 }
                                 ?>
@@ -204,8 +200,7 @@ $ulListStyle = 'style="list-style-type: none;" ';
                     </div>
                     <div class="card-body">
                         <?php
-                        if ($isDisplayTechDetail)
-                        {
+                        if ($isDisplayTechDetail) {
                             IconRenderHelper::displayTechDetail(Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE_DESC'), Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_LINK'));
                         }
                         ?>
@@ -213,8 +208,7 @@ $ulListStyle = 'style="list-style-type: none;" ';
                         <nav class=""> <!-- <nav class="quick-icons px-3 pb-3">-->
                             <ul <?php echo $ulListStyle; ?> class="">
                                 <?php
-                                foreach ($css_brandIconNames as $iconName => $iconClass)
-                                {
+                                foreach ($css_brandIconNames as $iconName => $iconClass) {
                                     IconRenderHelper::displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
                                 }
                                 ?>
