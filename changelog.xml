@@ -6,12 +6,12 @@
         <version>0.7.6</version>
         <date>2026-04-27</date>
         <note>
-            <item>This is the first version in actual J!6 module code/folder style</item>
+            <item>This is the first version in actual J!6 module code/folder style.</item>
             <item>This version has been adapted for and is intended for guide.joomla.org.</item>
         </note>
         <change>
             <item>Css: removed web-kit and ms-flex preceded ...</item>
-            <item>Dispatcher is using getLayoutData now instead of dispatch</item>
+            <item>Dispatcher is using getLayoutData now instead of dispatch.</item>
             <item>Moved display.php supporting functions into IconRenderHelper.php</item>
         </change>
 		<fix>
