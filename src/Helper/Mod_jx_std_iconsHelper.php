@@ -52,7 +52,7 @@ class Mod_jx_std_iconsHelper
     public array $css_icomoonIconNames = [];
 
     // ???
-    // Css file vendor all fontawesome   -> use $scssIconValues instead
+    // Css file vendor all font awesome   -> use $scssIconValues instead
     // public array $css_vendor_awesome_icons = [];
 
     //--- scss file (_variables.scss) ------------------------------------------
