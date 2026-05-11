@@ -9,29 +9,38 @@
 css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 */
 
-.quick-icons {
-    background-color: #fff;
+/*--- php-html and displayRowIcon ------------------------------------------------*/
+
+/* standard for all */
+.icon_style_row {
+    /*border: 3px solid darkgrey;*/
+    /*border-radius: 4px;*/
 }
 
-.quick-icons .nav {
+.jx-std-icons-outer {
+/*    background-color: #fff; */
+}
+
+/* -> row icons */
+.jx-std-icons-outer .ul_row {
     display: grid;
 
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /**/
     grid-gap: 1rem;
 }
 
-.quick-icons a {
+.jx-std-icons-outer a {
     text-decoration: none;
 }
 
-.quick-icons ul {
+.jx-std-icons-outer ul {
     padding: 0;
 }
 
-.quick-icons .quickicon {
+.jx-std-icons-outer .icon_li_row {
     --text-color: hsl(var(--hue), 30%, 40%);
     --bg-color: hsl(var(--hue), 60%, 97%);
-    --icon-color: hsl(var(--hue), 30%, 40%);
+    --icon-color: hsl(var(--hue), 30%, 40%);template.css
     /* --bg-color-hvr: var(--template-bg-dark); /**/
     --bg-color-hvr: var(--template-bg-dark-60); /**/
     --bg-color-hvr: var(--template-bg-dark-90); /**/
@@ -42,7 +51,7 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
     background-color: var(--bg-color); /**/
 }
 
-.quick-icons .quickicon a {
+.jx-std-icons-outer .icon_li_row a {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -54,12 +63,12 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
     transition: all 0.25s ease;
 }
 
-.quick-icons .quickicon a .quickicon-icon {
+.jx-std-icons-outer .icon_li_row a .jx-std-icon-icon {
     margin-top: 0.5rem;
     margin-inline-start: 0.2rem;
 }
 
-.quick-icons .quickicon a .quickicon-icon > * {
+.jx-std-icons-outer .icon_li_row a .jx-std-icon-icon > * {
     /* Icon size fallback */
     font-size: 2rem;
 
@@ -67,73 +76,27 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
     color: #0047AB; /**/
 }
 
-.quick-icons .quickicon a .quickicon-name {
+.jx-std-icons-outer .icon_li_row a .icon_style_name_row {
     padding: 0.125rem 0 0.6rem;
 
-    font-size: 0.7rem;
     font-weight: bold; /**/
 
     display: flex;
     align-items: flex-end; /**/
 }
 
-.quick-icons .quickicon a .j-links-link {
+.jx-std-icons-outer .icon_li_row a .j-links-link {
     display: block;
     padding: 0 0.2rem;
     line-height: 1.1;
 }
 
-.icon_li_tmpl {
-    /*border-color: darkgrey;*/
-    /*border-color: darkblue;*/
-    /*border-radius: 4px;*/
-}
-
-.icon_style_tmpl {
-    /*border: 3px solid darkgrey;*/
-    /*border-radius: 4px;*/
-}
-
-.icon_li_tmpl .icon_style_tmpl:hover, .icon_li_tmpl .icon_style_tmpl:focus {
-
-    /*transform: scale(2.15) translatex(-1.45rem) translateY(1.74rem); !**!*/
-    transform: scale(2.5) translatex(-1.00rem); /**/
-
-    background-color: var(--card-bg); /**/
-    /*background-color: lightBlue; !**!*/
-
-    /*border-color: darkgrey;*/
-    /*border: 1px solid blue;*/
-    border: 2px solid darkgrey;
-    border-radius: 4px;
-
-    padding: 1px;
-
-    z-index: 20;
-}
-
-.quickicon-icon .icon_style_tmpl:hover {
-
-        transform: scale(2.5) translateY(0.45rem) translatex(0.2rem); /**/
-
-        /*background-color: lightBlue;*/
-        background-color: var(--card-bg); /**/
-
-        /*border: 2px solid darkgreen;*/
-        border: 1px solid darkgrey;
-        border-radius: 2px;
-        /*border-color: darkgrey;*/
-        padding: 1px;
-
-        z-index: 20;
-}
-
-.quick-icons .quickicon-info {
+.jx-std-icons-outer .jx-std-icon-info {
     display: flex;
 }
 
-.quick-icons .quickicon-single,
-.quick-icons .quickicon-group {
+.jx-std-icons-outer .jx-std-icon-single,
+.jx-std-icons-outer .icon_li_row-group {
 
     display: flex;
     /*  min-height: 6rem; /**/
@@ -149,19 +112,113 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
     padding: 1px;
 }
 
-.quick-icons .quickicon-single a {
+.jx-std-icons-outer .jx-std-icon-single a {
     /* align-items: flex-end; /**/
     /* align-items: flex-start; /**/
     align-items: stretch; /**/
 }
 
-/*--- test hidden text until hover */
-.hidden_name {
-    /* visibility: hidden; /**/
-    display: none;
-}
 
-.quick-icons .quickicon:hover .hidden_name {
+.jx-std-icons-outer .icon_li_row:hover .hidden_name {
     /* visibility: visible; /**/
     display: flex;
 }
+
+.jx-std-icon-icon .icon_style_row:hover {
+
+    transform: scale(2.5) translateY(0.45rem) translatex(0.0rem); /**/
+
+    /*background-color: lightBlue;*/
+    background-color: var(--card-bg); /**/
+
+    /*border: 2px solid darkgreen;*/
+    border: 1px solid darkgrey;
+    border-radius: 2px;
+    /*border-color: darkgrey;*/
+    padding: 1px;
+
+    z-index: 20;
+}
+
+/*.icon_li_tmpl .icon_style_row:hover,*/
+.icon_li_row .icon_style_row:focus, .icon_li_row .icon_style_row:active {
+
+    transform: scale(2.5) translateY(0.45rem) translatex(0.2rem); /**/
+
+    background-color: var(--card-bg); /**/
+    /*background-color: lightBlue; !**!*/
+
+    /*border-color: darkgrey;*/
+    /*border: 1px solid blue;*/
+    /*border: 2px solid darkgrey; */
+    border-radius: 4px;
+
+    padding: 1px;
+
+    z-index: 20;
+}
+
+
+/*---------------------------------------------------------------
+displayColumnIcon
+---------------------------------------------------------------*/
+
+/* standard for all */
+.icon_style_col {
+    /*border: 3px solid darkgrey;*/
+    /*border-radius: 4px;*/
+    padding: 0.3rem;
+}
+
+ul .icon_li_col
+{
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: row;
+    /*justify-content:flex-start;*/
+    /*align-self: flex-start;*/
+    align-items: flex-start;
+}
+
+ul .icon_style_col {
+    /*align-self: flex-start;*/
+}
+
+.icon_li_col .icon_style_col.icon_style:hover {
+
+    transform: scale(2.5) translateY(0.45rem) translatex(0.5rem); /**/
+
+    /*background-color: lightBlue;*/
+    background-color: var(--card-bg); /**/
+
+    /*border: 2px solid darkgreen;*/
+    border: 1px solid darkgrey;
+    border-radius: 2px;
+
+    padding: 1px;
+    text-align: center;
+
+    z-index: 20;
+}
+
+.icon_style_col .icon_style_col:hover, .icon_li_col .icon_style_col:focus {
+
+    /*transform: scale(2.15) translatex(-1.45rem) translateY(1.74rem); !**!*/
+    /*transform: scale(2.5) translatex(-1.00rem); /**/
+    transform: scale(2.5) translateY(0.45rem) translatex(0.2rem); /**/
+
+    background-color: var(--card-bg); /**/
+    /*background-color: lightBlue; !**!*/
+
+    /*border-color: darkgrey;*/
+    /*border: 1px solid blue;*/
+    border: 1px solid darkgrey;
+    border-radius: 4px;
+
+    padding: 1px;
+    text-align: center;
+
+    z-index: 20;
+}
+

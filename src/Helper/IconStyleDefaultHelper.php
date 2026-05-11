@@ -31,7 +31,7 @@ class IconStyleDefaultHelper
         //padding: 2px;
 
 //        $iconsCssStyleText .= <<<END
-//            .icon_li {
+//            .icon_li_row {
 //            }
 //            END;
 
@@ -54,7 +54,7 @@ class IconStyleDefaultHelper
 
         // padding: 5 px;
         $iconsCssStyleText .= <<<END
-            .icon_name_style {
+            .icon_style_name_row {
                 font-size: {$name_font_size};
                 color: {$name_color};
             }

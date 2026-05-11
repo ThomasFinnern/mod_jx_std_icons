@@ -20,6 +20,7 @@ use Joomla\Registry\Registry;
 
 /** @var $j_css_icons Mod_jx_std_iconsHelper; */
 /** @var $params registry; */
+/** @var $app ; */
 
 //--- j! css file extracts ----------------------------------------------------
 
@@ -60,14 +61,7 @@ $isDisplayIcomoonTable            = $params->get('isDisplayIcomoonTable');
 $isDisplayJoomlaSysIconTable      = $params->get('isDisplayJoomlaSysIconTable');
 $isDisplayBrandIconsTable_Awesome = $params->get('isDisplayBrandIconsTable_Awesome');
 
-//--- Icon font size, text  ----------------------------------------------
-
-$icon_font_size = $params->get('icon_font_size');
-$name_font_size = $params->get('name_font_size');
-$icon_color     = $params->get('icon_color');
-$name_color     = $params->get('name_color');
-
-$ulListStyle = 'style="list-style-type: none;" ';
+$ulListStyle = ''; //'style="list-style-type: none;" ';
 ?>
 
 <?php
@@ -117,7 +111,6 @@ else : ?>
         <div class="card mb-3 ">
             <div class="card-header">
                 <h2>
-                    <!--                            <span class="icon-joomla" aria-hidden="true"></span>-->
                     <?php
                     echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE'); ?>
                 </h2>
@@ -132,12 +125,12 @@ else : ?>
                 }
                 ?>
 
-                <nav class=""> <!-- <nav class="quick-icons px-3 pb-3">-->
+                <nav class="jx-std-icons-outer"> <!-- <nav class="jx-std-icons-outer px-3 pb-3">-->
                     <ul <?php
                     echo $ulListStyle; ?> class="">
                         <?php
                         foreach ($css_standardIconNames as $iconName => $iconClass) {
-                            IconRenderHelper::displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
+                            IconRenderHelper::displayColumnIcon($iconName, $iconClass);
                         }
                         ?>
                     </ul>
@@ -160,7 +153,6 @@ else : ?>
         <div class="card mb-3 ">
             <div class="card-header">
                 <h2>
-                    <!--                            <span class="icon-joomla" aria-hidden="true"></span>-->
                     <?php
                     echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE'); ?>
                 </h2>
@@ -175,12 +167,12 @@ else : ?>
                 }
                 ?>
 
-                <nav class=""> <!-- <nav class="quick-icons px-3 pb-3">-->
+                <nav class="jx-std-icons-outer"> <!-- <nav class="jx-std-icons-outer px-3 pb-3">-->
                     <ul <?php
                     echo $ulListStyle; ?> class="">
                         <?php
                         foreach ($css_brandIconNames as $iconName => $iconClass) {
-                            IconRenderHelper::displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
+                            IconRenderHelper::displayColumnIcon($iconName, $iconClass);
                         }
                         ?>
                     </ul>
@@ -203,7 +195,6 @@ else : ?>
         <div class="card mb-3 ">
             <div class="card-header">
                 <h2>
-                    <span class="icon-joomla" aria-hidden="true"></span>
                     <?php
                     echo Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS'); ?>
                 </h2>
@@ -216,13 +207,13 @@ else : ?>
                 }
                 ?>
 
-                <nav class=""> <!-- <nav class="quick-icons px-3 pb-3">-->
+                <nav class="jx-std-icons-outer"> <!-- <nav class="jx-std-icons-outer px-3 pb-3">-->
                     <ul <?php
                     echo $ulListStyle; ?> class="">
 
                         <?php
                         foreach ($css_icomoonIconNames as $iconName => $iconClass) {
-                            IconRenderHelper::displayIcon($iconName, $iconClass, $icon_font_size, $name_font_size);
+                            IconRenderHelper::displayColumnIcon($iconName, $iconClass);
                         }
                         ?>
                     </ul>
@@ -238,4 +229,3 @@ else : ?>
 
 <?php
 endif; ?>
-

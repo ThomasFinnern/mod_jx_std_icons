@@ -9,6 +9,7 @@
  */
 
 use Finnern\Module\Jx_std_icons\Site\Helper\IconRenderHelper;
+use Finnern\Module\Jx_std_icons\Site\Helper\IconStyleDefaultHelper;
 use Finnern\Module\Jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
 use Joomla\CMS\Language\Text;
 
@@ -48,7 +49,7 @@ $wa = $app->getDocument()->getWebAssetManager();
 $wa->registerAndUseStyle('mod_jx_std_icons', 'mod_jx_std_icons/template.css');
 
 // User input icon definition
-$iconsCssStyleText = IconRenderHelper::iconsCssStyleText($params);
+$iconsCssStyleText = IconStyleDefaultHelper::iconsCssStyleText($params);
 $app->getDocument()->getWebAssetManager()->addInlineStyle($iconsCssStyleText);
 
 // User css definition
@@ -121,7 +122,6 @@ else : ?>
         <div class="card mb-3 ">
             <div class="card-header">
                 <h2>
-                    <!--                            <span class="icon-joomla" aria-hidden="true"></span>-->
                     <?php
                     echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE'); ?>
                 </h2>
@@ -136,32 +136,11 @@ else : ?>
                 }
                 ?>
 
-                <nav class="quick-icons px-3 pb-3">
-                    <ul class="nav flex-wrap">
-                        <li class="quickicon quickicon-single">
-                            <a href="#">
-                                <div class="quickicon-info">
-                                    <div class="quickicon-icon">
-                                                <span class="icon-joomla"
-                                                      style="font-size: <?php
-                                                      echo $icon_font_size; ?>px;"
-                                                      aria-hidden="true"></span>
-                                    </div>
-                                </div>
-                                <div class="quickicon-name d-flex align-items-end">
-                                    Joomla
-                                </div>
-                            </a>
-                        </li>
-
+                <nav class="jx-std-icons-outer px-3 pb-3">
+                    <ul class="ul_row flex-wrap">
                         <?php
                         foreach ($css_standardIconNames as $iconName => $iconClass) {
-                            IconRenderHelper::displayIcon_asQuickicon(
-                                    $iconName,
-                                    $iconClass,
-                                    $icon_font_size,
-                                    $name_font_size,
-                            );
+                            IconRenderHelper::displayRowIcon($iconName, $iconClass);
                         }
                         ?>
                     </ul>
@@ -184,7 +163,6 @@ else : ?>
         <div class="card mb-3 ">
             <div class="card-header">
                 <h2>
-                    <!--                            <span class="icon-joomla" aria-hidden="true"></span>-->
                     <?php
                     echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE'); ?>
                 </h2>
@@ -199,16 +177,11 @@ else : ?>
                 }
                 ?>
 
-                <nav class="quick-icons px-3 pb-3">
-                    <ul class="nav flex-wrap">
+                <nav class="jx-std-icons-outer px-3 pb-3">
+                    <ul class="ul_row flex-wrap">
                         <?php
                         foreach ($css_brandIconNames as $iconName => $iconClass) {
-                            IconRenderHelper::displayIcon_asQuickicon(
-                                    $iconName,
-                                    $iconClass,
-                                    $icon_font_size,
-                                    $name_font_size,
-                            );
+                            IconRenderHelper::displayRowIcon($iconName, $iconClass);
                         }
                         ?>
                     </ul>
@@ -231,7 +204,6 @@ else : ?>
         <div class="card mb-3 ">
             <div class="card-header">
                 <h2>
-                    <span class="icon-joomla" aria-hidden="true"></span>
                     <?php
                     echo Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS'); ?>
                 </h2>
@@ -245,18 +217,12 @@ else : ?>
                 }
                 ?>
 
-                <nav class="quick-icons px-3 pb-3">
-                    <ul class="nav flex-wrap">
+                <nav class="jx-std-icons-outer px-3 pb-3">
+                    <ul class="ul_row flex-wrap">
 
                         <?php
                         foreach ($css_icomoonIconNames as $iconName => $iconClass) {
-                            IconRenderHelper::displayIcon_asQuickicon(
-                                    $iconName,
-                                    $iconClass,
-                                    $icon_font_size,
-                                    $name_font_size,
-                            );
-                            // displayIcon_asCard($iconName, $iconClass, $icon_font_size, $name_font_size);
+                            IconRenderHelper::displayRowIcon($iconName, $iconClass);
                         }
                         ?>
                     </ul>

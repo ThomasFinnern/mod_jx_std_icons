@@ -34,18 +34,14 @@ class IconStyleVerticalColumnsHelper
             }
             END;
 
-        // display: flex;
-        //flex-direction: row;
-        //align-items: center;
-        //padding: 2px;
-        $iconsCssStyleText .= <<<END
-            .icon_li {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                padding: 2px;
-            }
-            END;
+//        // display: flex;
+//        //flex-direction: row;
+//        //align-items: center;
+//        //padding: 2px;
+//        $iconsCssStyleText .= <<<END
+//            .icon_li_col {
+//            }
+//            END;
 
         //--- icon style ---------------------------------------
 
@@ -60,7 +56,7 @@ class IconStyleVerticalColumnsHelper
                 color: {$icon_color};
             
                 width: 50px;
-                text-align: center;
+                text-align: left;
             }
             END;
 
@@ -69,7 +65,7 @@ class IconStyleVerticalColumnsHelper
         // padding: 5 px;
         // color: red;
         $iconsCssStyleText .= <<<END
-            .icon_name_style {
+            .icon_style_name_col {
                 font-size: {$name_font_size};
                 color: {$name_color};
                 padding: 5px;

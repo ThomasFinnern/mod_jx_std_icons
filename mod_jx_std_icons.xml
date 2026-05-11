@@ -7,7 +7,7 @@
   <authorUrl>www.tomfinnern.de</authorUrl>
   <copyright>Copyright (C) 2023-2025 Thomas Finnern All rights reserved.</copyright>
   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-  <version>0.7.7.3</version>
+  <version>0.7.7.4</version>
   <description>MOD_JX_STD_ICONS_XML_DESCRIPTION</description>
   <scriptfile>install_mod.php</scriptfile>
   <namespace path="src">Finnern\Module\Jx_std_icons</namespace>
