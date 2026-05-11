@@ -70,9 +70,9 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 
 .jx-std-icons-outer .icon_li_row a .jx-std-icon-icon > * {
     /* Icon size fallback */
-    font-size: 2rem;
+    /*font-size: 2rem; */
 
-    /* color:darkgrey; /**/
+    /* color:darkgrey; /**
     color: #0047AB; /**/
 }
 

@@ -16,10 +16,12 @@ class IconStyleDefaultHelper
     {
         $iconsCssStyleText = '';
 
-        $icon_font_size = $params->get('icon_font_size');
-        $name_font_size = $params->get('name_font_size');
-        $icon_color     = $params->get('icon_color');
-        $name_color     = $params->get('name_color');
+        $icon_font_size  = $params->get('icon_font_size');
+        $name_font_size  = $params->get('name_font_size');
+        $icon_color      = $params->get('icon_color');
+        $name_color      = $params->get('name_color');
+        $icon_dark_color = $params->get('icon_dark_color');
+        $name_dark_color = $params->get('name_dark_color');
 
         //--- icon list style  --------------------------------------
 
@@ -44,10 +46,10 @@ class IconStyleDefaultHelper
         // text-align: center;
         $iconsCssStyleText .= <<<END
             .icon_style {
-                font-size: {$icon_font_size};
-            
+                font-size: {$icon_font_size};           
                 color: {$icon_color};
             }
+            
             END;
 
         //--- icon name style ------------------------------------------------
@@ -58,7 +60,25 @@ class IconStyleDefaultHelper
                 font-size: {$name_font_size};
                 color: {$name_color};
             }
+            
             END;
+
+        //---  --------------------------------------
+
+        $iconsCssStyleText .= <<<END
+            @media (prefers-color-scheme: dark) {
+            
+                .icon_style {
+                    color: {$icon_dark_color};
+                }
+                .icon_style_name_row {
+                    color: {$name_dark_color};
+                }            
+            }
+                            
+            END;
+
+//                >>   filter: brightness(.8) contrast(1.2);
 
         return $iconsCssStyleText;
     }
