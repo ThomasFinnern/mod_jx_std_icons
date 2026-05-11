@@ -41,6 +41,10 @@ $scss_brandIconNames    = $j_css_icons->scss_brandIconNames;
 $wa = $app->getDocument()->getWebAssetManager();
 $wa->registerAndUseStyle('mod_jx_std_icons', 'mod_jx_std_icons/template.css');
 
+if ($content = $params->get('custom_css', '')) {
+    $app->getDocument()->getWebAssetManager()->addInlineStyle($content);
+}
+
 //--- Flags for display yes/no ----------------------------------------------
 
 $isDisplayTablesHeader = $params->get('isDisplayTablesHeader');

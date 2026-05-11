@@ -47,6 +47,15 @@ $scss_brandIconNames    = $j_css_icons->scss_brandIconNames;
 $wa = $app->getDocument()->getWebAssetManager();
 $wa->registerAndUseStyle('mod_jx_std_icons', 'mod_jx_std_icons/template.css');
 
+// User input icon definition
+$iconsCssStyleText = IconRenderHelper::iconsCssStyleText($params);
+$app->getDocument()->getWebAssetManager()->addInlineStyle($iconsCssStyleText);
+
+// User css definition
+if ($content = $params->get('custom_css', '')) {
+    $app->getDocument()->getWebAssetManager()->addInlineStyle($content);
+}
+
 //--- Flags for display yes/no ----------------------------------------------
 
 $isDisplayTablesHeader = $params->get('isDisplayTablesHeader');
@@ -64,34 +73,6 @@ $icon_color     = $params->get('icon_color');
 $name_color     = $params->get('name_color');
 
 ?>
-    <style>
-        .icon_li {
-            /*display: flex;*/
-            /*flex-direction: row;*/
-            /*align-items: center;*/
-            /*padding: 2px;*/
-
-        }
-
-        .icon_style {
-            font-size: <?php echo $icon_font_size; ?>;
-
-            // color: hsl(214, 30 %, 40 %);
-            // color: #0047AB;
-            // color: darkgrey;
-            color: <?php echo $icon_color; ?>;
-
-            // width: 50 px;
-            // text-align: center;
-
-        }
-
-        .icon_name_style {
-            font-size: <?php echo $name_font_size; ?>;
-            color: <?php echo $name_color; ?>;
-            // padding: 5 px;
-        }
-    </style>
 
     <div class="card">
         <div class="card-body">

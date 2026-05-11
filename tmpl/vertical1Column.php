@@ -8,7 +8,7 @@
  * @license        GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-use Finnern\Module\Jx_std_icons\Site\Helper\IconStyleVerticalColumnsHelper;
+use Finnern\Module\Jx_std_icons\Site\Helper\IconStyleVertical1ColumnHelper;
 use Finnern\Module\Jx_std_icons\Site\Helper\Mod_jx_std_iconsHelper;
 use Finnern\Module\Jx_std_icons\Site\Helper\IconRenderHelper;
 use Joomla\CMS\Language\Text;
@@ -43,7 +43,7 @@ $wa = $app->getDocument()->getWebAssetManager();
 $wa->registerAndUseStyle('mod_jx_std_icons', 'mod_jx_std_icons/template.css');
 
 // User input icon definition
-$iconsCssStyleText = IconStyleVerticalColumnsHelper::iconsCssStyleText($params);
+$iconsCssStyleText = IconStyleVertical1ColumnHelper::iconsCssStyleText($params);
 $app->getDocument()->getWebAssetManager()->addInlineStyle($iconsCssStyleText);
 
 // User css definition
@@ -204,3 +204,4 @@ $ulListStyle = 'style="list-style-type: none;" ';
 
     </div>
 </div>
+
