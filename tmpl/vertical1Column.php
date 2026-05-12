@@ -18,9 +18,11 @@ use Joomla\Registry\Registry;
 \defined('_JEXEC') || die;
 // phpcs:enable PSR1.Files.SideEffects
 
-/** @var $j_css_icons Mod_jx_std_iconsHelper; */
-/** @var $params registry; */
-/** @var $app ; */
+/**
+ * @var Mod_jx_std_iconsHelper     $j_css_icons;
+ * @var Registry                   $params
+ * @var CMSWebApplicationInterface $app
+ */
 
 //--- j! css file extracts ----------------------------------------------------
 

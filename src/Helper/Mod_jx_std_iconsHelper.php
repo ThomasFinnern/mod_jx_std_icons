@@ -83,7 +83,6 @@ class Mod_jx_std_iconsHelper
     /**
      * Extract all Icons by joomla CSS files
      *
-     * @throws \Exception
      * @since version
      */
     public function extractAllIcons(): void
