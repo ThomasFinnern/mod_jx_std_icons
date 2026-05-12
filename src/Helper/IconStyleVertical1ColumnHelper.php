@@ -20,6 +20,8 @@ class IconStyleVertical1ColumnHelper
         $name_font_size = $params->get('name_font_size');
         $icon_color     = $params->get('icon_color');
         $name_color     = $params->get('name_color');
+        $icon_dark_color = $params->get('icon_dark_color');
+        $name_dark_color = $params->get('name_dark_color');
 
         //--- icon list style  --------------------------------------
 
@@ -45,13 +47,11 @@ class IconStyleVertical1ColumnHelper
         // width: 50 px;
         // text-align: center;
         $iconsCssStyleText .= <<<END
-            .icon_style {
+            .icon_li_col .icon_style_icon {
                 font-size: {$icon_font_size};
                 color: {$icon_color};
-            
-                width: 50px;
-                text-align: left;
             }
+            
             END;
 
         //--- icon name style ------------------------------------------------
@@ -61,11 +61,25 @@ class IconStyleVertical1ColumnHelper
             .icon_style_name_col {
                 font-size: {$name_font_size};
                 color: {$name_color};
-                padding: 5px;
             }
+            
+            END;
+
+        //--- Dark mode  --------------------------------------
+
+        $iconsCssStyleText .= <<<END
+            @media (prefers-color-scheme: dark) {
+            
+                .icon_li_col .icon_style_icon {
+                    color: {$icon_dark_color};
+                }
+                .icon_style_name_col {
+                    color: {$name_dark_color};
+                }            
+            }
+                            
             END;
 
         return $iconsCssStyleText;
     }
-
 }

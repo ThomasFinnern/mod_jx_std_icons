@@ -18,7 +18,7 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 }
 
 .jx-std-icons-outer {
-/*    background-color: #fff; */
+    /*    background-color: #fff; */
 }
 
 /* -> row icons */
@@ -40,12 +40,8 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 .jx-std-icons-outer .icon_li_row {
     --text-color: hsl(var(--hue), 30%, 40%);
     --bg-color: hsl(var(--hue), 60%, 97%);
-    --icon-color: hsl(var(--hue), 30%, 40%);template.css
-    /* --bg-color-hvr: var(--template-bg-dark); /**/
-    --bg-color-hvr: var(--template-bg-dark-60); /**/
+    --icon-color: hsl(var(--hue), 30%, 40%);
     --bg-color-hvr: var(--template-bg-dark-90); /**/
-    /* --bg-color-hvr: var(--template-bg-light); /**/
-    /* --bg-color-hvr: Ivory; /**/
     display: flex;
     flex-grow: 1;
     background-color: var(--bg-color); /**/
@@ -128,14 +124,13 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 
     transform: scale(2.5) translateY(0.45rem) translatex(0.0rem); /**/
 
-    /*background-color: lightBlue;*/
     background-color: var(--card-bg); /**/
 
-    /*border: 2px solid darkgreen;*/
     border: 1px solid darkgrey;
     border-radius: 2px;
-    /*border-color: darkgrey;*/
+
     padding: 1px;
+    opacity: 1;
 
     z-index: 20;
 }
@@ -146,22 +141,18 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
     transform: scale(2.5) translateY(0.45rem) translatex(0.2rem); /**/
 
     background-color: var(--card-bg); /**/
-    /*background-color: lightBlue; !**!*/
 
-    /*border-color: darkgrey;*/
-    /*border: 1px solid blue;*/
-    /*border: 2px solid darkgrey; */
     border-radius: 4px;
 
     padding: 1px;
+    opacity: 1;
 
     z-index: 20;
 }
 
-
-/*---------------------------------------------------------------
+/*===============================================================
 displayColumnIcon
----------------------------------------------------------------*/
+===============================================================*/
 
 /* standard for all */
 .icon_style_col {
@@ -170,8 +161,7 @@ displayColumnIcon
     padding: 0.3rem;
 }
 
-ul .icon_li_col
-{
+ul .icon_li_col {
     list-style-type: none;
 
     display: flex;
@@ -185,40 +175,42 @@ ul .icon_style_col {
     /*align-self: flex-start;*/
 }
 
-.icon_li_col .icon_style_col.icon_style:hover {
+.icon_li_col {
+    width: 50px;
+    text-align: left;
+}
+
+.icon_style_name_col {
+    padding: 5px;
+}
+
+.icon_li_col .icon_style_col:hover {
 
     transform: scale(2.5) translateY(0.45rem) translatex(0.5rem); /**/
 
-    /*background-color: lightBlue;*/
     background-color: var(--card-bg); /**/
 
-    /*border: 2px solid darkgreen;*/
     border: 1px solid darkgrey;
     border-radius: 2px;
 
     padding: 1px;
     text-align: center;
-
+    opacity: 1;
     z-index: 20;
 }
 
 .icon_style_col .icon_style_col:hover, .icon_li_col .icon_style_col:focus {
 
-    /*transform: scale(2.15) translatex(-1.45rem) translateY(1.74rem); !**!*/
-    /*transform: scale(2.5) translatex(-1.00rem); /**/
     transform: scale(2.5) translateY(0.45rem) translatex(0.2rem); /**/
 
-    background-color: var(--card-bg); /**/
-    /*background-color: lightBlue; !**!*/
+    background-color: var(--card-bg);
 
-    /*border-color: darkgrey;*/
-    /*border: 1px solid blue;*/
     border: 1px solid darkgrey;
     border-radius: 4px;
 
     padding: 1px;
     text-align: center;
+    opacity: 1;
 
     z-index: 20;
 }
-

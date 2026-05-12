@@ -62,7 +62,7 @@ class IconRenderHelper
         ?>
         <li class="icon_li_col">
             <i class="<?php
-            echo $iconClass; ?> icon_style_col icon_style" tabindex="0"></i>
+            echo $iconClass; ?> icon_style_col icon_style_icon" tabindex="0"></i>
             <span class="icon_style_name_col icon_name_style">
             <?php
                 echo $iconName; ?>

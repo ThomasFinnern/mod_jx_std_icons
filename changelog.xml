@@ -3,6 +3,28 @@
         <element>mod_jx_std_icons</element>
         <type>module</type>
         <client>site</client>
+        <version>0.8.0</version>
+        <date>2026-05-12</date>
+        <note>
+            <item>This is the first version with dark mode.</item>
+            <item>Dark code color of icon and name can be chosen by user</item>
+        </note>
+        <change>
+            <item>Custom CSS: The user can add his own CSS in a text area</item>
+            <item>Spelling: icomoon -> IcoMoon, fontawesome -> Font Awesome</item>
+			<item>New Page Icon sets order:  1 FA STD, Fa brand, Icomoon</item>
+            <item>Replaced quickicon by new classes to prevent intererence with joomla classes</item>
+            <item></item>
+        </change>
+		<fix>
+			<item></item>
+            <item></item>
+		</fix>
+    </changelog>
+    <changelog>
+        <element>mod_jx_std_icons</element>
+        <type>module</type>
+        <client>site</client>
         <version>0.7.6</version>
         <date>2026-04-27</date>
         <note>

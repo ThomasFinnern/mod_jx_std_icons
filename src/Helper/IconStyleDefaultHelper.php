@@ -45,7 +45,7 @@ class IconStyleDefaultHelper
         // width: 50 px;
         // text-align: center;
         $iconsCssStyleText .= <<<END
-            .icon_style {
+            .jx-std-icon-icon .icon_style {
                 font-size: {$icon_font_size};           
                 color: {$icon_color};
             }
@@ -63,12 +63,12 @@ class IconStyleDefaultHelper
             
             END;
 
-        //---  --------------------------------------
+        //--- Dark mode  --------------------------------------
 
         $iconsCssStyleText .= <<<END
             @media (prefers-color-scheme: dark) {
             
-                .icon_style {
+                .jx-std-icon-icon .icon_style {
                     color: {$icon_dark_color};
                 }
                 .icon_style_name_row {
@@ -82,5 +82,4 @@ class IconStyleDefaultHelper
 
         return $iconsCssStyleText;
     }
-
 }

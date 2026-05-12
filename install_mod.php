@@ -1,17 +1,14 @@
 <?php
 
 /**
- * @package     Joomla.Administrator
- * @subpackage  mod_jx_std_icons
+ * @package        Joomla.Administrator
+ * @subpackage     mod_jx_std_icons
  *
  * @copyright  (c) 2005-2026 Thomas Finnern
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @license        GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 namespace Finnern\Module\mod_jx_std_icons;
-
-use Joomla\CMS\Language\Text;
-use Joomla\CMS\Log\Log;
 
 // phpcs:disable PSR1.Files.SideEffects
 \defined('_JEXEC') || die;
@@ -23,7 +20,7 @@ use Joomla\CMS\Log\Log;
 class Mod_jx_std_iconsInstallerScript
 {
     private string $minimumJoomla = '5.0.0';
-    private string $minimumPhp    = '8.1.0';
+    private string $minimumPhp = '8.1.0';
 
     /**
      * public function called before extension installation/update/removal procedure commences
@@ -37,16 +34,16 @@ class Mod_jx_std_iconsInstallerScript
     {
         // // Check for the minimum PHP version before continuing
         // if (!empty($this->minimumPhp) && version_compare(PHP_VERSION, $this->minimumPhp, '<')) {
-            // Log::add(Text::sprintf('JLIB_INSTALLER_MINIMUM_PHP', $this->minimumPhp), Log::WARNING, 'jerror');
+        // Log::add(Text::sprintf('JLIB_INSTALLER_MINIMUM_PHP', $this->minimumPhp), Log::WARNING, 'jerror');
 
-            // return false;
+        // return false;
         // }
 
         // // Check for the minimum Joomla version before continuing
         // if (!empty($this->minimumJoomla) && version_compare(JVERSION, $this->minimumJoomla, '<')) {
-            // Log::add(Text::sprintf('JLIB_INSTALLER_MINIMUM_JOOMLA', $this->minimumJoomla), Log::WARNING, 'jerror');
+        // Log::add(Text::sprintf('JLIB_INSTALLER_MINIMUM_JOOMLA', $this->minimumJoomla), Log::WARNING, 'jerror');
 
-            // return false;
+        // return false;
         // }
 
 //      echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_PREFLIGHT');
@@ -93,6 +90,26 @@ class Mod_jx_std_iconsInstallerScript
     public function update($parent)
     {
         // echo Text::_('MOD_JX_STD_ICONS_INSTALLERSCRIPT_UPDATE');
+
+        //--- delete obsolete files/folders ----------------------------------
+
+        $deleteFiles = [
+            '/modules/mod_jx_std_icons/tmpl/verticalList.php'
+        ];
+
+        foreach ($deleteFiles as $file) {
+            $filePathName = JPATH_ROOT . $file;
+
+            if (empty($file) || !file_exists($filePathName)) {
+                continue;
+            }
+
+            if (file_exists($filePathName)) {
+                unlink($filePathName);
+            }
+        }
+
+        //--- delete obsolete folders ----------------------------------
 
         return true;
     }
