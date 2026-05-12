@@ -3,6 +3,23 @@
         <element>mod_jx_std_icons</element>
         <type>module</type>
         <client>site</client>
+        <version>0.8.1</version>
+        <date>2026-05-12</date>
+        <note>
+            <item></item>
+            <item></item>
+        </note>
+        <change>
+            <item>Fixed: Size of icon name text was too small and some code maintenance</item>
+        </change>
+		<fix>
+			<item>Fixed: Size of icon name text was too small and some code maintenance</item>
+		</fix>
+    </changelog>
+    <changelog>
+        <element>mod_jx_std_icons</element>
+        <type>module</type>
+        <client>site</client>
         <version>0.8.0</version>
         <date>2026-05-12</date>
         <note>
