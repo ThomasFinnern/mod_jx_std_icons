@@ -10,10 +10,10 @@
             <item></item>
         </note>
         <change>
-            <item>Fixed: Size of icon name text was too small and some code maintenance</item>
+            <item>Code maintenance</item>
         </change>
 		<fix>
-			<item>Fixed: Size of icon name text was too small and some code maintenance</item>
+			<item>Fixed: Size of icon name text was too small</item>
 		</fix>
     </changelog>
     <changelog>
