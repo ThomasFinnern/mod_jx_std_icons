@@ -31,7 +31,7 @@ class IconStyleVerticalColumnsHelper
         //padding: 2px;
 
         $iconsCssStyleText .= <<<END
-            ul {
+            .jx-std-icons-outer ul {
                 columns: 250px;
             }
             
