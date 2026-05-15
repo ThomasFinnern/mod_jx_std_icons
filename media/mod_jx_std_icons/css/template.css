@@ -124,7 +124,8 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 
     transform: scale(2.5) translateY(0.45rem) translatex(0.0rem); /**/
 
-    background-color: var(--card-bg); /**/
+    /*background-color: inherit; */
+    background-color: var(--card-bg);
 
     border: 1px solid darkgrey;
     border-radius: 2px;
@@ -140,7 +141,8 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 
     transform: scale(2.5) translateY(0.45rem) translatex(0.2rem); /**/
 
-    background-color: var(--card-bg); /**/
+    /*background-color: inherit; */
+    background-color: var(--card-bg);
 
     border-radius: 4px;
 
@@ -188,7 +190,8 @@ ul .icon_style_col {
 
     transform: scale(2.5) translateY(0.45rem) translatex(0.5rem); /**/
 
-    background-color: var(--card-bg); /**/
+    /*background-color: inherit; */
+    background-color: var(--card-bg);
 
     border: 1px solid darkgrey;
     border-radius: 2px;
@@ -203,6 +206,7 @@ ul .icon_style_col {
 
     transform: scale(2.5) translateY(0.45rem) translatex(0.2rem); /**/
 
+    /*background-color: inherit; */
     background-color: var(--card-bg);
 
     border: 1px solid darkgrey;
