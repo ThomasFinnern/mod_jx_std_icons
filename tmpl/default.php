@@ -78,7 +78,7 @@ $name_color     = $params->get('name_color');
 <?php
 if (empty($css_icomoonIconNames) && empty($css_standardIconNames) && empty($css_vendor_awesome_icons)) : ?>
     <div class="card">
-        <div class="card-body">
+        <div class="card-body icons_card_area"">
             <h3 class="card-title">
                 <?php
                 echo Text::_('MOD_JX_STD_ICONS_NO_ICONS'); ?>
@@ -126,7 +126,7 @@ else : ?>
                     echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE'); ?>
                 </h2>
             </div>
-            <div class="card-body">
+            <div class="card-body icons_card_area">
                 <?php
                 if ($isDisplayTechDetail) {
                     IconRenderHelper::displayTechDetail(
@@ -135,9 +135,8 @@ else : ?>
                     );
                 }
                 ?>
-
                 <nav class="jx-std-icons-outer px-3 pb-3">
-                    <ul class="ul_row flex-wrap">
+                    <ul class="ul_icons_outer flex-wrap">
                         <?php
                         foreach ($css_standardIconNames as $iconName => $iconClass) {
                             IconRenderHelper::displayRowIcon($iconName, $iconClass);
@@ -148,7 +147,8 @@ else : ?>
                 <h5><?php
                     echo Text::_('MOD_JX_STD_ICONS_COUNT_FONTAWESOME_STANDARD_ICONS'); ?><span
                             class="badge bg-secondary"><?php
-                        echo count($css_standardIconNames); ?></span></h5>
+                        echo count($css_standardIconNames); ?></span>
+                </h5>
             </div>
         </div>
     <?php
@@ -167,7 +167,7 @@ else : ?>
                     echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE'); ?>
                 </h2>
             </div>
-            <div class="card-body">
+            <div class="card-body icons_card_area"">
                 <?php
                 if ($isDisplayTechDetail) {
                     IconRenderHelper::displayTechDetail(
@@ -178,7 +178,7 @@ else : ?>
                 ?>
 
                 <nav class="jx-std-icons-outer px-3 pb-3">
-                    <ul class="ul_row flex-wrap">
+                    <ul class="ul_icons_outer flex-wrap">
                         <?php
                         foreach ($css_brandIconNames as $iconName => $iconClass) {
                             IconRenderHelper::displayRowIcon($iconName, $iconClass);
@@ -209,7 +209,7 @@ else : ?>
                 </h2>
             </div>
 
-            <div class="card-body">
+            <div class="card-body icons_card_area"">
                 <?php
                 if ($isDisplayTechDetail) {
 //                                $this->displayTechDetail(Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS_DESC'), "");
@@ -218,7 +218,7 @@ else : ?>
                 ?>
 
                 <nav class="jx-std-icons-outer px-3 pb-3">
-                    <ul class="ul_row flex-wrap">
+                    <ul class="ul_icons_outer flex-wrap">
 
                         <?php
                         foreach ($css_icomoonIconNames as $iconName => $iconClass) {

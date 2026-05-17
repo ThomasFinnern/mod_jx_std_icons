@@ -9,7 +9,32 @@
 css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 */
 
-/*--- php-html and displayRowIcon ------------------------------------------------*/
+/*===============================================================
+common outer list preparation
+===============================================================*/
+
+div.icons_card_area {
+
+    /* for hover */
+    background-color: inherit;
+}
+
+ul.ul_icons_outer   {
+    list-style-type: none;
+
+    /* for hover */
+    background-color: inherit;
+}
+
+nav.jx-std-icons-outer  {
+
+    /* for hover */
+    background-color: inherit;
+}
+
+/*===============================================================
+displayRowIcon (Flex list)
+===============================================================*/
 
 /* standard for all */
 .icon_style_row {
@@ -22,7 +47,7 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 }
 
 /* -> row icons */
-.jx-std-icons-outer .ul_row {
+.jx-std-icons-outer .ul_icons_outer  {
     display: grid;
 
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /**/
@@ -35,16 +60,21 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 
 .jx-std-icons-outer ul {
     padding: 0;
+
+    /* for hover */
+    background-color: inherit; 
+}
+
+.jx-std-icons-outer ul li {
+    opacity: 1;
+
+    /* for hover */
+    background-color: inherit; 
 }
 
 .jx-std-icons-outer .icon_li_row {
-    --text-color: hsl(var(--hue), 30%, 40%);
-    --bg-color: hsl(var(--hue), 60%, 97%);
-    --icon-color: hsl(var(--hue), 30%, 40%);
-    --bg-color-hvr: var(--template-bg-dark-90); /**/
     display: flex;
     flex-grow: 1;
-    background-color: var(--bg-color); /**/
 }
 
 .jx-std-icons-outer .icon_li_row a {
@@ -54,8 +84,6 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
     -ms-flex-pack: end;
     justify-content: flex-end;
     padding: 0 1rem;
-    color: var(--text-color);
-    /* background-color: var(--bg-color); /**/
     transition: all 0.25s ease;
 }
 
@@ -65,11 +93,7 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 }
 
 .jx-std-icons-outer .icon_li_row a .jx-std-icon-icon > * {
-    /* Icon size fallback */
-    /*font-size: 2rem; */
 
-    /* color:darkgrey; /**
-    color: #0047AB; /**/
 }
 
 .jx-std-icons-outer .icon_li_row a .icon_style_name_row {
@@ -95,28 +119,24 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 .jx-std-icons-outer .icon_li_row-group {
 
     display: flex;
-    /*  min-height: 6rem; /**/
+    /*  min-height: 6rem; !**/
     overflow: hidden;
-    border: 1px solid hsl(var(--hue), 50%, 93%);
+    border: 1px solid grey;
     border-radius: 4px;
 
-    /* align-items: flex-end; /**/
     align-items: flex-start; /**/
-    /* align-items: stretch; /**/
 
-    /* background-color: var(--bg-color) /**/
+    background-color: aliceblue;
     padding: 1px;
 }
 
 .jx-std-icons-outer .jx-std-icon-single a {
-    /* align-items: flex-end; /**/
-    /* align-items: flex-start; /**/
     align-items: stretch; /**/
 }
 
 
 .jx-std-icons-outer .icon_li_row:hover .hidden_name {
-    /* visibility: visible; /**/
+    /* visibility: visible; !**/
     display: flex;
 }
 
@@ -124,7 +144,6 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 
     transform: scale(2.5) translateY(0.45rem) translatex(0.0rem); /**/
 
-    /*background-color: inherit; */
     background-color: var(--card-bg);
 
     border: 1px solid darkgrey;
@@ -136,12 +155,10 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
     z-index: 20;
 }
 
-/*.icon_li_tmpl .icon_style_row:hover,*/
 .icon_li_row .icon_style_row:focus, .icon_li_row .icon_style_row:active {
 
     transform: scale(2.5) translateY(0.45rem) translatex(0.2rem); /**/
 
-    /*background-color: inherit; */
     background-color: var(--card-bg);
 
     border-radius: 4px;
@@ -152,29 +169,33 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
     z-index: 20;
 }
 
-/*===============================================================
-displayColumnIcon
-===============================================================*/
+@media (prefers-color-scheme: dark) {
 
-/* standard for all */
-.icon_style_col {
-    /*border: 3px solid darkgrey;*/
-    /*border-radius: 4px;*/
-    padding: 0.3rem;
+    .jx-std-icons-outer .jx-std-icon-single,
+    .jx-std-icons-outer .icon_li_row-group {
+
+        background-color: darkblue;
+    }
 }
 
-ul .icon_li_col {
-    list-style-type: none;
+/*===============================================================
+displayColumnIcon (single, multiple columns)
+===============================================================*/
+
+.jx-std-icons-outer .ul_icons_outer  .icon_style_col {
+
+    padding: 0.3rem;
+
+}
+
+.jx-std-icons-outer .ul_icons_outer .icon_li_col {
 
     display: flex;
     flex-direction: row;
-    /*justify-content:flex-start;*/
-    /*align-self: flex-start;*/
     align-items: flex-start;
-}
 
-ul .icon_style_col {
-    /*align-self: flex-start;*/
+    /* for hover */
+    background-color: inherit;
 }
 
 .icon_style_icon {
@@ -190,8 +211,7 @@ ul .icon_style_col {
 
     transform: scale(2.5) translateY(0.45rem) translatex(0.5rem); /**/
 
-    /*background-color: inherit; */
-    background-color: var(--card-bg);
+    background-color: inherit;
 
     border: 1px solid darkgrey;
     border-radius: 2px;
@@ -206,8 +226,7 @@ ul .icon_style_col {
 
     transform: scale(2.5) translateY(0.45rem) translatex(0.2rem); /**/
 
-    /*background-color: inherit; */
-    background-color: var(--card-bg);
+    background-color: inherit;
 
     border: 1px solid darkgrey;
     border-radius: 4px;
