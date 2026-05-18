@@ -40,15 +40,15 @@ class IconRenderHelper
     public static function displayRowIcon($iconName, $iconClass)
     {
         ?>
-        <li class="icon_li_row jx-std-icon-single">
+        <li class="icon_li_row">
             <a>
                 <div class="jx-std-icon-info">
                     <div class="jx-std-icon-icon">
                         <i class="<?php
-                        echo $iconClass; ?> icon_style_row icon_style" tabindex="0"></i>
+                        echo $iconClass; ?> icon_style_row icon_user_style" tabindex="0"></i>
                     </div>
                 </div>
-                <div class="icon_style_name_row icon_name_style">
+                <div class="icon_style_name_row icon_name_user_style">
                     <?php
                     echo $iconName; ?>
                 </div>
@@ -62,8 +62,8 @@ class IconRenderHelper
         ?>
         <li class="icon_li_col">
             <i class="<?php
-            echo $iconClass; ?> icon_style_col icon_style_icon" tabindex="0"></i>
-            <span class="icon_style_name_col icon_name_style">
+            echo $iconClass; ?> icon_style_col icon_user_style" tabindex="0"></i>
+            <span class="icon_style_name_col icon_name_user_style">
             <?php
                 echo $iconName; ?>
             </span>

@@ -20,12 +20,12 @@ common outer list preparation
 /*    background-color: inherit;*/
 /*}*/
 
-ul.ul_icons_outer_row {
-    list-style-type: none;
+/*ul.ul_icons_outer_row {*/
+/*    list-style-type: none;*/
 
-    /* for hover */
-    background-color: inherit;
-}
+/*    !* for hover *!*/
+/*    background-color: inherit;*/
+/*}*/
 
 /*ul.ul_icons_outer_col {*/
 /*    list-style-type: none;*/
@@ -38,161 +38,154 @@ ul.ul_icons_outer_row {
 displayRowIcon (Flex list)
 ===============================================================*/
 
+/*--- Complete outer area ---------------------------*/
+
 div.icons_card_area {
 
     /* for hover */
     background-color: inherit;
 
-    /* standard for all */
+    /*--- Around UL  ---------------------------*/
 
-    .jx-std-icon-icon .icon_style_row {
-        /*border: 3px solid darkgrey;*/
-        /*border-radius: 4px;*/
-        display: inline-block;
-        text-align: center;
-        width: 100%; /* Erforderlich, damit das Element den vollen Platz nutzt */
-    }
-
-    .jx-std-icons-outer {
-        text-align: center;
+    div.jx-std-icons-outer {
+        /*text-align: center;*/
         /*    background-color: #fff; */
-    }
-
-    .jx-std-icon-icon {
-    }
-
-    /* -> row icons */
-
-    .jx-std-icons-outer .ul_icons_outer_row {
-        display: grid;
-
-        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /**/
-        grid-gap: 1rem;
-    }
-
-    .jx-std-icons-outer a {
-        text-decoration: none;
-    }
-
-    .jx-std-icons-outer ul {
-        padding: 0;
 
         /* for hover */
         background-color: inherit;
-    }
 
-    .jx-std-icons-outer ul li {
-        opacity: 1;
+        /*--- Unsorted list ---------------------------*/
 
-        /* for hover */
-        background-color: inherit;
-    }
+        ul.ul_icons_outer_row {
 
-    .jx-std-icons-outer .icon_li_row {
-        display: flex;
-        flex-grow: 1;
-    }
+            list-style-type: none;
 
-    .jx-std-icons-outer .icon_li_row a {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-        -ms-flex-pack: end;
-        justify-content: flex-end;
-        padding: 0 1rem;
-        transition: all 0.25s ease;
-    }
+            padding: 0;
 
-    .jx-std-icons-outer .icon_li_row a .jx-std-icon-icon {
-        margin-top: 0.5rem;
-        margin-inline-start: 0.2rem;
-    }
+            /* for hover */
+            background-color: inherit;
 
-    .jx-std-icons-outer .icon_li_row a .jx-std-icon-icon > * {
+            display: grid;
 
-    }
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /**/
+            grid-gap: 1rem;
 
-    .jx-std-icons-outer .icon_li_row a .icon_style_name_row {
-        padding: 0.125rem 0 0.6rem;
+            /*--- Icon list area ---------------------------*/
 
-        font-weight: bold; /**/
+            .icon_li_row {
 
-        display: flex;
-        align-items: flex-end; /**/
-    }
+                opacity: 1;
 
-    .jx-std-icons-outer .icon_li_row a .j-links-link {
-        display: block;
-        padding: 0 0.2rem;
-        line-height: 1.1;
-    }
+                display: flex;
+                flex-grow: 1;
 
-    .jx-std-icons-outer .jx-std-icon-info {
-        display: flex;
-    }
+                /* before as jx-std-icon-single */
+                /*  min-height: 6rem; !**/
+                overflow: hidden;
+                border: 1px solid grey;
+                border-radius: 4px;
 
-    .jx-std-icons-outer .jx-std-icon-single,
-    .jx-std-icons-outer .icon_li_row-group {
+                align-items: flex-start; /**/
 
-        display: flex;
-        /*  min-height: 6rem; !**/
-        overflow: hidden;
-        border: 1px solid grey;
-        border-radius: 4px;
+                /*!* for hover *!*/
+                /*background-color: inherit;*/
+                background-color: aliceblue;
+                padding: 1px;
 
-        align-items: flex-start; /**/
+                /*--- 'a' link ToDo: remove  ---------------------------*/
 
-        background-color: aliceblue;
-        padding: 1px;
-    }
+                a {
 
-    .jx-std-icons-outer .jx-std-icon-single a {
-        align-items: stretch; /**/
-    }
+                    display: flex;
+                    flex-direction: column;
+                    flex-grow: 1;
+                    justify-content: flex-end;
+
+                    padding: 0 1rem;
+                    transition: all 0.25s ease;
+
+                    text-decoration: none;
+                    align-items: stretch; /**/
+
+                    /*--- Flex icon area ---------------------------*/
+
+                    .jx-std-icon-info {
+
+                        display: flex;
 
 
-    .jx-std-icons-outer .icon_li_row:hover .hidden_name {
-        display: flex;
-    }
+                        .jx-std-icon-icon {
+                            margin-top: 0.5rem;
+                            margin-inline-start: 0.2rem;
 
-    .jx-std-icon-icon .icon_style_row:hover {
 
-        transform: scale(2.5) translateY(0.45rem) translatex(0.0rem); /**/
+                            .icon_style_row {
 
-        background-color: var(--card-bg);
 
-        border: 1px solid darkgrey;
-        border-radius: 2px;
+                                text-align: center;
 
-        padding: 1px;
-        text-align: center;
-        opacity: 1;
 
-        z-index: 20;
-    }
 
-    .icon_li_row .icon_style_row:focus, .icon_li_row .icon_style_row:active {
+                                &:hover {
 
-        transform: scale(2.5) translateY(0.45rem) translatex(0.2rem); /**/
+                                    transform: scale(2.5) translateY(0.45rem) translatex(0.0rem); /**/
 
-        background-color: var(--card-bg);
+                                    background-color: var(--card-bg);
 
-        border-radius: 4px;
+                                    border: 1px solid darkgrey;
+                                    border-radius: 2px;
 
-        padding: 1px;
-        text-align: center;
-        opacity: 1;
+                                    padding: 1px;
+                                    text-align: center;
+                                    opacity: 1;
 
-        z-index: 20;
+                                    z-index: 20;
+                                }
+
+                                &:focus, &:active {
+
+                                    transform: scale(2.5) translateY(0.45rem) translatex(0.2rem); /**/
+
+                                    background-color: var(--card-bg);
+
+                                    border-radius: 4px;
+
+                                    padding: 1px;
+                                    text-align: center;
+                                    opacity: 1;
+
+                                    z-index: 20;
+                                }
+
+                            }
+                        }
+                    }
+
+                    /*--- Icon name ---------------------------*/
+
+                    .icon_style_name_row {
+                        padding: 0.125rem 0 0.6rem;
+
+                        font-weight: bold; /**/
+
+                        display: flex;
+                        align-items: flex-end; /**/
+                    }
+
+
+                }
+            }
+        }
     }
 }
 
 @media (prefers-color-scheme: dark) {
 
-    .jx-std-icons-outer .jx-std-icon-single,
-    .jx-std-icons-outer .icon_li_row-group {
+    .jx-std-icons-outer .icon_li_row {
 
         background-color: darkblue;
+
+    / / filter: brightness(50 %);
     }
 }
 
@@ -200,13 +193,14 @@ div.icons_card_area {
 displayColumnIcon (single, multiple columns)
 ===============================================================*/
 
-/*---  ---------------------------*/
+/*--- Complete outer area ---------------------------*/
+
 div.icons_card_area {
 
     /* for hover */
     background-color: inherit;
 
-    /*--- ? nav  ---------------------------*/
+    /*--- Around UL  ---------------------------*/
 
     div.jx-std-icons-outer {
 

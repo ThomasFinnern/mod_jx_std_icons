@@ -54,7 +54,7 @@ class IconStyleVerticalColumnsHelper
         // width: 50 px;
         // text-align: center;
         $iconsCssStyleText .= <<<END
-            .icon_li_col .icon_style_icon {
+            .icon_li_col .icon_user_style {
                 font-size: {$icon_font_size};
                 color: {$icon_color};
             }
@@ -66,7 +66,7 @@ class IconStyleVerticalColumnsHelper
         // padding: 5 px;
         // color: red;
         $iconsCssStyleText .= <<<END
-            .icon_style_name_col {
+            icon_li_col .icon_name_user_style {
                 font-size: {$name_font_size};
                 color: {$name_color};
             }
@@ -78,10 +78,10 @@ class IconStyleVerticalColumnsHelper
         $iconsCssStyleText .= <<<END
             @media (prefers-color-scheme: dark) {
             
-                .icon_li_col .icon_style_icon {
+                .icon_li_col .icon_user_style {
                     color: {$icon_dark_color};
                 }
-                .icon_style_name_col {
+                icon_li_col .icon_name_user_style {
                     color: {$name_dark_color};
                 }            
             }

@@ -23,29 +23,10 @@ class IconStyleDefaultHelper
         $icon_dark_color = $params->get('icon_dark_color');
         $name_dark_color = $params->get('name_dark_color');
 
-        //--- icon list style  --------------------------------------
-
-        // actually not used
-
-        // display: flex;
-        //flex-direction: row;
-        //align-items: center;
-        //padding: 2px;
-
-//        $iconsCssStyleText .= <<<END
-//            .icon_li_row {
-//            }
-//            END;
-
         //--- icon style ---------------------------------------
 
-        // color: hsl(214, 30 %, 40 %);
-        // color: #0047AB;
-        // color: darkgrey;
-        // width: 50 px;
-        // text-align: center;
         $iconsCssStyleText .= <<<END
-            .jx-std-icon-icon .icon_style {
+            .jx-std-icon-icon .icon_user_style {
                 font-size: {$icon_font_size};           
                 color: {$icon_color};
             }
@@ -68,7 +49,7 @@ class IconStyleDefaultHelper
         $iconsCssStyleText .= <<<END
             @media (prefers-color-scheme: dark) {
             
-                .jx-std-icon-icon .icon_style {
+                .jx-std-icon-icon .icon_user_style {
                     color: {$icon_dark_color};
                 }
                 .icon_style_name_row {
@@ -77,8 +58,6 @@ class IconStyleDefaultHelper
             }
                             
             END;
-
-//                >>   filter: brightness(.8) contrast(1.2);
 
         return $iconsCssStyleText;
     }

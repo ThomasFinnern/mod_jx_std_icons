@@ -23,31 +23,10 @@ class IconStyleVertical1ColumnHelper
         $icon_dark_color = $params->get('icon_dark_color');
         $name_dark_color = $params->get('name_dark_color');
 
-        //--- icon list style  --------------------------------------
-
-//        // display: flex;
-//        //flex-direction: row;
-//        //align-items: center;
-//        //padding: 2px;
-//
-//        $iconsCssStyleText .= <<<END
-//            .icon_li_col {
-//                display: flex;
-//                flex-direction: row;
-//                align-items: center;
-//                padding: 2px;
-//            }
-//            END;
-
         //--- icon style ---------------------------------------
 
-        // color: hsl(214, 30 %, 40 %);
-        // color: #0047AB;
-        // color: darkgrey;
-        // width: 50 px;
-        // text-align: center;
         $iconsCssStyleText .= <<<END
-            .icon_li_col .icon_style_icon {
+            .icon_li_col .icon_user_style {
                 font-size: {$icon_font_size};
                 color: {$icon_color};
             }
@@ -58,7 +37,7 @@ class IconStyleVertical1ColumnHelper
 
         // padding: 5 px;
         $iconsCssStyleText .= <<<END
-            .icon_style_name_col {
+            icon_li_col .icon_name_user_style {
                 font-size: {$name_font_size};
                 color: {$name_color};
             }
@@ -70,10 +49,10 @@ class IconStyleVertical1ColumnHelper
         $iconsCssStyleText .= <<<END
             @media (prefers-color-scheme: dark) {
             
-                .icon_li_col .icon_style_icon {
+                .icon_li_col .icon_user_style {
                     color: {$icon_dark_color};
                 }
-                .icon_style_name_col {
+                icon_li_col .icon_name_user_style {
                     color: {$name_dark_color};
                 }            
             }
