@@ -135,7 +135,7 @@ else : ?>
                     );
                 }
                 ?>
-                <nav class="jx-std-icons-outer px-3 pb-3">
+                <div class="jx-std-icons-outer px-3 pb-3">
                     <ul class="ul_icons_outer_row flex-wrap">
                         <?php
                         foreach ($css_standardIconNames as $iconName => $iconClass) {
@@ -143,7 +143,7 @@ else : ?>
                         }
                         ?>
                     </ul>
-                </nav>
+                </div>
                 <h5><?php
                     echo Text::_('MOD_JX_STD_ICONS_COUNT_FONTAWESOME_STANDARD_ICONS'); ?><span
                             class="badge bg-secondary"><?php
@@ -177,7 +177,7 @@ else : ?>
                 }
                 ?>
 
-                <nav class="jx-std-icons-outer px-3 pb-3">
+                <div class="jx-std-icons-outer px-3 pb-3">
                     <ul class="ul_icons_outer_row flex-wrap">
                         <?php
                         foreach ($css_brandIconNames as $iconName => $iconClass) {
@@ -185,7 +185,7 @@ else : ?>
                         }
                         ?>
                     </ul>
-                </nav>
+                </div>
                 <h5><?php
                     echo Text::_('MOD_JX_STD_ICONS_COUNT_FONTAWESOME_BRAND_ICONS'); ?><span
                             class="badge bg-secondary"><?php
@@ -216,7 +216,7 @@ else : ?>
                 }
                 ?>
 
-                <nav class="jx-std-icons-outer px-3 pb-3">
+                <div class="jx-std-icons-outer px-3 pb-3">
                     <ul class="ul_icons_outer_row flex-wrap">
 
                         <?php
@@ -225,7 +225,7 @@ else : ?>
                         }
                         ?>
                     </ul>
-                </nav>
+                </div>
                 <h5><?php
                     echo Text::_('MOD_JX_STD_ICONS_COUNT_ICOMOON_ICONS'); ?><span
                             class="badge bg-secondary"><?php
