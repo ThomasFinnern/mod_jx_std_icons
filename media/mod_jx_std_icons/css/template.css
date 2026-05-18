@@ -19,7 +19,7 @@ div.icons_card_area {
     background-color: inherit;
 }
 
-ul.ul_icons_outer   {
+ul.ul_icons_outer_col   {
     list-style-type: none;
 
     /* for hover */
@@ -37,17 +37,23 @@ displayRowIcon (Flex list)
 ===============================================================*/
 
 /* standard for all */
-.icon_style_row {
+.jx-std-icon-icon .icon_style_row {
     /*border: 3px solid darkgrey;*/
     /*border-radius: 4px;*/
-}
+    display: inline-block;
+    text-align: center;
+    width: 100%; /* Erforderlich, damit das Element den vollen Platz nutzt */}
 
 .jx-std-icons-outer {
+    text-align: center;
     /*    background-color: #fff; */
 }
 
+.jx-std-icon-icon {
+}
+
 /* -> row icons */
-.jx-std-icons-outer .ul_icons_outer  {
+.jx-std-icons-outer .ul_icons_outer_row  {
     display: grid;
 
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); /**/
@@ -136,7 +142,6 @@ displayRowIcon (Flex list)
 
 
 .jx-std-icons-outer .icon_li_row:hover .hidden_name {
-    /* visibility: visible; !**/
     display: flex;
 }
 
@@ -150,6 +155,7 @@ displayRowIcon (Flex list)
     border-radius: 2px;
 
     padding: 1px;
+    text-align: center;
     opacity: 1;
 
     z-index: 20;
@@ -164,6 +170,7 @@ displayRowIcon (Flex list)
     border-radius: 4px;
 
     padding: 1px;
+    text-align: center;
     opacity: 1;
 
     z-index: 20;
@@ -182,13 +189,13 @@ displayRowIcon (Flex list)
 displayColumnIcon (single, multiple columns)
 ===============================================================*/
 
-.jx-std-icons-outer .ul_icons_outer  .icon_style_col {
+.jx-std-icons-outer .ul_icons_outer_col  .icon_style_col {
 
     padding: 0.3rem;
 
 }
 
-.jx-std-icons-outer .ul_icons_outer .icon_li_col {
+.jx-std-icons-outer .ul_icons_outer_col .icon_li_col {
 
     display: flex;
     flex-direction: row;

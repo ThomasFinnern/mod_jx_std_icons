@@ -117,7 +117,7 @@ else : ?>
                     echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_ICON_TABLE'); ?>
                 </h2>
             </div>
-            <div class="card-body icons_card_area"">
+            <div class="card-body icons_card_area">
                 <?php
                 if ($isDisplayTechDetail) {
                     IconRenderHelper::displayTechDetail(
@@ -128,7 +128,7 @@ else : ?>
                 ?>
 
                 <nav class="jx-std-icons-outer"> <!-- <nav class="jx-std-icons-outer px-3 pb-3">-->
-                    <ul class="ul_icons_outer">
+                    <ul class="ul_icons_outer_col">
                         <?php
                         foreach ($css_standardIconNames as $iconName => $iconClass) {
                             IconRenderHelper::displayColumnIcon($iconName, $iconClass);
@@ -158,7 +158,7 @@ else : ?>
                     echo Text::_('MOD_JX_STD_ICONS_JOOMLA_SYSTEM_BRANDS_ICON_TABLE'); ?>
                 </h2>
             </div>
-            <div class="card-body icons_card_area"">
+            <div class="card-body icons_card_area">
                 <?php
                 if ($isDisplayTechDetail) {
                     IconRenderHelper::displayTechDetail(
@@ -169,7 +169,7 @@ else : ?>
                 ?>
 
                 <nav class="jx-std-icons-outer"> <!-- <nav class="jx-std-icons-outer px-3 pb-3">-->
-                    <ul class="ul_icons_outer">
+                    <ul class="ul_icons_outer_col">
                         <?php
                         foreach ($css_brandIconNames as $iconName => $iconClass) {
                             IconRenderHelper::displayColumnIcon($iconName, $iconClass);
@@ -200,7 +200,7 @@ else : ?>
                 </h2>
             </div>
 
-            <div class="card-body icons_card_area"">
+            <div class="card-body icons_card_area">
                 <?php
                 if ($isDisplayTechDetail) {
                     IconRenderHelper::displayTechDetail(Text::_('MOD_JX_STD_ICONS_ICOMOON_ICONS_DESC'), "");
@@ -208,7 +208,7 @@ else : ?>
                 ?>
 
                 <nav class="jx-std-icons-outer"> <!-- <nav class="jx-std-icons-outer px-3 pb-3">-->
-                    <ul class="ul_icons_outer">
+                    <ul class="ul_icons_outer_col">
 
                         <?php
                         foreach ($css_icomoonIconNames as $iconName => $iconClass) {
