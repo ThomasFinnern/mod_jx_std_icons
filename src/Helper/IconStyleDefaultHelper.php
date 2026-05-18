@@ -26,7 +26,7 @@ class IconStyleDefaultHelper
         //--- icon style ---------------------------------------
 
         $iconsCssStyleText .= <<<END
-            .jx-std-icon-icon .icon_user_style {
+            .icon_li_row .icon_user_style {
                 font-size: {$icon_font_size};           
                 color: {$icon_color};
             }

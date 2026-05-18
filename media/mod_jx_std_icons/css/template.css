@@ -10,31 +10,6 @@ css is borrowed unscrupulous from atum template-rtl.css and adjusted ;-)
 */
 
 /*===============================================================
-common outer list preparation
-===============================================================*/
-
-
-/*nav.jx-std-icons-outer {*/
-
-/*    !* for hover *!*/
-/*    background-color: inherit;*/
-/*}*/
-
-/*ul.ul_icons_outer_row {*/
-/*    list-style-type: none;*/
-
-/*    !* for hover *!*/
-/*    background-color: inherit;*/
-/*}*/
-
-/*ul.ul_icons_outer_col {*/
-/*    list-style-type: none;*/
-
-/*    !* for hover *!*/
-/*    background-color: inherit;*/
-/*}*/
-
-/*===============================================================
 displayRowIcon (Flex list)
 ===============================================================*/
 
@@ -77,103 +52,81 @@ div.icons_card_area {
                 opacity: 1;
 
                 display: flex;
-                flex-grow: 1;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
 
-                /* before as jx-std-icon-single */
-                /*  min-height: 6rem; !**/
                 overflow: hidden;
                 border: 1px solid grey;
                 border-radius: 4px;
 
-                align-items: flex-start; /**/
-
                 /*!* for hover *!*/
                 /*background-color: inherit;*/
                 background-color: aliceblue;
-                padding: 1px;
 
-                /*--- 'a' link ToDo: remove  ---------------------------*/
+                /*padding: 1px;*/
+                padding: 0 1rem;
 
-                a {
+                transition: all 0.25s ease;
+                text-decoration: none;
+
+                /*--- Icon image ---------------------------*/
+
+                .icon_style_row {
+
+                    /*background-color: green;*/
+                    padding: 10px 0px;
+
+                    text-align: center;
+
+                    &:hover {
+
+                        transform: scale(2.5) translateY(0.7rem) translatex(0.0rem); /**/
+
+                        background-color: var(--card-bg);
+
+                        border: 1px solid darkgrey;
+                        border-radius: 2px;
+
+                        padding: 1px;
+                        text-align: center;
+                        opacity: 1;
+
+                        z-index: 20;
+                    }
+
+                    &:focus, &:active {
+
+                        transform: scale(2.5) translateY(0.7rem) translatex(0.0rem); /**/
+
+                        /*background-color: var(--card-bg);*/
+                        background-color: inherit;
+
+                        border-radius: 4px;
+
+                        padding: 1px;
+                        text-align: center;
+                        opacity: 1;
+
+                        z-index: 20;
+                    }
+                }
+
+                /*--- Icon name ---------------------------*/
+
+                .icon_style_name_row {
+
+                    /*background-color: goldenrod;*/
+
+                    padding: 0.125rem 0 0.6rem;
+
+                    font-weight: bold; /**/
 
                     display: flex;
-                    flex-direction: column;
-                    flex-grow: 1;
-                    justify-content: flex-end;
-
-                    padding: 0 1rem;
-                    transition: all 0.25s ease;
-
-                    text-decoration: none;
-                    align-items: stretch; /**/
-
-                    /*--- Flex icon area ---------------------------*/
-
-                    .jx-std-icon-info {
-
-                        display: flex;
-
-
-                        .jx-std-icon-icon {
-                            margin-top: 0.5rem;
-                            margin-inline-start: 0.2rem;
-
-
-                            .icon_style_row {
-
-
-                                text-align: center;
-
-
-
-                                &:hover {
-
-                                    transform: scale(2.5) translateY(0.45rem) translatex(0.0rem); /**/
-
-                                    background-color: var(--card-bg);
-
-                                    border: 1px solid darkgrey;
-                                    border-radius: 2px;
-
-                                    padding: 1px;
-                                    text-align: center;
-                                    opacity: 1;
-
-                                    z-index: 20;
-                                }
-
-                                &:focus, &:active {
-
-                                    transform: scale(2.5) translateY(0.45rem) translatex(0.2rem); /**/
-
-                                    background-color: var(--card-bg);
-
-                                    border-radius: 4px;
-
-                                    padding: 1px;
-                                    text-align: center;
-                                    opacity: 1;
-
-                                    z-index: 20;
-                                }
-
-                            }
-                        }
-                    }
-
-                    /*--- Icon name ---------------------------*/
-
-                    .icon_style_name_row {
-                        padding: 0.125rem 0 0.6rem;
-
-                        font-weight: bold; /**/
-
-                        display: flex;
-                        align-items: flex-end; /**/
-                    }
-
-
+                    align-items: flex-end; /**/
                 }
+
+
             }
         }
     }

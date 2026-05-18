@@ -217,7 +217,7 @@ else : ?>
                 ?>
 
                 <div class="jx-std-icons-outer px-3 pb-3">
-                    <ul class="ul_icons_outer_row flex-wrap">
+                    <ul class="ul_icons_outer_row">
 
                         <?php
                         foreach ($css_icomoonIconNames as $iconName => $iconClass) {
