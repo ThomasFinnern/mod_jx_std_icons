@@ -3,6 +3,23 @@
         <element>mod_jx_std_icons</element>
         <type>module</type>
         <client>site</client>
+        <version>0.9.0</version>
+        <date>2026-05-18</date>
+        <note>
+            <item></item>
+            <item></item>
+        </note>
+        <change>
+            <item>Icons are now centered for default view</item>
+        </change>
+		<fix>
+			<item>Fixed: Clicjed icons are not transparent any more</item>
+		</fix>
+    </changelog>
+    <changelog>
+        <element>mod_jx_std_icons</element>
+        <type>module</type>
+        <client>site</client>
         <version>0.8.1</version>
         <date>2026-05-12</date>
         <note>
