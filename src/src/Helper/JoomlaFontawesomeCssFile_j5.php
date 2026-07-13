@@ -90,7 +90,7 @@ class JoomlaFontawesomeCssFile_j5 extends IconList
             }
 
             // no white spaces needed
-            $line = trim($line);
+            $line = trim((string) $line);
 
             switch ($sectionState) {
                 case CssSection::findVersion:

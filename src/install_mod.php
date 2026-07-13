@@ -99,8 +99,10 @@ class Mod_jx_std_iconsInstallerScript
 
         foreach ($deleteFiles as $file) {
             $filePathName = JPATH_ROOT . $file;
-
-            if (empty($file) || !file_exists($filePathName)) {
+            if (empty($file)) {
+                continue;
+            }
+            if (!file_exists($filePathName)) {
                 continue;
             }
 

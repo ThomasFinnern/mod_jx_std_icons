@@ -69,7 +69,7 @@ class FontawesomeScssFile_v6 extends IconList
 
             switch ($sectionState) {
                 case ScssSection::preValues:
-                    if (str_starts_with($line, '$fa-var-0:')) {
+                    if (str_starts_with((string) $line, '$fa-var-0:')) {
                         $sectionState = ScssSection::iconStdValues;
                         $this->extractIconValue(IconTypeScss::standard, $line);
                     }
@@ -79,7 +79,7 @@ class FontawesomeScssFile_v6 extends IconList
                     $this->extractIconValue(IconTypeScss::standard, $line);
 
                     // last standard item
-                    if (str_starts_with($line, '$fa-var-level-up-alt:')) {
+                    if (str_starts_with((string) $line, '$fa-var-level-up-alt:')) {
                         $sectionState = ScssSection::iconBrandValues;
                     }
                     break;
@@ -88,7 +88,7 @@ class FontawesomeScssFile_v6 extends IconList
                     $this->extractIconValue(IconTypeScss::branch, $line);
 
                     // last brand item
-                    if (str_starts_with($line, '$fa-var-steam-symbol')) {
+                    if (str_starts_with((string) $line, '$fa-var-steam-symbol')) {
                         $sectionState = ScssSection::iconBrandValues;
                     }
                     break;
@@ -96,32 +96,32 @@ class FontawesomeScssFile_v6 extends IconList
 
                 case ScssSection::preStandardIconNames:
                     // standard indicator
-                    if (str_starts_with($line, '$fa-icons: (')) {
+                    if (str_starts_with((string) $line, '$fa-icons: (')) {
                         $sectionState = ScssSection::iconStdNames;
                     }
                     break;
 
                 case ScssSection::iconStdNames:
                     // end of standard icons ?
-                    if (str_starts_with($line, ');')) {
+                    if (str_starts_with((string) $line, ');')) {
                         $sectionState = ScssSection::iconStdNames;
                     } else {
-                        $this->standardIconNames[] = $this->lineDetermineIconName(trim($line));
+                        $this->standardIconNames[] = $this->lineDetermineIconName(trim((string) $line));
                     }
                     break;
 
                 case ScssSection::preBrandIconNames:
                     // standard indicator
-                    if (str_starts_with($line, '$fa-icons: (')) {
+                    if (str_starts_with((string) $line, '$fa-icons: (')) {
                         $sectionState = ScssSection::iconStdNames;
                     } else {
-                        $this->brandIconNames[] = $this->lineDetermineIconName(trim($line));
+                        $this->brandIconNames[] = $this->lineDetermineIconName(trim((string) $line));
                     }
                     break;
 
                 case ScssSection::iconBrandNames:
                     // end of brand icons ?
-                    if (str_starts_with($line, ');')) {
+                    if (str_starts_with((string) $line, ');')) {
                         $sectionState = ScssSection::endOfFile;
                     }
 
