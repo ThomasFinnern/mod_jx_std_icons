@@ -1,11 +1,11 @@
 <?php
 
 /**
- * @package        Joomla.Administrator
+ * @package        Joomla.Module
  * @subpackage     mod_jx_std_icons
- *
+ * @author         Thomas Finnern <InsideTheMachine.de>
  * @copyright  (c) 2005-2026 Thomas Finnern
- * @license        GNU General Public License version 2 or later; see LICENSE.txt
+ * @license        GNU General Public License version 2 or later
  */
 
 namespace Finnern\Module\mod_jx_std_icons;

@@ -1,11 +1,11 @@
 <?php
 
 /**
- * @package     Finnern\Module\Jx_std_icons\Site\Helper
- * @subpackage
- *
- * @copyright   A copyright
- * @license     A "Slug" license name e.g. GPL2
+ * @package        Joomla.Module
+ * @subpackage     mod_jx_std_icons
+ * @author         Thomas Finnern <InsideTheMachine.de>
+ * @copyright  (c) 2019-2026 Thomas Finnern
+ * @license        GNU General Public License version 2 or later
  */
 
 namespace Finnern\Module\Jx_std_icons\Site\Helper;
