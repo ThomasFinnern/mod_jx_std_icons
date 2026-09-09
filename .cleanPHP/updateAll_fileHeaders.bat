@@ -1,5 +1,5 @@
 @ECHO OFF
-REM createNamespace_log.bat
+REM updateAll_fileHeaders.bat
 REM
 CLS
 
@@ -38,9 +38,8 @@ ECHO.
 pushd  ..\..\buildExtension\src\
 ECHO Path: %cd% 
 
-echo --- "%ExePath%php.exe" doFileTasksCmd.php -f ../../mod_jx_std_icons/.cleanPHP/createNamespace_log.tsk %1
-"%ExePath%php.exe" doFileTasksCmd.php -f ../../mod_jx_std_icons/.cleanPHP/createNamespace_log.tsk %1
-
+echo --- "%ExePath%php.exe" doFileTasksCmd.php -f ../../mod_jx_std_icons/.cleanPHP/updateAll_fileHeaders.tsk %OptionFile%
+"%ExePath%php.exe" doFileTasksCmd.php -f ../../mod_jx_std_icons/.cleanPHP/updateAll_fileHeaders.tsk %OptionFile%
 popd
 
 goto :EOF
