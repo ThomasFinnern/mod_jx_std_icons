@@ -1,3 +1,6 @@
+#phpstorm
+.idea/
+
 //.buildPHP/
 .buildPHP/*.log
 .buildPHP/*.*.log
@@ -12,7 +15,8 @@
 # org and temp files
 **/*.org.*
 **/*.tmp
+**/*.log
 
-.idea
-
-
+# J-rector files
+joomla/
+vendor/
