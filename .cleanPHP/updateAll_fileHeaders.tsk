@@ -1,6 +1,6 @@
 task:updateAll_fileHeaders
 /callerProjectId=RSG2
-/srcRoot="./../../mod_jx_std_icons"
+/srcRoot="./../../mod_jx_std_icons/src"
 /includeExt="php ts"
 
 // --- Force standard value -------------------
