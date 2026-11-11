@@ -3,12 +3,21 @@
         <element>mod_jx_std_icons</element>
         <type>module</type>
         <client>site</client>
+        <version>0.9.1</version>
+        <date>2026-11-11</date>
+		<fix>
+			<item>Fixed: Brand icons and 'icomoon' icons were not visible in J! 6.2 any more. Reason: J! 6.2 changed the joomla-fontawesome.css file format</item>
+		</fix>
+        <change>
+            <item><![CDATA[Replaced <i> with <span> as <i> has a semantic meaning 'text in an alternate voice or mood', and <span> is the only valid option.]]></item>
+        </change>
+    </changelog>
+    <changelog>
+        <element>mod_jx_std_icons</element>
+        <type>module</type>
+        <client>site</client>
         <version>0.9.0</version>
         <date>2026-05-18</date>
-        <note>
-            <item></item>
-            <item></item>
-        </note>
         <change>
             <item>Icons are now centered for default view</item>
         </change>
@@ -22,10 +31,6 @@
         <client>site</client>
         <version>0.8.1</version>
         <date>2026-05-12</date>
-        <note>
-            <item></item>
-            <item></item>
-        </note>
         <change>
             <item>Code maintenance</item>
         </change>
@@ -47,13 +52,9 @@
             <item>Custom CSS: The user can add his own CSS in a text area</item>
             <item>Spelling: icomoon -> IcoMoon, fontawesome -> Font Awesome</item>
 			<item>New Page Icon sets order:  1 FA STD, Fa brand, Icomoon</item>
-            <item>Replaced quickicon by new classes to prevent intererence with joomla classes</item>
+            <item>Replaced quickicon by new classes to prevent inference with Joomla classes</item>
             <item></item>
         </change>
-		<fix>
-			<item></item>
-            <item></item>
-		</fix>
     </changelog>
     <changelog>
         <element>mod_jx_std_icons</element>
