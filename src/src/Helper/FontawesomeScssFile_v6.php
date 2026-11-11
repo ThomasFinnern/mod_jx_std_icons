@@ -31,7 +31,7 @@ enum ScssSection
 enum IconTypeScss
 {
     case standard;
-    case branch;
+    case brand;
 }
 
 /**
@@ -69,6 +69,8 @@ class FontawesomeScssFile_v6 extends IconList
 
             switch ($sectionState) {
                 case ScssSection::preValues:
+
+                    // Find first standard icon
                     if (str_starts_with((string) $line, '$fa-var-0:')) {
                         $sectionState = ScssSection::iconStdValues;
                         $this->extractIconValue(IconTypeScss::standard, $line);
@@ -76,6 +78,7 @@ class FontawesomeScssFile_v6 extends IconList
                     break;
 
                 case ScssSection::iconStdValues:
+                    // assign standard value
                     $this->extractIconValue(IconTypeScss::standard, $line);
 
                     // last standard item
@@ -85,7 +88,8 @@ class FontawesomeScssFile_v6 extends IconList
                     break;
 
                 case ScssSection::iconBrandValues:
-                    $this->extractIconValue(IconTypeScss::branch, $line);
+                    // assign brand value
+                    $this->extractIconValue(IconTypeScss::brand, $line);
 
                     // last brand item
                     if (str_starts_with((string) $line, '$fa-var-steam-symbol')) {
@@ -95,7 +99,7 @@ class FontawesomeScssFile_v6 extends IconList
 
 
                 case ScssSection::preStandardIconNames:
-                    // standard indicator
+                    // indicator standard name assoc start
                     if (str_starts_with((string) $line, '$fa-icons: (')) {
                         $sectionState = ScssSection::iconStdNames;
                     }
@@ -111,7 +115,7 @@ class FontawesomeScssFile_v6 extends IconList
                     break;
 
                 case ScssSection::preBrandIconNames:
-                    // standard indicator
+                    // indicator brand name assoc start
                     if (str_starts_with((string) $line, '$fa-icons: (')) {
                         $sectionState = ScssSection::iconStdNames;
                     } else {

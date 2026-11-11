@@ -33,6 +33,7 @@ enum IconTypeCss
 }
 
 /**
+ * Up to J! 6.1
  * Reads content of *.css file and sorts values into icon values list and icon names list (standard/brands)
  * Extracts additional icomoon icons and fontawesome version
  *

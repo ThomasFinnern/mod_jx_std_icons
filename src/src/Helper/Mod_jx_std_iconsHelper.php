@@ -104,7 +104,7 @@ class Mod_jx_std_iconsHelper
 
             //--- Extract from css file ----------------------------------------------
 
-            $oCssFile = new JoomlaFontawesomeCssFile_j5(self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME);
+            $oCssFile = new JoomlaFontawesomeCssFile_j6(self::CSS_JOOMLA_SYSTEM_PATH_FILE_NAME);
 
             $oCssFile->readLines()->scanLines();
 
