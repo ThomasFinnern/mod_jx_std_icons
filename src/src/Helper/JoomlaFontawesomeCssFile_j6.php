@@ -110,7 +110,6 @@ class JoomlaFontawesomeCssFile_j6 extends IconList
                     }
                     break;
 
-
                 case CssSection::preStandardIconValues:
 
                     // first line of definition with name part

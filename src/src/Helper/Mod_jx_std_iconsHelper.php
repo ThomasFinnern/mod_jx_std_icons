@@ -34,7 +34,7 @@ class Mod_jx_std_iconsHelper
     /** *.css file: iterate through lines and extract icomoon icons, icons and brand icons */
     private const string CSS_JOOMLA_SYSTEM_PATH_FILE_NAME = JPATH_ROOT . '/media/system/css/joomla-fontawesome.css';
 
-    //--- joomla css css file ------------------------------------------
+    //--- Joomla css css file ------------------------------------------
 
     public array $css_iconNames2Values = [];
     public array $css_standardIconNames = [];
@@ -81,7 +81,7 @@ class Mod_jx_std_iconsHelper
 //    }
 //
     /**
-     * Extract all Icons by joomla CSS files
+     * Extract all Icons by Joomla CSS files
      *
      * @since version
      */
