@@ -130,11 +130,19 @@ Info: '.fa.fa ... ' icon section objects are moved since 6.1, but should still b
 
 ### Method: 
 
-General: Find `--fa: "` and the outer object `.fa-envelopes-bulk, .fa-mail-bulk` tells the name and the found line tells the value.  
+Go through all lines and inspect each line separate.
 
-Order :
-1) Find first `--fa: "` and collect them as standard icon values until brand section is indicated ``
-2) Collect all further `--fa..` as brand values.
-3) Joomla-icomoon icons: Look for line starting with `.icon-' and ending with `:before {`. The text between tells the name and in following line the font vlaue can be fetched behind `content: ` 
+#### General: 
+* Find `--fa: "` and the outer object `.fa-envelopes-bulk, .fa-mail-bulk` tells the name and the found line tells the value.  
+* Keep line starting with `.fa-` as previous line.
+* On `--fa: "` line extract values from previous and actual line
+* On `--fa: "` check for and ignore elements that begin with `.fa.fa` 
+
+#### Detailed in sequential order:
+1) Find first `--fa: "` and collect them as standard icon values 
+2) until brand section is indicated by `--fa-style-family-brands` in line
+3) Collect all further `--fa..` as brand values.
+4) until 'icomoon' section is indicated by `[class^="icon-"]` in line
+3) Joomla-icomoon icons: Look for line starting with `.icon-' and ending with `:before `{`. The text between tells the name and in following line the font vlaue can be fetched behind `content: ` 
 
 
