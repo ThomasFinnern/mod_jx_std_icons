@@ -1,7 +1,7 @@
 task:exchangeAll_actCopyrightYearLines
    // /type=component
 // /srcRoot="./../../RSGallery2_J4"
-/srcRoot="./../../mod_jx_std_icons"
+/srcRoot="./../../mod_jx_std_icons/src"
    // /isNoRecursion=true
 /includeExt="php xml ts"
    // /includeExt="xml"
